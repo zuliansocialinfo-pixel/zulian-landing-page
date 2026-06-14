@@ -80,6 +80,45 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Dashboard Image Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            marginTop: '5rem',
+            position: 'relative',
+            borderRadius: '20px',
+            overflow: 'hidden',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+            border: '1px solid var(--glass-border)'
+          }}
+        >
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(10,10,10,1) 100%)',
+            zIndex: 1
+          }} />
+          <img 
+            src="/src/assets/dashboard.png" 
+            alt="Zulian Marketing Dashboard" 
+            style={{ width: '100%', height: 'auto', display: 'block' }} 
+          />
+          <div style={{
+            position: 'absolute',
+            bottom: '2rem',
+            left: '2rem',
+            zIndex: 2
+          }}>
+            <h3 style={{ color: 'var(--accent-color)', fontSize: '1.8rem', marginBottom: '0.5rem' }}>Dati alla mano</h3>
+            <p style={{ color: '#fff', fontSize: '1rem', maxWidth: '500px' }}>
+              Monitoriamo le metriche che contano davvero per il tuo business. Report trasparenti, conversioni reali, crescita misurabile.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
