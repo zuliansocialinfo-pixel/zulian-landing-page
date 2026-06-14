@@ -38,6 +38,22 @@ function App() {
         <About />
         <Services />
         <HowItWorks />
+        
+        {/* Calendar Section */}
+        <section style={{ padding: '4rem 0', backgroundColor: 'var(--bg-color)', borderTop: '1px solid var(--glass-border)' }}>
+          <div className="container" style={{ textAlign: 'center' }}>
+            <h2 className="text-accent" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Prenota la tua Consulenza</h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Scegli l'orario migliore per te direttamente dal mio calendario.</p>
+            <div style={{ maxWidth: '1000px', margin: '0 auto', background: '#fff', borderRadius: '12px', overflow: 'hidden' }}>
+              <iframe 
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" 
+                style={{ border: 0, width: '100%', height: '700px' }} 
+                frameBorder="0"
+                title="Prenota Consulenza"
+              ></iframe>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

@@ -54,11 +54,12 @@ const Preloader = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, var(--accent-color), var(--accent-hover))',
+                background: 'var(--bg-color)',
                 boxShadow: '0 0 30px rgba(212, 175, 55, 0.4)',
+                overflow: 'hidden'
               }}
             >
-              <span style={{ fontSize: '3rem', color: '#000', fontFamily: 'var(--font-serif)', fontWeight: 'bold' }}>Z</span>
+              <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </motion.div>
             
             <motion.h1
