@@ -22,8 +22,8 @@ function App() {
         borderBottom: '1px solid var(--glass-border)'
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--accent-color)' }}>
-            ZULIAN
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
           </div>
           <nav style={{ display: 'flex', gap: '2rem' }} className="hidden-mobile">
             <a href="#chi-sono" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
