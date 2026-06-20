@@ -29,7 +29,7 @@ function App() {
   const [revealed, setRevealed] = useState(false);
 
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: revealed ? 'visible' : 'hidden' }}>
       <Preloader onComplete={() => setRevealed(true)} />
 
       {/* Dynamic Header */}
