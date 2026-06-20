@@ -4,6 +4,7 @@ import logo from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import ThemeSwitcher from './components/ThemeSwitcher';
+import InteractiveFX from './components/InteractiveFX';
 
 // Caricamento progressivo "a strati": prima la Home (Hero), poi il resto.
 // L'intro e la prima schermata restano immediate; le sezioni pesanti e le
@@ -31,6 +32,9 @@ function App() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: revealed ? 'visible' : 'hidden' }}>
       <Preloader onComplete={() => setRevealed(true)} />
+
+      {/* Luci interattive futuristiche: attive dopo l'intro */}
+      {revealed && <InteractiveFX />}
 
       {/* Dynamic Header */}
       <motion.header

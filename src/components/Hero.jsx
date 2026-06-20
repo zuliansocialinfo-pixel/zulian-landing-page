@@ -109,26 +109,27 @@ const Hero = ({ start = true }) => {
             className="hero-badge hero-anim"
             style={{
               color: 'var(--accent-color)',
-              fontWeight: 600,
+              fontWeight: 700,
               letterSpacing: '2px',
               textTransform: 'uppercase',
               display: 'inline-block',
-              marginBottom: '1rem',
-              padding: '0.4rem 1rem',
+              marginBottom: '1.5rem',
+              padding: '0.5rem 1.2rem',
               border: '1px solid rgba(212,175,55,0.3)',
               borderRadius: '999px',
-              fontSize: '0.8rem',
+              fontSize: '0.95rem',
             }}
           >
             Social Media Marketing & Crescita Digitale
           </span>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', marginBottom: '1.5rem', lineHeight: 1.1 }}>
-            <span className="hero-line hero-anim" style={{ display: 'block' }}>Non sono il classico</span>
-            <span className="hero-line hero-anim" style={{ display: 'block' }}>
+          <h1 style={{ fontSize: 'clamp(3.2rem, 7vw, 6rem)', marginBottom: '1.8rem', lineHeight: 1.05, fontWeight: 700 }}>
+            <span className="hero-line hero-anim" style={{ display: 'block', fontWeight: 700 }}>Non sono il classico</span>
+            <span className="hero-line hero-anim" style={{ display: 'block', fontWeight: 700 }}>
               <span
                 className="hero-gold"
                 style={{
                   color: 'var(--accent-color)',
+                  fontWeight: 800,
                   backgroundImage: 'linear-gradient(transparent 65%, rgba(212,175,55,0.18) 0)',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: '100% 100%',
@@ -141,31 +142,32 @@ const Hero = ({ start = true }) => {
           <p
             className="hero-desc hero-anim"
             style={{
-              fontSize: '1.1rem',
+              fontSize: '1.4rem',
               color: 'var(--text-secondary)',
-              marginBottom: '1.5rem',
-              maxWidth: '600px',
-              lineHeight: 1.8,
+              marginBottom: '1.8rem',
+              maxWidth: '680px',
+              lineHeight: 1.7,
+              fontWeight: 500,
             }}
           >
             Aiuto aziende e professionisti a far crescere il loro business online con un approccio concreto.
-            Più visibilità, più clienti, più fatturato. Niente scorciatoie, solo strategie su misura.
+            <strong style={{ color: 'var(--text-primary)', fontWeight: 700 }}> Più visibilità, più clienti, più fatturato.</strong> Niente scorciatoie, solo strategie su misura.
           </p>
 
           {/* Frasi chiare: cosa faccio, in breve */}
           <p
             className="hero-desc hero-anim"
             style={{
-              fontSize: '1rem',
+              fontSize: '1.25rem',
               color: 'var(--text-primary)',
-              marginBottom: '1.5rem',
-              maxWidth: '600px',
-              lineHeight: 1.8,
-              fontWeight: 500,
+              marginBottom: '2rem',
+              maxWidth: '680px',
+              lineHeight: 1.7,
+              fontWeight: 600,
             }}
           >
-            In parole semplici: <span style={{ color: 'var(--accent-color)' }}>gestisco i tuoi social,
-            creo siti ed e-commerce, lancio campagne pubblicitarie</span> e costruisco una strategia che
+            In parole semplici: <strong style={{ color: 'var(--accent-color)', fontWeight: 700 }}>gestisco i tuoi social,
+            creo siti ed e-commerce, lancio campagne pubblicitarie</strong> e costruisco una strategia che
             porta risultati misurabili. Ti seguo passo dopo passo, sempre con la massima trasparenza.
           </p>
 
