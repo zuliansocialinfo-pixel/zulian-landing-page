@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import logo from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
@@ -10,16 +11,22 @@ import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 function App() {
+  const [revealed, setRevealed] = useState(false);
+
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: 'hidden' }}>
-      <Preloader />
-      
+      <Preloader onComplete={() => setRevealed(true)} />
+
       {/* Dynamic Header */}
-      <header style={{ 
-        position: 'fixed', 
-        top: 0, left: 0, right: 0, 
-        padding: '1rem 0', 
-        backgroundColor: 'rgba(10, 10, 10, 0.8)', 
+      <motion.header
+        initial={{ y: -80, opacity: 0 }}
+        animate={revealed ? { y: 0, opacity: 1 } : { y: -80, opacity: 0 }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        style={{
+        position: 'fixed',
+        top: 0, left: 0, right: 0,
+        padding: '1rem 0',
+        backgroundColor: 'rgba(10, 10, 10, 0.8)',
         backdropFilter: 'blur(10px)',
         zIndex: 100,
         borderBottom: '1px solid var(--glass-border)'
@@ -35,10 +42,10 @@ function App() {
             <a href="#preventivi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Prezzi</a>
           </nav>
         </div>
-      </header>
+      </motion.header>
 
       <main>
-        <Hero />
+        <Hero start={revealed} />
         <About />
         <Services />
         <HowItWorks />

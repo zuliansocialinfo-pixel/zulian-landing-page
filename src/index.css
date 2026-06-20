@@ -18,6 +18,23 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Le sezioni con id sono target dei link del menu: lasciamo spazio
+   sotto l'header fisso cosi' il titolo non finisce coperto. */
+section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Rispetta chi preferisce meno animazioni */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-color);

@@ -25,7 +25,7 @@ const LUX_EMOJIS = ['✨', '💎', '👑', '🥂', '🪙', '🌟', '⭐', '🏆'
 const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const rand = (min, max) => min + Math.random() * (max - min);
 
-const Preloader = () => {
+const Preloader = ({ onComplete }) => {
   const [loading, setLoading] = useState(true);
 
   // Valori random fissati una volta per sessione
@@ -154,10 +154,13 @@ const Preloader = () => {
       window.addEventListener('mousemove', onMove);
 
       // --- USCITA ---
+      // Avvisiamo subito l'App: il contenuto entra MENTRE il preloader sfuma
+      // (transizione coordinata, nessun delay "magico" nelle altre sezioni).
       const exitTimer = setTimeout(() => {
+        onComplete?.();
         gsap.to(rootRef.current, {
           opacity: 0,
-          duration: 0.8,
+          duration: 0.9,
           ease: 'power2.inOut',
           onComplete: () => {
             window.removeEventListener('mousemove', onMove);

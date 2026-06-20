@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
 
-const Hero = () => {
+const Hero = ({ start = true }) => {
   return (
     <section style={{
       minHeight: '100vh',
@@ -28,8 +28,8 @@ const Hero = () => {
         <div style={{ maxWidth: '800px' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.6 }} // Delays after preloader
+            animate={start ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <span style={{ 
               color: 'var(--accent-color)', 
