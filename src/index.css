@@ -238,6 +238,33 @@ nav a:hover::after {
   }
 }
 
+/* Loader caricamento progressivo sezioni */
+.loading-dots {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  box-shadow: 18px 0 0 -2px var(--accent-color), -18px 0 0 -2px var(--accent-color);
+  animation: loadingPulse 1s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-dots { animation: none !important; }
+}
+
+/* Cambio tema morbido: l'oro vira verso argento/smeraldo/rame senza scatti.
+   NB: niente transizione sugli <svg> per non interferire con GSAP. */
+.btn-primary, .text-accent, nav a {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
 /* Utilities */
 .text-accent {
   color: var(--accent-color);
