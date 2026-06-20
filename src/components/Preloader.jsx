@@ -57,99 +57,99 @@ const Preloader = ({ onComplete }) => {
 
       const tl = gsap.timeline();
 
-      // Fase 1: Tracce circuito si accendono (0-0.7s)
+      // Fase 1: Tracce circuito si accendono eleganti (0-0.65s)
       tl.to(traces, {
         strokeDashoffset: 0,
-        duration: 0.7,
-        ease: 'power2.inOut',
-        stagger: 0.07,
+        duration: 0.65,
+        ease: 'power1.inOut',
+        stagger: 0.075,
       }, 0);
 
-      // Pad si illuminano a cascata (0.2-0.5s)
+      // Pad si illuminano con effetto glow cascade (0.2-0.48s)
       tl.to('.circuit-pad', {
         opacity: 1,
         scale: 1,
-        duration: 0.2,
-        ease: 'back.out(2.5)',
+        duration: 0.18,
+        ease: 'back.out(2.8)',
         stagger: 0.04,
       }, 0.2);
 
       tl.to('.circuit-pad-glow', {
         opacity: 1,
-        scale: 1.5,
-        duration: 0.25,
+        scale: 1.8,
+        duration: 0.22,
         ease: 'power2.out',
         stagger: 0.04,
-      }, 0.22);
+      }, 0.21, '<+0.02');
 
-      // Fase 2: Assi si espandono dal centro (0.5-1.1s)
+      // Fase 2: Assi primari si espandono dal centro (0.48-1.05s)
       tl.to(axes, {
         strokeDashoffset: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-        stagger: 0.05,
-      }, 0.5);
+        duration: 0.57,
+        ease: 'power2.out',
+        stagger: 0.045,
+      }, 0.48);
 
-      // Assi secondari appaiono (0.8-1.0s)
+      // Assi secondari sfumati appaiono (0.8-1.02s)
       tl.to(secondary, {
         strokeDashoffset: 0,
         opacity: 1,
-        duration: 0.4,
-        ease: 'power2.out',
+        duration: 0.35,
+        ease: 'sine.out',
         stagger: 0.06,
       }, 0.8);
 
-      // Fase 3: Centro illumina (0.95-1.25s)
+      // Fase 3: Centro si illumina con glow tripled (0.95-1.28s)
       tl.to('.center-glow', {
         opacity: 1,
         scale: 1,
-        duration: 0.35,
-        ease: 'back.out(2)',
+        duration: 0.33,
+        ease: 'back.out(2.3)',
       }, 0.95);
 
       tl.to('.center-ring', {
         opacity: 1,
         scale: 1,
-        duration: 0.3,
-        ease: 'back.out(2.2)',
-      }, 1.0);
+        duration: 0.28,
+        ease: 'back.out(2.4)',
+      }, 1.02);
 
       tl.to('.center-ring-inner', {
         opacity: 1,
         scale: 1,
-        duration: 0.3,
-        ease: 'back.out(2.2)',
-      }, 1.05);
+        duration: 0.28,
+        ease: 'back.out(2.4)',
+      }, 1.06);
 
-      // Fase 4: Nodi pop alle estremita' (1.1-1.5s)
+      // Fase 4: Nodi toggle pop sincronizzati (1.12-1.5s)
       tl.to('.node', {
         opacity: 1,
         scale: 1,
-        duration: 0.4,
-        ease: 'back.out(1.8)',
+        duration: 0.38,
+        ease: 'back.out(1.7)',
         stagger: 0.08,
-      }, 1.1);
+      }, 1.12);
 
-      // Fase 5: Logo emerge dal centro (1.3-1.95s)
+      // Fase 5: Logo emerge con grande spring (1.3-2.0s)
       tl.to(logoRef.current, {
         opacity: 1,
         scale: 1,
-        duration: 0.65,
-        ease: 'back.out(1.6)',
+        duration: 0.7,
+        ease: 'back.out(1.5)',
       }, 1.3);
 
-      // Fase 6: Testo fade e slide (1.5-2.0s)
+      // Fase 6: Testo finale sale e appare (1.5-1.95s)
       tl.to('.pl-text', {
         opacity: 1,
         y: 0,
-        duration: 0.4,
+        duration: 0.45,
         ease: 'power2.out',
         stagger: 0.08,
       }, 1.5);
 
-      // Timeline completa, trigger finish
+      // Timeline completa ~2.0s, trigger finish con minimo delay
       tl.add(() => {
-        timeoutId = setTimeout(finish, 100);
+        timeoutId = setTimeout(finish, 80);
       });
     }, rootRef);
 

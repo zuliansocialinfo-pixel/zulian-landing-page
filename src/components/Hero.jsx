@@ -83,6 +83,8 @@ const Hero = ({ start = true }) => {
         position: 'relative',
         paddingTop: '80px',
         overflow: 'hidden',
+        opacity: start ? 1 : 0,
+        transition: start ? 'opacity 0.6s ease-out 0.1s' : 'opacity 0s',
       }}
     >
       {/* Background Effect */}
