@@ -163,13 +163,13 @@ const Preloader = ({ onComplete }) => {
 
   if (!loading) return null;
 
-  // Geometria SVG: centro (160,160), assi che si incontrano al centro.
-  const C = 160;
+  // Geometria SVG: centro (180,180) per viewBox 360x360
+  const C = 180;
   const tips = [
-    { x: C, y: 28, tick: 'h' },   // alto
-    { x: C, y: 292, tick: 'h' },  // basso
-    { x: 28, y: C, tick: 'v' },   // sinistra
-    { x: 292, y: C, tick: 'v' },  // destra
+    { x: C, y: 25, tick: 'h' },   // alto
+    { x: C, y: 335, tick: 'h' },  // basso
+    { x: 25, y: C, tick: 'v' },   // sinistra
+    { x: 335, y: C, tick: 'v' },  // destra
   ];
 
   return (
