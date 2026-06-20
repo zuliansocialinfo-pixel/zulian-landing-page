@@ -2,177 +2,99 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import logo from '../assets/logo.jpg';
 
-/**
- * Luxury Preloader
- * - GSAP driven: rotazione + glow infiniti, particelle dorate orbitanti, shimmer sweep
- * - Interattivo: il logo segue il mouse (parallax tilt)
- * - Ogni sessione e' diversa: frase, emoji luxury, direzione e parametri random
- */
-
-// Frasi luxury (una a caso per sessione)
-const QUOTES = [
-  '"La strategia vincente, fatta su misura."',
-  '"Eccellenza in ogni dettaglio."',
-  '"Il tuo brand merita il palcoscenico migliore."',
-  '"Dove la visione incontra i risultati."',
-  '"Crescita autentica, su misura per te."',
-  '"Trasformiamo la tua presenza in prestigio."',
-];
-
-// Emoji eleganti / luxury (una a caso per sessione)
-const LUX_EMOJIS = ['✨', '💎', '👑', '🥂', '🪙', '🌟', '⭐', '🏆'];
-
-const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
-const rand = (min, max) => min + Math.random() * (max - min);
-
 const Preloader = ({ onComplete }) => {
   const [loading, setLoading] = useState(true);
-
-  // Valori random fissati una volta per sessione
-  const session = useRef({
-    quote: pick(QUOTES),
-    emoji: pick(LUX_EMOJIS),
-    spinDir: Math.random() > 0.5 ? 1 : -1,
-    spinDur: rand(7, 12),
-    particleCount: Math.round(rand(8, 14)),
-    hueShift: Math.random() > 0.6, // a volte aggiunge un guizzo di colore
-  }).current;
-
   const rootRef = useRef(null);
+  const svgRef = useRef(null);
   const logoRef = useRef(null);
-  const glowRef = useRef(null);
-  const shimmerRef = useRef(null);
-  const orbitRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const s = session;
+      const tl = gsap.timeline();
 
-      // --- ENTRATA ---
-      const intro = gsap.timeline();
-      intro
-        .from(logoRef.current, {
-          scale: 0.5,
-          opacity: 0,
-          duration: 0.8,
-          ease: 'back.out(1.6)',
-        })
-        .from('.pl-title', { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.35')
-        .from('.pl-sub', { y: 14, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
-        .from('.pl-quote', { opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.25');
-
-      // --- ROTAZIONE INFINITA (visibile) ---
-      gsap.to(logoRef.current, {
-        rotation: 360 * s.spinDir,
-        duration: s.spinDur,
-        ease: 'none',
-        repeat: -1,
-      });
-
-      // --- LEGGERO FLOAT SU/GIU INFINITO ---
-      gsap.to(logoRef.current, {
-        y: '-=12',
-        duration: rand(1.8, 2.6),
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-      });
-
-      // --- GLOW PULSANTE INFINITO ---
-      gsap.to(glowRef.current, {
-        opacity: 0.85,
-        scale: 1.25,
-        duration: 1.6,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-      });
-
-      // --- SHIMMER SWEEP INFINITO ---
-      gsap.fromTo(
-        shimmerRef.current,
-        { xPercent: -160, opacity: 0 },
-        {
-          xPercent: 160,
-          opacity: 1,
-          duration: 1.4,
+      // Phase 1: Circuits animate in (0-0.8s)
+      const circuits = gsap.utils.toArray('.circuit-path');
+      circuits.forEach((path, i) => {
+        const length = path.getTotalLength();
+        gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
+        tl.to(path, {
+          strokeDashoffset: 0,
+          duration: 0.7,
           ease: 'power2.inOut',
-          repeat: -1,
-          repeatDelay: 1.6,
-        }
-      );
-
-      // --- PARTICELLE DORATE ORBITANTI INFINITE ---
-      const particles = gsap.utils.toArray('.pl-particle');
-      particles.forEach((p, i) => {
-        const angle = (i / particles.length) * Math.PI * 2;
-        const radius = rand(85, 115);
-        const dur = rand(4, 8);
-        const tl = gsap.timeline({ repeat: -1 });
-        // ruota la particella attorno al centro
-        gsap.set(p, {
-          x: Math.cos(angle) * radius,
-          y: Math.sin(angle) * radius,
-        });
-        tl.to(p, {
-          duration: dur,
-          ease: 'none',
-          motionPath: false,
-          onUpdate: function () {
-            const prog = this.progress() * Math.PI * 2 * s.spinDir + angle;
-            gsap.set(p, {
-              x: Math.cos(prog) * radius,
-              y: Math.sin(prog) * radius,
-            });
-          },
-        });
-        // twinkle
-        gsap.to(p, {
-          opacity: rand(0.25, 0.6),
-          duration: rand(0.6, 1.4),
-          ease: 'sine.inOut',
-          yoyo: true,
-          repeat: -1,
-          delay: rand(0, 1),
-        });
+        }, i * 0.08);
       });
 
-      // --- INTERATTIVITA': il logo segue il mouse (parallax tilt) ---
-      const onMove = (e) => {
-        const cx = window.innerWidth / 2;
-        const cy = window.innerHeight / 2;
-        const dx = (e.clientX - cx) / cx; // -1..1
-        const dy = (e.clientY - cy) / cy;
-        gsap.to(orbitRef.current, {
-          rotationY: dx * 18,
-          rotationX: -dy * 18,
-          duration: 0.6,
-          ease: 'power2.out',
-          transformPerspective: 600,
-        });
-      };
-      window.addEventListener('mousemove', onMove);
+      // Phase 2: Axes form (0.5-1.2s)
+      gsap.set(['.axis-x', '.axis-y'], { opacity: 0, scaleX: 0, scaleY: 0 });
+      tl.to('.axis-x', { scaleX: 1, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.5);
+      tl.to('.axis-y', { scaleY: 1, opacity: 1, duration: 0.6, ease: 'power3.out' }, 0.5);
 
-      // --- USCITA ---
-      // Avvisiamo subito l'App: il contenuto entra MENTRE il preloader sfuma
-      // (transizione coordinata, nessun delay "magico" nelle altre sezioni).
+      // Phase 3: Toggle signs animate (0.8-1.3s)
+      gsap.set('.toggle-sign', { opacity: 0, scale: 0 });
+      tl.to('.toggle-sign', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: 'back.out(1.4)',
+        stagger: 0.08,
+      }, 0.8);
+
+      // Phase 4: Central glow pulses (1.0-1.8s)
+      gsap.set('.center-glow', { opacity: 0 });
+      tl.to('.center-glow', {
+        opacity: 0.8,
+        scale: 1.3,
+        duration: 0.4,
+        ease: 'power2.out',
+      }, 1.0);
+
+      // Phase 5: Logo emerges (1.2-2.0s)
+      tl.from(logoRef.current, {
+        scale: 0.3,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+      }, 1.2);
+
+      tl.to(logoRef.current, {
+        filter: 'drop-shadow(0 0 24px rgba(212, 175, 55, 0.6))',
+        duration: 0.4,
+      }, 1.4);
+
+      // Phase 6: Text fades in (1.5-2.0s)
+      tl.from(['.pl-title', '.pl-sub', '.pl-quote'], {
+        opacity: 0,
+        y: 12,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 0.1,
+      }, 1.5);
+
+      // Infinite loop: axes + toggles + glow pulse gently
+      gsap.timeline({ repeat: -1 })
+        .to('.center-glow', { opacity: 0.5, scale: 0.95, duration: 1.8, ease: 'sine.inOut', yoyo: true }, 0);
+
+      gsap.to('.toggle-sign', {
+        rotation: 5,
+        duration: 2,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.2,
+      });
+
+      // Exit at 2.5s
       const exitTimer = setTimeout(() => {
         onComplete?.();
         gsap.to(rootRef.current, {
           opacity: 0,
-          duration: 0.7,
+          duration: 0.6,
           ease: 'power2.inOut',
-          onComplete: () => {
-            window.removeEventListener('mousemove', onMove);
-            setLoading(false);
-          },
+          onComplete: () => setLoading(false),
         });
-      }, 2000);
+      }, 2500);
 
-      return () => {
-        window.removeEventListener('mousemove', onMove);
-        clearTimeout(exitTimer);
-      };
+      return () => clearTimeout(exitTimer);
     }, rootRef);
 
     return () => ctx.revert();
@@ -180,8 +102,6 @@ const Preloader = ({ onComplete }) => {
   }, []);
 
   if (!loading) return null;
-
-  const s = session;
 
   return (
     <div
@@ -198,131 +118,215 @@ const Preloader = ({ onComplete }) => {
         overflow: 'hidden',
       }}
     >
-      <div style={{ textAlign: 'center' }}>
-        {/* Stage 3D per il parallax */}
-        <div
-          ref={orbitRef}
-          style={{
-            position: 'relative',
-            width: '220px',
-            height: '220px',
-            margin: '0 auto 2rem',
-            transformStyle: 'preserve-3d',
-          }}
-        >
-          {/* Glow pulsante */}
-          <div
-            ref={glowRef}
-            style={{
-              position: 'absolute',
-              inset: '20px',
-              borderRadius: '50%',
-              background:
-                'radial-gradient(circle, rgba(212,175,55,0.55) 0%, rgba(212,175,55,0) 70%)',
-              filter: 'blur(18px)',
-              opacity: 0.5,
-              pointerEvents: 'none',
-            }}
-          />
+      {/* SVG: Circuits + Axes + Toggles */}
+      <svg
+        ref={svgRef}
+        viewBox="0 0 400 400"
+        width="300"
+        height="300"
+        style={{ marginBottom: '2rem' }}
+      >
+        <defs>
+          <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="rgba(212, 175, 55, 0.8)" />
+            <stop offset="100%" stopColor="rgba(212, 175, 55, 0.3)" />
+          </linearGradient>
+        </defs>
 
-          {/* Particelle dorate orbitanti */}
-          {Array.from({ length: s.particleCount }).map((_, i) => (
-            <span
-              key={i}
-              className="pl-particle"
-              style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: `${rand(3, 6).toFixed(1)}px`,
-                height: `${rand(3, 6).toFixed(1)}px`,
-                marginTop: '-3px',
-                marginLeft: '-3px',
-                borderRadius: '50%',
-                background: s.hueShift && i % 4 === 0
-                  ? 'rgba(255, 240, 200, 0.9)'
-                  : 'var(--accent-color)',
-                boxShadow: '0 0 8px rgba(212, 175, 55, 0.9)',
-                pointerEvents: 'none',
-              }}
+        {/* Background: subtle grid/circuit pattern */}
+        <g className="circuit-grid" opacity="0.15">
+          {[...Array(8)].map((_, i) => (
+            <line
+              key={`h${i}`}
+              x1="20"
+              y1={20 + i * 45}
+              x2="380"
+              y2={20 + i * 45}
+              stroke="var(--accent-color)"
+              strokeWidth="0.5"
             />
           ))}
-
-          {/* Logo */}
-          <div
-            ref={logoRef}
-            style={{
-              position: 'absolute',
-              inset: '50px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              background: 'var(--bg-color)',
-              boxShadow:
-                '0 0 30px rgba(212, 175, 55, 0.45), inset 0 0 0 2px rgba(212,175,55,0.4)',
-            }}
-          >
-            <img
-              src={logo}
-              alt="Zulian Logo"
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          {[...Array(8)].map((_, i) => (
+            <line
+              key={`v${i}`}
+              x1={20 + i * 45}
+              y1="20"
+              x2={20 + i * 45}
+              y2="380"
+              stroke="var(--accent-color)"
+              strokeWidth="0.5"
             />
-            {/* Shimmer sweep */}
-            <span
-              ref={shimmerRef}
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '60%',
-                height: '100%',
-                background:
-                  'linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%)',
-                pointerEvents: 'none',
-              }}
-            />
-          </div>
-        </div>
+          ))}
+        </g>
 
+        {/* Circuits: stylized paths flowing from edges to center */}
+        <path
+          className="circuit-path"
+          d="M 80,30 L 150,50 L 180,80 L 200,120 L 180,150 L 150,180 L 120,200"
+          stroke="url(#goldGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          className="circuit-path"
+          d="M 320,100 L 270,140 L 240,170 L 220,200 L 240,220 L 270,240 L 300,280"
+          stroke="url(#goldGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          className="circuit-path"
+          d="M 150,320 L 180,280 L 200,250 L 220,200 L 200,180 L 180,150"
+          stroke="url(#goldGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path
+          className="circuit-path"
+          d="M 50,200 L 100,210 L 140,205 L 180,200 L 200,180 L 210,140"
+          stroke="url(#goldGradient)"
+          strokeWidth="2"
+          fill="none"
+          strokeLinecap="round"
+        />
+
+        {/* X-Axis */}
+        <line
+          className="axis-x"
+          x1="60"
+          y1="200"
+          x2="340"
+          y2="200"
+          stroke="var(--accent-color)"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+        />
+
+        {/* Y-Axis */}
+        <line
+          className="axis-y"
+          x1="200"
+          y1="60"
+          x2="200"
+          y2="340"
+          stroke="var(--accent-color)"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+        />
+
+        {/* Toggle Signs on Axes */}
+        {/* Top toggle */}
+        <g className="toggle-sign">
+          <circle cx="200" cy="50" r="12" fill="none" stroke="var(--accent-color)" strokeWidth="1.5" />
+          <line x1="200" y1="44" x2="200" y2="56" stroke="var(--accent-color)" strokeWidth="2" />
+        </g>
+
+        {/* Right toggle */}
+        <g className="toggle-sign">
+          <circle cx="350" cy="200" r="12" fill="none" stroke="var(--accent-color)" strokeWidth="1.5" />
+          <line x1="344" y1="200" x2="356" y2="200" stroke="var(--accent-color)" strokeWidth="2" />
+        </g>
+
+        {/* Bottom toggle */}
+        <g className="toggle-sign">
+          <circle cx="200" cy="350" r="12" fill="none" stroke="var(--accent-color)" strokeWidth="1.5" />
+          <line x1="200" y1="344" x2="200" y2="356" stroke="var(--accent-color)" strokeWidth="2" />
+        </g>
+
+        {/* Left toggle */}
+        <g className="toggle-sign">
+          <circle cx="50" cy="200" r="12" fill="none" stroke="var(--accent-color)" strokeWidth="1.5" />
+          <line x1="44" y1="200" x2="56" y2="200" stroke="var(--accent-color)" strokeWidth="2" />
+        </g>
+
+        {/* Central glow at intersection */}
+        <circle
+          className="center-glow"
+          cx="200"
+          cy="200"
+          r="50"
+          fill="none"
+          stroke="var(--accent-color)"
+          strokeWidth="1"
+          style={{ filter: 'blur(8px)' }}
+        />
+        <circle
+          className="center-glow"
+          cx="200"
+          cy="200"
+          r="30"
+          fill="var(--accent-color)"
+          style={{ filter: 'blur(12px)' }}
+        />
+      </svg>
+
+      {/* Logo in center */}
+      <div
+        ref={logoRef}
+        style={{
+          width: '140px',
+          height: '140px',
+          borderRadius: '50%',
+          overflow: 'hidden',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: 'var(--bg-color)',
+          border: '2px solid rgba(212, 175, 55, 0.4)',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          marginTop: '1rem',
+        }}
+      >
+        <img
+          src={logo}
+          alt="Zulian Logo"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      </div>
+
+      {/* Text */}
+      <div style={{ position: 'absolute', bottom: '60px', textAlign: 'center', width: '100%' }}>
         <h1
           className="pl-title"
           style={{
             color: 'var(--accent-color)',
-            fontSize: '2rem',
-            letterSpacing: '4px',
-            marginBottom: '0.5rem',
+            fontSize: '1.8rem',
+            letterSpacing: '3px',
+            marginBottom: '0.4rem',
           }}
         >
-          {s.emoji} ZULIAN {s.emoji}
+          ZULIAN
         </h1>
-
         <p
           className="pl-sub"
           style={{
             color: 'var(--text-secondary)',
-            letterSpacing: '4px',
-            fontSize: '0.9rem',
+            letterSpacing: '2px',
+            fontSize: '0.85rem',
             textTransform: 'uppercase',
           }}
         >
           Social Media Marketing
         </p>
-
         <p
           className="pl-quote"
           style={{
-            marginTop: '2rem',
+            marginTop: '1.2rem',
             fontStyle: 'italic',
             fontFamily: 'var(--font-serif)',
             color: 'var(--text-primary)',
             maxWidth: '320px',
-            margin: '2rem auto 0',
-            fontSize: '1rem',
+            margin: '1.2rem auto 0',
+            fontSize: '0.95rem',
           }}
         >
-          {s.quote}
+          "La strategia vincente, fatta su misura."
         </p>
       </div>
     </div>
