@@ -2,15 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import logo from '../assets/logo.jpg';
 
-/**
- * Intro "circuito": prima si accendono le tracce di circuito, poi due assi
- * (X e Y) si incontrano al centro, compaiono i nodi/toggle alle estremita',
- * e dal punto d'incontro emerge il logo. Tutto orchestrato con GSAP.
- *
- * Robusto: la timeline arriva SEMPRE a uno stato finale visibile, il timer di
- * uscita viene pulito correttamente (anche in StrictMode) e gli stati iniziali
- * sono impostati con gsap.set per evitare flash.
- */
 const Preloader = ({ onComplete }) => {
   const [loading, setLoading] = useState(true);
   const rootRef = useRef(null);
@@ -19,6 +10,7 @@ const Preloader = ({ onComplete }) => {
 
   useEffect(() => {
     let timer;
+    let timeoutId;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const ctx = gsap.context(() => {
@@ -28,7 +20,7 @@ const Preloader = ({ onComplete }) => {
         onComplete?.();
         gsap.to(rootRef.current, {
           opacity: 0,
-          duration: 0.6,
+          duration: 0.5,
           ease: 'power2.inOut',
           onComplete: () => setLoading(false),
         });
@@ -41,107 +33,129 @@ const Preloader = ({ onComplete }) => {
           strokeDashoffset: 0,
           scale: 1,
         });
-        timer = setTimeout(finish, 900);
+        timeoutId = setTimeout(finish, 800);
         return;
       }
 
       // --- Stati iniziali ---
       const traces = gsap.utils.toArray('.circuit-trace');
       const axes = gsap.utils.toArray('.axis-line');
-      [...traces, ...axes].forEach((el) => {
+      const secondary = gsap.utils.toArray('.axis-secondary');
+
+      [...traces, ...axes, ...secondary].forEach((el) => {
         const len = el.getTotalLength();
         gsap.set(el, { strokeDasharray: len, strokeDashoffset: len, opacity: 1 });
       });
       gsap.set('.circuit-pad', { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
+      gsap.set('.circuit-pad-glow', { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
       gsap.set('.node', { opacity: 0, scale: 0, transformOrigin: '50% 50%' });
-      gsap.set('.center-ring', { opacity: 0, scale: 0.4, transformOrigin: '50% 50%' });
-      gsap.set(logoRef.current, { opacity: 0, scale: 0.3 });
-      gsap.set('.pl-text', { opacity: 0, y: 14 });
+      gsap.set('.center-ring', { opacity: 0, scale: 0.6, transformOrigin: '50% 50%' });
+      gsap.set('.center-ring-inner', { opacity: 0, scale: 0.8, transformOrigin: '50% 50%' });
+      gsap.set('.center-glow', { opacity: 0, scale: 0.3, transformOrigin: '50% 50%' });
+      gsap.set(logoRef.current, { opacity: 0, scale: 0.1 });
+      gsap.set('.pl-text', { opacity: 0, y: 12 });
 
-      const tl = gsap.timeline({ onComplete: () => { timer = setTimeout(finish, 500); } });
+      const tl = gsap.timeline();
 
-      // 1) Le tracce di circuito si "accendono" dai bordi
+      // Fase 1: Tracce circuito si accendono (0-0.7s)
       tl.to(traces, {
         strokeDashoffset: 0,
         duration: 0.7,
         ease: 'power2.inOut',
-        stagger: 0.08,
+        stagger: 0.07,
       }, 0);
 
-      // I pad si illuminano lungo le tracce
+      // Pad si illuminano a cascata (0.2-0.5s)
       tl.to('.circuit-pad', {
-        opacity: 0.9,
+        opacity: 1,
         scale: 1,
-        duration: 0.3,
-        ease: 'back.out(2)',
-        stagger: 0.06,
+        duration: 0.2,
+        ease: 'back.out(2.5)',
+        stagger: 0.04,
       }, 0.2);
 
-      // 2) I due assi si disegnano dal centro verso le estremita' (si incontrano)
+      tl.to('.circuit-pad-glow', {
+        opacity: 1,
+        scale: 1.5,
+        duration: 0.25,
+        ease: 'power2.out',
+        stagger: 0.04,
+      }, 0.22);
+
+      // Fase 2: Assi si espandono dal centro (0.5-1.1s)
       tl.to(axes, {
         strokeDashoffset: 0,
-        duration: 0.55,
+        duration: 0.6,
         ease: 'power3.out',
         stagger: 0.05,
       }, 0.5);
 
-      // 3) Flash al punto d'incontro
-      tl.to('.center-ring', {
+      // Assi secondari appaiono (0.8-1.0s)
+      tl.to(secondary, {
+        strokeDashoffset: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+        stagger: 0.06,
+      }, 0.8);
+
+      // Fase 3: Centro illumina (0.95-1.25s)
+      tl.to('.center-glow', {
         opacity: 1,
         scale: 1,
-        duration: 0.4,
+        duration: 0.35,
         ease: 'back.out(2)',
       }, 0.95);
 
-      // 4) I nodi/toggle scattano alle estremita'
+      tl.to('.center-ring', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'back.out(2.2)',
+      }, 1.0);
+
+      tl.to('.center-ring-inner', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'back.out(2.2)',
+      }, 1.05);
+
+      // Fase 4: Nodi pop alle estremita' (1.1-1.5s)
       tl.to('.node', {
         opacity: 1,
         scale: 1,
-        duration: 0.45,
+        duration: 0.4,
         ease: 'back.out(1.8)',
-        stagger: 0.07,
-      }, 1.05);
+        stagger: 0.08,
+      }, 1.1);
 
-      // 5) Dal centro emerge il logo
+      // Fase 5: Logo emerge dal centro (1.3-1.95s)
       tl.to(logoRef.current, {
         opacity: 1,
         scale: 1,
-        duration: 0.7,
-        ease: 'back.out(1.4)',
-      }, 1.35);
+        duration: 0.65,
+        ease: 'back.out(1.6)',
+      }, 1.3);
 
-      // 6) Il testo sale in dissolvenza
+      // Fase 6: Testo fade e slide (1.5-2.0s)
       tl.to('.pl-text', {
         opacity: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.4,
         ease: 'power2.out',
-        stagger: 0.12,
-      }, 1.6);
+        stagger: 0.08,
+      }, 1.5);
 
-      // Loop ambientali (non bloccano la chiusura)
-      gsap.to('.center-ring', {
-        scale: 1.15,
-        opacity: 0.6,
-        duration: 1.6,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        delay: 1.4,
-      });
-      gsap.to('.node', {
-        opacity: 0.65,
-        duration: 1.2,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-        stagger: { each: 0.25, from: 'random' },
-        delay: 1.6,
+      // Timeline completa, trigger finish
+      tl.add(() => {
+        timeoutId = setTimeout(finish, 100);
       });
     }, rootRef);
 
     return () => {
       clearTimeout(timer);
+      clearTimeout(timeoutId);
       ctx.revert();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -173,53 +187,71 @@ const Preloader = ({ onComplete }) => {
         overflow: 'hidden',
       }}
     >
-      <div style={{ position: 'relative', width: '320px', height: '320px' }}>
+      <div style={{ position: 'relative', width: '360px', height: '360px' }}>
         <svg
-          viewBox="0 0 320 320"
-          width="320"
-          height="320"
+          viewBox="0 0 360 360"
+          width="360"
+          height="360"
           style={{ position: 'absolute', inset: 0, overflow: 'visible' }}
         >
           <defs>
             <linearGradient id="goldTrace" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(212,175,55,0.85)" />
-              <stop offset="100%" stopColor="rgba(212,175,55,0.25)" />
+              <stop offset="0%" stopColor="rgba(212,175,55,0.9)" />
+              <stop offset="100%" stopColor="rgba(212,175,55,0.3)" />
             </linearGradient>
+            <radialGradient id="glowCenter">
+              <stop offset="0%" stopColor="rgba(212,175,55,0.6)" />
+              <stop offset="100%" stopColor="rgba(212,175,55,0)" />
+            </radialGradient>
           </defs>
 
-          {/* Tracce di circuito decorative (angoli) */}
-          <path className="circuit-trace" d="M 20,60 L 70,60 L 90,80 L 110,80" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path className="circuit-trace" d="M 300,90 L 250,90 L 232,108 L 210,108" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path className="circuit-trace" d="M 30,250 L 80,250 L 100,230 L 120,230" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path className="circuit-trace" d="M 296,240 L 246,240 L 226,220 L 206,220" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path className="circuit-trace" d="M 60,20 L 60,55 L 80,75" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-          <path className="circuit-trace" d="M 260,300 L 260,265 L 240,245" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+          {/* Tracce di circuito con design piu' complesso (angoli + mediani) */}
+          <path className="circuit-trace" d="M 15,65 L 75,65 L 100,90 L 125,90" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path className="circuit-trace" d="M 345,100 L 275,100 L 250,125 L 225,125" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path className="circuit-trace" d="M 25,265 L 85,265 L 110,240 L 135,240" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path className="circuit-trace" d="M 345,260 L 275,260 L 250,235 L 225,235" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path className="circuit-trace" d="M 60,15 L 60,70 L 85,95" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <path className="circuit-trace" d="M 300,345 L 300,290 L 275,265" stroke="url(#goldTrace)" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
 
-          {/* Piccoli pad di circuito */}
-          {[[20,60],[300,90],[30,250],[296,240],[60,20],[260,300]].map(([x,y],i)=>(
-            <rect key={i} className="circuit-pad" x={x-2.5} y={y-2.5} width="5" height="5" rx="1" fill="var(--accent-color)" />
+          {/* Pad circuito con effetto connessione */}
+          {[[15,65],[345,100],[25,265],[345,260],[60,15],[300,345]].map(([x,y],i)=>(
+            <g key={i}>
+              <circle className="circuit-pad" cx={x} cy={y} r="3" fill="var(--accent-color)" opacity="0" />
+              <circle className="circuit-pad-glow" cx={x} cy={y} r="6" fill="none" stroke="var(--accent-color)" strokeWidth="1" opacity="0" />
+            </g>
           ))}
 
-          {/* Due assi che si incontrano al centro (disegnati dal centro) */}
-          <path className="axis-line" d={`M ${C},${C} L ${C},28`} stroke="var(--accent-color)" strokeWidth="2" fill="none" strokeLinecap="round" />
-          <path className="axis-line" d={`M ${C},${C} L ${C},292`} stroke="var(--accent-color)" strokeWidth="2" fill="none" strokeLinecap="round" />
-          <path className="axis-line" d={`M ${C},${C} L 28,${C}`} stroke="var(--accent-color)" strokeWidth="2" fill="none" strokeLinecap="round" />
-          <path className="axis-line" d={`M ${C},${C} L 292,${C}`} stroke="var(--accent-color)" strokeWidth="2" fill="none" strokeLinecap="round" />
+          {/* Due assi primari che si incontrano al centro */}
+          <path className="axis-line" d={`M ${C},${C} L ${C},25`} stroke="var(--accent-color)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path className="axis-line" d={`M ${C},${C} L ${C},335`} stroke="var(--accent-color)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path className="axis-line" d={`M ${C},${C} L 25,${C}`} stroke="var(--accent-color)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+          <path className="axis-line" d={`M ${C},${C} L 335,${C}`} stroke="var(--accent-color)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+          {/* Assi secondari diagonali (sottili) */}
+          <path className="axis-secondary" d={`M ${C},${C} L 40,40`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 280,40`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 40,280`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 280,280`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+
+          {/* Anello pulsante al punto d'incontro con doppio livello */}
+          <circle className="center-ring" cx={C} cy={C} r="90" fill="none" stroke="rgba(212,175,55,0.4)" strokeWidth="1.5" opacity="0" />
+          <circle className="center-ring-inner" cx={C} cy={C} r="60" fill="none" stroke="rgba(212,175,55,0.3)" strokeWidth="1" opacity="0" />
 
           {/* Nodi / toggle alle estremita' */}
           {tips.map((t, i) => (
             <g className="node" key={i}>
-              <circle cx={t.x} cy={t.y} r="11" fill="var(--bg-color)" stroke="var(--accent-color)" strokeWidth="1.5" />
+              <circle cx={t.x} cy={t.y} r="13" fill="var(--bg-color)" stroke="var(--accent-color)" strokeWidth="2" />
+              <circle cx={t.x} cy={t.y} r="19" fill="none" stroke="rgba(212,175,55,0.2)" strokeWidth="1" />
               {t.tick === 'h' ? (
-                <line x1={t.x - 5} y1={t.y} x2={t.x + 5} y2={t.y} stroke="var(--accent-color)" strokeWidth="2" strokeLinecap="round" />
+                <line x1={t.x - 6} y1={t.y} x2={t.x + 6} y2={t.y} stroke="var(--accent-color)" strokeWidth="2.5" strokeLinecap="round" />
               ) : (
-                <line x1={t.x} y1={t.y - 5} x2={t.x} y2={t.y + 5} stroke="var(--accent-color)" strokeWidth="2" strokeLinecap="round" />
+                <line x1={t.x} y1={t.y - 6} x2={t.x} y2={t.y + 6} stroke="var(--accent-color)" strokeWidth="2.5" strokeLinecap="round" />
               )}
             </g>
           ))}
 
-          {/* Anello pulsante al punto d'incontro */}
-          <circle className="center-ring" cx={C} cy={C} r="78" fill="none" stroke="rgba(212,175,55,0.5)" strokeWidth="1" />
+          {/* Decorazione centrale con glow */}
+          <circle className="center-glow" cx={C} cy={C} r="110" fill="url(#glowCenter)" opacity="0" />
         </svg>
 
         {/* Logo che emerge dal centro */}

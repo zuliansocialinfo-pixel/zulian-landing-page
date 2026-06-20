@@ -36,7 +36,7 @@ function App() {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={revealed ? { y: 0, opacity: 1 } : { y: -80, opacity: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
         style={{
         position: 'fixed',
         top: 0, left: 0, right: 0,

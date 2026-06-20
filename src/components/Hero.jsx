@@ -20,13 +20,13 @@ const Hero = ({ start = true }) => {
       if (reduce) {
         gsap.set('.hero-anim', { opacity: 1, y: 0 });
       } else {
-        tl.from('.hero-badge', { y: 20, opacity: 0, duration: 0.6 })
-          .from('.hero-line', { y: 40, opacity: 0, duration: 0.8, stagger: 0.15 }, '-=0.2')
-          .from('.hero-gold', { backgroundSize: '0% 100%', duration: 0.7, ease: 'power2.inOut' }, '-=0.3')
-          .from('.hero-desc', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
-          .from('.hero-tags > span', { y: 16, opacity: 0, duration: 0.4, stagger: 0.06 }, '-=0.3')
-          .from('.hero-cta', { y: 20, opacity: 0, duration: 0.5, stagger: 0.12 }, '-=0.2')
-          .from('.hero-scroll', { opacity: 0, duration: 0.6 }, '-=0.1');
+        tl.from('.hero-badge', { y: 20, opacity: 0, duration: 0.5 }, 0)
+          .from('.hero-line', { y: 36, opacity: 0, duration: 0.6, stagger: 0.12 }, 0.08)
+          .from('.hero-gold', { backgroundSize: '0% 100%', duration: 0.6, ease: 'power2.inOut' }, 0.15)
+          .from('.hero-desc', { y: 16, opacity: 0, duration: 0.5 }, 0.2)
+          .from('.hero-tags > span', { y: 14, opacity: 0, duration: 0.35, stagger: 0.06 }, 0.35)
+          .from('.hero-cta', { y: 16, opacity: 0, duration: 0.4, stagger: 0.1 }, 0.45)
+          .from('.hero-scroll', { opacity: 0, duration: 0.5 }, 0.55);
       }
 
       const mm = gsap.matchMedia();
