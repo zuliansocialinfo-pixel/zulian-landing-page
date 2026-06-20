@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { BarChart3, Share2, Target, Globe, Video } from 'lucide-react';
 import dashboard from '../assets/dashboard.png';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -32,6 +36,33 @@ const services = [
 ];
 
 const Services = () => {
+  const dashRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+      // Parallax leggero sulla dashboard: solo desktop, niente effetto nausea
+      mm.add('(min-width: 992px) and (pointer: fine)', () => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        gsap.fromTo(
+          dashRef.current,
+          { y: -28 },
+          {
+            y: 28,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: dashRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          }
+        );
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section id="servizi" style={{ padding: '6rem 0' }}>
       <div className="container">
@@ -103,10 +134,11 @@ const Services = () => {
             background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(10,10,10,1) 100%)',
             zIndex: 1
           }} />
-          <img 
+          <img
+            ref={dashRef}
             src={dashboard}
-            alt="Zulian Marketing Dashboard" 
-            style={{ width: '100%', height: 'auto', display: 'block' }} 
+            alt="Zulian Marketing Dashboard"
+            style={{ width: '100%', height: 'auto', display: 'block', transform: 'scale(1.08)', willChange: 'transform' }}
           />
           <div style={{
             position: 'absolute',

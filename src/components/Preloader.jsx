@@ -52,14 +52,14 @@ const Preloader = ({ onComplete }) => {
       const intro = gsap.timeline();
       intro
         .from(logoRef.current, {
-          scale: 0.4,
+          scale: 0.5,
           opacity: 0,
-          duration: 1.1,
-          ease: 'back.out(1.7)',
+          duration: 0.8,
+          ease: 'back.out(1.6)',
         })
-        .from('.pl-title', { y: 24, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5')
-        .from('.pl-sub', { y: 16, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.4')
-        .from('.pl-quote', { opacity: 0, duration: 0.9, ease: 'power2.out' }, '-=0.2');
+        .from('.pl-title', { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.35')
+        .from('.pl-sub', { y: 14, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.3')
+        .from('.pl-quote', { opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.25');
 
       // --- ROTAZIONE INFINITA (visibile) ---
       gsap.to(logoRef.current, {
@@ -160,14 +160,14 @@ const Preloader = ({ onComplete }) => {
         onComplete?.();
         gsap.to(rootRef.current, {
           opacity: 0,
-          duration: 0.9,
+          duration: 0.7,
           ease: 'power2.inOut',
           onComplete: () => {
             window.removeEventListener('mousemove', onMove);
             setLoading(false);
           },
         });
-      }, 3800);
+      }, 2000);
 
       return () => {
         window.removeEventListener('mousemove', onMove);

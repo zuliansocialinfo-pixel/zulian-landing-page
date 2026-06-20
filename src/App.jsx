@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import logo from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
+import Marquee from './components/Marquee';
+import TrustStats from './components/TrustStats';
 import About from './components/About';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
@@ -48,6 +50,8 @@ function App() {
 
       <main>
         <Hero start={revealed} />
+        <Marquee />
+        <TrustStats />
         <About />
         <Services />
         <HowItWorks />

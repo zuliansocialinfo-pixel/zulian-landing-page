@@ -93,6 +93,8 @@ button {
 
 /* Buttons */
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   background-color: var(--accent-color);
   color: #000;
   padding: 0.8rem 2rem;
@@ -100,16 +102,41 @@ button {
   border: none;
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Shine sweep sui bottoni primari */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.6s ease;
+}
+
 .btn-primary:hover {
   background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+}
+
+.btn-primary:hover::after {
+  left: 140%;
+}
+
+.btn-primary svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-primary:hover svg {
+  transform: scale(1.15) rotate(-4deg);
 }
 
 .btn-secondary {
@@ -120,12 +147,95 @@ button {
   border: 1px solid var(--glass-border);
   font-weight: 500;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: var(--text-primary);
+  background-color: rgba(212, 175, 55, 0.06);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover svg {
+  transform: translateX(4px);
+}
+
+/* Hover premium su tutte le card glass */
+.glass {
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.glass:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.12);
+}
+
+/* Menu: underline animata + hover */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Freccia scroll: bounce morbido */
+.hero-scroll-icon {
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* Marquee fascia servizi */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Riduci/azzera animazioni per chi lo preferisce */
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-icon,
+  .marquee,
+  .btn-primary::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Utilities */
