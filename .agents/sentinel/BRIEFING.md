@@ -1,22 +1,22 @@
-# BRIEFING — 2026-06-14T09:15:00Z
+# BRIEFING — 2026-06-20T00:16:45+02:00
 
 ## Mission
-Recreate the Zulian Social Media Marketing landing page using React/Vite with a dark mode design, Framer Motion animations, and Google Calendar integration.
+Spawn the Project Orchestrator to build the production version of Zulian Social Media Marketing starting from the provided logo and monitor its progress.
 
 ## 🔒 My Identity
 - Archetype: sentinel
 - Working directory: /Users/iMac21/Downloads/Zulian Social Media Marketing/.agents/sentinel
-- Orchestrator: 420f6fae-4a8e-4986-bbad-fd40779f358d
-- Victory Auditor: to be spawned on victory claim
+- Orchestrator: d545409a-1079-4908-8de1-397a393e3857
+- Victory Auditor: TBD
 
 ## 🔒 Key Constraints
 - No technical decisions — relay only
 - Victory Audit is MANDATORY before reporting completion
 
 ## User Context
-- **Last user request**: Recreate the Zulian Social Media Marketing landing page.
+- **Last user request**: Build the production version of the Zulian Social Media Marketing website, Awwwards-level dark/gold theme, starting from logo.jpg, including preloader, liquid cursor, scroll trigger background transition, pricing, services, and contacts.
 - **Pending clarifications**: none
-- **Delivered results**: []
+- **Delivered results**: none
 
 ## Project Status
 - **Phase**: in progress
@@ -27,4 +27,5 @@ Recreate the Zulian Social Media Marketing landing page using React/Vite with a 
 - **Retry count**: 0
 
 ## Artifact Index
-- ORIGINAL_REQUEST.md — The authoritative record of user intent
+- /Users/iMac21/Downloads/Zulian Social Media Marketing/.agents/ORIGINAL_REQUEST.md — Verbatim user request log
+- /Users/iMac21/Downloads/Zulian Social Media Marketing/.agents/sentinel/BRIEFING.md — Sentinel persistent briefing file

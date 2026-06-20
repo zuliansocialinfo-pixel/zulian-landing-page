@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, ArrowRight } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 const Hero = () => {
   return (
@@ -29,9 +30,28 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.6 }} // Delays after preloader
+            transition={{ duration: 0.8, delay: 5.0 }} // Delays after preloader
           >
-            <span style={{ 
+            {/* Prominent Hero Logo */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0, rotate: -180 }}
+              animate={{ scale: 1, opacity: 1, rotate: 0 }}
+              transition={{ duration: 1.2, delay: 5.2, type: "spring", stiffness: 100 }}
+              style={{
+                width: '180px',
+                height: '180px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                border: '3px solid var(--accent-color)',
+                boxShadow: '0 0 30px rgba(212, 175, 55, 0.4)',
+                marginBottom: '2rem'
+              }}
+              className="hero-logo"
+            >
+              <img src={logoImg} alt="Zulian Hero Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </motion.div>
+
+            <span style={{
               color: 'var(--accent-color)', 
               fontWeight: 600, 
               letterSpacing: '2px',

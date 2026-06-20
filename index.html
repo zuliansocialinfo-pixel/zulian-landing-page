@@ -1,14 +1,2174 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zulian Social Media Marketing | Crescita Aziendale e Strategie</title>
-    <meta name="description" content="Zulian Social Media Marketing: aiuto aziende e professionisti a crescere online con strategie concrete, pubblicità efficace e contenuti mirati." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zulian Social Media Marketing | Strategie Concrete, Risultati Reali</title>
+  <meta name="description" content="Zulian Social Media Marketing: strategie concrete per far crescere il tuo business online. Più visibilità, più clienti, più fatturato. Niente scorciatoie."/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2306060A'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%237B5CFF' font-family='sans-serif' font-weight='700' font-size='14'%3EZM%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════
+   RESET & DESIGN TOKENS
+   ═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0d0d0d;
+  --fg:#FFFFFF;
+  --acc1:#D4AF37;
+  --acc2:#C5A059;
+  --acc3:#E0E0E0;
+  --muted:rgba(255,255,255,0.45);
+  --surface:#0A0A0C;
+  --font-display:'Playfair Display',serif;
+  --font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:auto}
+body{ transition: background-color 1s ease; 
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.9;
+  color:var(--fg);
+  background:var(--bg);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  cursor:none;
+}
+a{color:inherit;text-decoration:none;cursor:none}
+button{cursor:none;font-family:var(--font-body);border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+ul{list-style:none}
+h1,h2,h3,h4,h5,h6{
+  font-family:var(--font-display);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+}
+
+/* Grid background */
+
+
+/* ═══════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════ */
+.container{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,4vw,3rem)}
+.micro{font-family:var(--font-body);font-weight:400;letter-spacing:0.2em;text-transform:uppercase;font-size:0.75rem;color:var(--muted)}
+.tag{display:inline-block;padding:0.35em 1em;border-radius:999px;border:1px solid rgba(123,92,255,0.3);color:var(--acc1);font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase}
+.section-pad{padding:clamp(5rem,12vh,9rem) 0}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════ */
+.btn-primary{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.2rem;background:var(--acc1);color:#000;font-family:var(--font-display);font-weight:600;font-size:0.95rem;border:1px solid var(--acc1);transition:all 0.5s ease;}
+.btn-primary:hover{background:transparent;color:var(--acc1);}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:var(--acc1);z-index:-1;
+  transform:scaleX(1);transform-origin:left;
+  transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+.btn-primary:hover::after{transform:scaleX(0);transform-origin:right}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  padding:1rem 2.2rem;
+  background:transparent;color:var(--fg);
+  font-family:var(--font-display);font-weight:600;font-size:0.95rem;
+  border:1px solid rgba(255,255,255,0.2);
+  transition:all 0.35s ease;
+}
+.btn-ghost:hover{border-color:var(--acc1);color:var(--acc1)}
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════ */
+#scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:var(--surface);
+  z-index:10000;pointer-events:none;
+  transition:none;
+}
+
+/* ═══════════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════════ */
+#cursor-dot{
+  position:fixed;width:8px;height:8px;border-radius:50%;
+  background:var(--acc1);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  mix-blend-mode:difference;
+  transition:width 0.2s,height 0.2s;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1.5px solid rgba(123,92,255,0.5);
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width 0.3s,height 0.3s,border-color 0.3s;
+}
+#cursor-canvas{
+  position:fixed;inset:0;pointer-events:none;z-index:9997;
+}
+body.cursor-hover #cursor-dot{width:4px;height:4px}
+body.cursor-hover #cursor-ring{width:60px;height:60px;border-color:var(--acc2)}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 1000;
+  pointer-events: none;
+}
+header * {
+  pointer-events: auto;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ═══════════════════════════════════════════
+   LOADER
+   ═══════════════════════════════════════════ */
+#preloader{
+  position:fixed;inset:0;z-index:99999;
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.loader-half{position:absolute;left:0;right:0;background:var(--bg)}
+.loader-top{top:0;height:50%}
+.loader-bottom{bottom:0;height:50%}
+.loader-content{
+  position:relative;z-index:2;text-align:center;
+}
+.loader-logo{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(3rem,8vw,6rem);letter-spacing:0.05em;
+  color:var(--fg);opacity:0;
+}
+.loader-logo span{display:inline-block;opacity:0;transform:translateY(20px)}
+.loader-bar{
+  width:200px;height:2px;margin:2rem auto 0;
+  background:rgba(255,255,255,0.1);overflow:hidden;
+  border-radius:999px;
+}
+.loader-bar-fill{
+  width:0%;height:100%;
+  background:var(--surface);
+  border-radius:999px;
+}
+
+/* ═══════════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1.2rem 0;
+  transition:background 0.4s,backdrop-filter 0.4s,-webkit-backdrop-filter 0.4s;
+}
+#navbar.scrolled{
+  background:rgba(6,6,10,0.85);
+  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  padding:0 clamp(1.5rem,4vw,3rem);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+  font-family:var(--font-display);font-weight:700;font-size:1.6rem;
+  letter-spacing:-0.02em;line-height:1.2;
+}
+.nav-logo-dot{color:var(--acc1)}
+.nav-logo-sub{
+  font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;
+  display:block;color:var(--muted);font-family:var(--font-body);
+  font-weight:400;margin-top:-2px;
+}
+.nav-links{display:flex;gap:2.5rem}
+.nav-links a{
+  font-size:0.88rem;font-weight:400;
+  color:var(--muted);position:relative;
+  transition:color 0.3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;
+  width:0;height:1px;background:var(--acc1);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:0.6rem 1.5rem;border:1px solid var(--acc1);
+  color:var(--acc1);font-size:0.85rem;font-weight:600;
+  letter-spacing:0.05em;
+  transition:all 0.3s ease;
+}
+.nav-cta:hover{background:var(--acc1);color:var(--bg)}
+
+/* Hamburger */
+.nav-burger{display:none;flex-direction:column;gap:5px;padding:0.5rem;z-index:1001}
+.nav-burger span{display:block;width:24px;height:2px;background:var(--fg);transition:all 0.3s ease}
+.nav-burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-burger.active span:nth-child(2){opacity:0}
+.nav-burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Mobile Menu */
+#mobile-menu {
+  display: none;
+}
+
+@media(max-width: 768px) {
+  #mobile-menu {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(6, 6, 10, 0.97);
+    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem;
+    opacity: 0; pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  #mobile-menu.open {
+    opacity: 1; pointer-events: all;
+    visibility: visible;
+  }
+  #mobile-menu a {
+    font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 700; color: var(--fg);
+    transition: color 0.3s;
+  }
+  #mobile-menu a:hover { color: var(--acc1); }
+  #mobile-menu .nav-cta { margin-top: 1rem; font-size: 1rem; padding: 0.8rem 2rem; }
+}
+#mobile-menu a{
+  font-family:var(--font-display);font-size:clamp(1.5rem,5vw,2.5rem);
+  font-weight:700;color:var(--fg);
+  transition:color 0.3s;
+}
+#mobile-menu a:hover{color:var(--acc1)}
+#mobile-menu .nav-cta{margin-top:1rem;font-size:1rem;padding:0.8rem 2rem}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;padding-top:100px;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-orb{
+  position:absolute;border-radius:50%;
+  filter:blur(80px);opacity:0.25;
+  will-change:transform;
+}
+.orb-1{
+  width:500px;height:500px;top:-10%;right:10%;
+  background:radial-gradient(circle,var(--acc1) 0%,transparent 70%);
+}
+.orb-2{
+  width:400px;height:400px;bottom:10%;left:-5%;
+  background:radial-gradient(circle,var(--acc2) 0%,transparent 70%);
+}
+.orb-3{
+  width:350px;height:350px;top:40%;right:-10%;
+  background:radial-gradient(circle,var(--acc3) 0%,transparent 70%);
+}
+
+.hero-content{position:relative;z-index:1;padding-bottom:4rem}
+.hero-tag{margin-bottom:2rem}
+.hero-title{
+  font-size:clamp(2.8rem,8vw,7rem);
+  margin-bottom:2rem;
+}
+.hero-title .line-wrap{display:block;overflow:hidden;padding-bottom:0.1em}
+.hero-title .line-inner{display:block;transform:translateY(115%)}
+.hero-title .accent{color:var(--acc1)}
+.hero-subtitle{
+  font-size:clamp(1rem,2vw,1.15rem);
+  color:rgba(255,255,255,0.7);max-width:560px;
+  margin-bottom:2.5rem;
+  opacity:0;transform:translateY(20px);
+}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(20px)}
+.hero-counter{
+  position:absolute;bottom:3rem;right:clamp(1.5rem,4vw,3rem);
+  z-index:1;text-align:right;
+  opacity:0;
+}
+.hero-counter .counter-num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2rem,4vw,3.5rem);
+  color:var(--acc1);display:block;
+}
+.hero-counter .counter-label{font-size:0.8rem;color:var(--muted);letter-spacing:0.1em}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:1;opacity:0;
+}
+.hero-scroll svg{width:24px;height:24px;stroke:var(--muted);animation:scrollBounce 2s infinite}
+@keyframes scrollBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(8px)}
+}
+
+/* ═══════════════════════════════════════════
+   MARQUEE
+   ═══════════════════════════════════════════ */
+.marquee-section{
+  padding:2.5rem 0;border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  overflow:hidden;
+  background:var(--surface);
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marqueeScroll 40s linear infinite;
+}
+.marquee-track:hover{animation-duration:80s}
+.marquee-item{
+  font-family:var(--font-display);font-weight:500;
+  font-size:clamp(1.2rem,2.5vw,1.8rem);
+  color:var(--muted);padding:0 2rem;
+  flex-shrink:0;
+}
+.marquee-item .dot{
+  display:inline-block;width:8px;height:8px;
+  border-radius:50%;background:var(--acc1);
+  margin:0 1.5rem;vertical-align:middle;
+  opacity:0.5;
+}
+@keyframes marqueeScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════ */
+.section-header{margin-bottom:clamp(3rem,6vh,5rem)}
+.section-header .section-tag{margin-bottom:1.5rem}
+.section-header h2{
+  font-size:clamp(2rem,5vw,3.5rem);
+  margin-bottom:1rem;
+}
+.section-header p{color:rgba(255,255,255,0.7);max-width:500px;font-size:1rem}
+
+/* ═══════════════════════════════════════════
+   SERVIZI
+   ═══════════════════════════════════════════ */
+#servizi{
+  background:var(--bg);
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:1px;
+  background:rgba(255,255,255,0.06);
+}
+.service-card{
+  background:var(--bg);padding:clamp(2rem,3vw,3rem);
+  transition:background 0.4s,border-color 0.4s;
+  position:relative;
+}
+.service-card:hover{background:var(--surface)}
+.service-card:hover .service-title{color:var(--acc1)}
+.service-card:hover .service-arrow{transform:translateX(4px);color:var(--acc1)}
+.service-num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:3rem;color:var(--acc1);opacity:0.3;
+  margin-bottom:1rem;line-height:1;
+}
+.service-icon{
+  width:40px;height:40px;margin-bottom:1.5rem;
+  color:var(--acc1);
+}
+.service-icon svg{width:100%;height:100%}
+.service-title{
+  font-size:1.4rem;margin-bottom:0.8rem;
+  transition:color 0.3s;
+}
+.service-desc{color:rgba(255,255,255,0.7);font-size:0.92rem;margin-bottom:1.5rem}
+.service-list{margin-bottom:2rem}
+.service-list li{
+  color:rgba(255,255,255,0.55);font-size:0.85rem;
+  padding:0.35rem 0;padding-left:1.2rem;
+  position:relative;
+}
+.service-list li::before{
+  content:'·';position:absolute;left:0;
+  color:var(--acc1);font-weight:700;
+}
+.service-link{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.85rem;font-weight:500;color:var(--muted);
+  transition:color 0.3s;
+}
+.service-arrow{transition:transform 0.3s,color 0.3s}
+
+/* ═══════════════════════════════════════════
+   DASHBOARD SHOWCASE
+   ═══════════════════════════════════════════ */
+.dashboard-section{
+  padding:clamp(4rem,10vh,8rem) 0;
+  position:relative;overflow:hidden;
+  background:var(--surface);
+}
+.dashboard-wrapper{
+  position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  min-height: 350px;
+}
+.dashboard-wrapper img{
+  width:100%;height:auto;display:block;
+  transition:transform 0.6s ease;
+}
+.dashboard-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:clamp(2rem,4vw,4rem);
+  background:var(--surface);
+  z-index:1;
+}
+.dashboard-overlay h3{
+  font-size:clamp(1.5rem,3vw,2.5rem);color:var(--acc1);
+  margin-bottom:0.5rem;
+}
+.dashboard-overlay p{color:rgba(255,255,255,0.7);max-width:500px;font-size:0.95rem}
+
+/* ═══════════════════════════════════════════
+   STATS / NUMERI
+   ═══════════════════════════════════════════ */
+.stats-section{
+  padding:clamp(4rem,8vh,6rem) 0;
+  border-top:2px solid rgba(123,92,255,0.2);
+  border-bottom:2px solid rgba(255,60,172,0.2);
+  background:var(--surface);
+}
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  text-align:center;padding:2rem 1rem;
+  position:relative;
+}
+.stat-item:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:20%;
+  height:60%;width:1px;
+  background:rgba(255,255,255,0.08);
+}
+.stat-num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  color:var(--acc1);display:block;line-height:1;
+  margin-bottom:0.5rem;
+}
+.stat-label{font-size:0.85rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════
+   PARALLAX STATEMENT
+   ═══════════════════════════════════════════ */
+.statement-section{
+  min-height:60vh;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:6rem 0;
+  background:var(--surface);
+  border-top:1px solid rgba(0,245,212,0.15);
+}
+.statement-section::before{
+  content:'';position:absolute;inset:0;
+  background:var(--surface);
+  z-index:0;
+}
+.statement-text{
+  position:relative;z-index:1;text-align:center;
+  font-family:var(--font-display);font-weight:700;
+  font-style:italic;
+  font-size:clamp(2rem,5.5vw,4.5rem);
+  line-height:1.2;max-width:900px;
+  padding:0 2rem;
+}
+.statement-text span{color:var(--acc2)}
+
+/* ═══════════════════════════════════════════
+   CHI SONO / ABOUT
+   ═══════════════════════════════════════════ */
+#chi-sono{
+  background:var(--bg);
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(3rem,6vw,6rem);
+  align-items:center;
+}
+.about-left .about-tag{margin-bottom:1.5rem}
+.about-left h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem}
+.about-left p{color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-size:0.95rem}
+.about-left p strong{color:var(--fg);font-weight:600}
+.about-stats{
+  display:flex;gap:3rem;margin-top:2.5rem;
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);
+}
+.about-stat-item .stat-val{
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.8rem;color:var(--acc1);display:block;
+}
+.about-stat-item .stat-lbl{font-size:0.78rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.about-right{position:relative}
+.about-photo-wrap{
+  position:relative;margin-bottom:2rem;
+  overflow:hidden;
+}
+.about-photo-wrap img{
+  width:100%;height:auto;display:block;
+  filter:grayscale(20%);
+  transition:filter 0.5s;
+}
+.about-photo-wrap:hover img{filter:grayscale(0%)}
+.about-photo-wrap::after{
+  content:'';position:absolute;inset:0;
+  border:1px solid transparent;
+  background:var(--surface);
+  -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+.about-values{
+  padding:2rem;background:var(--surface);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.about-values h4{font-size:1.1rem;margin-bottom:1.5rem;color:var(--fg)}
+.about-values li{
+  display:flex;align-items:center;gap:0.8rem;
+  padding:0.7rem 0;font-size:0.92rem;color:rgba(255,255,255,0.7);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.about-values li:last-child{border-bottom:none}
+.about-values .check{
+  width:20px;height:20px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--acc1);
+}
+
+/* ═══════════════════════════════════════════
+   COME FUNZIONA / PROCESS
+   ═══════════════════════════════════════════ */
+#come-funziona{
+  background:var(--surface);
+}
+.process-grid{
+  max-width:800px;margin:0 auto;
+  position:relative;
+}
+.process-line{
+  position:absolute;left:32px;top:0;bottom:0;
+  width:1px;background:rgba(255,255,255,0.08);
+}
+.process-step{
+  display:flex;gap:2rem;padding-bottom:3rem;
+  position:relative;z-index:1;
+}
+.process-step:last-child{padding-bottom:0}
+.step-num{
+  width:64px;height:64px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--acc1);border-radius:50%;
+  background:var(--surface);
+  font-family:var(--font-display);font-weight:700;
+  font-size:1.3rem;color:var(--acc1);
+  z-index:2;
+}
+.step-content{
+  padding:1.5rem 2rem;background:var(--surface);
+  border:1px solid rgba(255,255,255,0.06);
+  flex-grow:1;
+}
+.step-content h3{font-size:1.2rem;margin-bottom:0.6rem}
+.step-content p{color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.7}
+
+/* ═══════════════════════════════════════════
+   WORKS / LAVORI
+   ═══════════════════════════════════════════ */
+#lavori{
+  background:var(--bg);
+}
+.works-list{border-top:1px solid rgba(255,255,255,0.08)}
+.work-item{
+  display:grid;
+  grid-template-columns:60px 1fr auto 80px 40px;
+  align-items:center;gap:1.5rem;
+  padding:1.5rem 0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  transition:background 0.4s;
+  position:relative;
+  cursor:pointer;
+}
+.work-item::before{
+  content:'';position:absolute;inset:0;
+  background:var(--surface);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(.4,0,.2,1);
+  z-index:-1;
+}
+.work-item:hover::before{transform:scaleX(1)}
+.work-item:hover .work-name{color:var(--acc1)}
+.work-item:hover .work-arrow{transform:rotate(0deg);color:var(--acc1)}
+.work-num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:0.9rem;color:var(--muted);
+}
+.work-name{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1rem,2vw,1.3rem);
+  transition:color 0.3s;
+}
+.work-cat{font-size:0.82rem;color:var(--muted)}
+.work-year{font-size:0.82rem;color:var(--muted);text-align:right}
+.work-arrow{
+  font-size:1.2rem;color:var(--muted);
+  transform:rotate(-45deg);
+  transition:transform 0.3s,color 0.3s;
+}
+
+/* ═══════════════════════════════════════════
+   CTA FINALE
+   ═══════════════════════════════════════════ */
+.cta-section{
+  min-height:70vh;display:flex;align-items:center;justify-content:center;
+  background:var(--surface);
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.cta-content{position:relative;z-index:1}
+.cta-content h2{
+  font-size:clamp(2.5rem,6vw,5rem);
+  margin-bottom:1.5rem;
+}
+.cta-content p{color:rgba(255,255,255,0.7);margin-bottom:3rem;font-size:1.05rem}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════
+   CALENDAR
+   ═══════════════════════════════════════════ */
+.calendar-section{
+  padding:clamp(4rem,8vh,6rem) 0;
+  background:var(--bg);
+}
+.calendar-section .section-header{text-align:center}
+.calendar-section .section-header p{margin:0 auto}
+.calendar-wrapper{
+  max-width:1000px;margin:0 auto;
+  background:#fff;overflow:hidden;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 30px 80px rgba(0,0,0,0.4);
+}
+.calendar-wrapper iframe{
+  width:100%;height:700px;border:0;display:block;
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer{
+  padding:4rem 0 2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+  position:relative;
+  background:#020202;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:3rem;margin-bottom:3rem;
+}
+.footer-brand .footer-logo{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(4rem,10vw,8rem);margin-bottom:1rem;opacity:0.08;
+  letter-spacing:-0.02em;
+}
+.footer-logo-sub{
+  font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--muted);font-family:var(--font-body);font-weight:400;
+  margin-top:-0.5rem;margin-bottom:1rem;opacity:0.5;
+}
+.footer-brand p{color:rgba(255,255,255,0.7);font-size:0.88rem;max-width:300px}
+.footer-col h4{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--fg);
+  margin-bottom:1.5rem;
+}
+.footer-col li{margin-bottom:0.8rem}
+.footer-col a{
+  color:var(--muted);font-size:0.88rem;
+  display:inline-flex;align-items:center;gap:0.6rem;
+  transition:color 0.3s;
+}
+.footer-col a:hover{color:var(--acc1)}
+.footer-bottom{
+  padding-top:2rem;border-top:1px solid rgba(255,255,255,0.04);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  color:rgba(255,255,255,0.3);font-size:0.78rem;
+}
+.footer-social{display:flex;gap:1rem}
+.footer-social a{
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:border-color 0.3s,color 0.3s;
+  color:var(--muted);
+}
+.footer-social a:hover{border-color:var(--acc1);color:var(--acc1)}
+.footer-social a svg{width:16px;height:16px}
+
+/* ═══════════════════════════════════════════
+   WHATSAPP FLOATING
+   ═══════════════════════════════════════════ */
+#whatsapp-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:998;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+  transition:transform 0.3s,box-shadow 0.3s;
+  opacity:0;transform:scale(0);
+}
+#whatsapp-float:hover{transform:scale(1.1)!important;box-shadow:0 6px 30px rgba(37,211,102,0.5)}
+#whatsapp-float svg{width:28px;height:28px}
+
+/* ═══════════════════════════════════════════
+   CLICK RIPPLE
+   ═══════════════════════════════════════════ */
+.click-ripple{
+  position:fixed;pointer-events:none;z-index:9996;
+  border-radius:50%;border:1px solid var(--acc1);
+  transform:translate(-50%,-50%);
+  animation:rippleOut 0.6s ease-out forwards;
+}
+@keyframes rippleOut{
+  0%{width:0;height:0;opacity:0.6}
+  100%{width:120px;height:120px;opacity:0}
+}
+
+/* ═══════════════════════════════════════════
+   REVEAL ANIMATIONS (initial states)
+   ═══════════════════════════════════════════ */
+.reveal-up{opacity:1;transform:translateY(0)}
+.reveal-line-wrap{display:block;overflow:hidden}
+.reveal-line-inner{display:block;transform:translateY(0)}
+
+/* ═══════════════════════════════════════════
+   PROJECT MODAL
+   ═══════════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;z-index:10001;
+  background:rgba(6,6,10,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.4s;
+  padding:2rem;overflow-y:auto;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-content{
+  max-width:700px;width:100%;background:var(--surface);
+  border:1px solid rgba(123,92,255,0.15);padding:clamp(2rem,4vw,4rem);
+  position:relative;transform:translateY(30px) scale(0.97);transition:transform 0.4s cubic-bezier(.4,0,.2,1);
+}
+.modal-overlay.open .modal-content{transform:translateY(0) scale(1)}
+.modal-close{
+  position:absolute;top:1.5rem;right:1.5rem;
+  font-size:2rem;color:var(--muted);background:none;border:none;
+  cursor:pointer;transition:color 0.3s;line-height:1;
+}
+.modal-close:hover{color:var(--acc1)}
+.modal-header{
+  display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;
+  font-size:0.8rem;color:var(--muted);
+}
+.modal-num{color:var(--acc1);font-family:var(--font-display);font-weight:700;font-size:1.2rem}
+.modal-title{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:2rem;color:#fff}
+.modal-section{margin-bottom:2rem}
+.modal-section h3{font-size:1rem;color:var(--acc1);margin-bottom:0.8rem;letter-spacing:0.1em;text-transform:uppercase;font-family:var(--font-body);font-weight:600}
+.modal-section p{color:rgba(255,255,255,0.7);line-height:1.8}
+.modal-results{padding:0}
+.modal-results li{
+  display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0;
+  color:rgba(255,255,255,0.8);font-size:0.95rem;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.modal-results li::before{content:'✓';color:var(--acc3);font-weight:700}
+.modal-cta{margin-top:2.5rem;text-align:center}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media(max-width:1024px){
+  .services-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .about-grid{grid-template-columns:1fr}
+  .work-item{grid-template-columns:40px 1fr 80px 40px}
+  .work-cat{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2)::after{display:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  body{ transition: background-color 1s ease; cursor:auto}
+  body *{cursor:auto!important}
+  #cursor-dot,#cursor-ring,#cursor-canvas{display:none!important}
+  .nav-links{display:none}
+  .hero-title{font-size: clamp(1.8rem, 10vw, 3.2rem);}
+  .nav-cta.desktop-only{display:none}
+  .nav-burger{display:flex}
+  .hero-counter{position:relative;bottom:auto;right:auto;margin-top:3rem;text-align:left}
+  .hero-scroll{display:none}
+  .services-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{gap:2rem}
+  .process-step{gap:1rem}
+  .step-num{width:48px;height:48px;font-size:1rem}
+  .step-content{padding:1.2rem 1.5rem}
+  .process-line{left:24px}
+  .work-item{
+    grid-template-columns:1fr auto;
+    gap:0.5rem;padding:1.2rem 0;
+  }
+  .work-num,.work-cat{display:none}
+  .footer-grid{grid-template-columns:1fr}
+  .cta-content h2{font-size:clamp(2rem,8vw,3rem)}
+  .calendar-wrapper iframe{height:500px}
+}
+@media(max-width:480px){
+  .hero-ctas{flex-direction:column}
+  .hero-ctas a{text-align:center;justify-content:center;width:100%}
+  .about-stats{flex-direction:column;gap:1.5rem}
+  .stats-grid{grid-template-columns:1fr}
+  .stat-item::after{display:none!important}
+  .cta-buttons{flex-direction:column}
+  .cta-buttons a{text-align:center;justify-content:center;width:100%}
+}
+
+
+/* ═══════════════════════════════════════════
+   PREZZI
+   ═══════════════════════════════════════════ */
+#prezzi { background: var(--surface); }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+.pricing-card {
+  background: var(--bg);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(.4,0,.2,1), border-color 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+.pricing-card.popular {
+  border-color: var(--acc1);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.05);
+}
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--acc1);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+}
+.pricing-card h3 {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--fg);
+}
+.pricing-card .price {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--acc1);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+.pricing-card .price span {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.pricing-card p {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  min-height: 50px;
+}
+.pricing-card ul {
+  flex-grow: 1;
+  margin-bottom: 2.5rem;
+}
+.pricing-card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.6rem 0;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.pricing-card ul li::before {
+  content: '✓';
+  color: var(--acc1);
+  font-weight: 700;
+}
+
+
+/* ═══════════════════════════════════════════
+   CINEMATIC EFFECTS
+   ═══════════════════════════════════════════ */
+.page-transition {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: var(--surface);
+  z-index: 99999;
+  pointer-events: none;
+  border-top: 1px solid var(--acc1);
+  border-bottom: 1px solid var(--acc1);
+}
+
+.liquid-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--acc1);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.liquid-cursor.hover {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: 2px solid var(--acc1);
+  mix-blend-mode: normal;
+}
+
+.distort-img {
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.distort-img {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.distort-img:hover {
+  filter: url('#glass-distort') contrast(1.2);
+  transform: scale(1.05) rotateZ(1deg);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Reduced Motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+  }
+  .marquee-track{animation:none!important}
+  .hero-orb{display:none}
+  #cursor-dot,#cursor-ring,#cursor-canvas{display:none!important}
+  body{ transition: background-color 1s ease; cursor:auto}
+  body *{cursor:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ═════════════════ PRELOADER ═════════════════ -->
+<div id="preloader" class="preloader loader-overlay">
+  <canvas id="loader-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none;"></canvas>
+  <div class="loader-half loader-top"></div>
+  <div class="loader-half loader-bottom"></div>
+  <div class="loader-content">
+    <div class="loader-logo"><img src="src/assets/logo.png" alt="Zulian Logo" style="max-width:140px; border-radius:4px; mix-blend-mode:screen; opacity:0; transform:scale(0.8); position:relative; z-index:1;"></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+</div>
+
+<!-- ═════════════════ CURSOR ═════════════════ -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<canvas id="cursor-canvas"></canvas>
+
+<!-- ═════════════════ SCROLL PROGRESS ═════════════════ -->
+<div id="scroll-progress"></div>
+
+<!-- ═════════════════ MOBILE MENU ═════════════════ -->
+<nav id="mobile-menu" class="mobile-menu">
+  <a href="#servizi" class="mobile-link">Servizi</a>
+  <a href="#chi-sono" class="mobile-link">Chi Sono</a>
+  <a href="#come-funziona" class="mobile-link">Come Funziona</a>
+  <a href="#lavori" class="mobile-link">Lavori</a>
+  <a href="#contatto" class="mobile-link">Contatto</a>
+  <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" target="_blank" rel="noopener noreferrer" class="nav-cta">Prenota Consulenza</a>
+</nav>
+
+<!-- ═════════════════ NAV ═════════════════ -->
+<header>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" style="display:flex; align-items:center;"><img src="src/assets/logo.png" alt="Zulian Logo" style="height:56px; width:auto; border-radius:4px; mix-blend-mode:screen;"></a>
+      <div class="nav-links nav-menu">
+        <a href="#servizi">Servizi</a>
+        <a href="#chi-sono">Chi Sono</a>
+        <a href="#come-funziona">Come Funziona</a>
+        <a href="#lavori">Lavori</a>
+        <a href="#contatto">Contatto</a>
+      </div>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" target="_blank" rel="noopener noreferrer" class="nav-cta desktop-only">Prenota</a>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ═════════════════ HERO ═════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    
+    
+    
+  </div>
+
+  
+
+  <div class="container hero-content">
+    <img src="src/assets/logo.png" alt="Zulian Logo" class="hero-logo" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 2rem; opacity: 0; visibility: hidden; display: block;">
+    <div class="hero-tag"><span class="tag">↳ Social Media Marketing &amp; Crescita Digitale</span></div>
+    <h1 class="hero-title">
+      <span class="line-wrap"><span class="line-inner">Strategie concrete.</span></span>
+      <span class="line-wrap"><span class="line-inner">Risultati <span class="accent">reali</span>.</span></span>
+      <span class="line-wrap"><span class="line-inner">Crescita misurabile.</span></span>
+    </h1>
+    <p class="hero-subtitle">
+      Aiuto aziende e professionisti a crescere online con un approccio serio, trasparente e basato sui dati. Niente promesse vuote — solo strategie su misura che portano risultati.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Prenota una Consulenza
+      </a>
+      <a href="#servizi" class="btn-ghost">
+        Scopri i servizi
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-counter">
+    <span class="counter-num" data-target="150">0</span>
+    <span class="counter-label">Clienti soddisfatti</span>
+  </div>
+
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </div>
+</section>
+
+<!-- ═════════════════ MARQUEE ═════════════════ -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">Social Media<span class="dot"></span></span>
+    <span class="marquee-item">Pubblicità Online<span class="dot"></span></span>
+    <span class="marquee-item">Content Creation<span class="dot"></span></span>
+    <span class="marquee-item">Brand Strategy<span class="dot"></span></span>
+    <span class="marquee-item">E-commerce<span class="dot"></span></span>
+    <span class="marquee-item">Web Design<span class="dot"></span></span>
+    <span class="marquee-item">Growth Hacking<span class="dot"></span></span>
+    <span class="marquee-item">Video &amp; Reels<span class="dot"></span></span>
+    <span class="marquee-item">Social Media<span class="dot"></span></span>
+    <span class="marquee-item">Pubblicità Online<span class="dot"></span></span>
+    <span class="marquee-item">Content Creation<span class="dot"></span></span>
+    <span class="marquee-item">Brand Strategy<span class="dot"></span></span>
+    <span class="marquee-item">E-commerce<span class="dot"></span></span>
+    <span class="marquee-item">Web Design<span class="dot"></span></span>
+    <span class="marquee-item">Growth Hacking<span class="dot"></span></span>
+    <span class="marquee-item">Video &amp; Reels<span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ═════════════════ SERVIZI ═════════════════ -->
+<section id="servizi" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag"><span class="tag">Cosa Facciamo</span></div>
+      <h2>
+        <span class="reveal-line-wrap"><span class="reveal-line-inner">I Nostri Servizi</span></span>
+      </h2>
+      <p>Niente scorciatoie, solo strategie concrete che fanno crescere davvero.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- 01 -->
+      <div class="service-card glass reveal-up">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+        </div>
+        <h3 class="service-title">Analisi e Strategia</h3>
+        <p class="service-desc">Analisi strategica del mercato, pianificazione del posizionamento e integrazione di Bandi e Finanziamenti pubblici per supportare la crescita.</p>
+        <ul class="service-list">
+          <li>Analisi del mercato e dei competitor</li>
+          <li>Definizione del target e del posizionamento</li>
+          <li>Integrazione Bandi e Finanziamenti</li>
+          <li>Strategia di funnel marketing</li>
+        </ul>
+        <span class="service-link">Scopri <span class="service-arrow">→</span></span>
+      </div>
+      <!-- 02 -->
+      <div class="service-card glass reveal-up">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3 class="service-title">Gestione Social</h3>
+        <p class="service-desc">Gestione completa della presenza organica sui principali canali social per costruire community e relazioni solide.</p>
+        <ul class="service-list">
+          <li>Content strategy &amp; Copywriting</li>
+          <li>Piano editoriale e moderazione community</li>
+          <li>Gestione profili Instagram, Facebook, LinkedIn</li>
+          <li>Report periodici delle performance</li>
+        </ul>
+        <span class="service-link">Scopri <span class="service-arrow">→</span></span>
+      </div>
+      <!-- 03 -->
+      <div class="service-card glass reveal-up">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3 class="service-title">Pubblicità Online</h3>
+        <p class="service-desc">Campagne pubblicitarie a pagamento mirate per generare contatti qualificati e vendite immediate.</p>
+        <ul class="service-list">
+          <li>Advertising su Meta (Facebook &amp; Instagram)</li>
+          <li>Google Ads (Search, Display, Shopping)</li>
+          <li>Retargeting avanzato delle audience</li>
+          <li>Ottimizzazione continua del ROI</li>
+        </ul>
+        <span class="service-link">Scopri <span class="service-arrow">→</span></span>
+      </div>
+      <!-- 04 -->
+      <div class="service-card glass reveal-up">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="service-title">Siti Web ed E-commerce</h3>
+        <p class="service-desc">Sviluppo di piattaforme web veloci, responsive e ottimizzate per la massima conversione dei visitatori.</p>
+        <ul class="service-list">
+          <li>Web design moderno e UX/UI personalizzata</li>
+          <li>E-commerce e sistemi di pagamento sicuri</li>
+          <li>Velocità e ottimizzazione SEO tecnica</li>
+          <li>Manutenzione e integrazione analytics</li>
+        </ul>
+        <span class="service-link">Scopri <span class="service-arrow">→</span></span>
+      </div>
+      <!-- 05 -->
+      <div class="service-card glass reveal-up">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3 class="service-title">Creazione Contenuti</h3>
+        <p class="service-desc">Produzione di materiale visivo e testuale di alta qualità che cattura l'attenzione e comunica il valore del brand.</p>
+        <ul class="service-list">
+          <li>Produzione foto e video professionali</li>
+          <li>Copywriting persuasivo per web e social</li>
+          <li>Grafica personalizzata e brand assets</li>
+          <li>Reels e formati video brevi ottimizzati</li>
+        </ul>
+        <span class="service-link">Scopri <span class="service-arrow">→</span></span>
+      </div>
+    </div>
+
+    <!-- Dashboard wrapper moved inside #servizi at the bottom of the container -->
+    <div class="dashboard-wrapper reveal-up" style="margin-top: 5rem;">
+      <img src="src/assets/dashboard.png" alt="Zulian Marketing Dashboard" loading="lazy"/>
+      <div class="dashboard-overlay">
+        <h3>Dati alla mano</h3>
+        <p>Monitoriamo le metriche che contano davvero per il tuo business. Report trasparenti, conversioni reali, crescita misurabile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ NUMERI / STATS ═════════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-num" data-target="150" data-prefix="+">0</span>
+        <span class="stat-label">Clienti</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="2" data-suffix="M" data-prefix="+">0</span>
+        <span class="stat-label">Impression / mese</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="45" data-prefix="+">0</span>
+        <span class="stat-label">Progetti completati</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="98" data-suffix="%">0</span>
+        <span class="stat-label">Soddisfazione</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ PARALLAX STATEMENT ═════════════════ -->
+<section class="statement-section">
+  <div class="container">
+    <p class="statement-text">
+      "Non vendo scorciatoie.<br><span>Costruisco percorsi.</span>"
+    </p>
+  </div>
+</section>
+
+<!-- ═════════════════ CHI SONO ═════════════════ -->
+<section id="chi-sono" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="about-tag"><span class="tag">Chi Sono</span></div>
+        <h2>
+          <span class="reveal-line-wrap"><span class="reveal-line-inner">Il Mio Percorso</span></span>
+        </h2>
+        <p>Mi chiamo <strong>Marco Zulian</strong> e vengo da una famiglia operaia. Ho iniziato a lavorare presto, imparando sul campo il valore dell'impegno, della responsabilità e della determinazione.</p>
+        <p>Nulla è arrivato per caso: ogni traguardo è stato costruito con sacrificio, costanza e voglia di crescere. Questo percorso mi ha insegnato valori che porto ogni giorno nel mio lavoro: <strong>serietà, coerenza, rispetto e concretezza.</strong></p>
+        <p>Non vendo scorciatoie né promesse irrealistiche: costruisco percorsi solidi, passo dopo passo, con trasparenza, competenza e obiettivi concreti.</p>
+        <div class="about-stats">
+          <div class="about-stat-item">
+            <span class="stat-val">2021</span>
+            <span class="stat-lbl">Anno di fondazione</span>
+          </div>
+          <div class="about-stat-item">
+            <span class="stat-val">Italia</span>
+            <span class="stat-lbl">Operativo ovunque</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-right reveal-up">
+        <div class="about-photo-wrap glass">
+          <img src="src/assets/face.jpg" alt="Marco Zulian — Fondatore di Zulian Social Media Marketing" loading="lazy"/>
+        </div>
+        <div class="about-values glass">
+          <h4>I Miei Valori</h4>
+          <ul>
+            <li>
+              <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Risultati misurabili
+            </li>
+            <li>
+              <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Trasparenza totale
+            </li>
+            <li>
+              <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Concretezza, non promesse
+            </li>
+            <li>
+              <span class="check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Partnership vera, non fornitore
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ VIDEO SHOWCASE ═════════════════ -->
+<section id="video-showcase" class="section-pad">
+  <div class="container">
+    <div class="section-header" style="text-align:center; margin-bottom: 3rem;">
+      <h2 class="section-title">Presentazione Video</h2>
+    </div>
+    <div class="glass" style="max-width: 1280px; margin: 0 auto; padding: 2rem; border-radius: 12px; box-sizing: border-box;">
+      <div class="video-container" data-testid="video-container" style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden; border-radius: 8px; z-index: 1;">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ COME FUNZIONA ═════════════════ -->
+<section id="come-funziona" class="section-pad">
+  <div class="container">
+    <div class="section-header" style="text-align:center">
+      <div class="section-tag"><span class="tag">Il Processo</span></div>
+      <h2>
+        <span class="reveal-line-wrap"><span class="reveal-line-inner">Come Funziona</span></span>
+      </h2>
+      <p style="margin:0 auto">Il percorso chiaro per iniziare a lavorare insieme.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-line"></div>
+
+      <div class="process-step reveal-up">
+        <span class="step-number step-num">1</span>
+        <div class="step-content glass">
+          <h3>Consulenza in videochiamata</h3>
+          <p>Ci incontreremo inizialmente in videochiamata, su appuntamento. Questo primo confronto serve per conoscerci, analizzare i tuoi obiettivi e capire come posso aiutarti.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal-up">
+        <span class="step-number step-num">2</span>
+        <div class="step-content glass">
+          <h3>Firma del contratto</h3>
+          <p>Per garantire un impegno reciproco serio e professionale, firmeremo un contratto chiaro e trasparente per evitare disguidi prima dell'incontro operativo.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal-up">
+        <span class="step-number step-num">3</span>
+        <div class="step-content glass">
+          <h3>Incontro di persona</h3>
+          <p>Sarò io a raggiungerti di persona. Analizzeremo ogni aspetto del tuo progetto per costruire insieme una strategia su misura che porti risultati concreti.</p>
+        </div>
+      </div>
+
+      <div class="process-step reveal-up">
+        <span class="step-number step-num">4</span>
+        <div class="step-content glass">
+          <h3>Avvio del lavoro</h3>
+          <p>Dopo l'incontro, si passa all'azione: inizieremo il percorso. Nessuna perdita di tempo, solo risultati.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ PREZZI ═════════════════ -->
+<section id="preventivi" class="section-pad">
+  <div id="prezzi"></div>
+  <div class="container">
+    <div class="section-header reveal-up" style="text-align:center">
+      <div class="section-tag"><span class="tag">Investimento</span></div>
+      <h2>
+        <span class="reveal-line-wrap"><span class="reveal-line-inner">Listino Prezzi</span></span>
+      </h2>
+      <p style="margin:0 auto">Trasparenza totale. Nessun costo nascosto, solo soluzioni su misura per la tua crescita.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card glass reveal-up">
+        <h3>Starter</h3>
+        <div class="price">€ 1200<span>/mese</span></div>
+        <p>Perfetto per liberi professionisti e piccole attività che vogliono una presenza curata e professionale.</p>
+        <ul>
+          <li>Gestione 2 profili social</li>
+          <li>Piano editoriale mensile</li>
+          <li>Creazione contenuti grafici</li>
+          <li>Report mensile base</li>
+        </ul>
+        <a href="#contatto" class="btn-ghost" style="width:100%; justify-content:center;">Richiedi</a>
+      </div>
+
+      <div class="pricing-card glass popular reveal-up">
+        <div class="popular-badge">Consigliato</div>
+        <h3>Growth</h3>
+        <div class="price">€ 2900<span>/mese</span></div>
+        <p>La soluzione ideale per aziende che vogliono acquisire clienti e scalare il proprio fatturato.</p>
+        <ul>
+          <li>Gestione 3 profili social</li>
+          <li>Campagne Ads incluse (Meta/Google)</li>
+          <li>Video Making & Reels (1 sessione/mese)</li>
+          <li>Funnel di acquisizione contatti</li>
+          <li>Consulenza strategica bi-settimanale</li>
+        </ul>
+        <a href="#contatto" class="btn-primary" style="width:100%; justify-content:center;">Richiedi</a>
+      </div>
+
+      <div class="pricing-card glass reveal-up">
+        <h3>Custom</h3>
+        <div class="price">Su Misura</div>
+        <p>Progetti complessi, e-commerce strutturati e restyling completi del brand.</p>
+        <ul>
+          <li>Sviluppo Sito Web / Shopify</li>
+          <li>Strategia multicanale avanzata</li>
+          <li>Shooting fotografico premium</li>
+          <li>Gestione budget Ads elevati</li>
+        </ul>
+        <a href="#contatto" class="btn-ghost" style="width:100%; justify-content:center;">Parliamone</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ LAVORI ═════════════════ -->
+<section id="lavori" class="section-pad">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <div class="section-tag"><span class="tag">Portfolio</span></div>
+      <h2>
+        <span class="reveal-line-wrap"><span class="reveal-line-inner">Lavori Selezionati</span></span>
+      </h2>
+      <p>Alcuni dei progetti su cui abbiamo lavorato.</p>
+    </div>
+
+    <div class="works-list">
+      <div class="work-item reveal-up">
+        <span class="work-num">01</span>
+        <span class="work-name">E-commerce Luxury Brand</span>
+        <span class="work-cat">Social + E-commerce</span>
+        <span class="work-year">2024</span>
+        <span class="work-arrow">↗</span>
+      </div>
+      <div class="work-item reveal-up">
+        <span class="work-num">02</span>
+        <span class="work-name">App Delivery Locale</span>
+        <span class="work-cat">App iOS/Android</span>
+        <span class="work-year">2024</span>
+        <span class="work-arrow">↗</span>
+      </div>
+      <div class="work-item reveal-up">
+        <span class="work-num">03</span>
+        <span class="work-name">Studio Professionale Milano</span>
+        <span class="work-cat">Brand + Web</span>
+        <span class="work-year">2024</span>
+        <span class="work-arrow">↗</span>
+      </div>
+      <div class="work-item reveal-up">
+        <span class="work-num">04</span>
+        <span class="work-name">Ristorante Stellato Calabria</span>
+        <span class="work-cat">Content + Social Media</span>
+        <span class="work-year">2023</span>
+        <span class="work-arrow">↗</span>
+      </div>
+      <div class="work-item reveal-up">
+        <span class="work-num">05</span>
+        <span class="work-name">Startup GreenTech</span>
+        <span class="work-cat">Growth Strategy</span>
+        <span class="work-year">2023</span>
+        <span class="work-arrow">↗</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ CTA FINALE ═════════════════ -->
+<section id="contatto" class="cta-section">
+  <div class="container cta-content">
+    <h2 class="reveal-up">
+      Pronto a far crescere<br>il tuo <span style="color:var(--acc1)">business</span>?
+    </h2>
+    <p class="reveal-up">Parliamone. Il primo passo è una consulenza gratuita.</p>
+    <div class="cta-buttons reveal-up">
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" target="_blank" rel="noopener noreferrer" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Prenota una Consulenza
+      </a>
+      <a href="https://wa.me/393927950038" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Scrivimi su WhatsApp
+      </a>
+    </div>
+    <div class="bandi-notice reveal-up" style="margin-top:3rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.9rem; color:rgba(255,255,255,0.6);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--acc1)" stroke-width="2" style="vertical-align:middle; margin-right:0.5rem;"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Hai vinto un bando o un finanziamento? <strong style="color:var(--acc1);">Accettiamo pagamenti tramite bandi</strong> e siamo disposti ad attendere l'erogazione dei fondi statali/regionali.
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════ CALENDARIO ═════════════════ -->
+<section class="calendar-section">
+  <div class="container">
+    <div class="section-header reveal-up" style="text-align:center">
+      <h2>
+        <span class="reveal-line-wrap"><span class="reveal-line-inner">Prenota la tua Consulenza</span></span>
+      </h2>
+      <p style="margin:0 auto">Scegli l'orario migliore per te direttamente dal mio calendario.</p>
+    </div>
+    <div class="calendar-wrapper reveal-up">
+      <iframe
+        src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true"
+        title="Prenota Consulenza Zulian"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═════════════════ FOOTER ═════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="src/assets/logo.png" alt="Zulian Logo" style="max-width:220px; border-radius:6px; margin-bottom:1.5rem; mix-blend-mode:screen;">
+        <p>La strategia vincente, fatta su misura. Aiuto aziende e professionisti a crescere online con strategie concrete.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti Diretti</h4>
+        <ul>
+          <li><a href="tel:+393927950038">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +39 392 795 0038
+          </a></li>
+          <li><a href="https://wa.me/393927950038" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a></li>
+          <li><a href="mailto:zuliansocial.info@gmail.com">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            zuliansocial.info@gmail.com
+          </a></li>
+          <li><a href="#">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Tutta Italia (base Reggio Calabria)
+          </a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Note Legali</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Termini e Condizioni</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Zulian Social Media Marketing — Tutti i diritti riservati.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com/zuliansocialmedia" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com/zuliansocialmedia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/marcozulian" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </a>
+        <a href="https://wa.me/393927950038" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═════════════════ WHATSAPP FLOATING ═════════════════ -->
+<a id="whatsapp-float" href="https://wa.me/393927950038" target="_blank" rel="noopener noreferrer" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═════════════════ PROJECT MODAL ═════════════════ -->
+<div id="project-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Chiudi">&times;</button>
+    <div class="modal-header">
+      <span class="modal-num"></span>
+      <span class="modal-cat"></span>
+      <span class="modal-year"></span>
+    </div>
+    <h2 class="modal-title"></h2>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>La Sfida</h3>
+        <p class="modal-challenge"></p>
+      </div>
+      <div class="modal-section">
+        <h3>La Soluzione</h3>
+        <p class="modal-solution"></p>
+      </div>
+      <div class="modal-section">
+        <h3>Risultati</h3>
+        <ul class="modal-results"></ul>
+      </div>
+    </div>
+    <div class="modal-cta">
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true" target="_blank" rel="noopener noreferrer" class="btn-primary">Vuoi risultati simili? Parliamone</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════ CDN SCRIPTS ═════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════
+   MAIN SCRIPT
+   ═══════════════════════════════════════════ */
+(function(){
+  'use strict';
+
+  // ─── VISIBILITY HALT RENDER LOOP ───
+  (function() {
+    const originalRaf = window.requestAnimationFrame;
+    const queuedCallbacks = [];
+    window.requestAnimationFrame = function(callback) {
+      if (document.hidden || document.visibilityState === 'hidden') {
+        queuedCallbacks.push(callback);
+        return 0;
+      }
+      return originalRaf(callback);
+    };
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && document.visibilityState !== 'hidden') {
+        const callbacks = queuedCallbacks.splice(0);
+        callbacks.forEach(cb => originalRaf(cb));
+      }
+    });
+  })();
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth < 768;
+
+  // ─── GSAP + ScrollTrigger ───
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden || document.visibilityState === 'hidden') {
+      gsap.ticker.sleep();
+    } else {
+      gsap.ticker.wake();
+    }
+  });
+
+  // ─── Lenis Smooth Scroll ───
+  let lenis;
+  if (!prefersReduced) {
+    lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // ─── LOADER ───
+  function initLoader() {
+    /* Disabled, using CinematicExperience */
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+
+    if (prefersReduced) {
+      tl.set('#preloader', { autoAlpha: 0 });
+      return;
+    }
+
+    tl.set('.loader-logo', { opacity: 1 })
+      .to('.loader-logo span', {
+        opacity: 1, y: 0, stagger: 0.1, duration: 0.4, ease: 'power3.out'
+      })
+      .to('.loader-bar-fill', {
+        width: '100%', duration: 1.2, ease: 'power2.inOut'
+      }, '-=0.3')
+      .to('.loader-content', {
+        opacity: 0, scale: 0.9, duration: 0.3, ease: 'power2.in'
+      })
+      .to('.loader-top', {
+        yPercent: -100, duration: 0.8, ease: 'power3.inOut'
+      }, '-=0.1')
+      .to('.loader-bottom', {
+        yPercent: 100, duration: 0.8, ease: 'power3.inOut'
+      }, '<')
+      .set('#preloader', { display: 'none' });
+  }
+
+  // ─── AFTER LOADER ───
+  function initAfterLoader() {
+    initHeroAnimations();
+    initScrollProgress();
+    initNavScroll();
+    initRevealAnimations();
+    initStatsCounter();
+    initStatementParallax();
+    initWhatsApp();
+    if (!isMobile && !prefersReduced) initCursor();
+    initMobileMenu();
+    initClickRipple();
+    initColorScroll();
+    initProjectModals();
+  }
+
+  // ─── HERO ANIMATIONS ───
+  function initHeroAnimations() {
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+
+    if (prefersReduced) {
+      gsap.set('.hero-logo, .hero-title .line-inner, .hero-subtitle, .hero-ctas, .hero-counter, .hero-scroll, .hero-tag', { opacity: 1, visibility: 'visible', y: 0, clearProps: 'transform' });
+      return;
+    }
+
+    tl.to('.hero-logo', { autoAlpha: 1, duration: 0.8 }, 0)
+      .to('.hero-tag', { opacity: 1, y: 0, duration: 0.6 }, 0)
+      .to('.hero-title .line-inner', {
+        y: 0, stagger: 0.1, duration: 1
+      }, 0.2)
+      .to('.hero-subtitle', {
+        opacity: 1, y: 0, duration: 0.8
+      }, 0.8)
+      .to('.hero-ctas', {
+        opacity: 1, y: 0, duration: 0.8
+      }, 1)
+      .to('.hero-counter', { opacity: 1, duration: 0.8 }, 1.2)
+      .to('.hero-scroll', { opacity: 1, duration: 0.8 }, 1.4);
+
+    // Hero counter
+    const counterEl = document.querySelector('.hero-counter .counter-num');
+    if (counterEl) {
+      const target = parseInt(counterEl.dataset.target);
+      gsap.to(counterEl, {
+        textContent: target,
+        duration: 2,
+        delay: 1.5,
+        snap: { textContent: 1 },
+        ease: 'power2.out',
+        onUpdate: function() {
+          counterEl.textContent = Math.round(parseFloat(counterEl.textContent)) + '+';
+        }
+      });
+    }
+  }
+
+  // ─── HERO ORBS (mouse parallax) ───
+  function initHeroOrbs() {
+    if (isMobile || prefersReduced) return;
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * 2;
+      gsap.to('.orb-1', { x: x * 40, y: y * 25, duration: 2.5, ease: 'power2.out' });
+      gsap.to('.orb-2', { x: x * -30, y: y * 35, duration: 3, ease: 'power2.out' });
+      gsap.to('.orb-3', { x: x * 25, y: y * -20, duration: 3.5, ease: 'power2.out' });
+    });
+  }
+
+  // ─── SCROLL PROGRESS ───
+  function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress');
+    gsap.to(bar, {
+      width: '100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3
+      }
+    });
+  }
+
+  // ─── NAV SCROLL ───
+  function initNavScroll() {
+    const nav = document.getElementById('navbar');
+    ScrollTrigger.create({
+      start: 80,
+      onUpdate: (self) => {
+        if (self.scroll() > 80) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      }
+    });
+  }
+
+  // ─── REVEAL ANIMATIONS ───
+  function initRevealAnimations() {
+    // Reveal up elements
+    gsap.utils.toArray('.reveal-up').forEach((el) => {
+      if (prefersReduced) return;
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(el, 
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' }
+          );
+        }
+      });
+    });
+
+    // Reveal line inners (title word reveals)
+    gsap.utils.toArray('.reveal-line-inner').forEach((el) => {
+      if (prefersReduced) return;
+      ScrollTrigger.create({
+        trigger: el.parentElement,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(el,
+            { y: '110%' },
+            { y: 0, duration: 1.5, ease: 'power4.out' }
+          );
+        }
+      });
+    });
+  }
+
+  // ─── STATS COUNTER ───
+  function initStatsCounter() {
+    gsap.utils.toArray('.stats-section .stat-num').forEach((el) => {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const prefix = el.dataset.prefix || '';
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(el, {
+            textContent: target,
+            duration: prefersReduced ? 0 : 2,
+            snap: { textContent: target < 10 ? 0.1 : 1 },
+            ease: 'power2.out',
+            onUpdate: function() {
+              const val = target < 10
+                ? parseFloat(parseFloat(el.textContent).toFixed(1))
+                : Math.round(parseFloat(el.textContent));
+              el.textContent = prefix + val + suffix;
+            }
+          });
+        }
+      });
+    });
+  }
+
+  // ─── STATEMENT PARALLAX ───
+  function initStatementParallax() {
+    if (prefersReduced) return;
+    gsap.to('.statement-text', {
+      y: -50,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.statement-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1
+      }
+    });
+  }
+
+  // ─── WHATSAPP BUTTON ───
+  function initWhatsApp() {
+    const btn = document.getElementById('whatsapp-float');
+    gsap.to(btn, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.5,
+      delay: prefersReduced ? 0 : 2.5,
+      ease: 'back.out(1.7)'
+    });
+  }
+
+  // ─── CUSTOM CURSOR ───
+  function initCursor() {
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    const canvas = document.getElementById('cursor-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+    const trail = [];
+    const maxTrail = 20;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+      trail.push({ x: mouseX, y: mouseY, life: 1 });
+      if (trail.length > maxTrail) trail.shift();
+    });
+
+    // Hover detection
+    const hoverEls = 'a, button, [role="button"], input, textarea, select, .work-item';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverEls)) document.body.classList.add('cursor-hover');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverEls)) document.body.classList.remove('cursor-hover');
+    });
+
+    let isCursorPaused = false;
+    function tick() {
+      if (document.hidden || document.visibilityState === 'hidden') {
+        isCursorPaused = true;
+        return;
+      }
+      isCursorPaused = false;
+      // Ring follows with lerp
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+
+      // Canvas trail
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < trail.length; i++) {
+        const p = trail[i];
+        p.life -= 0.04;
+        if (p.life <= 0) continue;
+        const size = p.life * 4;
+        const alpha = p.life * 0.35;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, size);
+        gradient.addColorStop(0, `rgba(123, 92, 255, ${alpha})`);
+        gradient.addColorStop(1, `rgba(255, 60, 172, 0)`);
+        ctx.fillStyle = gradient;
+        ctx.fill();
+      }
+      // Remove dead points
+      while (trail.length > 0 && trail[0].life <= 0) trail.shift();
+
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && document.visibilityState !== 'hidden' && isCursorPaused) {
+        isCursorPaused = false;
+        requestAnimationFrame(tick);
+      }
+    });
+  }
+
+  // ─── MOBILE MENU ───
+  function initMobileMenu() {
+    const burger = document.querySelector('.nav-burger');
+    const menu = document.getElementById('mobile-menu');
+    const links = menu.querySelectorAll('a');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      menu.classList.toggle('open');
+      document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+      if (lenis) {
+        if (menu.classList.contains('open')) lenis.stop();
+        else lenis.start();
+      }
+    });
+
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+        if (lenis) lenis.start();
+      });
+    });
+  }
+
+  // ─── CLICK RIPPLE ───
+  function initClickRipple() {
+    if (prefersReduced) return;
+    document.addEventListener('click', (e) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'click-ripple';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      document.body.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  }
+
+  // ─── PROJECT MODALS ───
+  function initProjectModals() {
+    const projectData = [
+      {
+        num: '01', name: 'E-commerce Luxury Brand', cat: 'Social + E-commerce', year: '2024',
+        challenge: 'Un brand di lusso emergente aveva bisogno di una presenza digitale all\'altezza dei suoi prodotti premium, con un e-commerce che comunicasse esclusività e un piano social che generasse desiderio.',
+        solution: 'Abbiamo creato una strategia social basata su storytelling visivo di alta qualità, campagne Meta con targeting preciso sul segmento luxury, e un e-commerce Shopify custom con UX ottimizzata per la conversione.',
+        results: ['+340% vendite online in 6 mesi', 'ROAS medio 4.8x sulle campagne', '+12K follower organici su Instagram', 'Tasso di conversione e-commerce al 3.2%']
+      },
+      {
+        num: '02', name: 'App Delivery Locale', cat: 'App iOS/Android', year: '2024',
+        challenge: 'Un servizio di delivery locale voleva competere con i grandi player nazionali, offrendo un\'esperienza più personalizzata e tempi di consegna imbattibili nella propria zona.',
+        solution: 'Sviluppo di un\'app nativa iOS/Android con tracking in tempo reale, sistema di loyalty integrato, e una campagna di lancio geolocalizzata con influencer locali.',
+        results: ['+5.000 download nel primo mese', 'Tempo medio consegna: 22 minuti', '4.8 stelle su App Store', '68% tasso di riordino']
+      },
+      {
+        num: '03', name: 'Studio Professionale Milano', cat: 'Brand + Web', year: '2024',
+        challenge: 'Uno studio professionale milanese con 20 anni di esperienza aveva un\'immagine datata e nessuna presenza online strutturata. Perdeva opportunità rispetto a competitor più giovani ma più visibili.',
+        solution: 'Rebrand completo con nuova identità visiva, sito web professionale con SEO locale, e strategia LinkedIn per il personal branding dei partner dello studio.',
+        results: ['+180% visite al sito in 3 mesi', '15 nuovi clienti dal canale digitale', 'Prima pagina Google per keywords locali', 'Engagement LinkedIn +400%']
+      },
+      {
+        num: '04', name: 'Ristorante Stellato Calabria', cat: 'Content + Social Media', year: '2023',
+        challenge: 'Un ristorante di alta cucina calabrese voleva attrarre turismo gastronomico di qualità e posizionarsi come esperienza culinaria unica nel Sud Italia.',
+        solution: 'Produzione video cinematografica del menu e dell\'esperienza, gestione social con focus su food photography premium, e campagne stagionali per eventi esclusivi.',
+        results: ['Prenotazioni raddoppiate in stagione', '+8K follower Instagram in 4 mesi', 'Menzione su 3 guide gastronomiche', 'Sold out per 6 eventi su 6']
+      },
+      {
+        num: '05', name: 'Startup GreenTech', cat: 'Growth Strategy', year: '2023',
+        challenge: 'Una startup nel settore cleantech aveva un prodotto innovativo ma faticava a trovare i primi clienti B2B e a comunicare il valore della propria tecnologia.',
+        solution: 'Strategia di go-to-market con funnel B2B, content marketing tecnico, LinkedIn Ads mirate ai decision maker, e partnership con associazioni di settore.',
+        results: ['23 lead qualificati in 2 mesi', '3 contratti enterprise firmati', 'Costo per lead ridotto del 60%', 'Articolo su testata di settore nazionale']
+      }
+    ];
+
+    const modal = document.getElementById('project-modal');
+    const items = document.querySelectorAll('.work-item');
+
+    items.forEach((item, index) => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        const data = projectData[index];
+        if (!data) return;
+        modal.querySelector('.modal-num').textContent = data.num;
+        modal.querySelector('.modal-cat').textContent = data.cat;
+        modal.querySelector('.modal-year').textContent = data.year;
+        modal.querySelector('.modal-title').textContent = data.name;
+        modal.querySelector('.modal-challenge').textContent = data.challenge;
+        modal.querySelector('.modal-solution').textContent = data.solution;
+        const resultsList = modal.querySelector('.modal-results');
+        resultsList.innerHTML = data.results.map(r => '<li>' + r + '</li>').join('');
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (typeof lenis !== 'undefined' && lenis) lenis.stop();
+      });
+    });
+
+    modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (typeof lenis !== 'undefined' && lenis) lenis.start();
+    }
+  }
+
+  // ─── Smooth scroll for anchor links ───
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        if (lenis) lenis.scrollTo(target, { offset: -80 });
+        else target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  
+  // ─── GSAP COLOR SCROLL ───
+  function initColorScroll() {
+    // Array of sections and their corresponding luxury background colors
+    const sections = [
+      { id: '#hero', color: '#0d0d0d' },
+      { id: '#servizi', color: '#0A0A0E' },
+      { id: '.dashboard-section', color: '#0d0d0d' },
+      { id: '.stats-section', color: '#0A0A0E' },
+      { id: '#chi-sono', color: '#0d0d0d' },
+      { id: '#come-funziona', color: '#0A0A0E' },
+      { id: '#prezzi', color: '#0D0B05' }, // Very deep gold-tinted black
+      { id: '#lavori', color: '#0d0d0d' },
+      { id: '#contatto', color: '#0A0A0E' }
+    ];
+
+    sections.forEach(sec => {
+      const el = document.querySelector(sec.id);
+      if(el) {
+        // Remove static backgrounds to let body color show through
+        el.style.background = 'transparent';
+        
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          onEnter: () => gsap.to('body', { backgroundColor: sec.color, duration: 1.5, ease: 'power2.out' }),
+          onEnterBack: () => gsap.to('body', { backgroundColor: sec.color, duration: 1.5, ease: 'power2.out' })
+        });
+      }
+    });
+    
+    // Ensure body starts with correct color
+    document.body.style.backgroundColor = '#0d0d0d';
+  }
+
+  // ─── INIT ───
+  // initLoader() handled by cinematic.js
+  window.initAfterLoader = initAfterLoader;
+
+})();
+</script>
+
+  <script src="src/assets/cinematic.js"></script>
+
+<!-- SVG FILTERS -->
+<svg style="display:none;">
+  <filter id="glass-distort">
+    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" xChannelSelector="R" yChannelSelector="G" />
+  </filter>
+</svg>
+</body>
+
 </html>

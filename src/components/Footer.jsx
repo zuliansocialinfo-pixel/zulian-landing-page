@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import logoImg from '../assets/logo.jpg';
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
         }}>
           <div>
             <div style={{ marginBottom: '1.5rem' }}>
-              <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ height: '60px', width: 'auto', borderRadius: '4px' }} />
+              <img src={logoImg} alt="Zulian Logo" style={{ height: '60px', width: 'auto', borderRadius: '4px' }} />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
               La strategia vincente, fatta su misura. Aiuto aziende e professionisti a crescere online con strategie concrete.
@@ -26,6 +27,10 @@ const Footer = () => {
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
                 <Phone size={18} className="text-accent" />
                 <a href="tel:+393927950038" style={{ transition: 'color 0.3s' }}>+39 3927950038</a>
+              </li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+                <MessageCircle size={18} className="text-accent" />
+                <a href="https://wa.me/393927950038" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.3s' }}>WhatsApp</a>
               </li>
               <li style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
                 <Mail size={18} className="text-accent" />

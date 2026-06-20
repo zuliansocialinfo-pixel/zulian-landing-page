@@ -1,0 +1,363 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: tier2/about-section.spec.ts >> About Section (Chi Sono) - Tier 2 >> T3.2.3: Verify the biography profile image source returns 200 OK status
+- Location: e2e-tests/tier2/about-section.spec.ts:32:3
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator:  locator('#chi-sono img').first()
+Expected: visible
+Received: hidden
+Timeout:  5000ms
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for locator('#chi-sono img').first()
+    14 × locator resolved to <img loading="lazy" src="src/assets/face.jpg" alt="Marco Zulian — Fondatore di Zulian Social Media Marketing"/>
+       - unexpected value "hidden"
+
+```
+
+```yaml
+- navigation:
+  - link "Servizi":
+    - /url: "#servizi"
+  - link "Chi Sono":
+    - /url: "#chi-sono"
+  - link "Come Funziona":
+    - /url: "#come-funziona"
+  - link "Lavori":
+    - /url: "#lavori"
+  - link "Contatto":
+    - /url: "#contatto"
+  - link "Prenota Consulenza":
+    - /url: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true
+- banner:
+  - navigation:
+    - link "Zulian Logo":
+      - /url: "#"
+      - img "Zulian Logo"
+    - link "Servizi":
+      - /url: "#servizi"
+    - link "Chi Sono":
+      - /url: "#chi-sono"
+    - link "Come Funziona":
+      - /url: "#come-funziona"
+    - link "Lavori":
+      - /url: "#lavori"
+    - link "Contatto":
+      - /url: "#contatto"
+    - link "Prenota":
+      - /url: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true
+- main:
+  - img "Zulian Logo"
+  - text: ↳ Social Media Marketing & Crescita Digitale
+  - heading "Strategie concrete. Risultati reali. Crescita misurabile." [level=1]
+  - paragraph: Aiuto aziende e professionisti a crescere online con un approccio serio, trasparente e basato sui dati. Niente promesse vuote — solo strategie su misura che portano risultati.
+  - link "Prenota una Consulenza":
+    - /url: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true
+    - img
+    - text: Prenota una Consulenza
+  - link "Scopri i servizi":
+    - /url: "#servizi"
+    - text: Scopri i servizi
+    - img
+  - text: 150+ Clienti soddisfatti
+  - img
+  - text: Social Media Pubblicità Online Content Creation Brand Strategy E-commerce Web Design Growth Hacking Video & Reels Social Media Pubblicità Online Content Creation Brand Strategy E-commerce Web Design Growth Hacking Video & Reels Cosa Facciamo
+  - heading "I Nostri Servizi" [level=2]
+  - paragraph: Niente scorciatoie, solo strategie concrete che fanno crescere davvero.
+  - text: "01"
+  - img
+  - heading "Analisi e Strategia" [level=3]
+  - paragraph: Analisi strategica del mercato, pianificazione del posizionamento e integrazione di Bandi e Finanziamenti pubblici per supportare la crescita.
+  - list:
+    - listitem: · Analisi del mercato e dei competitor
+    - listitem: · Definizione del target e del posizionamento
+    - listitem: · Integrazione Bandi e Finanziamenti
+    - listitem: · Strategia di funnel marketing
+  - text: Scopri → 02
+  - img
+  - heading "Gestione Social" [level=3]
+  - paragraph: Gestione completa della presenza organica sui principali canali social per costruire community e relazioni solide.
+  - list:
+    - listitem: · Content strategy & Copywriting
+    - listitem: · Piano editoriale e moderazione community
+    - listitem: · Gestione profili Instagram, Facebook, LinkedIn
+    - listitem: · Report periodici delle performance
+  - text: Scopri → 03
+  - img
+  - heading "Pubblicità Online" [level=3]
+  - paragraph: Campagne pubblicitarie a pagamento mirate per generare contatti qualificati e vendite immediate.
+  - list:
+    - listitem: · Advertising su Meta (Facebook & Instagram)
+    - listitem: · Google Ads (Search, Display, Shopping)
+    - listitem: · Retargeting avanzato delle audience
+    - listitem: · Ottimizzazione continua del ROI
+  - text: Scopri → 04
+  - img
+  - heading "Siti Web ed E-commerce" [level=3]
+  - paragraph: Sviluppo di piattaforme web veloci, responsive e ottimizzate per la massima conversione dei visitatori.
+  - list:
+    - listitem: · Web design moderno e UX/UI personalizzata
+    - listitem: · E-commerce e sistemi di pagamento sicuri
+    - listitem: · Velocità e ottimizzazione SEO tecnica
+    - listitem: · Manutenzione e integrazione analytics
+  - text: Scopri → 05
+  - img
+  - heading "Creazione Contenuti" [level=3]
+  - paragraph: Produzione di materiale visivo e testuale di alta qualità che cattura l'attenzione e comunica il valore del brand.
+  - list:
+    - listitem: · Produzione foto e video professionali
+    - listitem: · Copywriting persuasivo per web e social
+    - listitem: · Grafica personalizzata e brand assets
+    - listitem: · Reels e formati video brevi ottimizzati
+  - text: Scopri →
+  - img "Zulian Marketing Dashboard"
+  - heading "Dati alla mano" [level=3]
+  - paragraph: Monitoriamo le metriche che contano davvero per il tuo business. Report trasparenti, conversioni reali, crescita misurabile.
+  - text: 0 Clienti 0 Impression / mese 0 Progetti completati 0 Soddisfazione
+  - paragraph: "\"Non vendo scorciatoie. Costruisco percorsi.\""
+  - text: Chi Sono
+  - heading "Il Mio Percorso" [level=2]
+  - paragraph:
+    - text: Mi chiamo
+    - strong: Marco Zulian
+    - text: e vengo da una famiglia operaia. Ho iniziato a lavorare presto, imparando sul campo il valore dell'impegno, della responsabilità e della determinazione.
+  - paragraph:
+    - text: "Nulla è arrivato per caso: ogni traguardo è stato costruito con sacrificio, costanza e voglia di crescere. Questo percorso mi ha insegnato valori che porto ogni giorno nel mio lavoro:"
+    - strong: serietà, coerenza, rispetto e concretezza.
+  - paragraph: "Non vendo scorciatoie né promesse irrealistiche: costruisco percorsi solidi, passo dopo passo, con trasparenza, competenza e obiettivi concreti."
+  - text: 2021 Anno di fondazione Italia Operativo ovunque
+  - img "Marco Zulian — Fondatore di Zulian Social Media Marketing"
+  - heading "I Miei Valori" [level=4]
+  - list:
+    - listitem:
+      - img
+      - text: Risultati misurabili
+    - listitem:
+      - img
+      - text: Trasparenza totale
+    - listitem:
+      - img
+      - text: Concretezza, non promesse
+    - listitem:
+      - img
+      - text: Partnership vera, non fornitore
+  - heading "Presentazione Video" [level=2]
+  - iframe
+  - text: Il Processo
+  - heading "Come Funziona" [level=2]
+  - paragraph: Il percorso chiaro per iniziare a lavorare insieme.
+  - text: "1"
+  - heading "Consulenza in videochiamata" [level=3]
+  - paragraph: Ci incontreremo inizialmente in videochiamata, su appuntamento. Questo primo confronto serve per conoscerci, analizzare i tuoi obiettivi e capire come posso aiutarti.
+  - text: "2"
+  - heading "Firma del contratto" [level=3]
+  - paragraph: Per garantire un impegno reciproco serio e professionale, firmeremo un contratto chiaro e trasparente per evitare disguidi prima dell'incontro operativo.
+  - text: "3"
+  - heading "Incontro di persona" [level=3]
+  - paragraph: Sarò io a raggiungerti di persona. Analizzeremo ogni aspetto del tuo progetto per costruire insieme una strategia su misura che porti risultati concreti.
+  - text: "4"
+  - heading "Avvio del lavoro" [level=3]
+  - paragraph: "Dopo l'incontro, si passa all'azione: inizieremo il percorso. Nessuna perdita di tempo, solo risultati."
+  - text: Investimento
+  - heading "Listino Prezzi" [level=2]
+  - paragraph: Trasparenza totale. Nessun costo nascosto, solo soluzioni su misura per la tua crescita.
+  - heading "Starter" [level=3]
+  - text: € 1200/mese
+  - paragraph: Perfetto per liberi professionisti e piccole attività che vogliono una presenza curata e professionale.
+  - list:
+    - listitem: ✓ Gestione 2 profili social
+    - listitem: ✓ Piano editoriale mensile
+    - listitem: ✓ Creazione contenuti grafici
+    - listitem: ✓ Report mensile base
+  - link "Richiedi":
+    - /url: "#contatto"
+  - text: Consigliato
+  - heading "Growth" [level=3]
+  - text: € 2900/mese
+  - paragraph: La soluzione ideale per aziende che vogliono acquisire clienti e scalare il proprio fatturato.
+  - list:
+    - listitem: ✓ Gestione 3 profili social
+    - listitem: ✓ Campagne Ads incluse (Meta/Google)
+    - listitem: ✓ Video Making & Reels (1 sessione/mese)
+    - listitem: ✓ Funnel di acquisizione contatti
+    - listitem: ✓ Consulenza strategica bi-settimanale
+  - link "Richiedi":
+    - /url: "#contatto"
+  - heading "Custom" [level=3]
+  - text: Su Misura
+  - paragraph: Progetti complessi, e-commerce strutturati e restyling completi del brand.
+  - list:
+    - listitem: ✓ Sviluppo Sito Web / Shopify
+    - listitem: ✓ Strategia multicanale avanzata
+    - listitem: ✓ Shooting fotografico premium
+    - listitem: ✓ Gestione budget Ads elevati
+  - link "Parliamone":
+    - /url: "#contatto"
+  - text: Portfolio
+  - heading "Lavori Selezionati" [level=2]
+  - paragraph: Alcuni dei progetti su cui abbiamo lavorato.
+  - text: 01 E-commerce Luxury Brand Social + E-commerce 2024 ↗ 02 App Delivery Locale App iOS/Android 2024 ↗ 03 Studio Professionale Milano Brand + Web 2024 ↗ 04 Ristorante Stellato Calabria Content + Social Media 2023 ↗ 05 Startup GreenTech Growth Strategy 2023 ↗
+  - heading "Pronto a far crescere il tuo business?" [level=2]
+  - paragraph: Parliamone. Il primo passo è una consulenza gratuita.
+  - link "Prenota una Consulenza":
+    - /url: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true
+    - img
+    - text: Prenota una Consulenza
+  - link "Scrivimi su WhatsApp":
+    - /url: https://wa.me/393927950038
+    - img
+    - text: Scrivimi su WhatsApp
+  - img
+  - text: Hai vinto un bando o un finanziamento?
+  - strong: Accettiamo pagamenti tramite bandi
+  - text: e siamo disposti ad attendere l'erogazione dei fondi statali/regionali.
+  - heading "Prenota la tua Consulenza" [level=2]
+  - paragraph: Scegli l'orario migliore per te direttamente dal mio calendario.
+  - iframe
+- contentinfo:
+  - img "Zulian Logo"
+  - paragraph: La strategia vincente, fatta su misura. Aiuto aziende e professionisti a crescere online con strategie concrete.
+  - heading "Contatti Diretti" [level=4]
+  - list:
+    - listitem:
+      - link "+39 392 795 0038":
+        - /url: tel:+393927950038
+        - img
+        - text: +39 392 795 0038
+    - listitem:
+      - link "WhatsApp":
+        - /url: https://wa.me/393927950038
+        - img
+        - text: WhatsApp
+    - listitem:
+      - link "zuliansocial.info@gmail.com":
+        - /url: mailto:zuliansocial.info@gmail.com
+        - img
+        - text: zuliansocial.info@gmail.com
+    - listitem:
+      - link "Tutta Italia (base Reggio Calabria)":
+        - /url: "#"
+        - img
+        - text: Tutta Italia (base Reggio Calabria)
+  - heading "Note Legali" [level=4]
+  - list:
+    - listitem:
+      - link "Privacy Policy":
+        - /url: "#"
+    - listitem:
+      - link "Cookie Policy":
+        - /url: "#"
+    - listitem:
+      - link "Termini e Condizioni":
+        - /url: "#"
+  - text: © 2025 Zulian Social Media Marketing — Tutti i diritti riservati.
+  - link "Instagram":
+    - /url: https://instagram.com/zuliansocialmedia
+    - img
+  - link "Facebook":
+    - /url: https://facebook.com/zuliansocialmedia
+    - img
+  - link "LinkedIn":
+    - /url: https://linkedin.com/in/marcozulian
+    - img
+  - link "WhatsApp":
+    - /url: https://wa.me/393927950038
+    - img
+- link "Scrivici su WhatsApp":
+  - /url: https://wa.me/393927950038
+  - img
+- button "Chiudi": ×
+- heading [level=2]
+- heading "La Sfida" [level=3]
+- paragraph
+- heading "La Soluzione" [level=3]
+- paragraph
+- heading "Risultati" [level=3]
+- list
+- link "Vuoi risultati simili? Parliamone":
+  - /url: https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce?gv=true
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('About Section (Chi Sono) - Tier 2', () => {
+  4  |   test.beforeEach(async ({ page }) => {
+  5  |     await page.goto('/');
+  6  |     const preloader = page.locator('#preloader, .preloader, [data-testid="preloader"]');
+  7  |     await expect(preloader).toBeHidden({ timeout: 10000 }).catch(() => {});
+  8  |   });
+  9  | 
+  10 |   test('T3.2.1: Verify Chi Sono section layout on Galaxy Fold (280px width)', async ({ page }) => {
+  11 |     await page.setViewportSize({ width: 280, height: 653 });
+  12 |     const section = page.locator('#chi-sono');
+  13 |     await expect(section).toBeVisible();
+  14 |     
+  15 |     // Check that the parent grid/flex container wraps elements correctly
+  16 |     const container = section.locator('.container');
+  17 |     const width = await container.evaluate((el) => el.clientWidth);
+  18 |     expect(width).toBeLessThanOrEqual(280);
+  19 |   });
+  20 | 
+  21 |   test('T3.2.2: Verify Chi Sono section layout on 4K resolution (3840x2160)', async ({ page }) => {
+  22 |     await page.setViewportSize({ width: 3840, height: 2160 });
+  23 |     const section = page.locator('#chi-sono');
+  24 |     await expect(section).toBeVisible();
+  25 |     
+  26 |     // Verify that the card does not expand to cover the whole screen width (should respect max-width container)
+  27 |     const container = section.locator('.container');
+  28 |     const width = await container.evaluate((el) => el.clientWidth);
+  29 |     expect(width).toBeLessThanOrEqual(1280); // max-width container should clamp it
+  30 |   });
+  31 | 
+  32 |   test('T3.2.3: Verify the biography profile image source returns 200 OK status', async ({ page }) => {
+  33 |     const img = page.locator('#chi-sono img').first();
+> 34 |     await expect(img).toBeVisible();
+     |                       ^ Error: expect(locator).toBeVisible() failed
+  35 |     
+  36 |     const imgSrc = await img.getAttribute('src');
+  37 |     expect(imgSrc).not.toBeNull();
+  38 |     
+  39 |     // Verify the URL resolves correctly
+  40 |     const response = await page.request.get(imgSrc!);
+  41 |     expect(response.status()).toBe(200);
+  42 |   });
+  43 | 
+  44 |   test('T3.2.4: Verify the glassmorphism card has correct CSS backdrop-filter styling for premium UI contrast', async ({ page }) => {
+  45 |     const glassCard = page.locator('#chi-sono .glass').first();
+  46 |     await expect(glassCard).toBeVisible();
+  47 |     
+  48 |     const backdropFilter = await glassCard.evaluate((el) => {
+  49 |       const style = window.getComputedStyle(el);
+  50 |       return style.backdropFilter || style.webkitBackdropFilter;
+  51 |     });
+  52 |     expect(backdropFilter).toContain('blur');
+  53 |   });
+  54 | 
+  55 |   test('T3.2.5: Verify no horizontal scrollbar is triggered when biography card is hovered or resized', async ({ page }) => {
+  56 |     await page.setViewportSize({ width: 375, height: 667 });
+  57 |     const glassCard = page.locator('#chi-sono .glass').first();
+  58 |     await glassCard.hover();
+  59 |     
+  60 |     const hasScrollbar = await page.evaluate(() => {
+  61 |       return document.documentElement.scrollWidth > document.documentElement.clientWidth;
+  62 |     });
+  63 |     expect(hasScrollbar).toBeFalsy();
+  64 |   });
+  65 | });
+  66 | 
+```

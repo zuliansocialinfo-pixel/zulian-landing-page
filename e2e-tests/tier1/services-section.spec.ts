@@ -13,7 +13,7 @@ test.describe('Services Section', () => {
   });
 
   test('T4.2: Verify exactly 5 service cards/items are rendered in the DOM', async ({ page }) => {
-    const servicesSection = page.locator('section', { hasText: /Servizi/i }).first();
+    const servicesSection = page.locator('section#servizi');
     // Assuming service cards are list items or divs inside a grid/flex container
     // We can check for specific texts to count them, or rely on common classes
     const expectedServices = [
@@ -24,7 +24,7 @@ test.describe('Services Section', () => {
       'Creazione Contenuti'
     ];
     for (const service of expectedServices) {
-      await expect(servicesSection.locator(`text=${service}`)).toBeVisible();
+      await expect(servicesSection.locator(`h3:has-text("${service}")`).first()).toBeVisible();
     }
   });
 

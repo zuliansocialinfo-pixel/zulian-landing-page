@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import logoImg from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import VideoShowcase from './components/VideoShowcase';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import BackgroundGlows from './components/BackgroundGlows';
+import BackgroundParticles from './components/BackgroundParticles';
 
 function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: 'hidden', position: 'relative' }}>
+      <BackgroundGlows />
+      <BackgroundParticles />
       <Preloader />
       
       {/* Dynamic Header */}
@@ -25,14 +34,34 @@ function App() {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
+            <img src={logoImg} alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
           </div>
-          <nav style={{ display: 'flex', gap: '2rem' }} className="hidden-mobile">
-            <a href="#chi-sono" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
-            <a href="#servizi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Servizi</a>
-            <a href="#come-funziona" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Come Funziona</a>
-            <a href="#preventivi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Prezzi</a>
+          
+          <nav style={{ gap: '2rem' }} className={`nav-menu ${mobileMenuOpen ? 'open' : ''}`}>
+            <a href="#chi-sono" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
+            <a href="#servizi" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Servizi</a>
+            <a href="#come-funziona" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Come Funziona</a>
+            <a href="#preventivi" onClick={() => setMobileMenuOpen(false)} style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Prezzi</a>
           </nav>
+
+          <button 
+            aria-label="Menu"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="mobile-toggle"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--text-primary)',
+              display: 'none',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              outline: 'none',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </header>
 
@@ -40,6 +69,7 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <VideoShowcase />
         <HowItWorks />
         <Pricing />
         
@@ -62,6 +92,46 @@ function App() {
 
       <Footer />
       <FloatingWhatsApp />
+      <style>{`
+        @media (min-width: 1024px) {
+          .nav-menu {
+            display: flex !important;
+            flex-direction: row;
+          }
+          .mobile-toggle {
+            display: none !important;
+          }
+        }
+        @media (max-width: 1023px) {
+          .mobile-toggle {
+            display: flex !important;
+          }
+          .nav-menu {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 4rem 2rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 2.5rem;
+            z-index: 99;
+            border-top: 1px solid var(--glass-border);
+          }
+          .nav-menu.open {
+            display: flex !important;
+          }
+          .nav-menu a {
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

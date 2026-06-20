@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import faceImg from '../assets/face.jpg';
 
 const About = () => {
   return (
@@ -51,7 +52,7 @@ const About = () => {
             </div>
             
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              <img src="/src/assets/face.jpg" alt="Marco Zulian" style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--accent-color)' }} />
+              <img src={faceImg} alt="Marco Zulian" style={{ width: '150px', height: '150px', borderRadius: '50%', objectFit: 'cover', border: '3px solid var(--accent-color)' }} />
             </div>
             <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem' }}>Chi c'è dietro Zulian Social Media Marketing</h3>
             <p style={{ color: 'var(--text-primary)', fontSize: '1.05rem', fontStyle: 'italic', marginBottom: '2rem' }}>

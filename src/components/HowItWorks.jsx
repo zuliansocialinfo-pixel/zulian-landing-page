@@ -1,26 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Video, FileSignature, Users, Rocket } from 'lucide-react';
-
 const steps = [
   {
-    icon: <Video size={32} />,
-    title: "1. Consulenza in videochiamata",
+    title: "Consulenza in videochiamata",
     desc: "Ci incontreremo inizialmente in videochiamata, su appuntamento. Questo primo confronto serve per conoscerci, analizzare i tuoi obiettivi e capire come posso aiutarti."
   },
   {
-    icon: <FileSignature size={32} />,
-    title: "2. Firma del contratto",
+    title: "Firma del contratto",
     desc: "Per garantire un impegno reciproco serio e professionale, firmeremo un contratto chiaro e trasparente per evitare disguidi prima dell'incontro operativo."
   },
   {
-    icon: <Users size={32} />,
-    title: "3. Incontro di persona",
+    title: "Incontro di persona",
     desc: "Sarò io a raggiungerti di persona. Analizzeremo ogni aspetto del tuo progetto per costruire insieme una strategia su misura che porti risultati concreti."
   },
   {
-    icon: <Rocket size={32} />,
-    title: "4. Avvio del lavoro",
+    title: "Avvio del lavoro",
     desc: "Dopo l'incontro, si passa all'azione: inizieremo il percorso. Nessuna perdita di tempo, solo risultati."
   }
 ];
@@ -61,23 +55,31 @@ const HowItWorks = () => {
                 zIndex: 1
               }}
             >
-              <div style={{
-                width: '64px',
-                height: '64px',
-                borderRadius: '50%',
-                backgroundColor: 'var(--bg-color)',
-                border: '2px solid var(--accent-color)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: 'var(--accent-color)',
-                flexShrink: 0
-              }}>
-                {step.icon}
+              <div 
+                data-testid="process-step"
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--bg-color)',
+                  border: '2px solid var(--accent-color)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'var(--accent-color)',
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  flexShrink: 0,
+                  zIndex: 2
+                }}
+              >
+                {index + 1}
               </div>
               
               <div className="glass" style={{ padding: '2rem', flexGrow: 1 }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem' }}>{step.title}</h3>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.8rem' }}>
+                  {index + 1}. {step.title}
+                </h3>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>{step.desc}</p>
               </div>
             </motion.div>

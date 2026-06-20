@@ -1,0 +1,63 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: tier1/footer-policy.spec.ts >> Footer & Policy Links >> T6.4: Verify the Privacy Policy and Cookie Policy links are visible
+- Location: e2e-tests/tier1/footer-policy.spec.ts:28:3
+
+# Error details
+
+```
+Error: expect.toBeVisible: Target page, context or browser has been closed
+```
+
+# Test source
+
+```ts
+  1  | import { test, expect } from '@playwright/test';
+  2  | 
+  3  | test.describe('Footer & Policy Links', () => {
+  4  |   test.beforeEach(async ({ page }) => {
+  5  |     await page.goto('/');
+  6  |     const preloader = page.locator('#preloader, .preloader, [data-testid="preloader"]');
+  7  |     await expect(preloader).toBeHidden({ timeout: 10000 }).catch(() => {});
+  8  |   });
+  9  | 
+  10 |   test('T6.1: Verify the Footer element renders at the very bottom of the document', async ({ page }) => {
+  11 |     const footer = page.locator('footer');
+  12 |     await expect(footer).toBeVisible();
+  13 |     const footerBox = await footer.boundingBox();
+  14 |     const bodyBox = await page.locator('body').boundingBox();
+  15 |     expect(footerBox?.y! + footerBox?.height!).toBeCloseTo(bodyBox?.height!, -1);
+  16 |   });
+  17 | 
+  18 |   test('T6.2: Verify the Email contact link is visible and uses a mailto: href', async ({ page }) => {
+  19 |     const emailLink = page.locator('footer a[href^="mailto:"]').first();
+  20 |     await expect(emailLink).toBeVisible();
+  21 |   });
+  22 | 
+  23 |   test('T6.3: Verify the WhatsApp contact link is visible and uses a valid wa.me or similar href', async ({ page }) => {
+  24 |     const waLink = page.locator('footer a[href*="wa.me"], footer a[href*="whatsapp"]').first();
+  25 |     await expect(waLink).toBeVisible();
+  26 |   });
+  27 | 
+  28 |   test('T6.4: Verify the Privacy Policy and Cookie Policy links are visible', async ({ page }) => {
+  29 |     const privacyLink = page.locator('footer a', { hasText: /Privacy/i }).first();
+  30 |     const cookieLink = page.locator('footer a', { hasText: /Cookie/i }).first();
+> 31 |     await expect(privacyLink).toBeVisible();
+     |                               ^ Error: expect.toBeVisible: Target page, context or browser has been closed
+  32 |     await expect(cookieLink).toBeVisible();
+  33 |   });
+  34 | 
+  35 |   test('T6.5: Verify clicking the Privacy/Cookie policy links navigates correctly or opens the correct modal/page', async ({ page }) => {
+  36 |     const privacyLink = page.locator('footer a', { hasText: /Privacy/i }).first();
+  37 |     const href = await privacyLink.getAttribute('href');
+  38 |     expect(href).not.toBeNull();
+  39 |   });
+  40 | });
+  41 | 
+```
