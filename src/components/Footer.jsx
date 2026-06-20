@@ -40,6 +40,22 @@ const Footer = () => {
           </div>
           
           <div>
+            <h4 style={{ marginBottom: '1.5rem' }}>Documentazione</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)' }}>
+              <li style={{ marginBottom: '0.8rem' }}>
+                <a href="/listino-prezzi.pdf" download style={{ textDecoration: 'underline', color: 'var(--accent-color)', fontWeight: 500 }}>
+                  📄 Listino Prezzi
+                </a>
+              </li>
+              <li style={{ marginBottom: '0.8rem' }}>
+                <a href="/contratto.pdf" download style={{ textDecoration: 'underline', color: 'var(--accent-color)', fontWeight: 500 }}>
+                  📋 Contratto Commerciale
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4 style={{ marginBottom: '1.5rem' }}>Note Legali</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)' }}>
               <li style={{ marginBottom: '0.8rem' }}><a href="/privacy" style={{ textDecoration: 'underline' }}>Privacy Policy</a></li>
