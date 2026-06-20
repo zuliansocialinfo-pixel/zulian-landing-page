@@ -42,13 +42,11 @@ const Footer = () => {
           <div>
             <h4 style={{ marginBottom: '1.5rem' }}>Note Legali</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'var(--text-secondary)' }}>
-              <li style={{ marginBottom: '0.8rem' }}><a href="#" style={{ textDecoration: 'underline' }}>Privacy Policy</a></li>
-              <li style={{ marginBottom: '0.8rem' }}><a href="#" style={{ textDecoration: 'underline' }}>Cookie Policy</a></li>
-              <li><a href="#" style={{ textDecoration: 'underline' }}>Termini e Condizioni</a></li>
+              <li style={{ marginBottom: '0.8rem' }}><a href="/privacy" style={{ textDecoration: 'underline' }}>Privacy Policy</a></li>
+              <li style={{ marginBottom: '0.8rem' }}><a href="/cookie" style={{ textDecoration: 'underline' }}>Cookie Policy</a></li>
+              <li style={{ marginBottom: '0.8rem' }}><a href="/termini" style={{ textDecoration: 'underline' }}>Termini e Condizioni</a></li>
+              <li><a href="/disclaimer" style={{ textDecoration: 'underline' }}>Disclaimer</a></li>
             </ul>
-            <p style={{ marginTop: '1rem', fontSize: '0.85rem', color: '#666' }}>
-              *I link alle policy andranno collegati al tuo provider (es. Iubenda).
-            </p>
           </div>
         </div>
         
