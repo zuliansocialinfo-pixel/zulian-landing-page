@@ -130,22 +130,23 @@ const Preloader = ({ onComplete }) => {
         stagger: 0.08,
       }, 1.12);
 
-      // Fase 5: Logo emerge con grande spring (1.3-2.0s)
+      // Fase 5: Logo emerge dal centro con rotazione (1.0-1.7s)
       tl.to(logoRef.current, {
         opacity: 1,
         scale: 1,
-        duration: 0.7,
+        rotation: 360,
+        duration: 0.75,
         ease: 'back.out(1.5)',
-      }, 1.3);
+      }, 1.0);
 
-      // Fase 6: Testo finale sale e appare (1.5-1.95s)
+      // Fase 6: Testo finale sale e appare (1.4-1.9s)
       tl.to('.pl-text', {
         opacity: 1,
         y: 0,
         duration: 0.45,
         ease: 'power2.out',
         stagger: 0.08,
-      }, 1.5);
+      }, 1.4);
 
       // Timeline completa ~2.0s, trigger finish con minimo delay
       tl.add(() => {
@@ -254,22 +255,23 @@ const Preloader = ({ onComplete }) => {
           <circle className="center-glow" cx={C} cy={C} r="110" fill="url(#glowCenter)" opacity="0" />
         </svg>
 
-        {/* Logo che emerge dal centro */}
+        {/* Logo che emerge dal centro con rotazione e glow */}
         <div
           ref={logoRef}
+          className="logo-container"
           style={{
             position: 'absolute',
             top: '50%',
             left: '50%',
-            width: '128px',
-            height: '128px',
-            marginTop: '-64px',
-            marginLeft: '-64px',
+            width: '140px',
+            height: '140px',
+            marginTop: '-70px',
+            marginLeft: '-70px',
             borderRadius: '50%',
             overflow: 'hidden',
             background: 'var(--bg-color)',
-            border: '2px solid rgba(212,175,55,0.5)',
-            boxShadow: '0 0 28px rgba(212,175,55,0.45)',
+            border: '3px solid rgba(212,175,55,0.6)',
+            boxShadow: '0 0 32px rgba(212,175,55,0.5), inset 0 0 20px rgba(212,175,55,0.2)',
           }}
         >
           <img src={logo} alt="Zulian Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
