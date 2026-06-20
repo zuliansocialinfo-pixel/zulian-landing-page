@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
+import Method from './components/Method';
 import PricingStore from './components/PricingStore';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
@@ -39,6 +40,7 @@ function App() {
             <a href="#chi-sono" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
             <a href="#servizi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Servizi</a>
             <a href="#come-funziona" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Come Funziona</a>
+            <a href="#metodo" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Metodo</a>
             <a href="#preventivi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Prezzi</a>
           </nav>
         </div>
@@ -49,6 +51,7 @@ function App() {
         <About />
         <Services />
         <HowItWorks />
+        <Method />
         <PricingStore />
 
         {/* Calendar Section */}

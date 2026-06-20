@@ -36,12 +36,17 @@ section[id] {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   background-color: var(--bg-color);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Tutto il sito usa Playfair Display */
+button, input, textarea, select {
+  font-family: var(--font-serif);
 }
 
 h1, h2, h3, h4 {
@@ -57,7 +62,7 @@ a {
 
 button {
   cursor: pointer;
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
 }
 
 /* Glassmorphism utilities */

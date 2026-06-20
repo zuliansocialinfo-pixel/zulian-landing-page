@@ -49,17 +49,49 @@ const Hero = ({ start = true }) => {
               Non sono il classico <br/>
               <span style={{ color: 'var(--accent-color)' }}>consulente social</span>
             </h1>
-            <p style={{ 
-              fontSize: '1.1rem', 
+            <p style={{
+              fontSize: '1.1rem',
               color: 'var(--text-secondary)',
-              marginBottom: '2.5rem',
+              marginBottom: '1.5rem',
               maxWidth: '600px',
               lineHeight: 1.8
             }}>
-              Aiuto aziende e professionisti a far crescere il loro business online con un approccio concreto. 
+              Aiuto aziende e professionisti a far crescere il loro business online con un approccio concreto.
               Più visibilità, più clienti, più fatturato. Niente scorciatoie, solo strategie su misura.
             </p>
-            
+
+            {/* Frasi chiare: cosa faccio, in breve */}
+            <p style={{
+              fontSize: '1rem',
+              color: 'var(--text-primary)',
+              marginBottom: '1.5rem',
+              maxWidth: '600px',
+              lineHeight: 1.8,
+              fontWeight: 500
+            }}>
+              In parole semplici: <span style={{ color: 'var(--accent-color)' }}>gestisco i tuoi social,
+              creo siti ed e-commerce, lancio campagne pubblicitarie</span> e costruisco una strategia che
+              porta risultati misurabili. Ti seguo passo dopo passo, sempre con la massima trasparenza.
+            </p>
+
+            <div style={{ display: 'flex', gap: '0.7rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+              {['Social Media', 'Siti & E-commerce', 'Pubblicità Online', 'Strategia di Crescita'].map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    padding: '0.4rem 1rem',
+                    border: '1px solid var(--glass-border)',
+                    borderRadius: '999px',
+                    fontSize: '0.85rem',
+                    color: 'var(--text-secondary)',
+                    background: 'rgba(255,255,255,0.02)',
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <a 
                 href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce" 
