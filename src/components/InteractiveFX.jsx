@@ -38,6 +38,9 @@ const InteractiveFX = () => {
     let colorIdx = 0;
     let lastTrail = 0;
 
+    // Proxy per interpolare davvero il colore (GSAP non tween-a hex dentro var)
+    const colorProxy = { c: ACCENTS[0] };
+
     const onMove = (e) => {
       target.x = e.clientX;
       target.y = e.clientY;
@@ -86,13 +89,15 @@ const InteractiveFX = () => {
         { scale: 1.6, opacity: 0.4, duration: 0.5, ease: 'power2.out', overwrite: true }
       );
 
-      // Cambio colore accento della home (graduale, interpolato da GSAP)
+      // Cambio colore accento della home: interpolazione reale via proxy
       colorIdx = (colorIdx + 1) % ACCENTS.length;
-      const next = ACCENTS[colorIdx];
-      gsap.to(document.documentElement, {
+      gsap.to(colorProxy, {
+        c: ACCENTS[colorIdx],
         duration: 0.8,
         ease: 'power2.inOut',
-        '--accent-color': next,
+        onUpdate: () => {
+          document.documentElement.style.setProperty('--accent-color', colorProxy.c);
+        },
       });
     };
 
