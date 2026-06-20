@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import HowItWorks from './components/HowItWorks';
-import Pricing from './components/Pricing';
+import PricingStore from './components/PricingStore';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
@@ -49,8 +49,8 @@ function App() {
         <About />
         <Services />
         <HowItWorks />
-        <Pricing />
-        
+        <PricingStore />
+
         {/* Calendar Section */}
         <section style={{ padding: '4rem 0', backgroundColor: 'var(--bg-color)', borderTop: '1px solid var(--glass-border)' }}>
           <div className="container" style={{ textAlign: 'center' }}>
