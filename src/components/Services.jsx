@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3, Share2, Target, Globe, Video } from 'lucide-react';
+import dashboard from '../assets/dashboard.png';
 
 const services = [
   {
@@ -103,7 +104,7 @@ const Services = () => {
             zIndex: 1
           }} />
           <img 
-            src="/src/assets/dashboard.png" 
+            src={dashboard}
             alt="Zulian Marketing Dashboard" 
             style={{ width: '100%', height: 'auto', display: 'block' }} 
           />

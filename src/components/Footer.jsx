@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
         }}>
           <div>
             <div style={{ marginBottom: '1.5rem' }}>
-              <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ height: '60px', width: 'auto', borderRadius: '4px' }} />
+              <img src={logo} alt="Zulian Logo" style={{ height: '60px', width: 'auto', borderRadius: '4px' }} />
             </div>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
               La strategia vincente, fatta su misura. Aiuto aziende e professionisti a crescere online con strategie concrete.

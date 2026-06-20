@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -25,7 +26,7 @@ function App() {
       }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/src/assets/logo.jpg" alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
+            <img src={logo} alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
           </div>
           <nav style={{ display: 'flex', gap: '2rem' }} className="hidden-mobile">
             <a href="#chi-sono" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
