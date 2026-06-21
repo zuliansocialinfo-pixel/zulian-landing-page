@@ -130,13 +130,12 @@ const Preloader = ({ onComplete }) => {
         stagger: 0.08,
       }, 1.12);
 
-      // Fase 5: Logo emerge dal centro con rotazione (1.0-1.7s)
+      // Fase 5: Logo emerge dal centro con scale pulito (1.0-1.7s)
       tl.to(logoRef.current, {
         opacity: 1,
         scale: 1,
-        rotation: 360,
-        duration: 0.75,
-        ease: 'back.out(1.5)',
+        duration: 0.7,
+        ease: 'back.out(1.4)',
       }, 1.0);
 
       // Fase 6: Testo finale sale e appare (1.4-1.9s)
@@ -255,7 +254,7 @@ const Preloader = ({ onComplete }) => {
           <circle className="center-glow" cx={C} cy={C} r="110" fill="url(#glowCenter)" opacity="0" />
         </svg>
 
-        {/* Logo che emerge dal centro con rotazione e glow */}
+        {/* Logo INTERO che emerge dal centro (non ritagliato) */}
         <div
           ref={logoRef}
           className="logo-container"
@@ -263,30 +262,27 @@ const Preloader = ({ onComplete }) => {
             position: 'absolute',
             top: '50%',
             left: '50%',
-            width: '140px',
-            height: '140px',
-            marginTop: '-70px',
-            marginLeft: '-70px',
-            borderRadius: '50%',
+            width: '200px',
+            height: '200px',
+            marginTop: '-100px',
+            marginLeft: '-100px',
+            borderRadius: '18px',
             overflow: 'hidden',
             background: 'var(--bg-color)',
-            border: '3px solid rgba(212,175,55,0.6)',
-            boxShadow: '0 0 32px rgba(212,175,55,0.5), inset 0 0 20px rgba(212,175,55,0.2)',
+            border: '2px solid rgba(212,175,55,0.5)',
+            boxShadow: '0 0 40px rgba(212,175,55,0.45)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          <img src={logo} alt="Zulian Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={logo} alt="Zulian Social Media Marketing" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </div>
       </div>
 
-      {/* Testo */}
-      <div style={{ textAlign: 'center', marginTop: '1.8rem' }}>
-        <h1 className="pl-text" style={{ color: 'var(--accent-color)', fontSize: '1.8rem', letterSpacing: '4px', marginBottom: '0.4rem' }}>
-          ZULIAN
-        </h1>
-        <p className="pl-text" style={{ color: 'var(--text-secondary)', letterSpacing: '3px', fontSize: '0.82rem', textTransform: 'uppercase' }}>
-          Social Media Marketing
-        </p>
-        <p className="pl-text" style={{ marginTop: '1.1rem', fontStyle: 'italic', color: 'var(--text-primary)', maxWidth: '340px', fontSize: '0.95rem' }}>
+      {/* Solo il claim sotto: il nome e' gia' dentro il logo */}
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <p className="pl-text" style={{ marginTop: 0, fontStyle: 'italic', color: 'var(--text-primary)', maxWidth: '360px', fontSize: '1.1rem', letterSpacing: '0.5px' }}>
           "La strategia vincente, fatta su misura."
         </p>
       </div>

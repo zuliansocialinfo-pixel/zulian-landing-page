@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, ArrowRight, ChevronDown } from 'lucide-react';
+import GalaxyBackground from './GalaxyBackground';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -87,7 +88,10 @@ const Hero = ({ start = true }) => {
         transition: start ? 'opacity 0.6s ease-out 0.1s' : 'opacity 0s',
       }}
     >
-      {/* Background Effect */}
+      {/* Sfondo galassia animato */}
+      <GalaxyBackground />
+
+      {/* Glow parallax in primo piano (sopra le stelle, sotto il testo) */}
       <div
         ref={glowRef}
         style={{
@@ -96,7 +100,7 @@ const Hero = ({ start = true }) => {
           right: '-5%',
           width: '500px',
           height: '500px',
-          background: 'radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(0,0,0,0) 70%)',
           filter: 'blur(40px)',
           zIndex: 0,
           pointerEvents: 'none',
