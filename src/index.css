@@ -215,6 +215,38 @@ nav a:hover::after {
   transform: scaleX(1);
 }
 
+/* Console servizi interattiva: stack su mobile/tablet */
+@media (max-width: 860px) {
+  .console-grid { grid-template-columns: 1fr !important; }
+  .console-list {
+    flex-direction: row !important;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .console-list > span { display: none; }
+  .console-item { flex: 0 0 auto; min-width: 200px; }
+}
+
+/* Segnali di sistema (SignalIntro): cursore lampeggiante + dot pulse */
+.signal-caret {
+  animation: signalBlink 1.05s steps(1) infinite;
+}
+@keyframes signalBlink {
+  0%, 50% { opacity: 0.85; }
+  51%, 100% { opacity: 0; }
+}
+.signal-dot {
+  animation: signalPulse 1.8s ease-in-out infinite;
+}
+@keyframes signalPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-caret, .signal-dot { animation: none !important; }
+}
+
 /* Freccia scroll: bounce morbido */
 .hero-scroll-icon {
   animation: scrollBounce 1.8s ease-in-out infinite;

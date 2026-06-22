@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Calendar, ArrowRight, ChevronDown } from 'lucide-react';
 import GalaxyBackground from './GalaxyBackground';
+import SignalIntro from './SignalIntro';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -134,6 +135,10 @@ const Hero = ({ start = true }) => {
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-inner" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          <div className="hero-anim" style={{ display: 'flex', justifyContent: 'center' }}>
+            <SignalIntro />
+          </div>
+
           <span
             className="hero-badge"
             style={{
