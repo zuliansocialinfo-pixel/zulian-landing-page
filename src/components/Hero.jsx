@@ -156,7 +156,7 @@ const Hero = ({ start = true }) => {
               backdropFilter: 'blur(4px)',
             }}
           >
-            Social Media Marketing & Crescita Digitale
+            Sviluppo Web · E-commerce · App · Social
           </span>
 
           <h1
@@ -169,7 +169,7 @@ const Hero = ({ start = true }) => {
             }}
           >
             <span className="line-mask">
-              <span className="hero-line" style={{ display: 'block', fontWeight: 700 }}>Non sono il classico</span>
+              <span className="hero-line" style={{ display: 'block', fontWeight: 700 }}>Il tuo partner per la</span>
             </span>
             <span className="line-mask">
               <span className="hero-line" style={{ display: 'block', fontWeight: 800 }}>
@@ -184,7 +184,7 @@ const Hero = ({ start = true }) => {
                     backgroundSize: '100% 100%',
                   }}
                 >
-                  consulente social
+                  crescita digitale
                 </span>
               </span>
             </span>
@@ -203,8 +203,8 @@ const Hero = ({ start = true }) => {
               fontWeight: 500,
             }}
           >
-            Aiuto aziende e professionisti a far crescere il loro business online con un approccio concreto.
-            <strong style={{ color: 'var(--text-primary)', fontWeight: 700 }}> Più visibilità, più clienti, più fatturato.</strong> Niente scorciatoie, solo strategie su misura.
+            Sono uno sviluppatore e partner digitale: progetto e realizzo siti, e-commerce e app, e li collego a social e pubblicità per farli crescere davvero.
+            <strong style={{ color: 'var(--text-primary)', fontWeight: 700 }}> Tecnologia, strategia e contenuti come un unico sistema.</strong> Niente scorciatoie, solo lavoro su misura.
           </p>
 
           {/* Frasi chiare: cosa faccio, in breve */}
@@ -221,8 +221,8 @@ const Hero = ({ start = true }) => {
               fontWeight: 600,
             }}
           >
-            In parole semplici: <strong style={{ color: 'var(--accent-color)', fontWeight: 700 }}>gestisco i tuoi social,
-            creo siti ed e-commerce, lancio campagne pubblicitarie</strong> e costruisco una strategia che
+            In parole semplici: <strong style={{ color: 'var(--accent-color)', fontWeight: 700 }}>sviluppo siti, e-commerce e
+            piattaforme, gestisco i tuoi social e lancio campagne pubblicitarie</strong> con una strategia che
             porta risultati misurabili. Ti seguo passo dopo passo, sempre con la massima trasparenza.
           </p>
 
@@ -236,7 +236,7 @@ const Hero = ({ start = true }) => {
               marginBottom: '2.5rem',
             }}
           >
-            {['Social Media', 'Siti & E-commerce', 'Pubblicità Online', 'Strategia di Crescita'].map((tag) => (
+            {['Sviluppo Web', 'E-commerce', 'App & Piattaforme', 'Social Media', 'Pubblicità Online'].map((tag) => (
               <span
                 key={tag}
                 style={{

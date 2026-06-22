@@ -7,15 +7,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Transizione cinematografica tra pagine (stile Barba) per React Router.
- * Sequenza: strisce dorate salgono e coprono lo schermo -> si scambia la
- * pagina (e si torna in cima) -> le strisce scendono rivelando la nuova.
- * Rispetta prefers-reduced-motion (cambio istantaneo).
+ * Pannelli cyan salgono e coprono lo schermo -> si scambia la pagina (e si
+ * torna in cima) -> i pannelli scendono rivelando la nuova.
  *
- * Uso: <PageTransition>{(location) => <Routes location={location}>...}</PageTransition>
+ * IMPORTANTE: l'effetto dipende SOLO da `location`. Lo swap interno aggiorna
+ * `display` (stato) ma NON deve far ripartire l'effetto, altrimenti la
+ * cleanup ucciderebbe la timeline a meta' chiusura, lasciando i pannelli
+ * "incollati" sopra il testo. Il confronto avviene tramite ref.
  */
 const PageTransition = ({ children }) => {
   const location = useLocation();
   const [display, setDisplay] = useState(location);
+  const displayPathRef = useRef(location.pathname);
   const overlayRef = useRef(null);
   const first = useRef(true);
 
@@ -24,13 +27,18 @@ const PageTransition = ({ children }) => {
       first.current = false;
       return;
     }
-    if (location.pathname === display.pathname) return;
+    if (location.pathname === displayPathRef.current) return;
+
+    const swap = () => {
+      setDisplay(location);
+      displayPathRef.current = location.pathname;
+      if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
+      else window.scrollTo(0, 0);
+    };
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
-      setDisplay(location);
-      window.scrollTo(0, 0);
-      // La nuova pagina monta i suoi ScrollTrigger: ricalcola le misure.
+      swap();
       requestAnimationFrame(() => ScrollTrigger.refresh());
       return;
     }
@@ -40,28 +48,22 @@ const PageTransition = ({ children }) => {
 
     const tl = gsap.timeline();
     tl.set(overlay, { pointerEvents: 'auto' })
-      .set(panels, { scaleY: 0, transformOrigin: 'bottom center', opacity: 1 })
+      .set(panels, { scaleY: 0, opacity: 1, transformOrigin: 'bottom center' })
       .to(panels, { scaleY: 1, duration: 0.28, stagger: 0.03, ease: 'power4.inOut' }, 0)
-      .to(panels, { opacity: 0.9, duration: 0.15 }, 0)
-      .add(() => {
-        setDisplay(location);
-        if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
-        else window.scrollTo(0, 0);
-      }, 0.2)
+      .add(swap, 0.22)
       .set(panels, { transformOrigin: 'top center' })
-      .to(panels, { scaleY: 0, opacity: 0, duration: 0.26, stagger: 0.03, ease: 'power4.inOut' }, '+=0')
+      .to(panels, { scaleY: 0, duration: 0.3, stagger: 0.03, ease: 'power4.inOut' })
       .set(overlay, { pointerEvents: 'none' })
-      // La nuova pagina ha montato i suoi ScrollTrigger durante lo swap:
-      // ora che e' visibile, ricalcola le misure cosi' le animazioni
-      // allo scroll ripartono correttamente (niente sezioni "morte").
       .add(() => ScrollTrigger.refresh());
 
     return () => {
       tl.kill();
-      // Sicurezza: mai lasciare l'overlay che intercetta i click.
-      if (overlay) gsap.set(overlay, { pointerEvents: 'none' });
+      // Reset di sicurezza: i pannelli non devono MAI restare visibili
+      // né intercettare i click se la timeline viene interrotta.
+      gsap.set(panels, { scaleY: 0, opacity: 1 });
+      gsap.set(overlay, { pointerEvents: 'none' });
     };
-  }, [location, display]);
+  }, [location]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
