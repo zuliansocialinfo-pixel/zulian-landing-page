@@ -1,5 +1,6 @@
-import React, { useState, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 import logo from './assets/logo.jpg';
 import Preloader from './components/Preloader';
 import Hero from './components/Hero';
@@ -26,8 +27,24 @@ const Fallback = () => (
   </div>
 );
 
+const NAV_LINKS = [
+  { href: '#chi-sono', label: 'Chi Sono' },
+  { href: '#servizi', label: 'Servizi' },
+  { href: '#come-funziona', label: 'Come Funziona' },
+  { href: '#metodo', label: 'Metodo' },
+  { href: '#listino', label: 'Listino' },
+  { href: '#preventivi', label: 'Prezzi' },
+];
+
 function App() {
   const [revealed, setRevealed] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Blocca lo scroll del body quando il menu mobile e' aperto
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
 
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: revealed ? 'visible' : 'hidden' }}>
@@ -55,16 +72,37 @@ function App() {
             <img src={logo} alt="Zulian Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
           </div>
           <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className="hidden-mobile">
-            <a href="#chi-sono" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Chi Sono</a>
-            <a href="#servizi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Servizi</a>
-            <a href="#come-funziona" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Come Funziona</a>
-            <a href="#metodo" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Metodo</a>
-            <a href="#listino" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Listino</a>
-            <a href="#preventivi" style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>Prezzi</a>
+            {NAV_LINKS.map((l) => (
+              <a key={l.href} href={l.href} style={{ fontSize: '0.9rem', fontWeight: 500, transition: 'color 0.3s' }}>{l.label}</a>
+            ))}
             <ThemeSwitcher />
           </nav>
+
+          {/* Comandi mobile: tema + hamburger */}
+          <div className="mobile-only" style={{ gap: '0.6rem', alignItems: 'center' }}>
+            <ThemeSwitcher />
+            <button
+              className="menu-btn"
+              aria-label="Apri menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(true)}
+              style={{ display: 'inline-flex' }}
+            >
+              <Menu size={22} />
+            </button>
+          </div>
         </div>
       </motion.header>
+
+      {/* Overlay menu mobile */}
+      <div className={`mobile-nav${menuOpen ? ' open' : ''}`} role="dialog" aria-modal="true" aria-hidden={!menuOpen}>
+        <button className="menu-close menu-btn" aria-label="Chiudi menu" onClick={() => setMenuOpen(false)}>
+          <X size={24} />
+        </button>
+        {NAV_LINKS.map((l) => (
+          <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
+        ))}
+      </div>
 
       <main>
         {/* Sopra la piega: caricato subito */}

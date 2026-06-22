@@ -11,15 +11,18 @@ import gsap from 'gsap';
  */
 const ACCENTS = ['#d4af37', '#e8c75a', '#c9a227', '#f0d878', '#b8860b'];
 
+const isFXDisabled = () =>
+  typeof window !== 'undefined' &&
+  (window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    window.matchMedia('(pointer: coarse)').matches);
+
 const InteractiveFX = () => {
   const glowRef = useRef(null);
   const ringRef = useRef(null);
   const layerRef = useRef(null);
 
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    if (reduce || isTouch) return;
+    if (isFXDisabled()) return;
 
     const glow = glowRef.current;
     const ring = ringRef.current;
@@ -140,6 +143,9 @@ const InteractiveFX = () => {
       document.removeEventListener('mouseout', onOut);
     };
   }, []);
+
+  // Su touch / reduced-motion non renderizziamo nulla (niente reticolo fantasma).
+  if (isFXDisabled()) return null;
 
   return (
     <div ref={layerRef} className="fx-layer" aria-hidden="true">

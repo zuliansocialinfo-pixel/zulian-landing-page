@@ -325,6 +325,104 @@ nav a:hover::after {
   body, a, button { cursor: auto !important; }
 }
 
+/* ====== HERO: reveal a maschera + responsive ====== */
+/* Ogni riga del titolo vive dentro una maschera: l'interno sale da sotto. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* evita il taglio di discendenti (g, p, y) */
+}
+
+/* I bottoni della hero, su mobile, occupano la riga e si centrano */
+@media (max-width: 600px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-section {
+    padding-top: 78px;
+  }
+}
+
+/* ====== VISIBILITA' NAV / MENU MOBILE ====== */
+.hidden-mobile { display: flex; }
+.mobile-only { display: none; }
+
+@media (max-width: 880px) {
+  .hidden-mobile { display: none !important; }
+  .mobile-only { display: inline-flex !important; }
+}
+
+/* Pulsante hamburger */
+.menu-btn {
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.menu-btn:hover {
+  border-color: var(--accent-color);
+  background: rgba(212, 175, 55, 0.08);
+}
+
+/* Overlay menu a tutto schermo */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(8, 8, 8, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.mobile-nav.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.mobile-nav a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  transition: color 0.25s ease;
+}
+.mobile-nav a:hover { color: var(--accent-color); }
+.mobile-nav .menu-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav { transition: none; }
+}
+
 .text-center {
   text-align: center;
 }

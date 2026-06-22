@@ -16,18 +16,38 @@ const Hero = ({ start = true }) => {
     const ctx = gsap.context(() => {
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      // --- TIMELINE INGRESSO HERO ---
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      // --- SEQUENZA D'INGRESSO HERO (centrata, coreografata) ---
       if (reduce) {
-        gsap.set('.hero-anim', { opacity: 1, y: 0 });
+        gsap.set(['.hero-line', '.hero-anim'], { yPercent: 0, opacity: 1, y: 0 });
+        gsap.set('.hero-gold', { backgroundSize: '100% 100%' });
       } else {
-        tl.from('.hero-badge', { y: 20, opacity: 0, duration: 0.5 }, 0)
-          .from('.hero-line', { y: 36, opacity: 0, duration: 0.6, stagger: 0.12 }, 0.08)
-          .from('.hero-gold', { backgroundSize: '0% 100%', duration: 0.6, ease: 'power2.inOut' }, 0.15)
-          .from('.hero-desc', { y: 16, opacity: 0, duration: 0.5 }, 0.2)
-          .from('.hero-tags > span', { y: 14, opacity: 0, duration: 0.35, stagger: 0.06 }, 0.35)
-          .from('.hero-cta', { y: 16, opacity: 0, duration: 0.4, stagger: 0.1 }, 0.45)
-          .from('.hero-scroll', { opacity: 0, duration: 0.5 }, 0.55);
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        tl
+          // 1. Il badge scende dall'alto con un piccolo "settle"
+          .from('.hero-badge', { y: -24, opacity: 0, scale: 0.85, duration: 0.7, ease: 'back.out(1.6)' }, 0)
+          // 2. Le righe del titolo emergono da sotto una maschera (reveal premium)
+          .from('.hero-line', { yPercent: 115, duration: 0.95, stagger: 0.14, ease: 'power4.out' }, 0.2)
+          // 3. L'evidenziatore dorato si "disegna" sotto la parola chiave
+          .from('.hero-gold', { backgroundSize: '0% 100%', duration: 0.8, ease: 'power2.inOut' }, '-=0.45')
+          // 4. I paragrafi salgono in dissolvenza
+          .from('.hero-desc', { y: 28, opacity: 0, duration: 0.7, stagger: 0.18 }, '-=0.35')
+          // 5. I tag fanno "pop" con rimbalzo
+          .from('.hero-tags > span', { y: 18, opacity: 0, scale: 0.6, duration: 0.45, stagger: 0.07, ease: 'back.out(2)' }, '-=0.25')
+          // 6. I bottoni salgono con leggera elasticita'
+          .from('.hero-cta', { y: 24, opacity: 0, scale: 0.92, duration: 0.55, stagger: 0.12, ease: 'back.out(1.5)' }, '-=0.2')
+          // 7. La freccia di scroll appare per ultima
+          .from('.hero-scroll', { y: -12, opacity: 0, duration: 0.6 }, '-=0.1');
+
+        // Ambient: il glow di sfondo pulsa lentamente per dare "vita"
+        gsap.to(glowRef.current, {
+          scale: 1.15,
+          opacity: 0.18,
+          duration: 4,
+          ease: 'sine.inOut',
+          yoyo: true,
+          repeat: -1,
+        });
       }
 
       const mm = gsap.matchMedia();
@@ -36,7 +56,7 @@ const Hero = ({ start = true }) => {
       mm.add('(min-width: 992px) and (pointer: fine)', () => {
         // Parallax leggero sul glow di sfondo durante lo scroll
         gsap.to(glowRef.current, {
-          y: 120,
+          yPercent: 30,
           ease: 'none',
           scrollTrigger: {
             trigger: rootRef.current,
@@ -77,13 +97,17 @@ const Hero = ({ start = true }) => {
   return (
     <section
       ref={rootRef}
+      className="hero-section"
       style={{
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
+        justifyContent: 'center',
         position: 'relative',
-        paddingTop: '80px',
+        paddingTop: '90px',
+        paddingBottom: '40px',
         overflow: 'hidden',
+        textAlign: 'center',
         opacity: start ? 1 : 0,
         transition: start ? 'opacity 0.6s ease-out 0.1s' : 'opacity 0s',
       }}
@@ -91,66 +115,86 @@ const Hero = ({ start = true }) => {
       {/* Sfondo galassia animato */}
       <GalaxyBackground />
 
-      {/* Glow parallax in primo piano (sopra le stelle, sotto il testo) */}
+      {/* Glow centrale pulsante (sopra le stelle, sotto il testo) */}
       <div
         ref={glowRef}
         style={{
           position: 'absolute',
-          top: '-10%',
-          right: '-5%',
-          width: '500px',
-          height: '500px',
-          background: 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(0,0,0,0) 70%)',
-          filter: 'blur(40px)',
+          top: '50%',
+          left: '50%',
+          width: 'min(700px, 90vw)',
+          height: 'min(700px, 90vw)',
+          transform: 'translate(-50%, -50%)',
+          background: 'radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(0,0,0,0) 65%)',
+          filter: 'blur(50px)',
           zIndex: 0,
           pointerEvents: 'none',
         }}
       />
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '800px' }}>
+        <div className="hero-inner" style={{ maxWidth: '860px', margin: '0 auto' }}>
           <span
-            className="hero-badge hero-anim"
+            className="hero-badge"
             style={{
               color: 'var(--accent-color)',
               fontWeight: 700,
               letterSpacing: '2px',
               textTransform: 'uppercase',
               display: 'inline-block',
-              marginBottom: '1.5rem',
-              padding: '0.5rem 1.2rem',
-              border: '1px solid rgba(212,175,55,0.3)',
+              marginBottom: '1.6rem',
+              padding: '0.5rem 1.3rem',
+              border: '1px solid rgba(212,175,55,0.35)',
               borderRadius: '999px',
-              fontSize: '0.95rem',
+              fontSize: 'clamp(0.72rem, 2.4vw, 0.95rem)',
+              background: 'rgba(212,175,55,0.05)',
+              backdropFilter: 'blur(4px)',
             }}
           >
             Social Media Marketing & Crescita Digitale
           </span>
-          <h1 style={{ fontSize: 'clamp(3.2rem, 7vw, 6rem)', marginBottom: '1.8rem', lineHeight: 1.05, fontWeight: 700 }}>
-            <span className="hero-line hero-anim" style={{ display: 'block', fontWeight: 700 }}>Non sono il classico</span>
-            <span className="hero-line hero-anim" style={{ display: 'block', fontWeight: 700 }}>
-              <span
-                className="hero-gold"
-                style={{
-                  color: 'var(--accent-color)',
-                  fontWeight: 800,
-                  backgroundImage: 'linear-gradient(transparent 65%, rgba(212,175,55,0.18) 0)',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: '100% 100%',
-                }}
-              >
-                consulente social
+
+          <h1
+            className="hero-title"
+            style={{
+              fontSize: 'clamp(2.6rem, 8vw, 6rem)',
+              marginBottom: '1.8rem',
+              lineHeight: 1.05,
+              fontWeight: 700,
+            }}
+          >
+            <span className="line-mask">
+              <span className="hero-line" style={{ display: 'block', fontWeight: 700 }}>Non sono il classico</span>
+            </span>
+            <span className="line-mask">
+              <span className="hero-line" style={{ display: 'block', fontWeight: 800 }}>
+                <span
+                  className="hero-gold"
+                  style={{
+                    color: 'var(--accent-color)',
+                    fontWeight: 800,
+                    backgroundImage: 'linear-gradient(transparent 62%, rgba(212,175,55,0.22) 0)',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'left bottom',
+                    backgroundSize: '100% 100%',
+                  }}
+                >
+                  consulente social
+                </span>
               </span>
             </span>
           </h1>
+
           <p
-            className="hero-desc hero-anim"
+            className="hero-desc"
             style={{
-              fontSize: '1.4rem',
+              fontSize: 'clamp(1.1rem, 3.6vw, 1.4rem)',
               color: 'var(--text-secondary)',
-              marginBottom: '1.8rem',
-              maxWidth: '680px',
-              lineHeight: 1.7,
+              marginBottom: '1.6rem',
+              maxWidth: '700px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              lineHeight: 1.65,
               fontWeight: 500,
             }}
           >
@@ -160,13 +204,15 @@ const Hero = ({ start = true }) => {
 
           {/* Frasi chiare: cosa faccio, in breve */}
           <p
-            className="hero-desc hero-anim"
+            className="hero-desc"
             style={{
-              fontSize: '1.25rem',
+              fontSize: 'clamp(1rem, 3.2vw, 1.25rem)',
               color: 'var(--text-primary)',
-              marginBottom: '2rem',
-              maxWidth: '680px',
-              lineHeight: 1.7,
+              marginBottom: '2.2rem',
+              maxWidth: '700px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              lineHeight: 1.65,
               fontWeight: 600,
             }}
           >
@@ -175,7 +221,16 @@ const Hero = ({ start = true }) => {
             porta risultati misurabili. Ti seguo passo dopo passo, sempre con la massima trasparenza.
           </p>
 
-          <div className="hero-tags" style={{ display: 'flex', gap: '0.7rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+          <div
+            className="hero-tags"
+            style={{
+              display: 'flex',
+              gap: '0.6rem',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              marginBottom: '2.5rem',
+            }}
+          >
             {['Social Media', 'Siti & E-commerce', 'Pubblicità Online', 'Strategia di Crescita'].map((tag) => (
               <span
                 key={tag}
@@ -183,7 +238,7 @@ const Hero = ({ start = true }) => {
                   padding: '0.4rem 1rem',
                   border: '1px solid var(--glass-border)',
                   borderRadius: '999px',
-                  fontSize: '0.85rem',
+                  fontSize: 'clamp(0.75rem, 2.4vw, 0.85rem)',
                   color: 'var(--text-secondary)',
                   background: 'rgba(255,255,255,0.02)',
                 }}
@@ -193,7 +248,10 @@ const Hero = ({ start = true }) => {
             ))}
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+          <div
+            className="hero-actions"
+            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}
+          >
             <a
               href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce"
               target="_blank"
@@ -218,7 +276,7 @@ const Hero = ({ start = true }) => {
         aria-label="Scorri"
         style={{
           position: 'absolute',
-          bottom: '2rem',
+          bottom: '1.6rem',
           left: '50%',
           transform: 'translateX(-50%)',
           color: 'var(--text-secondary)',
@@ -226,7 +284,7 @@ const Hero = ({ start = true }) => {
           flexDirection: 'column',
           alignItems: 'center',
           gap: '0.3rem',
-          fontSize: '0.75rem',
+          fontSize: '0.72rem',
           letterSpacing: '2px',
           textTransform: 'uppercase',
           zIndex: 1,
