@@ -6,6 +6,7 @@ import Preloader from './components/Preloader';
 import Hero from './components/Hero';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import InteractiveFX from './components/InteractiveFX';
+import SectionThemer from './components/SectionThemer';
 
 // Caricamento progressivo "a strati": prima la Home (Hero), poi il resto.
 // L'intro e la prima schermata restano immediate; le sezioni pesanti e le
@@ -52,6 +53,9 @@ function App() {
 
       {/* Luci interattive futuristiche: attive dopo l'intro */}
       {revealed && <InteractiveFX />}
+
+      {/* Motore di theming: l'accento vira col colore della sezione visibile */}
+      {revealed && <SectionThemer active={revealed} />}
 
       {/* Dynamic Header */}
       <motion.header
