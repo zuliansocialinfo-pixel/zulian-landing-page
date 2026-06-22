@@ -37,6 +37,12 @@ const TeaserCard = ({ t }) => {
           className="glass teaser-card"
           onMouseEnter={() => tweenAccent(gsap, color, 0.5)}
           onMouseLeave={() => tweenAccent(gsap, GOLD, 0.6)}
+          onMouseMove={(e) => {
+            // Spotlight che segue il cursore (rete energetica)
+            const r = e.currentTarget.getBoundingClientRect();
+            e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+            e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
+          }}
           style={{ display: 'block', padding: '1.8rem', height: '100%', position: 'relative' }}
         >
           <div className="teaser-icon" style={{ width: 52, height: 52, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--glass-border)', marginBottom: '1.2rem' }}>
