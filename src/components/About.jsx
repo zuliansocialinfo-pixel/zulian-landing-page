@@ -4,7 +4,7 @@ import face from '../assets/face.jpg';
 
 const About = () => {
   return (
-    <section id="chi-sono" style={{ padding: '6rem 0', backgroundColor: '#111' }}>
+    <section id="chi-sono" style={{ padding: '2rem 0 4rem' }}>
       <div className="container">
         <div style={{
           display: 'grid',

@@ -13,7 +13,7 @@ const analysisPoints = [
 
 const Method = () => {
   return (
-    <section id="metodo" style={{ padding: '8rem 0', backgroundColor: '#0a0a0a', position: 'relative', overflow: 'hidden' }}>
+    <section id="metodo" style={{ padding: '4rem 0', position: 'relative', overflow: 'hidden' }}>
       {/* Background glow */}
       <div
         style={{
