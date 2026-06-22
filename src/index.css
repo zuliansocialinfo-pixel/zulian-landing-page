@@ -434,6 +434,12 @@ nav a:hover::after {
 .mb-12 { margin-bottom: 3rem; }
 .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
 
+/* ====== LENIS: scroll fluido cinematografico ====== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
 /* ====== TRANSIZIONE CINEMATOGRAFICA TRA PAGINE (stile Barba) ====== */
 .pt-overlay {
   position: fixed;

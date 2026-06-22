@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { User, Layers, Workflow, Target, FolderKanban, Tag, ArrowUpRight, Calendar } from 'lucide-react';
 import Hero from '../components/Hero';
+import Tilt from '../components/Tilt';
 import { RevealContext } from '../revealContext';
 import { ACCENTS, GOLD, tweenAccent } from '../theme';
 
@@ -28,23 +29,26 @@ const TeaserCard = ({ t }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
+      style={{ height: '100%' }}
     >
-      <Link
-        to={t.to}
-        className="glass teaser-card"
-        onMouseEnter={() => tweenAccent(gsap, color, 0.5)}
-        onMouseLeave={() => tweenAccent(gsap, GOLD, 0.6)}
-        style={{ display: 'block', padding: '1.8rem', height: '100%', position: 'relative' }}
-      >
-        <div className="teaser-icon" style={{ width: 52, height: 52, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--glass-border)', marginBottom: '1.2rem' }}>
-          <Icon size={26} style={{ color }} />
-        </div>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
-          {t.title}
-          <ArrowUpRight size={20} className="teaser-arrow" style={{ color }} />
-        </h3>
-        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.98rem' }}>{t.desc}</p>
-      </Link>
+      <Tilt style={{ height: '100%' }}>
+        <Link
+          to={t.to}
+          className="glass teaser-card"
+          onMouseEnter={() => tweenAccent(gsap, color, 0.5)}
+          onMouseLeave={() => tweenAccent(gsap, GOLD, 0.6)}
+          style={{ display: 'block', padding: '1.8rem', height: '100%', position: 'relative' }}
+        >
+          <div className="teaser-icon" style={{ width: 52, height: 52, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.04)', border: '1px solid var(--glass-border)', marginBottom: '1.2rem' }}>
+            <Icon size={26} style={{ color }} />
+          </div>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+            {t.title}
+            <ArrowUpRight size={20} className="teaser-arrow" style={{ color }} />
+          </h3>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '0.98rem' }}>{t.desc}</p>
+        </Link>
+      </Tilt>
     </motion.div>
   );
 };

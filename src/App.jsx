@@ -7,6 +7,7 @@ import PageTransition from './components/PageTransition';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import { RevealContext } from './revealContext';
+import useSmoothScroll from './hooks/useSmoothScroll';
 
 import Home from './pages/Home';
 import ChiSono from './pages/ChiSono';
@@ -19,6 +20,9 @@ import ProgettoDettaglio from './pages/ProgettoDettaglio';
 
 function App() {
   const [revealed, setRevealed] = useState(false);
+
+  // Scroll fluido cinematografico, attivo dopo l'intro
+  useSmoothScroll(revealed);
 
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: revealed ? 'visible' : 'hidden' }}>

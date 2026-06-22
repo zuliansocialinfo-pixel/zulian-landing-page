@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Play } from 'lucide-react';
 import PageShell from '../components/PageShell';
+import Tilt from '../components/Tilt';
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects';
 
 const ProjectCard = ({ p }) => (
@@ -12,7 +13,9 @@ const ProjectCard = ({ p }) => (
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.35, ease: 'easeOut' }}
+    style={{ height: '100%' }}
   >
+    <Tilt max={7} style={{ height: '100%' }}>
     <Link to={`/progetti/${p.slug}`} className="glass project-card" style={{ display: 'block', overflow: 'hidden', height: '100%' }}>
       {/* Cover segnaposto */}
       <div className="project-cover" style={{ position: 'relative', aspectRatio: '16 / 10', background: `linear-gradient(135deg, ${p.cover}, #0c0c0c)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -33,6 +36,7 @@ const ProjectCard = ({ p }) => (
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.55 }}>{p.excerpt}</p>
       </div>
     </Link>
+    </Tilt>
   </motion.div>
 );
 

@@ -13,9 +13,12 @@ const SiteHeader = ({ revealed }) => {
   // Chiudi il menu ad ogni cambio pagina
   useEffect(() => { setMenuOpen(false); }, [location.pathname]);
 
-  // Blocca lo scroll del body quando il menu mobile e' aperto
+  // Blocca lo scroll quando il menu mobile e' aperto (anche Lenis se attivo)
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (window.__lenis) {
+      menuOpen ? window.__lenis.stop() : window.__lenis.start();
+    }
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 

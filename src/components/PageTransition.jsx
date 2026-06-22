@@ -39,7 +39,8 @@ const PageTransition = ({ children }) => {
       .to(panels, { scaleY: 1, duration: 0.38, stagger: 0.05, ease: 'power3.inOut' })
       .add(() => {
         setDisplay(location);
-        window.scrollTo(0, 0);
+        if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
+        else window.scrollTo(0, 0);
       })
       .set(panels, { transformOrigin: 'top center' })
       .to(panels, { scaleY: 0, duration: 0.42, stagger: 0.05, ease: 'power3.inOut' }, '+=0.05')
