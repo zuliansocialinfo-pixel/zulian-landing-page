@@ -452,11 +452,14 @@ html.lenis, html.lenis body { height: auto; }
   flex: 1 1 0;
   height: 100%;
   transform: scaleY(0);
-  background: linear-gradient(180deg, var(--accent-color) 0%, #0a0a0a 100%);
-  will-change: transform;
+  background: linear-gradient(180deg, var(--accent-color) 0%, #1a1a1a 50%, #0a0a0a 100%);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.2);
+  will-change: transform, opacity;
+  border-left: 1px solid rgba(212, 175, 55, 0.3);
+  border-right: 1px solid rgba(212, 175, 55, 0.3);
 }
 .pt-panel:nth-child(even) {
-  background: linear-gradient(180deg, #0a0a0a 0%, var(--accent-color) 100%);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 50%, var(--accent-color) 100%);
 }
 @media (prefers-reduced-motion: reduce) {
   .pt-overlay { display: none; }

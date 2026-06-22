@@ -35,15 +35,16 @@ const PageTransition = ({ children }) => {
 
     const tl = gsap.timeline();
     tl.set(overlay, { pointerEvents: 'auto' })
-      .set(panels, { scaleY: 0, transformOrigin: 'bottom center' })
-      .to(panels, { scaleY: 1, duration: 0.38, stagger: 0.05, ease: 'power3.inOut' })
+      .set(panels, { scaleY: 0, transformOrigin: 'bottom center', opacity: 1 })
+      .to(panels, { scaleY: 1, duration: 0.28, stagger: 0.03, ease: 'power4.inOut' }, 0)
+      .to(panels, { opacity: 0.9, duration: 0.15 }, 0)
       .add(() => {
         setDisplay(location);
         if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
         else window.scrollTo(0, 0);
-      })
+      }, 0.2)
       .set(panels, { transformOrigin: 'top center' })
-      .to(panels, { scaleY: 0, duration: 0.42, stagger: 0.05, ease: 'power3.inOut' }, '+=0.05')
+      .to(panels, { scaleY: 0, opacity: 0, duration: 0.26, stagger: 0.03, ease: 'power4.inOut' }, '+=0')
       .set(overlay, { pointerEvents: 'none' });
 
     return () => tl.kill();
