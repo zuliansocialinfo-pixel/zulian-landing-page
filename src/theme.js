@@ -1,16 +1,19 @@
 // Colore "identità" per ogni pagina/sezione. Pilota --accent-color, quindi
-// luci, cursore, bottoni, link, glow stelle. Coerente tra home e pagine interne.
+// luci, cursore, bottoni, link, glow stelle. Palette futuristica AI/luxury-tech:
+// cyan elettrico, blu, viola controllati su fondo blu-notte. Coerente ovunque.
 export const ACCENTS = {
-  home: '#d4af37',          // oro
-  'chi-sono': '#d98c3f',    // ambra / rame
-  servizi: '#3fb98f',       // smeraldo
-  'come-funziona': '#4f9bd9', // acciaio
-  metodo: '#a86fe0',        // viola
-  prezzi: '#e0b53f',        // oro intenso
-  progetti: '#e8a13f',      // oro-arancio
+  home: '#22d3ee',          // cyan elettrico
+  'chi-sono': '#38bdf8',    // sky / blu chiaro
+  servizi: '#2dd4bf',       // teal / acqua tech
+  'come-funziona': '#3b82f6', // blu segnale
+  metodo: '#8b5cf6',        // viola pulse
+  prezzi: '#06b6d4',        // cyan profondo
+  progetti: '#6366f1',      // indaco
 };
 
-export const GOLD = '#d4af37';
+// Accento primario del sistema (cyan elettrico). Nome storico mantenuto
+// per compatibilita' con gli import esistenti.
+export const GOLD = '#22d3ee';
 
 // Voci di navigazione = pagine interne dedicate.
 export const NAV = [

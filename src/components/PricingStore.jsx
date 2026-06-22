@@ -110,7 +110,7 @@ const PricingStore = () => {
           transform: 'translate(-50%, -50%)',
           width: '80%',
           height: '50%',
-          background: 'radial-gradient(ellipse, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(ellipse, rgba(34, 211, 238,0.08) 0%, rgba(0,0,0,0) 70%)',
           filter: 'blur(60px)',
           zIndex: 0,
           pointerEvents: 'none',
@@ -152,7 +152,7 @@ const PricingStore = () => {
                     style={{
                       padding: '1.5rem',
                       border: activePlan === plan.id ? '2px solid var(--accent-color)' : '1px solid var(--glass-border)',
-                      background: activePlan === plan.id ? 'rgba(212,175,55,0.05)' : 'rgba(255,255,255,0.02)',
+                      background: activePlan === plan.id ? 'rgba(34, 211, 238,0.05)' : 'rgba(255,255,255,0.02)',
                       borderRadius: '16px',
                       cursor: 'pointer',
                       textAlign: 'left',
@@ -236,8 +236,8 @@ const PricingStore = () => {
               top: '120px',
               padding: '2.5rem',
               borderRadius: '24px',
-              background: 'linear-gradient(180deg, rgba(212,175,55,0.08) 0%, rgba(255,255,255,0.02))',
-              border: '1px solid rgba(212,175,55,0.24)',
+              background: 'linear-gradient(180deg, rgba(34, 211, 238,0.08) 0%, rgba(255,255,255,0.02))',
+              border: '1px solid rgba(34, 211, 238,0.24)',
               boxShadow: '0 20px 80px rgba(0,0,0,0.28)',
               overflow: 'hidden',
             }}
@@ -290,7 +290,7 @@ const PricingStore = () => {
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-2px)';
-                e.target.style.boxShadow = '0 10px 30px rgba(212,175,55,0.3)';
+                e.target.style.boxShadow = '0 10px 30px rgba(34, 211, 238,0.3)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0)';

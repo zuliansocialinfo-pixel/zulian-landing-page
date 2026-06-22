@@ -22,7 +22,7 @@ const Method = () => {
           left: '-5%',
           width: '450px',
           height: '450px',
-          background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(0,0,0,0) 70%)',
+          background: 'radial-gradient(circle, rgba(34, 211, 238,0.08) 0%, rgba(0,0,0,0) 70%)',
           filter: 'blur(50px)',
           zIndex: 0,
           pointerEvents: 'none',
@@ -96,7 +96,7 @@ const Method = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="glass"
-            style={{ padding: '2.5rem', border: '1px solid rgba(212,175,55,0.3)' }}
+            style={{ padding: '2.5rem', border: '1px solid rgba(34, 211, 238,0.3)' }}
           >
             <div style={{ color: 'var(--accent-color)', marginBottom: '1.2rem' }}>
               <Layers size={32} />

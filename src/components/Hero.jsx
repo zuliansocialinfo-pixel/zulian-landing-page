@@ -125,7 +125,7 @@ const Hero = ({ start = true }) => {
           width: 'min(700px, 90vw)',
           height: 'min(700px, 90vw)',
           transform: 'translate(-50%, -50%)',
-          background: 'radial-gradient(circle, rgba(212,175,55,0.14) 0%, rgba(0,0,0,0) 65%)',
+          background: 'radial-gradient(circle, rgba(34, 211, 238,0.14) 0%, rgba(0,0,0,0) 65%)',
           filter: 'blur(50px)',
           zIndex: 0,
           pointerEvents: 'none',
@@ -144,10 +144,10 @@ const Hero = ({ start = true }) => {
               display: 'inline-block',
               marginBottom: '1.6rem',
               padding: '0.5rem 1.3rem',
-              border: '1px solid rgba(212,175,55,0.35)',
+              border: '1px solid rgba(34, 211, 238,0.35)',
               borderRadius: '999px',
               fontSize: 'clamp(0.72rem, 2.4vw, 0.95rem)',
-              background: 'rgba(212,175,55,0.05)',
+              background: 'rgba(34, 211, 238,0.05)',
               backdropFilter: 'blur(4px)',
             }}
           >
@@ -173,7 +173,7 @@ const Hero = ({ start = true }) => {
                   style={{
                     color: 'var(--accent-color)',
                     fontWeight: 800,
-                    backgroundImage: 'linear-gradient(transparent 62%, rgba(212,175,55,0.22) 0)',
+                    backgroundImage: 'linear-gradient(transparent 62%, rgba(34, 211, 238,0.22) 0)',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'left bottom',
                     backgroundSize: '100% 100%',

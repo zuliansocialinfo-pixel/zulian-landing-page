@@ -4,7 +4,7 @@ import { Palette } from 'lucide-react';
 const THEMES = {
   gold: {
     name: 'Gold',
-    accentColor: '#d4af37',
+    accentColor: '#22d3ee',
     icon: '✨',
   },
   silver: {
@@ -104,7 +104,7 @@ const ThemeSwitcher = () => {
                 display: 'block',
                 width: '100%',
                 padding: '0.7rem 1rem',
-                background: currentTheme === key ? 'rgba(212,175,55,0.15)' : 'transparent',
+                background: currentTheme === key ? 'rgba(34, 211, 238,0.15)' : 'transparent',
                 border: 'none',
                 borderRadius: '8px',
                 color: 'var(--text-primary)',
@@ -116,10 +116,10 @@ const ThemeSwitcher = () => {
                 fontWeight: currentTheme === key ? 600 : 500,
               }}
               onMouseEnter={(e) => {
-                e.target.style.background = 'rgba(212,175,55,0.1)';
+                e.target.style.background = 'rgba(34, 211, 238,0.1)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.background = currentTheme === key ? 'rgba(212,175,55,0.15)' : 'transparent';
+                e.target.style.background = currentTheme === key ? 'rgba(34, 211, 238,0.15)' : 'transparent';
               }}
             >
               <span style={{ marginRight: '0.6rem' }}>{theme.icon}</span>

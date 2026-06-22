@@ -14,14 +14,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Colore accento per ogni sezione (oltre alla Hero, che resta oro).
 const SECTION_COLORS = [
-  { sel: '.hero-section', color: '#d4af37' }, // oro
+  { sel: '.hero-section', color: '#22d3ee' }, // oro
   { sel: '#chi-sono', color: '#d98c3f' },     // ambra/rame
   { sel: '#servizi', color: '#3fb98f' },      // smeraldo
   { sel: '#come-funziona', color: '#4f9bd9' },// acciaio
   { sel: '#metodo', color: '#a86fe0' },       // viola
   { sel: '#listino', color: '#e0b53f' },      // oro intenso
   { sel: '#preventivi', color: '#e8a13f' },   // oro-arancio
-  { sel: '#contatti', color: '#d4af37' },     // oro
+  { sel: '#contatti', color: '#22d3ee' },     // oro
 ];
 
 const SectionThemer = ({ active = true }) => {
@@ -32,7 +32,7 @@ const SectionThemer = ({ active = true }) => {
 
     const root = document.documentElement;
     // Proxy per interpolare davvero il colore esadecimale.
-    const proxy = { c: getComputedStyle(root).getPropertyValue('--accent-color').trim() || '#d4af37' };
+    const proxy = { c: getComputedStyle(root).getPropertyValue('--accent-color').trim() || '#22d3ee' };
 
     const setAccent = (color) => {
       gsap.to(proxy, {

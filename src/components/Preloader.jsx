@@ -196,12 +196,12 @@ const Preloader = ({ onComplete }) => {
         >
           <defs>
             <linearGradient id="goldTrace" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(212,175,55,0.9)" />
-              <stop offset="100%" stopColor="rgba(212,175,55,0.3)" />
+              <stop offset="0%" stopColor="rgba(34, 211, 238,0.9)" />
+              <stop offset="100%" stopColor="rgba(34, 211, 238,0.3)" />
             </linearGradient>
             <radialGradient id="glowCenter">
-              <stop offset="0%" stopColor="rgba(212,175,55,0.6)" />
-              <stop offset="100%" stopColor="rgba(212,175,55,0)" />
+              <stop offset="0%" stopColor="rgba(34, 211, 238,0.6)" />
+              <stop offset="100%" stopColor="rgba(34, 211, 238,0)" />
             </radialGradient>
           </defs>
 
@@ -228,20 +228,20 @@ const Preloader = ({ onComplete }) => {
           <path className="axis-line" d={`M ${C},${C} L 335,${C}`} stroke="var(--accent-color)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
 
           {/* Assi secondari diagonali (sottili) */}
-          <path className="axis-secondary" d={`M ${C},${C} L 40,40`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
-          <path className="axis-secondary" d={`M ${C},${C} L 280,40`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
-          <path className="axis-secondary" d={`M ${C},${C} L 40,280`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
-          <path className="axis-secondary" d={`M ${C},${C} L 280,280`} stroke="rgba(212,175,55,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 40,40`} stroke="rgba(34, 211, 238,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 280,40`} stroke="rgba(34, 211, 238,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 40,280`} stroke="rgba(34, 211, 238,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
+          <path className="axis-secondary" d={`M ${C},${C} L 280,280`} stroke="rgba(34, 211, 238,0.3)" strokeWidth="1" fill="none" strokeLinecap="round" opacity="0" />
 
           {/* Anello pulsante al punto d'incontro con doppio livello */}
-          <circle className="center-ring" cx={C} cy={C} r="90" fill="none" stroke="rgba(212,175,55,0.4)" strokeWidth="1.5" opacity="0" />
-          <circle className="center-ring-inner" cx={C} cy={C} r="60" fill="none" stroke="rgba(212,175,55,0.3)" strokeWidth="1" opacity="0" />
+          <circle className="center-ring" cx={C} cy={C} r="90" fill="none" stroke="rgba(34, 211, 238,0.4)" strokeWidth="1.5" opacity="0" />
+          <circle className="center-ring-inner" cx={C} cy={C} r="60" fill="none" stroke="rgba(34, 211, 238,0.3)" strokeWidth="1" opacity="0" />
 
           {/* Nodi / toggle alle estremita' */}
           {tips.map((t, i) => (
             <g className="node" key={i}>
               <circle cx={t.x} cy={t.y} r="13" fill="var(--bg-color)" stroke="var(--accent-color)" strokeWidth="2" />
-              <circle cx={t.x} cy={t.y} r="19" fill="none" stroke="rgba(212,175,55,0.2)" strokeWidth="1" />
+              <circle cx={t.x} cy={t.y} r="19" fill="none" stroke="rgba(34, 211, 238,0.2)" strokeWidth="1" />
               {t.tick === 'h' ? (
                 <line x1={t.x - 6} y1={t.y} x2={t.x + 6} y2={t.y} stroke="var(--accent-color)" strokeWidth="2.5" strokeLinecap="round" />
               ) : (
@@ -269,8 +269,8 @@ const Preloader = ({ onComplete }) => {
             borderRadius: '18px',
             overflow: 'hidden',
             background: 'var(--bg-color)',
-            border: '2px solid rgba(212,175,55,0.5)',
-            boxShadow: '0 0 40px rgba(212,175,55,0.45)',
+            border: '2px solid rgba(34, 211, 238,0.5)',
+            boxShadow: '0 0 40px rgba(34, 211, 238,0.45)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

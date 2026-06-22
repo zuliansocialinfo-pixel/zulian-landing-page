@@ -1,6 +1,9 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Transizione cinematografica tra pagine (stile Barba) per React Router.
@@ -27,6 +30,8 @@ const PageTransition = ({ children }) => {
     if (reduce) {
       setDisplay(location);
       window.scrollTo(0, 0);
+      // La nuova pagina monta i suoi ScrollTrigger: ricalcola le misure.
+      requestAnimationFrame(() => ScrollTrigger.refresh());
       return;
     }
 
@@ -45,9 +50,17 @@ const PageTransition = ({ children }) => {
       }, 0.2)
       .set(panels, { transformOrigin: 'top center' })
       .to(panels, { scaleY: 0, opacity: 0, duration: 0.26, stagger: 0.03, ease: 'power4.inOut' }, '+=0')
-      .set(overlay, { pointerEvents: 'none' });
+      .set(overlay, { pointerEvents: 'none' })
+      // La nuova pagina ha montato i suoi ScrollTrigger durante lo swap:
+      // ora che e' visibile, ricalcola le misure cosi' le animazioni
+      // allo scroll ripartono correttamente (niente sezioni "morte").
+      .add(() => ScrollTrigger.refresh());
 
-    return () => tl.kill();
+    return () => {
+      tl.kill();
+      // Sicurezza: mai lasciare l'overlay che intercetta i click.
+      if (overlay) gsap.set(overlay, { pointerEvents: 'none' });
+    };
   }, [location, display]);
 
   return (

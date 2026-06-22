@@ -61,7 +61,7 @@ const Pricing = () => {
         transform: 'translate(-50%, -50%)',
         width: '80%',
         height: '50%',
-        background: 'radial-gradient(ellipse, rgba(212,175,55,0.1) 0%, rgba(0,0,0,0) 70%)',
+        background: 'radial-gradient(ellipse, rgba(34, 211, 238,0.1) 0%, rgba(0,0,0,0) 70%)',
         filter: 'blur(60px)',
         zIndex: 0
       }} />
@@ -109,7 +109,7 @@ const Pricing = () => {
                 border: plan.popular ? '2px solid var(--accent-color)' : '1px solid var(--glass-border)',
                 transform: plan.popular ? 'scale(1.05)' : 'scale(1)',
                 zIndex: plan.popular ? 2 : 1,
-                boxShadow: plan.popular ? '0 10px 40px rgba(212, 175, 55, 0.15)' : 'none'
+                boxShadow: plan.popular ? '0 10px 40px rgba(34, 211, 238, 0.15)' : 'none'
               }}
             >
               {plan.popular && (

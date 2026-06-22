@@ -154,7 +154,7 @@ const InteractiveFX = () => {
               width: '380px',
               height: '380px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.04) 35%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(34, 211, 238,0.12) 0%, rgba(34, 211, 238,0.04) 35%, transparent 70%)',
               pointerEvents: 'none',
               zIndex: 1,
               willChange: 'transform',
@@ -174,7 +174,7 @@ const InteractiveFX = () => {
               pointerEvents: 'none',
               zIndex: 9998,
               willChange: 'transform',
-              boxShadow: '0 0 12px rgba(212,175,55,0.4)',
+              boxShadow: '0 0 12px rgba(34, 211, 238,0.4)',
             }}
           />
         </>

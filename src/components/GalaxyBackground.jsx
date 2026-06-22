@@ -32,7 +32,7 @@ const GalaxyBackground = () => {
     // Legge l'accento corrente come rgb per colorare alcune stelle
     const getAccent = () => {
       const raw = getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent-color').trim() || '#d4af37';
+        .getPropertyValue('--accent-color').trim() || '#22d3ee';
       return raw;
     };
     let accent = getAccent();
@@ -230,7 +230,7 @@ const GalaxyBackground = () => {
           left: '-10%',
           width: '60%',
           height: '70%',
-          background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.10) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at center, rgba(34, 211, 238,0.10) 0%, transparent 65%)',
           filter: 'blur(50px)',
         }}
       />
@@ -252,7 +252,7 @@ const GalaxyBackground = () => {
           right: '20%',
           width: '40%',
           height: '40%',
-          background: 'radial-gradient(circle at center, rgba(212,175,55,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at center, rgba(34, 211, 238,0.08) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />

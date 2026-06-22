@@ -164,12 +164,12 @@ const LogoPreview = () => {
 
   return (
     <svg ref={ref} viewBox="0 0 200 200" width="100%" height="100%" style={{ maxWidth: 200 }}>
-      <circle className="lp-ring" cx="100" cy="86" r="54" fill="none" stroke="rgba(212,175,55,0.4)" strokeWidth="1.5" />
+      <circle className="lp-ring" cx="100" cy="86" r="54" fill="none" stroke="rgba(34, 211, 238,0.4)" strokeWidth="1.5" />
       {/* Monogramma Z stilizzato */}
       <path className="lp-mono" d="M 74,60 L 126,60 L 80,112 L 128,112"
         fill="none" stroke="var(--accent-color)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
       {/* Palette colori che compaiono */}
-      {['#d4af37', '#1a1a1a', '#f5f5f5', '#b5952f'].map((c, i) => (
+      {['#22d3ee', '#1a1a1a', '#f5f5f5', '#06b6d4'].map((c, i) => (
         <rect key={i} className="lp-swatch" x={58 + i * 22} y="150" width="16" height="16" rx="3"
           fill={c} stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
       ))}
@@ -213,7 +213,7 @@ const CameraPreview = () => {
       </g>
       <defs>
         <linearGradient id="camShot" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#d4af37" />
+          <stop offset="0%" stopColor="#22d3ee" />
           <stop offset="55%" stopColor="#7a6320" />
           <stop offset="100%" stopColor="#2a2a2a" />
         </linearGradient>
@@ -223,10 +223,10 @@ const CameraPreview = () => {
       <rect x="44" y="84" width="112" height="74" rx="12" fill="#1c1c1c" stroke="var(--accent-color)" strokeWidth="2" />
       <rect x="74" y="74" width="34" height="14" rx="4" fill="#1c1c1c" stroke="var(--accent-color)" strokeWidth="2" />
       {/* mirino / flash hot-shoe */}
-      <rect x="120" y="96" width="20" height="8" rx="2" fill="#0d0d0d" stroke="rgba(212,175,55,0.6)" strokeWidth="1" />
+      <rect x="120" y="96" width="20" height="8" rx="2" fill="#0d0d0d" stroke="rgba(34, 211, 238,0.6)" strokeWidth="1" />
       {/* Lente */}
       <circle cx="100" cy="124" r="26" fill="#0d0d0d" stroke="var(--accent-color)" strokeWidth="2" />
-      <circle className="cam-lens-inner" cx="100" cy="124" r="17" fill="#141414" stroke="rgba(212,175,55,0.6)" strokeWidth="1.5" style={{ transformOrigin: '100px 124px' }} />
+      <circle className="cam-lens-inner" cx="100" cy="124" r="17" fill="#141414" stroke="rgba(34, 211, 238,0.6)" strokeWidth="1.5" style={{ transformOrigin: '100px 124px' }} />
       <circle cx="100" cy="124" r="7" fill="#222" />
       <circle cx="94" cy="118" r="3" fill="rgba(255,255,255,0.35)" />
       {/* Flash bianco a tutto schermo */}
@@ -318,7 +318,7 @@ const Listino = () => {
                   <span style={{
                     width: 44, height: 44, borderRadius: 12, flexShrink: 0,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    background: 'rgba(212,175,55,0.1)', color: 'var(--accent-color)',
+                    background: 'rgba(34, 211, 238,0.1)', color: 'var(--accent-color)',
                   }}>
                     <Icon size={22} />
                   </span>
@@ -364,7 +364,7 @@ const Listino = () => {
           className="glass"
           style={{
             marginTop: '3rem', padding: '2.5rem', textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02))',
+            background: 'linear-gradient(135deg, rgba(34, 211, 238,0.08), rgba(34, 211, 238,0.02))',
           }}
         >
           <h3 style={{ fontSize: '1.5rem', marginBottom: '0.6rem' }}>Documenti ufficiali</h3>
