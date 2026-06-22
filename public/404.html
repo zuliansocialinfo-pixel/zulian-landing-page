@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zulian Social Media Marketing</title>
+    <!-- SPA GitHub Pages: reindirizza preservando il percorso, poi index.html lo ripristina -->
+    <script>
+      (function (l) {
+        var segmentCount = 0; // dominio custom alla radice
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+          l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      }(window.location));
+    </script>
+  </head>
+  <body></body>
+</html>
