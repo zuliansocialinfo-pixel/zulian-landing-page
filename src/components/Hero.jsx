@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import GalaxyBackground from './GalaxyBackground';
 import SignalIntro from './SignalIntro';
+import Avatar3D from './Avatar3D';
 import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -136,8 +137,9 @@ const Hero = ({ start = true }) => {
 
       <div className="container" style={{ position: 'relative', zIndex: 1 }}>
         <div className="hero-inner" style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <div className="hero-anim" style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="hero-anim" style={{ display: 'flex', justifyContent: 'center', minHeight: '200px' }}>
             <SignalIntro />
+            <Avatar3D sceneUrl={process.env.REACT_APP_SPLINE_SCENE_URL} revealed={start} />
           </div>
 
           <span
