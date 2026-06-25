@@ -77,13 +77,21 @@ const ProgettoDettaglio = () => {
             ))}
           </div>
 
-          {/* Galleria segnaposto */}
-          <div className="pd-gallery" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '3rem' }}>
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="glass" style={{ aspectRatio: '4 / 3', background: 'linear-gradient(135deg, #161616, #0c0c0c)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>
-                Immagine {i + 1}
+          {/* Galleria immagini */}
+          <div className="pd-gallery" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.2rem', marginBottom: '3rem' }}>
+            {project.gallery && project.gallery.length > 0 ? project.gallery.map((img, i) => (
+              <div key={i} className="glass" style={{ aspectRatio: '4 / 3', background: `url(${img}) center/cover no-repeat`, display: 'flex', alignItems: 'flex-end', overflow: 'hidden' }}>
+                <div style={{ width: '100%', padding: '0.8rem', background: 'linear-gradient(180deg, transparent, rgba(0,0,0,0.6))', color: 'rgba(255,255,255,0.7)', fontSize: '0.75rem', fontWeight: 600 }}>
+                  Foto {i + 1}
+                </div>
               </div>
-            ))}
+            )) : (
+              [0, 1, 2].map((i) => (
+                <div key={i} className="glass" style={{ aspectRatio: '4 / 3', background: 'linear-gradient(135deg, #161616, #0c0c0c)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>
+                  Immagine {i + 1}
+                </div>
+              ))
+            )}
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>

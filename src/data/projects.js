@@ -14,6 +14,11 @@ export const PROJECTS = [
     excerpt: 'Reel cinematografico per il lancio del nuovo menù. (contenuto segnaposto)',
     body: 'Descrizione segnaposto del progetto video: obiettivi, lavorazione, risultati. Qui andranno il video, le foto dietro le quinte e i numeri della campagna.',
     tags: ['Reel', 'Montaggio', 'Color grading'],
+    gallery: [
+      '/projects/gallery/video-spot-ristorante-1.jpg',
+      '/projects/gallery/video-spot-ristorante-2.jpg',
+      '/projects/gallery/video-spot-ristorante-3.jpg',
+    ],
   },
   {
     slug: 'social-brand-locale',
@@ -26,6 +31,11 @@ export const PROJECTS = [
     excerpt: 'Piano editoriale e crescita organica su Instagram e TikTok. (segnaposto)',
     body: 'Descrizione segnaposto: strategia di contenuti, calendario, crescita follower e engagement. Inserire grafici e screenshot reali.',
     tags: ['Piano editoriale', 'Community', 'Crescita'],
+    gallery: [
+      '/projects/gallery/social-brand-locale-1.jpg',
+      '/projects/gallery/social-brand-locale-2.jpg',
+      '/projects/gallery/social-brand-locale-3.jpg',
+    ],
   },
   {
     slug: 'ecommerce-moda',
@@ -38,6 +48,11 @@ export const PROJECTS = [
     excerpt: 'Negozio online completo con pagamenti e spedizioni. (segnaposto)',
     body: 'Descrizione segnaposto: progettazione UX, catalogo prodotti, checkout, integrazione pagamenti. Inserire screenshot del sito reale.',
     tags: ['Shopify', 'UX', 'Pagamenti'],
+    gallery: [
+      '/projects/gallery/ecommerce-moda-1.jpg',
+      '/projects/gallery/ecommerce-moda-2.jpg',
+      '/projects/gallery/ecommerce-moda-3.jpg',
+    ],
   },
   {
     slug: 'rebranding-studio',
@@ -50,6 +65,11 @@ export const PROJECTS = [
     excerpt: 'Nuova identità visiva: logo, palette e materiali coordinati. (segnaposto)',
     body: 'Descrizione segnaposto: ricerca, concept, logo, sistema visivo e applicazioni. Inserire il prima/dopo e le tavole del brand.',
     tags: ['Logo', 'Identità', 'Coordinato'],
+    gallery: [
+      '/projects/gallery/rebranding-studio-1.jpg',
+      '/projects/gallery/rebranding-studio-2.jpg',
+      '/projects/gallery/rebranding-studio-3.jpg',
+    ],
   },
   {
     slug: 'campagna-ads-lead',
@@ -62,18 +82,28 @@ export const PROJECTS = [
     excerpt: 'Funnel pubblicitario per acquisizione contatti qualificati. (segnaposto)',
     body: 'Descrizione segnaposto: struttura del funnel, creatività, budget, costo per lead e risultati. Inserire i numeri reali della campagna.',
     tags: ['Meta Ads', 'Funnel', 'Lead'],
+    gallery: [
+      '/projects/gallery/campagna-ads-lead-1.jpg',
+      '/projects/gallery/campagna-ads-lead-2.jpg',
+      '/projects/gallery/campagna-ads-lead-3.jpg',
+    ],
   },
   {
-    slug: 'video-aziendale-corporate',
-    title: 'Video Aziendale — Corporate',
-    category: 'Video',
-    year: '2024',
-    client: 'Cliente segnaposto',
-    cover: '#202a2e',
-    coverImage: '/projects/video-aziendale-corporate.svg',
-    excerpt: 'Video istituzionale per presentare l’azienda e il team. (segnaposto)',
-    body: 'Descrizione segnaposto: storyboard, riprese, interviste e montaggio. Inserire il video finale e le foto di backstage.',
-    tags: ['Corporate', 'Interviste', 'Storytelling'],
+    slug: "video-aziendale-corporate",
+    title: "Video Aziendale — Corporate",
+    category: "Video",
+    year: "2024",
+    client: "Cliente segnaposto",
+    cover: "#202a2e",
+    coverImage: "/projects/video-aziendale-corporate.svg",
+    excerpt: "Video istituzionale per presentare l’azienda e il team. (segnaposto)",
+    body: "Descrizione segnaposto: storyboard, riprese, interviste e montaggio. Inserire il video finale e le foto di backstage.",
+    tags: ["Corporate", "Interviste", "Storytelling"],
+    gallery: [
+      "/projects/gallery/video-aziendale-corporate-1.jpg",
+      "/projects/gallery/video-aziendale-corporate-2.jpg",
+      "/projects/gallery/video-aziendale-corporate-3.jpg",
+    ],
   },
 ];
 
