@@ -165,22 +165,23 @@ const Hero = ({ start = true }) => {
           <h1
             className="hero-title"
             style={{
-              fontSize: 'clamp(2.6rem, 8vw, 6rem)',
+              fontSize: 'clamp(2rem, 6.4vw, 4.4rem)',
               marginBottom: '1.8rem',
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               fontWeight: 700,
+              letterSpacing: '-0.02em',
             }}
           >
             <span className="line-mask">
-              <span className="hero-line" style={{ display: 'block', fontWeight: 700 }}>Il tuo partner per la</span>
+              <span className="hero-line" style={{ display: 'block', fontWeight: 600 }}>Il tuo partner per la</span>
             </span>
             <span className="line-mask">
-              <span className="hero-line" style={{ display: 'block', fontWeight: 800 }}>
+              <span className="hero-line" style={{ display: 'block', fontWeight: 700 }}>
                 <span
                   className="hero-gold"
                   style={{
                     color: 'var(--accent-color)',
-                    fontWeight: 800,
+                    fontWeight: 700,
                     backgroundImage: 'linear-gradient(transparent 62%, rgba(34, 211, 238,0.22) 0)',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'left bottom',

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 :root {
   --bg-color: #070b14;        /* blu-notte profondo, quasi nero */
@@ -11,8 +11,8 @@
   --accent-blue: #3b82f6;     /* blu segnale */
   --card-bg: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Space Grotesk', sans-serif;     /* corpo testo: tech, leggibile */
+  --font-serif: 'Unbounded', 'Space Grotesk', sans-serif;  /* titoli display: futuristico */
 }
 
 * {
@@ -40,7 +40,7 @@ section[id] {
 }
 
 body {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   background-color: var(--bg-color);
   color: var(--text-primary);
   line-height: 1.6;
@@ -52,15 +52,17 @@ body {
   backface-visibility: hidden;
 }
 
-/* Tutto il sito usa Playfair Display */
+/* Corpo, controlli e bottoni: Space Grotesk (tech e leggibile) */
 button, input, textarea, select {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
+/* Titoli display: Unbounded (futuristico, da interfaccia sci-fi) */
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
 }
 
 h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
@@ -75,7 +77,7 @@ a {
 
 button {
   cursor: pointer;
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
 }
 
 /* Glassmorphism utilities */
