@@ -17,12 +17,12 @@ const ProjectCard = ({ p }) => (
   >
     <Tilt max={7} style={{ height: '100%' }}>
     <Link to={`/progetti/${p.slug}`} className="glass project-card" style={{ display: 'block', overflow: 'hidden', height: '100%' }}>
-      {/* Cover segnaposto */}
-      <div className="project-cover" style={{ position: 'relative', aspectRatio: '16 / 10', background: `linear-gradient(135deg, ${p.cover}, #0c0c0c)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* Cover grafica */}
+      <div className="project-cover" style={{ position: 'relative', aspectRatio: '16 / 10', background: p.coverImage ? `#070b14 center/cover no-repeat url(${p.coverImage})` : `linear-gradient(135deg, ${p.cover}, #0c0c0c)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <span style={{ position: 'absolute', top: '0.9rem', left: '0.9rem', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#0a0a0a', background: 'var(--accent-color)', padding: '0.25rem 0.7rem', borderRadius: '999px' }}>
           {p.category}
         </span>
-        {p.category === 'Video' && (
+        {p.category === 'Video' && !p.coverImage && (
           <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Play size={22} style={{ color: '#fff', marginLeft: 3 }} />
           </div>

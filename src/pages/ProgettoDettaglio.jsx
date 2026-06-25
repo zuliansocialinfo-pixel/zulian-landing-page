@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Play, Calendar } from 'lucide-react';
+import { ArrowLeft, Play, MessageCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { getProject } from '../data/projects';
 import { ACCENTS, GOLD, tweenAccent } from '../theme';
+import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 const ProgettoDettaglio = () => {
   const { slug } = useParams();
@@ -57,12 +58,13 @@ const ProgettoDettaglio = () => {
           </div>
         </div>
 
-        {/* Cover / video segnaposto */}
-        <div className="pd-cover glass" style={{ position: 'relative', aspectRatio: '16 / 9', background: `linear-gradient(135deg, ${project.cover}, #0c0c0c)`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
-          <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Play size={28} style={{ color: '#fff', marginLeft: 4 }} />
-          </div>
-          <span style={{ position: 'absolute', bottom: '0.9rem', right: '1rem', fontSize: '0.78rem', color: 'rgba(255,255,255,0.55)' }}>Video / immagine segnaposto</span>
+        {/* Cover grafica */}
+        <div className="pd-cover glass" style={{ position: 'relative', aspectRatio: '16 / 9', background: project.coverImage ? `#070b14 center/cover no-repeat url(${project.coverImage})` : `linear-gradient(135deg, ${project.cover}, #0c0c0c)`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2.5rem' }}>
+          {project.category === 'Video' && (
+            <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <Play size={28} style={{ color: '#fff', marginLeft: 4 }} />
+            </div>
+          )}
         </div>
 
         <div className="pd-body">
@@ -90,10 +92,10 @@ const ProgettoDettaglio = () => {
             </Link>
             <Link to="/progetti" className="btn-secondary">Altri progetti</Link>
             <a
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce"
+              href={getWhatsAppLink(whatsappMessages.quote(project.title))}
               target="_blank" rel="noopener noreferrer" className="btn-primary"
             >
-              <Calendar size={18} /> Voglio un progetto così
+              <MessageCircle size={18} /> Voglio un progetto così
             </a>
           </div>
         </div>

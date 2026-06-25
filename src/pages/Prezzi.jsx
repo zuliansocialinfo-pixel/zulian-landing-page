@@ -5,6 +5,7 @@ import { Download, FileText, Check, ArrowRight } from 'lucide-react';
 import PageShell from '../components/PageShell';
 import { PRICING, PRICING_GROUPS } from '../data/pricing';
 import { tweenAccent, GOLD } from '../theme';
+import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 // Colore-accento per gruppo: alla selezione vira le luci del sito.
 const GROUP_COLORS = {
@@ -172,8 +173,14 @@ const Prezzi = () => {
                   ))}
                 </ul>
 
-                <a href="#contatti" className="btn-primary" style={{ background: accent }}>
-                  Richiedi preventivo
+                <a
+                  href={getWhatsAppLink(whatsappMessages.quote(active.title))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                  style={{ background: accent }}
+                >
+                  Richiedi preventivo via WhatsApp
                   <ArrowRight size={18} />
                 </a>
               </motion.div>

@@ -5,6 +5,7 @@ import {
   BarChart3, Share2, Target, Globe, Video, Sparkles, ArrowRight, Check,
 } from 'lucide-react';
 import { tweenAccent } from '../theme';
+import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 /**
  * Console servizi interattiva (stile dashboard/pannello AI).
@@ -185,7 +186,13 @@ const ServiceConsole = () => {
                 ))}
               </div>
 
-              <a href="#contatti" className="btn-primary" style={{ background: active.color }}>
+              <a
+                href={getWhatsAppLink(whatsappMessages.service(active.title))}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ background: active.color }}
+              >
                 Voglio questo servizio
                 <ArrowRight size={18} />
               </a>

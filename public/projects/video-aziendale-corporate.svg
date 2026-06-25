@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b14"/>
+      <stop offset="1" stop-color="#0c1322"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <g stroke="#38bdf8" stroke-opacity="0.07" stroke-width="1">
+    <line x1="0" y1="250" x2="1600" y2="250"/><line x1="0" y1="500" x2="1600" y2="500"/><line x1="0" y1="750" x2="1600" y2="750"/>
+    <line x1="400" y1="0" x2="400" y2="1000"/><line x1="800" y1="0" x2="800" y2="1000"/><line x1="1200" y1="0" x2="1200" y2="1000"/>
+  </g>
+  <!-- film frames -->
+  <g fill="none" stroke="#38bdf8" stroke-width="3">
+    <rect x="560" y="360" width="220" height="150" rx="12" stroke-opacity="0.5"/>
+    <rect x="690" y="420" width="220" height="150" rx="12"/>
+    <rect x="820" y="480" width="220" height="150" rx="12" stroke-opacity="0.5"/>
+  </g>
+  <!-- sprocket holes -->
+  <g fill="#38bdf8" fill-opacity="0.4">
+    <rect x="540" y="350" width="14" height="14" rx="3"/><rect x="540" y="400" width="14" height="14" rx="3"/><rect x="540" y="450" width="14" height="14" rx="3"/>
+    <rect x="1046" y="490" width="14" height="14" rx="3"/><rect x="1046" y="540" width="14" height="14" rx="3"/><rect x="1046" y="590" width="14" height="14" rx="3"/>
+  </g>
+  <!-- play -->
+  <circle cx="800" cy="495" r="60" fill="#070b14" fill-opacity="0.6" stroke="#38bdf8" stroke-width="3"/>
+  <path d="M783 465 L833 495 L783 525 Z" fill="#38bdf8"/>
+  <text x="120" y="160" font-family="ui-monospace,Menlo,monospace" font-size="30" fill="#38bdf8" letter-spacing="6">VIDEO · CORPORATE</text>
+  <text x="120" y="900" font-family="Arial,sans-serif" font-size="56" font-weight="700" fill="#f4f7fb">Video Aziendale — Corporate</text>
+</svg>

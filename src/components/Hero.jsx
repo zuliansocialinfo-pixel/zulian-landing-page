@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, ArrowRight, ChevronDown } from 'lucide-react';
+import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import GalaxyBackground from './GalaxyBackground';
 import SignalIntro from './SignalIntro';
+import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -258,13 +259,13 @@ const Hero = ({ start = true }) => {
             style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}
           >
             <a
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3fOx-uImUyUZK6k2uRZRBFTz8quyI6UDW3lyfeuClz2oZc1gnax33Mkw_VPe6IVnNpuX3sOFce"
+              href={getWhatsAppLink(whatsappMessages.consultation)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary hero-cta"
             >
-              <Calendar size={20} />
-              Prenota una Consulenza Gratuita
+              <MessageCircle size={20} />
+              Consulenza Gratuita via WhatsApp
             </a>
             <a href="#servizi" className="btn-secondary hero-cta">
               Scopri i servizi
