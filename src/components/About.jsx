@@ -1,10 +1,46 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import face from '../assets/face.jpg';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const About = () => {
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    const ctx = gsap.context(() => {
+      // Stagger reveal for both columns
+      gsap.utils.toArray('.about-reveal').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 30, filter: 'blur(8px)' },
+          {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              end: 'top 65%',
+              scrub: 0.5,
+            },
+          }
+        );
+      });
+    }, rootRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="chi-sono" style={{ padding: '2rem 0 4rem' }}>
+    <section ref={rootRef} id="chi-sono" style={{ padding: '2rem 0 4rem' }}>
       <div className="container">
         <div style={{
           display: 'grid',
@@ -12,12 +48,7 @@ const About = () => {
           gap: '4rem',
           alignItems: 'center'
         }}>
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className="about-reveal">
             <h2 className="text-accent" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>Il Mio Percorso</h2>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
               Mi chiamo Marco Zulian e vengo da una famiglia operaia. Ho iniziato a lavorare presto, imparando sul campo il valore dell'impegno, della responsabilità e della determinazione.
@@ -28,14 +59,10 @@ const About = () => {
             <p style={{ color: 'var(--text-secondary)' }}>
               Non vendo scorciatoie né promesse irrealistiche: costruisco percorsi solidi, passo dopo passo, con trasparenza, competenza e obiettivi concreti.
             </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="glass"
+          </div>
+
+          <div
+            className="about-reveal glass"
             style={{ padding: '3rem', position: 'relative' }}
           >
             <div style={{
@@ -61,7 +88,7 @@ const About = () => {
             <p style={{ color: 'var(--text-secondary)' }}>
               Quando un'azienda sceglie di lavorare con me, non trova promesse vuote o soluzioni improvvisate, ma un percorso costruito con metodo, trasparenza e obiettivi chiari.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
