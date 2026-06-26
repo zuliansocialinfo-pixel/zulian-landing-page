@@ -43,20 +43,26 @@ const Avatar3D = ({ sceneUrl, image, alt = 'Avatar', revealed = false, className
       gsap.to(glowRef.current, { opacity: 0.6, scale: 1.12, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
     }, containerRef);
 
-    // Inseguimento del mouse solo su desktop con puntatore fine
+    // Inseguimento del mouse solo su desktop con puntatore fine.
+    // L'omino si GIRA verso il cursore (tilt 3D) e si SPOSTA verso di esso
+    // (drift), per un "segui il mouse" netto come la demo del robot.
     const mm = gsap.matchMedia();
     mm.add('(min-width: 768px) and (pointer: fine)', () => {
-      const rotY = gsap.quickTo(tiltRef.current, 'rotationY', { duration: 0.7, ease: 'power3' });
-      const rotX = gsap.quickTo(tiltRef.current, 'rotationX', { duration: 0.7, ease: 'power3' });
+      const rotY = gsap.quickTo(tiltRef.current, 'rotationY', { duration: 0.55, ease: 'power3' });
+      const rotX = gsap.quickTo(tiltRef.current, 'rotationX', { duration: 0.55, ease: 'power3' });
+      const moveX = gsap.quickTo(tiltRef.current, 'x', { duration: 0.55, ease: 'power3' });
+      const moveY = gsap.quickTo(tiltRef.current, 'y', { duration: 0.55, ease: 'power3' });
 
       const onMove = (e) => {
         const r = containerRef.current.getBoundingClientRect();
-        const dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+        const dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;   // ~ -0.5..0.5
         const dy = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
-        rotY(gsap.utils.clamp(-22, 22, dx * 42));
-        rotX(gsap.utils.clamp(-16, 16, -dy * 30));
+        rotY(gsap.utils.clamp(-34, 34, dx * 75));   // si gira verso il cursore
+        rotX(gsap.utils.clamp(-24, 24, -dy * 50));
+        moveX(gsap.utils.clamp(-38, 38, dx * 85));  // si sposta verso il cursore
+        moveY(gsap.utils.clamp(-26, 26, dy * 65));
       };
-      const onLeave = () => { rotY(0); rotX(0); };
+      const onLeave = () => { rotY(0); rotX(0); moveX(0); moveY(0); };
 
       window.addEventListener('mousemove', onMove);
       window.addEventListener('mouseleave', onLeave);
