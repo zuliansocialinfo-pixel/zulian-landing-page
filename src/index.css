@@ -696,30 +696,21 @@ body::after {
   to { background-position: 200% center; }
 }
 
-/* 3) Card "glass": bordo che pulsa, leggermente sfasato fra le card */
-.glass {
-  animation: glassPulse 5.5s ease-in-out infinite;
-}
-.glass:nth-of-type(2n) { animation-delay: -1.8s; }
-.glass:nth-of-type(3n) { animation-delay: -3.4s; }
-@keyframes glassPulse {
-  0%, 100% { border-color: var(--glass-border); }
-  50% { border-color: color-mix(in srgb, var(--accent-color) 34%, transparent); }
+/* 3) Card "glass": micro-interazione hover premium (lift + glow controllato).
+   Esclude i grandi pannelli interattivi e le project-card (hanno hover proprio). */
+.glass:not(.console-panel):not(.pd-cover):not(.project-card):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45), 0 0 22px -8px var(--accent-color);
 }
 
-/* 4) Bottoni primari: riflesso che scorre da solo (non solo all'hover) */
-.btn-primary::after {
-  animation: btnSheen 5s ease-in-out infinite;
-}
-@keyframes btnSheen {
-  0% { left: -120%; }
-  35%, 100% { left: 140%; }
+/* 4) CTA secondaria: stesso linguaggio premium della primaria (glow morbido) */
+.btn-secondary:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3), 0 0 18px -8px var(--accent-color);
 }
 
-/* Rispetta chi preferisce meno animazioni: spegne tutto il movimento ambient */
+/* Rispetta chi preferisce meno animazioni: spegne il movimento ambient continuo */
 @media (prefers-reduced-motion: reduce) {
-  body::before, body::after,
-  .ps-kicker, .glass, .btn-primary::after {
+  body::before, body::after, .ps-kicker {
     animation: none !important;
   }
   .ps-kicker { -webkit-text-fill-color: var(--accent-color); }

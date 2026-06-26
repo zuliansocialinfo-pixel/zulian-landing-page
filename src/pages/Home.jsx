@@ -74,7 +74,7 @@ const Home = () => {
       {/* Griglia "voci": ogni card porta alla sua pagina dedicata */}
       <section style={{ padding: '6rem 0', position: 'relative' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <div data-anim="reveal" style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span style={{ color: 'var(--accent-color)', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.85rem' }}>Esplora</span>
             <h2 style={{ marginTop: '0.8rem' }}>Tutto quello che posso fare per te</h2>
             <p style={{ color: 'var(--text-secondary)', maxWidth: '620px', margin: '1rem auto 0', fontSize: '1.1rem' }}>
@@ -90,7 +90,7 @@ const Home = () => {
 
       {/* Calendario / contatti */}
       <section id="contatti" style={{ padding: '4rem 0 6rem', borderTop: '1px solid var(--glass-border)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
+        <div data-anim="reveal" className="container" style={{ textAlign: 'center' }}>
           <h2 className="text-accent" style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', marginBottom: '1rem' }}>Prenota la tua Consulenza</h2>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
             <Calendar size={18} /> Scegli l'orario migliore per te direttamente dal mio calendario.

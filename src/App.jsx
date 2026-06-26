@@ -6,6 +6,7 @@ import InteractiveFX from './components/InteractiveFX';
 import PageTransition from './components/PageTransition';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import SiteMotion from './components/SiteMotion';
 import { RevealContext } from './revealContext';
 import useSmoothScroll from './hooks/useSmoothScroll';
 
@@ -53,6 +54,7 @@ function App() {
         </main>
       </RevealContext.Provider>
 
+      {revealed && <SiteMotion active={revealed} />}
       {revealed && <Footer />}
       {revealed && <FloatingWhatsApp />}
     </div>

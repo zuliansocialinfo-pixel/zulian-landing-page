@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer style={{ backgroundColor: '#050505', padding: '4rem 0 2rem 0', borderTop: '1px solid var(--glass-border)' }}>
       <div className="container">
-        <div style={{
+        <div data-anim="stagger" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           gap: '3rem',

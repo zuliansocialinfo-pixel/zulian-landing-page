@@ -64,7 +64,7 @@ const PageShell = ({ accentKey, kicker, title, subtitle, children }) => {
 
         <div className="ps-body">{children}</div>
 
-        <div style={{ marginTop: '4rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <div data-anim="reveal" style={{ marginTop: '4rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <Link to="/" className="btn-secondary">
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} />
             Torna alla home
