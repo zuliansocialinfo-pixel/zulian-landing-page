@@ -7,6 +7,7 @@ import PageTransition from './components/PageTransition';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import SiteMotion from './components/SiteMotion';
+import NeuralField from './components/NeuralField';
 import { RevealContext } from './revealContext';
 import useSmoothScroll from './hooks/useSmoothScroll';
 
@@ -28,6 +29,9 @@ function App() {
   return (
     <div style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-primary)', minHeight: '100vh', overflow: revealed ? 'visible' : 'hidden' }}>
       <Preloader onComplete={() => setRevealed(true)} />
+
+      {/* Sfondo interattivo globale: la rete neurale "viva" dietro TUTTO il sito */}
+      {revealed && <NeuralField />}
 
       {/* Luci interattive futuristiche: attive dopo l'intro */}
       {revealed && <InteractiveFX />}

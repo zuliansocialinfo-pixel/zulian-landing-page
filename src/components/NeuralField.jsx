@@ -243,7 +243,7 @@ const NeuralField = () => {
   return (
     <div
       aria-hidden="true"
-      style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}
+      style={{ position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none', overflow: 'hidden' }}
     >
       <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '60%', height: '70%', background: `radial-gradient(ellipse at center, ${rgba(variant.primary, 0.1)} 0%, transparent 65%)`, filter: 'blur(60px)' }} />
       <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '65%', height: '75%', background: `radial-gradient(ellipse at center, ${rgba(variant.secondary, 0.1)} 0%, transparent 65%)`, filter: 'blur(70px)' }} />

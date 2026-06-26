@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
-import NeuralField from './NeuralField';
 import SignalIntro from './SignalIntro';
 import Avatar3D from './Avatar3D';
 import avatarCharacter from '../assets/avatar-detective.png';
@@ -116,8 +115,6 @@ const Hero = ({ start = true }) => {
         transition: start ? 'opacity 0.6s ease-out 0.1s' : 'opacity 0s',
       }}
     >
-      {/* Sfondo: rete neurale interattiva che segue il mouse */}
-      <NeuralField />
 
       {/* Glow centrale pulsante (sopra le stelle, sotto il testo) */}
       <div
