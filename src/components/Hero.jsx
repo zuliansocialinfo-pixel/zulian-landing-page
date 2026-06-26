@@ -2,10 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
-import GalaxyBackground from './GalaxyBackground';
+import NeuralField from './NeuralField';
 import SignalIntro from './SignalIntro';
-import Avatar3D from './Avatar3D';
-import avatarCharacter from '../assets/avatar-detective.png';
 import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -116,8 +114,8 @@ const Hero = ({ start = true }) => {
         transition: start ? 'opacity 0.6s ease-out 0.1s' : 'opacity 0s',
       }}
     >
-      {/* Sfondo galassia animato */}
-      <GalaxyBackground />
+      {/* Sfondo: rete neurale interattiva che segue il mouse */}
+      <NeuralField />
 
       {/* Glow centrale pulsante (sopra le stelle, sotto il testo) */}
       <div
@@ -142,7 +140,6 @@ const Hero = ({ start = true }) => {
             className="hero-anim"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
-            <Avatar3D image={avatarCharacter} alt="Zulian" sceneUrl={import.meta.env.VITE_SPLINE_SCENE_URL} revealed={start} />
             <SignalIntro />
           </div>
 
