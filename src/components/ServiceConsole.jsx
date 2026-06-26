@@ -172,8 +172,14 @@ const ServiceConsole = () => {
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.7rem', marginBottom: '2rem' }}>
-                {active.items.map((it) => (
-                  <div key={it} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem' }}>
+                {active.items.map((it, i) => (
+                  <motion.div
+                    key={it}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.14 + i * 0.05, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.95rem' }}
+                  >
                     <span style={{
                       width: 22, height: 22, borderRadius: '50%', flexShrink: 0,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -182,7 +188,7 @@ const ServiceConsole = () => {
                       <Check size={13} />
                     </span>
                     <span style={{ color: 'var(--text-primary)' }}>{it}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 

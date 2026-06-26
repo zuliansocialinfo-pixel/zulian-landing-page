@@ -6,13 +6,13 @@ import PageShell from '../components/PageShell';
 import Tilt from '../components/Tilt';
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects';
 
-const ProjectCard = ({ p }) => (
+const ProjectCard = ({ p, i = 0 }) => (
   <motion.div
     layout
     initial={{ opacity: 0, scale: 0.92, y: 20 }}
     animate={{ opacity: 1, scale: 1, y: 0 }}
     exit={{ opacity: 0, scale: 0.92 }}
-    transition={{ duration: 0.35, ease: 'easeOut' }}
+    transition={{ duration: 0.35, ease: 'easeOut', delay: Math.min(i, 8) * 0.05 }}
     style={{ height: '100%' }}
   >
     <Tilt max={7} style={{ height: '100%' }}>
@@ -81,7 +81,7 @@ const Progetti = () => {
 
       <motion.div layout className="project-grid">
         <AnimatePresence mode="popLayout">
-          {list.map((p) => <ProjectCard key={p.slug} p={p} />)}
+          {list.map((p, i) => <ProjectCard key={p.slug} p={p} i={i} />)}
         </AnimatePresence>
       </motion.div>
     </PageShell>
