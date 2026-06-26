@@ -169,29 +169,18 @@ const Method = () => {
             {analysisPoints.map((point, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className="method-step"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}
+                transition={{ delay: idx * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                style={{
+                  display: 'flex', gap: '1.1rem', alignItems: 'center',
+                  padding: '1rem 1.15rem', borderRadius: '14px',
+                  border: '1px solid var(--glass-border)', background: 'rgba(255,255,255,0.02)',
+                }}
               >
-                <span
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    border: '1px solid var(--accent-color)',
-                    color: 'var(--accent-color)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '0.85rem',
-                    fontWeight: 700,
-                    flexShrink: 0,
-                  }}
-                >
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
+                <span className="method-step-num">{String(idx + 1).padStart(2, '0')}</span>
                 <span style={{ color: 'var(--text-primary)' }}>{point}</span>
               </motion.div>
             ))}

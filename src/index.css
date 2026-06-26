@@ -708,6 +708,41 @@ body::after {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3), 0 0 18px -8px var(--accent-color);
 }
 
+/* 5) Metodo: numeri 01-06 scenografici + step interattivi */
+.method-step {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.method-step:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4), 0 0 22px -8px var(--accent-color);
+}
+.method-step-num {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  flex-shrink: 0;
+  min-width: 2.4ch;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--accent-color) 35%, transparent);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), text-shadow 0.35s ease;
+}
+.method-step:hover .method-step-num {
+  transform: scale(1.12);
+  text-shadow: 0 0 26px var(--accent-color);
+}
+
+/* 6) Progetti: zoom morbido della cover all'hover (parallax leggero) */
+.project-cover {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+  will-change: transform;
+}
+.project-card:hover .project-cover {
+  transform: scale(1.06);
+}
+
 /* Rispetta chi preferisce meno animazioni: spegne il movimento ambient continuo */
 @media (prefers-reduced-motion: reduce) {
   body::before, body::after, .ps-kicker {
