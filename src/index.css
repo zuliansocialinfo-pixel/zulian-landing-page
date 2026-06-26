@@ -644,3 +644,83 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 600px) {
   .page-shell { padding-top: 100px !important; }
 }
+
+/* ============================================================
+   MOVIMENTO AMBIENT — vita su TUTTO il sito (mai statico)
+   ============================================================ */
+
+/* 1) Luci che derivano dietro ogni pagina (seguono l'accento attivo) */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  will-change: transform;
+}
+body::before {
+  width: 46vw; height: 46vw;
+  top: -10vw; left: -8vw;
+  opacity: 0.16;
+  background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+  animation: ambientDriftA 24s ease-in-out infinite;
+}
+body::after {
+  width: 52vw; height: 52vw;
+  bottom: -14vw; right: -10vw;
+  opacity: 0.13;
+  background: radial-gradient(circle, var(--accent-violet) 0%, transparent 70%);
+  animation: ambientDriftB 30s ease-in-out infinite;
+}
+@keyframes ambientDriftA {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(7vw, 6vw) scale(1.18); }
+}
+@keyframes ambientDriftB {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6vw, -5vw) scale(1.12); }
+}
+
+/* 2) Occhiello di sezione: shimmer continuo */
+.ps-kicker {
+  background: linear-gradient(90deg, var(--accent-color), #ffffff, var(--accent-color));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: kickerShine 4.5s linear infinite;
+}
+@keyframes kickerShine {
+  to { background-position: 200% center; }
+}
+
+/* 3) Card "glass": bordo che pulsa, leggermente sfasato fra le card */
+.glass {
+  animation: glassPulse 5.5s ease-in-out infinite;
+}
+.glass:nth-of-type(2n) { animation-delay: -1.8s; }
+.glass:nth-of-type(3n) { animation-delay: -3.4s; }
+@keyframes glassPulse {
+  0%, 100% { border-color: var(--glass-border); }
+  50% { border-color: color-mix(in srgb, var(--accent-color) 34%, transparent); }
+}
+
+/* 4) Bottoni primari: riflesso che scorre da solo (non solo all'hover) */
+.btn-primary::after {
+  animation: btnSheen 5s ease-in-out infinite;
+}
+@keyframes btnSheen {
+  0% { left: -120%; }
+  35%, 100% { left: 140%; }
+}
+
+/* Rispetta chi preferisce meno animazioni: spegne tutto il movimento ambient */
+@media (prefers-reduced-motion: reduce) {
+  body::before, body::after,
+  .ps-kicker, .glass, .btn-primary::after {
+    animation: none !important;
+  }
+  .ps-kicker { -webkit-text-fill-color: var(--accent-color); }
+}
