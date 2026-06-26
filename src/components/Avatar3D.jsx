@@ -5,16 +5,21 @@ import SplineScene from './SplineScene';
 /**
  * Avatar del brand nella Hero.
  * - Se viene passato `sceneUrl` (scena Spline) carica l'avatar 3D.
- * - Altrimenti mostra la foto reale (`image`) in un anello glow circolare.
- * Entrambi entrano con fade + scale e hanno un glow pulsante "vivo".
+ * - Altrimenti mostra il personaggio (`image`) ANIMATO come la demo del robot:
+ *     · entrata in dissolvenza + scale
+ *     · galleggiamento "idle" continuo (bob + leggera oscillazione)
+ *     · inseguimento del mouse: la figura si orienta verso il cursore (tilt 3D)
+ *     · glow pulsante dietro la figura
  * Rispetta prefers-reduced-motion.
  */
 const Avatar3D = ({ sceneUrl, image, alt = 'Avatar', revealed = false, className = '' }) => {
   const containerRef = useRef(null);
-  const ringRef = useRef(null);
+  const glowRef = useRef(null);
+  const floatRef = useRef(null);
+  const tiltRef = useRef(null);
 
   useEffect(() => {
-    if (!revealed || !containerRef.current) return;
+    if (!revealed || !containerRef.current || sceneUrl) return;
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) {
@@ -23,31 +28,62 @@ const Avatar3D = ({ sceneUrl, image, alt = 'Avatar', revealed = false, className
     }
 
     const ctx = gsap.context(() => {
-      // Ingresso: fade + scale + defocus
+      // Entrata
       gsap.fromTo(
         containerRef.current,
-        { opacity: 0, scale: 0.8, filter: 'blur(20px)' },
-        { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.2, ease: 'power3.out', delay: 0.3 }
+        { opacity: 0, scale: 0.85, filter: 'blur(16px)' },
+        { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.1, ease: 'power3.out', delay: 0.25 }
       );
 
-      // Glow pulsante sull'anello
-      if (ringRef.current) {
-        gsap.to(ringRef.current, {
-          boxShadow: '0 0 50px rgba(34, 211, 238, 0.55), 0 0 95px rgba(139, 92, 246, 0.3)',
-          duration: 3,
-          ease: 'sine.inOut',
-          yoyo: true,
-          repeat: -1,
-        });
-      }
+      // Galleggiamento idle (come il robot fermo che "respira")
+      gsap.to(floatRef.current, { y: -14, duration: 2.6, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+      gsap.to(floatRef.current, { rotation: 1.4, duration: 3.4, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+      // Glow pulsante dietro la figura
+      gsap.to(glowRef.current, { opacity: 0.6, scale: 1.12, duration: 3, ease: 'sine.inOut', yoyo: true, repeat: -1 });
     }, containerRef);
 
-    return () => ctx.revert();
-  }, [revealed]);
+    // Inseguimento del mouse solo su desktop con puntatore fine
+    const mm = gsap.matchMedia();
+    mm.add('(min-width: 768px) and (pointer: fine)', () => {
+      const rotY = gsap.quickTo(tiltRef.current, 'rotationY', { duration: 0.7, ease: 'power3' });
+      const rotX = gsap.quickTo(tiltRef.current, 'rotationX', { duration: 0.7, ease: 'power3' });
+
+      const onMove = (e) => {
+        const r = containerRef.current.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+        const dy = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+        rotY(gsap.utils.clamp(-22, 22, dx * 42));
+        rotX(gsap.utils.clamp(-16, 16, -dy * 30));
+      };
+      const onLeave = () => { rotY(0); rotX(0); };
+
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseleave', onLeave);
+      return () => {
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('mouseleave', onLeave);
+      };
+    });
+
+    return () => {
+      ctx.revert();
+      mm.revert();
+    };
+  }, [revealed, sceneUrl]);
 
   if (!revealed || (!sceneUrl && !image)) return null;
 
-  const size = 'clamp(120px, 26vw, 164px)';
+  if (sceneUrl) {
+    return (
+      <div
+        className={`avatar-3d ${className}`}
+        style={{ position: 'relative', width: 'min(420px, 80vw)', height: 'clamp(220px, 50vw, 340px)', margin: '0 auto 1.2rem' }}
+      >
+        <SplineScene scene={sceneUrl} className="w-full h-full" />
+      </div>
+    );
+  }
 
   return (
     <div
@@ -55,40 +91,45 @@ const Avatar3D = ({ sceneUrl, image, alt = 'Avatar', revealed = false, className
       className={`avatar-3d ${className}`}
       style={{
         position: 'relative',
-        width: sceneUrl ? 'min(420px, 80vw)' : size,
-        height: sceneUrl ? 'clamp(220px, 50vw, 340px)' : size,
-        margin: '0 auto 1.4rem',
+        height: 'clamp(170px, 32vw, 260px)',
+        margin: '0 auto 1.1rem',
+        perspective: '900px',
+        willChange: 'transform, opacity, filter',
       }}
     >
-      {sceneUrl ? (
-        <SplineScene scene={sceneUrl} className="w-full h-full" />
-      ) : (
-        <div
-          ref={ringRef}
-          style={{
-            width: '100%',
-            height: '100%',
-            borderRadius: '50%',
-            padding: '3px',
-            background: 'linear-gradient(135deg, rgba(34,211,238,0.95), rgba(139,92,246,0.95))',
-            boxShadow: '0 0 35px rgba(34,211,238,0.35), 0 0 70px rgba(139,92,246,0.18)',
-          }}
-        >
+      {/* Glow dietro la figura */}
+      <div
+        ref={glowRef}
+        style={{
+          position: 'absolute',
+          top: '46%',
+          left: '50%',
+          width: '150%',
+          height: '70%',
+          transform: 'translate(-50%, -50%)',
+          background: 'radial-gradient(ellipse at center, rgba(34,211,238,0.32) 0%, rgba(139,92,246,0.18) 40%, rgba(0,0,0,0) 70%)',
+          filter: 'blur(26px)',
+          opacity: 0.4,
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
+      <div ref={floatRef} style={{ position: 'relative', height: '100%', zIndex: 1 }}>
+        <div ref={tiltRef} style={{ height: '100%', transformStyle: 'preserve-3d' }}>
           <img
             src={image}
             alt={alt}
+            draggable={false}
             style={{
-              width: '100%',
               height: '100%',
-              borderRadius: '50%',
-              objectFit: 'cover',
-              objectPosition: 'center 18%',
+              width: 'auto',
               display: 'block',
-              border: '2px solid rgba(8,10,20,0.92)',
+              filter: 'drop-shadow(0 10px 22px rgba(0,0,0,0.55))',
+              userSelect: 'none',
             }}
           />
         </div>
-      )}
+      </div>
     </div>
   );
 };

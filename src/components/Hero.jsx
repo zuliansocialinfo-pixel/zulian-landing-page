@@ -5,7 +5,7 @@ import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import GalaxyBackground from './GalaxyBackground';
 import SignalIntro from './SignalIntro';
 import Avatar3D from './Avatar3D';
-import face from '../assets/face.jpg';
+import avatarCharacter from '../assets/avatar-detective.png';
 import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -142,7 +142,7 @@ const Hero = ({ start = true }) => {
             className="hero-anim"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
-            <Avatar3D image={face} sceneUrl={import.meta.env.VITE_SPLINE_SCENE_URL} revealed={start} />
+            <Avatar3D image={avatarCharacter} alt="Zulian" sceneUrl={import.meta.env.VITE_SPLINE_SCENE_URL} revealed={start} />
             <SignalIntro />
           </div>
 
