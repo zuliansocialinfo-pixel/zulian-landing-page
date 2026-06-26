@@ -1,16 +1,46 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 
 /**
  * Sfondo Hero unico: una RETE NEURALE / campo di segnali interattivo.
  * - Nodi che derivano lentamente e si collegano fra loro (linee per vicinanza).
  * - Il MOUSE è un nodo attivo: attira i nodi vicini, ci si collega con linee
  *   più luminose e proietta un alone che lo segue -> "vivo, segue il cursore".
- * - Ripple al click. Colori legati a --accent-color (cyan) + viola.
- * Performante: un solo requestAnimationFrame, canvas, niente DOM per i nodi.
- * Rispetta prefers-reduced-motion (render statico) e alleggerisce su mobile.
+ * - Ripple al click.
+ * - DIVERSO PER OGNI SESSIONE: palette, densità e velocità vengono scelte a
+ *   caso e memorizzate in sessionStorage (stabili nella stessa visita,
+ *   diverse alla sessione successiva).
+ * Performante: un solo requestAnimationFrame, canvas. Rispetta
+ * prefers-reduced-motion (render statico) e alleggerisce su mobile.
  */
+
+// Varianti di sfondo: ognuna ha una sua personalità (colori/densità/velocità).
+const VARIANTS = [
+  { name: 'cyan-violet', primary: [34, 211, 238], secondary: [139, 92, 246], density: 1.0, speed: 1.0 },
+  { name: 'emerald-teal', primary: [16, 185, 129], secondary: [45, 212, 191], density: 1.15, speed: 0.85 },
+  { name: 'fuchsia-pink', primary: [217, 70, 239], secondary: [244, 114, 182], density: 0.9, speed: 1.1 },
+  { name: 'amber-orange', primary: [245, 158, 11], secondary: [249, 115, 22], density: 0.85, speed: 1.2 },
+  { name: 'sky-indigo', primary: [56, 189, 248], secondary: [99, 102, 241], density: 1.1, speed: 0.9 },
+  { name: 'rose-red', primary: [244, 63, 94], secondary: [251, 113, 133], density: 1.0, speed: 1.05 },
+  { name: 'lime-green', primary: [132, 204, 22], secondary: [34, 197, 94], density: 1.2, speed: 0.8 },
+];
+
+const pickVariant = () => {
+  try {
+    const saved = sessionStorage.getItem('heroBgVariant');
+    if (saved !== null && VARIANTS[+saved]) return VARIANTS[+saved];
+    const idx = Math.floor(Math.random() * VARIANTS.length);
+    sessionStorage.setItem('heroBgVariant', String(idx));
+    return VARIANTS[idx];
+  } catch (e) {
+    return VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+  }
+};
+
+const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+
 const NeuralField = () => {
   const canvasRef = useRef(null);
+  const variant = useMemo(pickVariant, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -18,6 +48,9 @@ const NeuralField = () => {
     const ctx = canvas.getContext('2d', { alpha: true });
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+    const primary = variant.primary;
+    const secondary = variant.secondary;
 
     let width = 0;
     let height = 0;
@@ -27,18 +60,7 @@ const NeuralField = () => {
     let raf = 0;
     let running = true;
 
-    const accentHex = () =>
-      getComputedStyle(document.documentElement).getPropertyValue('--accent-color').trim() || '#22d3ee';
-    const toRgb = (hex) => {
-      let h = hex.replace('#', '');
-      if (h.length === 3) h = h.split('').map((c) => c + c).join('');
-      const n = parseInt(h, 16);
-      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-    };
-    let accent = toRgb(accentHex());
-    const violet = [139, 92, 246];
-
-    const NODE_COUNT = isMobile ? 46 : 92;
+    const NODE_COUNT = Math.round((isMobile ? 46 : 92) * variant.density);
     const LINK_DIST = isMobile ? 120 : 150;
     const MOUSE_DIST = isMobile ? 150 : 220;
 
@@ -58,10 +80,10 @@ const NeuralField = () => {
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
+          vx: (Math.random() - 0.5) * 0.35 * variant.speed,
+          vy: (Math.random() - 0.5) * 0.35 * variant.speed,
           r: 1 + Math.random() * 1.6,
-          violet: Math.random() < 0.33,
+          alt: Math.random() < 0.33,
         });
       }
     };
@@ -76,7 +98,7 @@ const NeuralField = () => {
           const d2 = dx * dx + dy * dy;
           if (d2 < LINK_DIST * LINK_DIST) {
             const o = (1 - Math.sqrt(d2) / LINK_DIST) * 0.28;
-            ctx.strokeStyle = `rgba(${accent[0]},${accent[1]},${accent[2]},${o})`;
+            ctx.strokeStyle = rgba(primary, o);
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -89,10 +111,10 @@ const NeuralField = () => {
 
     const drawNodes = () => {
       for (const n of nodes) {
-        const c = n.violet ? violet : accent;
+        const c = n.alt ? secondary : primary;
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${c[0]},${c[1]},${c[2]},0.85)`;
+        ctx.fillStyle = rgba(c, 0.85);
         ctx.fill();
       }
     };
@@ -116,7 +138,7 @@ const NeuralField = () => {
             const d2 = dx * dx + dy * dy;
             if (d2 < MOUSE_DIST * MOUSE_DIST && d2 > 1) {
               const d = Math.sqrt(d2);
-              const f = (1 - d / MOUSE_DIST) * 0.7; // attrazione verso il cursore
+              const f = (1 - d / MOUSE_DIST) * 0.7;
               n.x += (dx / d) * f;
               n.y += (dy / d) * f;
             }
@@ -126,7 +148,6 @@ const NeuralField = () => {
 
       drawLinks();
 
-      // Connessioni + alone verso il cursore
       if (mouse.active) {
         for (const n of nodes) {
           const dx = mouse.x - n.x;
@@ -134,7 +155,7 @@ const NeuralField = () => {
           const d2 = dx * dx + dy * dy;
           if (d2 < MOUSE_DIST * MOUSE_DIST) {
             const o = 1 - Math.sqrt(d2) / MOUSE_DIST;
-            ctx.strokeStyle = `rgba(${accent[0]},${accent[1]},${accent[2]},${o * 0.55})`;
+            ctx.strokeStyle = rgba(primary, o * 0.55);
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(mouse.x, mouse.y);
@@ -143,7 +164,7 @@ const NeuralField = () => {
           }
         }
         const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, MOUSE_DIST);
-        g.addColorStop(0, `rgba(${accent[0]},${accent[1]},${accent[2]},0.16)`);
+        g.addColorStop(0, rgba(primary, 0.16));
         g.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = g;
         ctx.beginPath();
@@ -152,18 +173,17 @@ const NeuralField = () => {
 
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 3.2, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${accent[0]},${accent[1]},${accent[2]},0.95)`;
+        ctx.fillStyle = rgba(primary, 0.95);
         ctx.fill();
       }
 
       drawNodes();
 
-      // Ripple al click
       for (let i = ripples.length - 1; i >= 0; i--) {
         const rp = ripples[i];
         if (animate) { rp.r += 6; rp.life -= 1; }
         const o = Math.max(0, rp.life / rp.max);
-        ctx.strokeStyle = `rgba(${accent[0]},${accent[1]},${accent[2]},${o * 0.5})`;
+        ctx.strokeStyle = rgba(primary, o * 0.5);
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
@@ -191,8 +211,6 @@ const NeuralField = () => {
       ripples.push({ x: e.clientX - rect.left, y: e.clientY - rect.top, r: 0, life: 42, max: 42 });
     };
 
-    const accentTimer = window.setInterval(() => { accent = toRgb(accentHex()); }, 800);
-
     resize();
     init();
     if (reduce) {
@@ -214,22 +232,21 @@ const NeuralField = () => {
     return () => {
       running = false;
       cancelAnimationFrame(raf);
-      clearInterval(accentTimer);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseleave', onLeave);
       window.removeEventListener('click', onClick);
       window.removeEventListener('resize', onResize);
       document.removeEventListener('visibilitychange', onVis);
     };
-  }, []);
+  }, [variant]);
 
   return (
     <div
       aria-hidden="true"
       style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}
     >
-      <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '60%', height: '70%', background: 'radial-gradient(ellipse at center, rgba(34,211,238,0.10) 0%, transparent 65%)', filter: 'blur(60px)' }} />
-      <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '65%', height: '75%', background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.10) 0%, transparent 65%)', filter: 'blur(70px)' }} />
+      <div style={{ position: 'absolute', top: '-15%', left: '-10%', width: '60%', height: '70%', background: `radial-gradient(ellipse at center, ${rgba(variant.primary, 0.1)} 0%, transparent 65%)`, filter: 'blur(60px)' }} />
+      <div style={{ position: 'absolute', bottom: '-20%', right: '-10%', width: '65%', height: '75%', background: `radial-gradient(ellipse at center, ${rgba(variant.secondary, 0.1)} 0%, transparent 65%)`, filter: 'blur(70px)' }} />
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block' }} />
     </div>
   );

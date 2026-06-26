@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageCircle, ArrowRight, ChevronDown } from 'lucide-react';
 import NeuralField from './NeuralField';
 import SignalIntro from './SignalIntro';
+import Avatar3D from './Avatar3D';
+import avatarCharacter from '../assets/avatar-detective.png';
 import { getWhatsAppLink, whatsappMessages } from '../utils/whatsapp';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -140,6 +142,7 @@ const Hero = ({ start = true }) => {
             className="hero-anim"
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
+            <Avatar3D image={avatarCharacter} alt="Zulian" sceneUrl={import.meta.env.VITE_SPLINE_SCENE_URL} revealed={start} />
             <SignalIntro />
           </div>
 
