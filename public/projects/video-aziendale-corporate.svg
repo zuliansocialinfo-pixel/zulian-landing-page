@@ -1,34 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="VIDEO AZIENDALE Corporate">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#070b14"/>
-      <stop offset="1" stop-color="#0c1322"/>
+      <stop offset="0" stop-color="#0a0f1c"/>
+      <stop offset="1" stop-color="#0e1526"/>
     </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
-      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    <radialGradient id="g1" cx="0.82" cy="0.16" r="0.7">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="g2" cx="0.08" cy="0.98" r="0.6">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
   </defs>
-  <rect width="1600" height="1000" fill="url(#bg)"/>
-  <rect width="1600" height="1000" fill="url(#glow)"/>
-  <g stroke="#38bdf8" stroke-opacity="0.07" stroke-width="1">
-    <line x1="0" y1="250" x2="1600" y2="250"/><line x1="0" y1="500" x2="1600" y2="500"/><line x1="0" y1="750" x2="1600" y2="750"/>
-    <line x1="400" y1="0" x2="400" y2="1000"/><line x1="800" y1="0" x2="800" y2="1000"/><line x1="1200" y1="0" x2="1200" y2="1000"/>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#dots)"/>
+  <rect width="1200" height="750" fill="url(#g1)"/>
+  <rect width="1200" height="750" fill="url(#g2)"/>
+
+  <g transform="translate(845,300)">
+        <circle r="116" stroke="#8b5cf6" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+        <circle r="150" stroke="#8b5cf6" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.18"/>
+        <path d="M-34,-56 L66,0 L-34,56 Z" fill="#8b5cf6" opacity="0.9"/>
+        <g stroke="#8b5cf6" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55">
+          <line x1="-150" y1="150" x2="-150" y2="120"/><line x1="-120" y1="150" x2="-120" y2="95"/>
+          <line x1="-90" y1="150" x2="-90" y2="135"/><line x1="-60" y1="150" x2="-60" y2="80"/>
+          <line x1="-30" y1="150" x2="-30" y2="110"/>
+        </g>
+      </g>
+
+  <!-- brand monogramma -->
+  <text x="64" y="78" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="6" fill="#f4f7fb" fill-opacity="0.85">ZULIAN</text>
+  <text x="64" y="104" font-family="Arial, Helvetica, sans-serif" font-size="13" letter-spacing="4" fill="#94a3b8">CASE STUDY · 2024</text>
+
+  <!-- chip categoria -->
+  <g transform="translate(64,560)">
+    <rect x="0" y="0" width="96.5" height="40" rx="20" fill="#8b5cf6" fill-opacity="0.12" stroke="#8b5cf6" stroke-opacity="0.55"/>
+    <circle cx="24" cy="20" r="5" fill="#8b5cf6"/>
+    <text x="40" y="26" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="1" fill="#8b5cf6">VIDEO</text>
   </g>
-  <!-- film frames -->
-  <g fill="none" stroke="#38bdf8" stroke-width="3">
-    <rect x="560" y="360" width="220" height="150" rx="12" stroke-opacity="0.5"/>
-    <rect x="690" y="420" width="220" height="150" rx="12"/>
-    <rect x="820" y="480" width="220" height="150" rx="12" stroke-opacity="0.5"/>
-  </g>
-  <!-- sprocket holes -->
-  <g fill="#38bdf8" fill-opacity="0.4">
-    <rect x="540" y="350" width="14" height="14" rx="3"/><rect x="540" y="400" width="14" height="14" rx="3"/><rect x="540" y="450" width="14" height="14" rx="3"/>
-    <rect x="1046" y="490" width="14" height="14" rx="3"/><rect x="1046" y="540" width="14" height="14" rx="3"/><rect x="1046" y="590" width="14" height="14" rx="3"/>
-  </g>
-  <!-- play -->
-  <circle cx="800" cy="495" r="60" fill="#070b14" fill-opacity="0.6" stroke="#38bdf8" stroke-width="3"/>
-  <path d="M783 465 L833 495 L783 525 Z" fill="#38bdf8"/>
-  <text x="120" y="160" font-family="ui-monospace,Menlo,monospace" font-size="30" fill="#38bdf8" letter-spacing="6">VIDEO · CORPORATE</text>
-  <text x="120" y="900" font-family="Arial,sans-serif" font-size="56" font-weight="700" fill="#f4f7fb">Video Aziendale — Corporate</text>
+
+  <!-- titolo -->
+  <text x="62" y="648" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="3" fill="#94a3b8" font-weight="600">VIDEO AZIENDALE</text>
+  <text x="60" y="710" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="800" fill="#f4f7fb">Corporate</text>
+
+  <!-- linea accento -->
+  <rect x="0" y="746" width="1200" height="4" fill="#8b5cf6" fill-opacity="0.8"/>
 </svg>
