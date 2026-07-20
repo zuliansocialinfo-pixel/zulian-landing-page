@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi - Zulian Social Media Marketing</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- SplitType for text animations -->
+    <script src="https://unpkg.com/split-type"></script>
+    <!-- Lenis for smooth scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.css">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+
+    <!-- Preloader -->
+    <div class="loader">
+        <div class="loader-content">
+            <h1 class="loader-text">Zulian</h1>
+            <div class="loader-percentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation Overlay -->
+    <div class="navigation">
+        <div class="nav-header">
+            <a href="index.html" class="nav-logo">Zulian.</a>
+            <button class="nav-toggle">
+                <span class="nav-toggle-text">MENU</span>
+            </button>
+        </div>
+        <div class="nav-overlay">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Home</span></a>
+                <a href="chi-sono.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Chi Sono</span></a>
+                <a href="servizi.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Servizi</span></a>
+                <a href="come-funziona.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Come Funziona</span></a>
+                <a href="metodo.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Metodo</span></a>
+                <a href="progetti.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Progetti</span></a>
+                <a href="prezzi.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Prezzi</span></a>
+            </div>
+            <div class="nav-footer">
+                <a href="#" class="nav-legal">Privacy Policy</a>
+                <a href="#" class="nav-social">Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container text-center">
+                <span class="accent-text anim-fade">Servizi</span>
+                <h1 class="hero-title anim-split">Tutto ciò che faccio per farti crescere</h1>
+                <p class="hero-subtitle anim-fade mx-auto mt-1">Non pubblico post a caso: costruisco un sistema. Seleziona un servizio per vedere come lavoro.</p>
+            </div>
+        </section>
+
+        <!-- Services Console -->
+        <section class="services-section">
+            <div class="container">
+                <div class="console-grid">
+                    <!-- Sidebar Tabs -->
+                    <div class="console-list anim-fade-up">
+                        <span class="console-label">// seleziona un servizio</span>
+                        
+                        <button class="console-item active" data-target="strategia" style="--scolor: #22d3ee;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="bar-chart-3" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Analisi e Strategia</span>
+                                <span class="console-tag">Fondamenta</span>
+                            </span>
+                        </button>
+                        
+                        <button class="console-item" data-target="social" style="--scolor: #38bdf8;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="share-2" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Gestione Social</span>
+                                <span class="console-tag">Presenza</span>
+                            </span>
+                        </button>
+                        
+                        <button class="console-item" data-target="ads" style="--scolor: #3b82f6;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="target" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Pubblicità Online</span>
+                                <span class="console-tag">Crescita</span>
+                            </span>
+                        </button>
+                        
+                        <button class="console-item" data-target="web" style="--scolor: #2dd4bf;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="globe" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Siti & E-commerce</span>
+                                <span class="console-tag">Piattaforma</span>
+                            </span>
+                        </button>
+                        
+                        <button class="console-item" data-target="video" style="--scolor: #8b5cf6;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="video" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Contenuti & Video</span>
+                                <span class="console-tag">Creatività</span>
+                            </span>
+                        </button>
+                        
+                        <button class="console-item" data-target="growth" style="--scolor: #6366f1;">
+                            <span class="console-indicator"></span>
+                            <i data-lucide="sparkles" class="console-icon"></i>
+                            <span class="console-text">
+                                <span class="console-title">Strategia di Crescita</span>
+                                <span class="console-tag">Sistema</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Detail Panels -->
+                    <div class="console-panel glass-card anim-fade-up" style="animation-delay: 0.2s;">
+                        
+                        <!-- Panel: Strategia -->
+                        <div class="panel-content active" id="panel-strategia" style="--pcolor: #22d3ee;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="bar-chart-3"></i></div>
+                                <div>
+                                    <span class="panel-tag">Fondamenta</span>
+                                    <h3>Analisi e Strategia</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Prima di pubblicare qualsiasi cosa: capiamo mercato, pubblico e numeri. Costruiamo un piano dove ogni mossa ha un perché.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Analisi mercato e competitor</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Definizione del pubblico</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Piano editoriale strategico</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> KPI e obiettivi misurabili</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+
+                        <!-- Panel: Social -->
+                        <div class="panel-content" id="panel-social" style="--pcolor: #38bdf8; display: none;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="share-2"></i></div>
+                                <div>
+                                    <span class="panel-tag">Presenza</span>
+                                    <h3>Gestione Social</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Profili gestiti come un sistema: contenuti, calendario, community e dati che lavorano insieme, non a caso.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Creazione contenuti</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Programmazione e pubblicazione</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Gestione community</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Report performance mensile</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+
+                        <!-- Panel: Ads -->
+                        <div class="panel-content" id="panel-ads" style="--pcolor: #3b82f6; display: none;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="target"></i></div>
+                                <div>
+                                    <span class="panel-tag">Crescita</span>
+                                    <h3>Pubblicità Online</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Campagne Meta e Google costruite per convertire. Budget controllato, pubblico giusto, risultati tracciati.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Strategia advertising</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Targeting e copywriting</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Gestione budget</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Report conversioni</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+
+                        <!-- Panel: Web -->
+                        <div class="panel-content" id="panel-web" style="--pcolor: #2dd4bf; display: none;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="globe"></i></div>
+                                <div>
+                                    <span class="panel-tag">Piattaforma</span>
+                                    <h3>Siti & E-commerce</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Siti moderni, veloci e ottimizzati. Dalla vetrina all'e-commerce: la base solida su cui poggia tutto il resto.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Siti web responsive</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> E-commerce integrato</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Ottimizzazione SEO</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Manutenzione continua</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+
+                        <!-- Panel: Video -->
+                        <div class="panel-content" id="panel-video" style="--pcolor: #8b5cf6; display: none;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="video"></i></div>
+                                <div>
+                                    <span class="panel-tag">Creatività</span>
+                                    <h3>Contenuti & Video</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Riprese, reel e shooting che fermano lo scroll. Contenuti pensati per la percezione, non solo per fare numero.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Riprese e shooting</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Reel e short-form</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Montaggio professionale</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Materiali creativi brand</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+
+                        <!-- Panel: Growth -->
+                        <div class="panel-content" id="panel-growth" style="--pcolor: #6366f1; display: none;">
+                            <div class="panel-glow"></div>
+                            <div class="panel-header">
+                                <div class="panel-icon"><i data-lucide="sparkles"></i></div>
+                                <div>
+                                    <span class="panel-tag">Sistema</span>
+                                    <h3>Strategia di Crescita</h3>
+                                </div>
+                            </div>
+                            <p class="panel-desc">Tutto collegato: contenuto, dati e timing che si muovono come un'unica macchina. Crescita reale, non vanity metrics.</p>
+                            <div class="panel-items">
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Funnel e conversione</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Posizionamento del brand</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Ottimizzazione dati</div>
+                                <div class="panel-item"><span class="check-icon"><i data-lucide="check"></i></span> Crescita misurabile</div>
+                            </div>
+                            <a href="#" class="btn-primary">Voglio questo servizio <i data-lucide="arrow-right"></i></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Zulian.</h3>
+                    <p>Strategie di business e crescita aziendale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Esplora</h4>
+                    <a href="chi-sono.html">Chi Sono</a>
+                    <a href="servizi.html">Servizi</a>
+                    <a href="progetti.html">Progetti</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatti</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zulian Media Marketing. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Services Tab logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.console-item');
+            const panels = document.querySelectorAll('.panel-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const target = tab.getAttribute('data-target');
+                    
+                    // Hide all panels
+                    panels.forEach(p => {
+                        p.style.display = 'none';
+                        p.classList.remove('active');
+                    });
+                    
+                    // Show target panel
+                    const activePanel = document.getElementById('panel-' + target);
+                    if(activePanel) {
+                        activePanel.style.display = 'block';
+                        // Small delay for fade in effect if desired
+                        setTimeout(() => activePanel.classList.add('active'), 10);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti - Zulian Social Media Marketing</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- SplitType for text animations -->
+    <script src="https://unpkg.com/split-type"></script>
+    <!-- Lenis for smooth scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.css">
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+
+    <!-- Preloader -->
+    <div class="loader">
+        <div class="loader-content">
+            <h1 class="loader-text">Zulian</h1>
+            <div class="loader-percentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation Overlay -->
+    <div class="navigation">
+        <div class="nav-header">
+            <a href="index.html" class="nav-logo">Zulian.</a>
+            <button class="nav-toggle">
+                <span class="nav-toggle-text">MENU</span>
+            </button>
+        </div>
+        <div class="nav-overlay">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Home</span></a>
+                <a href="chi-sono.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Chi Sono</span></a>
+                <a href="servizi.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Servizi</span></a>
+                <a href="come-funziona.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Come Funziona</span></a>
+                <a href="metodo.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Metodo</span></a>
+                <a href="progetti.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Progetti</span></a>
+                <a href="prezzi.html" class="nav-link"><span class="nav-dot"></span><span class="nav-text">Prezzi</span></a>
+            </div>
+            <div class="nav-footer">
+                <a href="#" class="nav-legal">Privacy Policy</a>
+                <a href="#" class="nav-social">Instagram</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container text-center">
+                <span class="accent-text anim-fade">Portfolio</span>
+                <h1 class="hero-title anim-split">Progetti e lavori</h1>
+                <p class="hero-subtitle anim-fade mx-auto mt-1">Una selezione di lavori: video, social, siti, branding e campagne. (Contenuti segnaposto — verranno sostituiti con i progetti reali.)</p>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section" style="padding-bottom: 6rem;">
+            <div class="container">
+                <!-- Filters -->
+                <div class="project-filters anim-fade-up">
+                    <button class="filter-chip active" data-filter="Tutti">Tutti</button>
+                    <button class="filter-chip" data-filter="Video">Video</button>
+                    <button class="filter-chip" data-filter="Social">Social</button>
+                    <button class="filter-chip" data-filter="Siti & E-commerce">Siti & E-commerce</button>
+                    <button class="filter-chip" data-filter="Branding">Branding</button>
+                    <button class="filter-chip" data-filter="Ads">Ads</button>
+                </div>
+
+                <!-- Grid -->
+                <div class="project-grid">
+                    
+                    <!-- Progetto 1 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Video">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #1d2a24, #0c0c0c);">
+                            <span class="project-badge">Video</span>
+                            <div class="play-icon"><i data-lucide="play"></i></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Spot Video — Ristorante <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Reel cinematografico per il lancio del nuovo menù. (contenuto segnaposto)</p>
+                        </div>
+                    </a>
+
+                    <!-- Progetto 2 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Social">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #22202c, #0c0c0c);">
+                            <span class="project-badge">Social</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Gestione Social — Brand Locale <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Piano editoriale e crescita organica su Instagram e TikTok. (segnaposto)</p>
+                        </div>
+                    </a>
+
+                    <!-- Progetto 3 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Siti & E-commerce">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #1b2430, #0c0c0c);">
+                            <span class="project-badge">Siti & E-commerce</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>E-commerce — Moda <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Negozio online completo con pagamenti e spedizioni. (segnaposto)</p>
+                        </div>
+                    </a>
+
+                    <!-- Progetto 4 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Branding">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #2a2620, #0c0c0c);">
+                            <span class="project-badge">Branding</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Rebranding — Studio Professionale <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Nuova identità visiva: logo, palette e materiali coordinati. (segnaposto)</p>
+                        </div>
+                    </a>
+
+                    <!-- Progetto 5 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Ads">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #2b2230, #0c0c0c);">
+                            <span class="project-badge">Ads</span>
+                        </div>
+                        <div class="project-info">
+                            <h3>Campagna Ads — Lead Gen <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Funnel pubblicitario per acquisizione contatti qualificati. (segnaposto)</p>
+                        </div>
+                    </a>
+
+                    <!-- Progetto 6 -->
+                    <a href="#" class="project-card glass-card anim-fade-up" data-category="Video">
+                        <div class="project-cover" style="background: linear-gradient(135deg, #202a2e, #0c0c0c);">
+                            <span class="project-badge">Video</span>
+                            <div class="play-icon"><i data-lucide="play"></i></div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Video Aziendale — Corporate <i data-lucide="arrow-up-right"></i></h3>
+                            <p>Video istituzionale per presentare l'azienda e il team. (segnaposto)</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Zulian.</h3>
+                    <p>Strategie di business e crescita aziendale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Esplora</h4>
+                    <a href="chi-sono.html">Chi Sono</a>
+                    <a href="servizi.html">Servizi</a>
+                    <a href="progetti.html">Progetti</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contatti</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zulian Media Marketing. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Project Filtering
+        document.addEventListener('DOMContentLoaded', () => {
+            const filters = document.querySelectorAll('.filter-chip');
+            const projects = document.querySelectorAll('.project-card');
+
+            filters.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active class
+                    filters.forEach(f => f.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projects.forEach(card => {
+                        if (filterValue === 'Tutti' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            gsap.fromTo(card, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4 });
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    
+                    // Refresh ScrollTrigger since layout changed
+                    ScrollTrigger.refresh();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
