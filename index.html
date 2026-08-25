@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Zulian — Siti Web, E-commerce, App e Automazioni</title>
-  <meta name="description" content="Siti web, e-commerce, app e automazioni progettati per attività e brand che vogliono trasformare il digitale in contatti, prenotazioni, vendite e processi più semplici.">
-  <meta property="og:title" content="Zulian — Sviluppo Web e Sistemi Digitali">
+  <title>Zulian Social Media Marketing — Web, E-commerce, App e Automazioni</title>
+  <meta name="description" content="Zulian Social Media Marketing sviluppa siti web, e-commerce, app e automazioni per attività e brand che vogliono trasformare il digitale in contatti, prenotazioni, vendite e processi più semplici.">
+  <meta property="og:title" content="Zulian Social Media Marketing — Sviluppo Web e Sistemi Digitali">
   <meta property="og:description" content="Dal sito essenziale al sistema digitale completo: web, e-commerce, app, automazioni e marketing collegati a un obiettivo commerciale reale.">
   <meta property="og:image" content="https://raw.githubusercontent.com/zuliansocialinfo-pixel/zulian-social-media-marketing/master/images/face.jpg">
   <meta property="og:type" content="website">
@@ -15,17 +15,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css">
   <link rel="stylesheet" href="site-v2.css">
+  <link rel="stylesheet" href="brand-polish.css">
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script defer src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
   <script defer src="site-v2.js"></script>
+  <script defer src="brand-polish.js"></script>
 </head>
 <body class="is-loading">
   <div class="loader" aria-hidden="true"><div class="loader-inner"><div class="loader-number">00</div><div class="loader-label">Zulian / build</div></div></div>
 
   <header class="site-header">
     <div class="shell">
-      <a class="brand" href="#top" aria-label="Zulian home"><span class="brand-mark"></span><span>ZULIAN / DIGITAL SYSTEMS</span></a>
+      <a class="brand" href="#top" aria-label="Zulian Social Media Marketing home"><span class="brand-mark" aria-hidden="true"></span><span>ZULIAN SOCIAL MEDIA MARKETING</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span>Menu</span><span class="menu-lines" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </header>
@@ -41,21 +43,30 @@
   </div>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero hero-brand">
+      <div class="hero-orbit" aria-hidden="true">
+        <svg viewBox="0 0 800 800">
+          <circle class="orbit-outer" cx="400" cy="400" r="300"/>
+          <circle class="orbit-inner" cx="400" cy="400" r="205"/>
+          <ellipse class="orbit-axis" cx="400" cy="400" rx="330" ry="115" transform="rotate(-22 400 400)"/>
+          <ellipse class="orbit-axis" cx="400" cy="400" rx="330" ry="115" transform="rotate(38 400 400)"/>
+          <circle class="orbit-core" cx="400" cy="400" r="78"/>
+          <path class="orbit-z" d="M357 365h91l-78 72h96"/>
+          <circle class="orbit-dot" cx="461" cy="365" r="7"/>
+        </svg>
+      </div>
       <div class="shell">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow" style="margin-bottom:28px">Sviluppo Web · E-commerce · App · Automazioni</div>
-            <h1><span class="line">Costruisco</span><span class="line">sistemi <span class="serif">digitali</span></span><span class="line">che servono.</span></h1>
+            <div class="eyebrow" style="margin-bottom:28px">Web · E-commerce · App · Automazioni · Marketing</div>
+            <h1 class="hero-brand-title"><span class="line">ZULIAN</span><span class="line">SOCIAL MEDIA</span><span class="line serif">MARKETING</span></h1>
           </div>
           <div class="hero-copy">
-            <p>Non parto dal “fare un sito”. Parto da ciò che deve succedere dopo: una chiamata, una prenotazione, una vendita, un processo che prima richiedeva tempo.</p>
+            <p>Il nome nasce dal marketing, ma oggi il lavoro è più ampio: progetto siti, e-commerce, app e automazioni e li collego alla parte commerciale che deve farli funzionare.</p>
             <div class="hero-actions"><a class="btn btn-primary" href="#soluzioni">Vedi le soluzioni</a><a class="btn btn-ghost" href="#contatti">Parliamo del progetto</a></div>
           </div>
         </div>
-        <div class="hero-foot">
-          <div>01 — Siti per attività locali</div><div>02 — E-commerce e crescita</div><div>03 — App, AI e automazioni</div>
-        </div>
+        <div class="hero-foot"><div>01 — Siti per attività locali</div><div>02 — E-commerce e crescita</div><div>03 — App, AI e automazioni</div></div>
       </div>
     </section>
 
@@ -71,16 +82,11 @@
       </div>
     </section>
 
-    <section class="statement">
-      <div class="shell"><p data-fill-text>Un sito non deve sembrare un e-commerce se non lo è. Deve guidare, dimostrare valore e portare la persona verso l’azione giusta.</p></div>
-    </section>
+    <section class="statement"><div class="shell"><p data-fill-text>Un sito non deve sembrare un e-commerce se non lo è. Deve guidare, dimostrare valore e portare la persona verso l’azione giusta.</p></div></section>
 
     <section class="services" id="soluzioni">
       <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Tre livelli, un percorso chiaro</div>
-          <div><h2>Partiamo da ciò che <span class="serif">serve adesso.</span></h2><p>Niente catalogo infinito di servizi. Si sceglie il livello minimo che risolve il problema, poi il sistema può crescere.</p></div>
-        </div>
+        <div class="section-head"><div class="eyebrow">Tre livelli, un percorso chiaro</div><div><h2>Partiamo da ciò che <span class="serif">serve adesso.</span></h2><p>Niente catalogo infinito di servizi. Si sceglie il livello minimo che risolve il problema, poi il sistema può crescere.</p></div></div>
         <div class="offer-grid">
           <article class="offer" data-reveal><span class="offer-index">01 / ESSENZIALE</span><h3>Sito che porta all’azione.</h3><p>Per attività locali e professionisti che devono essere capiti subito e trasformare visite in contatti o prenotazioni.</p><ul><li>Posizionamento e pagina principale</li><li>Mobile-first</li><li>Contatto / prenotazione chiari</li><li>SEO locale di base</li></ul></article>
           <article class="offer" data-reveal><span class="offer-index">02 / CRESCITA</span><h3>Sito come strumento commerciale.</h3><p>Per aziende che hanno più servizi, contenuti, campagne o bisogno di un percorso di conversione più profondo.</p><ul><li>Architettura multipagina</li><li>Landing e funnel</li><li>Analytics e integrazioni</li><li>Contenuti e advertising collegati</li></ul></article>
@@ -101,9 +107,7 @@
       </div>
     </section>
 
-    <section class="circle-story" aria-label="Web commerce AI">
-      <div class="circle-pin"><div class="circle-stage"><div class="circle circle-a">WEB</div><div class="circle circle-b">ECOM</div><div class="circle circle-c">AI</div><div class="circle-copy"><h2>Un solo <span class="serif">sistema.</span></h2></div></div></div>
-    </section>
+    <section class="circle-story" aria-label="Web commerce AI"><div class="circle-pin"><div class="circle-stage"><div class="circle circle-a">WEB</div><div class="circle circle-b">ECOM</div><div class="circle circle-c">AI</div><div class="circle-copy"><h2>Un solo <span class="serif">sistema.</span></h2></div></div></div></section>
 
     <section class="process" id="metodo">
       <div class="shell">
@@ -121,11 +125,16 @@
       <div class="shell">
         <div class="eyebrow" style="margin-bottom:26px">Progetto nuovo o sito da rifare</div>
         <h2>Facciamo qualcosa che <span class="serif">serve davvero.</span></h2>
-        <div class="contact-row"><p>Se hai già un’attività, partiamo dal problema reale. Se stai aprendo ora, costruiamo la presenza digitale senza comprare più tecnologia di quella necessaria.</p><a class="btn btn-primary" href="mailto:info@zuliansocial.com">Parliamo del progetto</a></div>
+        <div class="contact-row"><p>Se hai già un’attività, partiamo dal problema reale. Se stai aprendo ora, costruiamo la presenza digitale senza comprare più tecnologia di quella necessaria.</p><a class="btn btn-primary" href="https://wa.me/393927950038?text=Ciao%20Marco%2C%20vorrei%20parlarti%20del%20mio%20progetto%20digitale." target="_blank" rel="noopener noreferrer">Parliamo su WhatsApp</a></div>
+        <div class="contact-details">
+          <div class="contact-detail"><small>Telefono / WhatsApp</small><a href="tel:+393927950038">+39 392 795 0038</a></div>
+          <div class="contact-detail"><small>Email</small><a href="mailto:zuliansocial.info@gmail.com">zuliansocial.info@gmail.com</a></div>
+          <div class="contact-detail"><small>Sede operativa</small><span>Reggio Calabria · Italia</span></div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer"><div class="shell"><span>© 2026 Zulian Social Media Marketing</span><span>Web · Commerce · App · Automation</span></div></footer>
+  <footer class="footer"><div class="shell footer-main"><div class="footer-block"><strong>Zulian Social Media Marketing</strong><span>Web · Commerce · App · Automation</span></div><div class="footer-block"><strong>Contatti</strong><a href="tel:+393927950038">+39 392 795 0038</a><a href="mailto:zuliansocial.info@gmail.com">zuliansocial.info@gmail.com</a></div><div class="footer-block"><strong>Dati attività</strong><span>Marco Zulian · P.IVA 03334690801</span><span>REA RC-225353 · Reggio Calabria</span></div></div></footer>
 </body>
 </html>
