@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   const counter=document.querySelector('.loader-number');
   const menuToggle=document.querySelector('.menu-toggle');
   const menuPanel=document.querySelector('.menu-panel');
+  document.querySelectorAll('.site-header .brand').forEach(link=>{if(!link.hasAttribute('aria-label')) link.setAttribute('aria-label','Zulian Architettura Digitale home')});
 
   const endLoader=()=>{
     document.body.classList.remove('is-loading');
