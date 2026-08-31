@@ -23,6 +23,23 @@ window.addEventListener('DOMContentLoaded',()=>{
     heroCopy.textContent='Progetto siti, e-commerce, applicazioni, software e automazioni partendo dall’architettura: prima definiamo cosa deve fare il sistema, poi lo costruiamo.';
   }
 
+  /* Navigazione: espone le nuove pagine senza cambiare la composizione del menu. */
+  const mainNav=document.querySelector('#site-menu nav');
+  if(mainNav){
+    mainNav.innerHTML=[
+      '<a href="soluzioni.html">Le <span>soluzioni</span></a>',
+      '<a href="metodo.html">Il <span>metodo</span></a>',
+      '<a href="lab.html">Zulian <span>Lab</span></a>',
+      '<a href="formazione.html">La <span>formazione</span></a>',
+      '<a href="contatti.html"><span>Parliamone</span></a>'
+    ].join('');
+    mainNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      document.querySelector('.menu-panel')?.classList.remove('is-open');
+      document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    }));
+  }
+
   /* Footer: elimina i vecchi riferimenti visuali a Social Media Marketing. */
   document.querySelectorAll('.footer .footer-block').forEach(block=>{
     const strong=block.querySelector('strong');
