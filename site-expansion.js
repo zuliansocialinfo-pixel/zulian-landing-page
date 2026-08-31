@@ -41,4 +41,27 @@ window.addEventListener('DOMContentLoaded',()=>{
     }
     button.disabled=false;
   });
+
+  const certificateDialog=document.querySelector('[data-certificate-dialog]');
+  const certificateDialogImage=certificateDialog?.querySelector('[data-certificate-dialog-image]');
+  const certificateClose=certificateDialog?.querySelector('[data-certificate-close]');
+  document.querySelectorAll('[data-certificate-image]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      if(!certificateDialog||!certificateDialogImage) return;
+      const source=button.getAttribute('data-certificate-image');
+      const thumb=button.querySelector('img');
+      if(!source) return;
+      certificateDialogImage.src=source;
+      certificateDialogImage.alt=thumb?.alt||'Certificato ingrandito';
+      if(typeof certificateDialog.showModal==='function') certificateDialog.showModal();
+      else certificateDialog.setAttribute('open','');
+    });
+  });
+  certificateClose?.addEventListener('click',()=>certificateDialog?.close());
+  certificateDialog?.addEventListener('click',event=>{
+    if(event.target===certificateDialog) certificateDialog.close();
+  });
+  certificateDialog?.addEventListener('close',()=>{
+    if(certificateDialogImage) certificateDialogImage.src='';
+  });
 });
