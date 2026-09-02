@@ -4,171 +4,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Zulian Architettura Digitale — Sito in manutenzione</title>
-  <meta name="description" content="Zulian Architettura Digitale sta aggiornando il sito e i propri sistemi per offrire nuovi template e servizi digitali in tre livelli: Essential, Business e Signature.">
+  <meta name="description" content="Zulian Architettura Digitale è temporaneamente in manutenzione mentre aggiorna modelli, processi e servizi per i propri clienti. Essential €1.100, Business €1.600, Signature €2.400.">
   <meta property="og:title" content="Zulian Architettura Digitale — Sito in manutenzione">
-  <meta property="og:description" content="Stiamo lavorando per portare AI, automazioni e nuovi template al servizio dei nostri clienti. Torneremo online il prima possibile.">
+  <meta property="og:description" content="Stiamo lavorando dietro le quinte. Torneremo online il prima possibile.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#08090d">
+  <meta name="theme-color" content="#111111">
   <link rel="icon" href="zulian-mark.svg" type="image/svg+xml">
-  <style>
-    :root{
-      --bg:#08090d;
-      --panel:#0f1118;
-      --panel-2:#121622;
-      --text:#f5f7fa;
-      --muted:#98a2b3;
-      --line:rgba(255,255,255,.12);
-      --blue:#2563ff;
-      --blue-soft:#76a0ff;
-      --green:#66dfb0;
-      --max:1320px;
-    }
-    *{box-sizing:border-box}
-    html{background:var(--bg);scroll-behavior:smooth}
-    body{margin:0;background:
-      radial-gradient(circle at 72% 8%,rgba(37,99,255,.18),transparent 30%),
-      radial-gradient(circle at 15% 70%,rgba(118,160,255,.08),transparent 25%),
-      var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;min-height:100vh}
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
-    .shell{width:min(calc(100% - 48px),var(--max));margin-inline:auto}
-    .topbar{padding:30px 0 0}
-    .brand{display:block;width:min(620px,78vw)}
-    .brand img{width:100%;height:auto}
-    .hero{padding:110px 0 72px}
-    .status{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:#cbd5e1;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.025)}
-    .status:before{content:"";width:8px;height:8px;border-radius:50%;background:#ffb454;box-shadow:0 0 0 5px rgba(255,180,84,.08)}
-    h1{margin:28px 0 28px;max-width:980px;font-size:clamp(58px,8.6vw,132px);line-height:.86;letter-spacing:-.07em;font-weight:700}
-    h1 span{color:var(--blue-soft)}
-    .lead{max-width:880px;margin:0;color:#c7d0df;font-size:clamp(19px,1.8vw,28px);line-height:1.48}
-    .return{margin-top:24px;color:var(--muted);font-size:15px}
-    .tiers{padding:34px 0 98px}
-    .tiers-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:24px}
-    .tiers-head h2{margin:0;font-size:clamp(30px,4vw,56px);letter-spacing:-.04em}
-    .tiers-head p{margin:0;color:var(--muted);max-width:560px;font-size:14px}
-    .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .tier{min-height:270px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.015));padding:26px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-    .tier:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(37,99,255,.18);border-radius:50%;right:-75px;top:-80px}
-    .tier small{font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-soft)}
-    .tier h3{margin:46px 0 8px;font-size:clamp(30px,3vw,46px);letter-spacing:-.045em}
-    .price{margin-top:auto;font-size:clamp(38px,4.7vw,68px);font-weight:700;letter-spacing:-.055em}
-    .price span{font-size:.45em;color:var(--muted);font-weight:600;letter-spacing:0}
-    .contact{border-top:1px solid var(--line);padding:72px 0 54px}
-    .contact-grid{display:grid;grid-template-columns:minmax(250px,.7fr) 1.3fr;gap:6vw;align-items:center}
-    .portrait-wrap{position:relative}
-    .portrait{aspect-ratio:4/5;overflow:hidden;border-radius:24px;border:1px solid var(--line);background:var(--panel)}
-    .portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:saturate(.92) contrast(1.02)}
-    .portrait-badge{position:absolute;left:14px;bottom:14px;background:rgba(8,9,13,.82);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:9px 12px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-    .contact-copy .eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-soft)}
-    .contact-copy h2{margin:16px 0 18px;font-size:clamp(46px,6.8vw,100px);line-height:.92;letter-spacing:-.06em;max-width:10ch}
-    .contact-copy p{margin:0;color:#c5cfdd;font-size:clamp(18px,1.4vw,24px);max-width:760px}
-    .contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 21px;border-radius:999px;border:1px solid var(--line);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;transition:transform .2s ease,border-color .2s ease,background .2s ease}
-    .button:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.38)}
-    .button-primary{background:var(--blue);border-color:var(--blue);color:#fff}
-    .phone{margin-top:28px;padding-top:22px;border-top:1px solid var(--line);display:flex;gap:14px 24px;flex-wrap:wrap;align-items:center}
-    .phone small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
-    .phone a{font-size:clamp(24px,3vw,42px);font-weight:700;letter-spacing:-.035em}
-    footer{padding:26px 0 34px;border-top:1px solid var(--line);color:#7f8999;font-size:11px}
-    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    @media(max-width:900px){
-      .shell{width:min(calc(100% - 28px),var(--max))}
-      .topbar{padding-top:22px}
-      .brand{width:min(520px,88vw)}
-      .hero{padding:78px 0 54px}
-      .tiers-head{display:block}.tiers-head p{margin-top:12px}
-      .tier-grid{grid-template-columns:1fr}.tier{min-height:220px}
-      .contact-grid{grid-template-columns:1fr;gap:34px}.portrait{max-width:520px}
-      .contact{padding-top:58px}
-    }
-    @media(max-width:560px){
-      h1{font-size:16.5vw}
-      .hero{padding-top:62px}
-      .tiers{padding-bottom:72px}
-      .tier{padding:22px}
-      .contact-copy h2{font-size:14vw}
-      .button{width:100%}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.1/dist/lenis.css">
+  <link rel="stylesheet" href="site-v2.css">
+  <link rel="stylesheet" href="brand-polish.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+  <script defer src="site-v2.js"></script>
 </head>
-<body>
-  <header class="topbar">
+<body class="is-loading">
+  <div class="loader" aria-hidden="true"><div class="loader-inner"><div class="loader-number">00</div><div class="loader-label">Zulian / maintenance</div></div></div>
+
+  <header class="site-header">
     <div class="shell">
-      <a class="brand" href="/" aria-label="Zulian Architettura Digitale home">
-        <img src="zulian-logo-dark.svg" alt="Zulian Architettura Digitale">
-      </a>
+      <a class="brand" href="#top" aria-label="Zulian Architettura Digitale home"><img class="zulian-brand-logo" src="zulian-logo-dark.svg" alt="Zulian Architettura Digitale"></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu"><span>Contatti</span><span class="menu-lines" aria-hidden="true"><span></span><span></span></span></button>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <div class="menu-panel" id="site-menu" aria-label="Contatti rapidi">
+    <nav>
+      <a href="https://wa.me/393927950038?text=Ciao%20Marco%2C%20vorrei%20informazioni%20sui%20nuovi%20livelli%20di%20Zulian%20Architettura%20Digitale." target="_blank" rel="noopener noreferrer">Scrivi su <span>WhatsApp</span></a>
+      <a href="tel:+393927950038">Chiama <span>Marco</span></a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero hero-brand">
+      <div class="hero-orbit" aria-hidden="true">
+        <svg viewBox="0 0 800 800">
+          <circle class="orbit-outer" cx="400" cy="400" r="300"/>
+          <circle class="orbit-inner" cx="400" cy="400" r="205"/>
+          <ellipse class="orbit-axis" cx="400" cy="400" rx="330" ry="115" transform="rotate(-22 400 400)"/>
+          <ellipse class="orbit-axis" cx="400" cy="400" rx="330" ry="115" transform="rotate(38 400 400)"/>
+          <circle class="orbit-core" cx="400" cy="400" r="78"/>
+          <path class="orbit-z" d="M357 365h91l-78 72h96"/>
+          <circle class="orbit-dot" cx="461" cy="365" r="7"/>
+        </svg>
+      </div>
       <div class="shell">
-        <div class="status">Sito in manutenzione</div>
-        <h1>Stiamo preparando il prossimo livello di <span>Zulian Architettura Digitale.</span></h1>
-        <p class="lead">Stiamo lavorando per adattare AI, automazioni e nuovi modelli di sito al servizio reale dei nostri clienti. L’obiettivo è rendere disponibili soluzioni più chiare, più rapide da personalizzare e costruite su tre livelli differenti.</p>
-        <p class="return">Nonostante i lavori in corso, torneremo online il prima possibile.</p>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow" style="margin-bottom:28px">Sito in manutenzione · lavori in corso</div>
+            <h1 class="hero-brand-title"><span class="line">ZULIAN</span><span class="line">ARCHITETTURA</span><span class="line serif">DIGITALE</span></h1>
+          </div>
+          <div class="hero-copy">
+            <p>Stiamo lavorando dietro le quinte per rendere i nostri modelli, strumenti e processi più facili da adattare al lavoro reale dei clienti. Il sito completo tornerà online il prima possibile.</p>
+            <div class="hero-actions"><a class="btn btn-primary" href="#livelli">Vedi i tre livelli</a><a class="btn btn-ghost" href="#contatti">Parla con Marco</a></div>
+          </div>
+        </div>
+        <div class="hero-foot"><div>01 — Essential · €1.100</div><div>02 — Business · €1.600</div><div>03 — Signature · €2.400</div></div>
       </div>
     </section>
 
-    <section class="tiers" aria-labelledby="tiers-title">
-      <div class="shell">
-        <div class="tiers-head">
-          <h2 id="tiers-title">Tre livelli di progetto.</h2>
-          <p>Tre basi diverse per esigenze, profondità e livello di personalizzazione differenti. Il progetto finale viene comunque adattato all’attività reale del cliente.</p>
-        </div>
-        <div class="tier-grid">
-          <article class="tier">
-            <small>01 / Essential</small>
-            <h3>Essential</h3>
-            <div class="price">€1.100</div>
-          </article>
-          <article class="tier">
-            <small>02 / Business</small>
-            <h3>Business</h3>
-            <div class="price">€1.600</div>
-          </article>
-          <article class="tier">
-            <small>03 / Signature</small>
-            <h3>Signature</h3>
-            <div class="price">€2.400</div>
-          </article>
+    <section class="face-strip">
+      <div class="shell face-stage">
+        <div class="face-frame" data-reveal><img src="https://raw.githubusercontent.com/zuliansocialinfo-pixel/zulian-social-media-marketing/master/images/face.jpg" alt="Marco Zulian" loading="eager"></div>
+        <div class="face-copy" data-reveal>
+          <div class="eyebrow">Marco Zulian</div>
+          <h2>Non siamo spariti. <span class="serif">Stiamo costruendo.</span></h2>
+          <p>Sto aggiornando il sistema con cui progettiamo e personalizziamo i siti per renderlo più solido, più chiaro e più vicino alle esigenze reali di ogni attività. Durante la manutenzione resto disponibile direttamente.</p>
+          <a class="text-link" href="tel:+393927950038">+39 392 795 0038 →</a>
         </div>
       </div>
     </section>
 
-    <section class="contact" aria-labelledby="contact-title">
-      <div class="shell contact-grid">
-        <div class="portrait-wrap">
-          <div class="portrait">
-            <img src="https://raw.githubusercontent.com/zuliansocialinfo-pixel/zulian-social-media-marketing/master/images/face.jpg" alt="Marco Zulian" loading="eager">
-          </div>
-          <div class="portrait-badge">Marco Zulian</div>
+    <section class="statement"><div class="shell"><p data-fill-text>Non stiamo cambiando direzione. Stiamo rendendo il metodo più chiaro, più solido e più facile da adattare a ogni cliente.</p></div></section>
+
+    <section class="services" id="livelli">
+      <div class="shell">
+        <div class="section-head"><div class="eyebrow">Tre livelli · tre profondità diverse</div><div><h2>Una base diversa per ciò che <span class="serif">serve davvero.</span></h2><p>Non sono tre copie dello stesso sito. Cambiano profondità progettuale, struttura, contenuti, funzioni e livello di personalizzazione.</p></div></div>
+        <div class="offer-grid">
+          <article class="offer" data-reveal><span class="offer-index">01 / ESSENTIAL</span><h3>€1.100</h3><p>Una presenza digitale professionale e chiara per attività che devono farsi capire, trovare e contattare senza complessità inutile.</p><ul><li>Struttura essenziale</li><li>Mobile-first</li><li>Contatto e conversione chiari</li><li>Personalizzazione sull’attività</li></ul></article>
+          <article class="offer" data-reveal><span class="offer-index">02 / BUSINESS</span><h3>€1.600</h3><p>Più spazio per servizi, contenuti, percorsi commerciali e una presenza digitale capace di accompagnare meglio il cliente.</p><ul><li>Architettura più profonda</li><li>Più pagine e percorsi</li><li>Contenuti e prove</li><li>Misurazione e integrazioni</li></ul></article>
+          <article class="offer" data-reveal><span class="offer-index">03 / SIGNATURE</span><h3>€2.400</h3><p>Il livello più completo per chi vuole una presenza distintiva, più personalizzazione, motion e funzioni costruite intorno all’esperienza.</p><ul><li>Direzione visuale dedicata</li><li>Interazioni e motion avanzate</li><li>Esperienza più articolata</li><li>Personalizzazione superiore</li></ul></article>
         </div>
-        <div class="contact-copy">
-          <div class="eyebrow">Per qualsiasi domanda</div>
-          <h2 id="contact-title">Parliamone direttamente.</h2>
-          <p>Il sito è in aggiornamento, ma resto disponibile. Se vuoi informazioni sui tre livelli, su un progetto nuovo o su un lavoro già in corso, puoi contattarmi direttamente.</p>
-          <div class="contact-actions">
-            <a class="button button-primary" href="https://wa.me/393927950038?text=Ciao%20Marco%2C%20vorrei%20informazioni%20sui%20nuovi%20livelli%20di%20Zulian%20Architettura%20Digitale." target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
-            <a class="button" href="tel:+393927950038">Chiamami</a>
-          </div>
-          <div class="phone">
-            <div>
-              <small>Telefono / WhatsApp</small>
-              <a href="tel:+393927950038">+39 392 795 0038</a>
-            </div>
-          </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contatti">
+      <div class="shell">
+        <div class="eyebrow" style="margin-bottom:26px">Per qualsiasi domanda</div>
+        <h2>Parliamone <span class="serif">direttamente.</span></h2>
+        <div class="contact-row"><p>Il sito è in manutenzione, ma io ci sono. Per informazioni sui tre livelli, su un progetto nuovo o su un lavoro già in corso puoi contattarmi direttamente.</p><a class="btn btn-primary" href="https://wa.me/393927950038?text=Ciao%20Marco%2C%20vorrei%20informazioni%20sui%20nuovi%20livelli%20di%20Zulian%20Architettura%20Digitale." target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a></div>
+        <div class="contact-details">
+          <div class="contact-detail"><small>Telefono / WhatsApp</small><a href="tel:+393927950038">+39 392 795 0038</a></div>
+          <div class="contact-detail"><small>Email</small><a href="mailto:zuliansocial.info@gmail.com">zuliansocial.info@gmail.com</a></div>
+          <div class="contact-detail"><small>Sede operativa</small><span>Reggio Calabria · Italia</span></div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer-row">
-      <span>Zulian Architettura Digitale</span>
-      <span>Reggio Calabria · Italia</span>
-    </div>
-  </footer>
+  <footer class="footer"><div class="shell footer-main"><div class="footer-block"><strong>Zulian Architettura Digitale</strong><span>Web · Commerce · App · Automation</span></div><div class="footer-block"><strong>Contatti</strong><a href="tel:+393927950038">+39 392 795 0038</a><a href="mailto:zuliansocial.info@gmail.com">zuliansocial.info@gmail.com</a></div><div class="footer-block"><strong>Stato</strong><span>Sito in manutenzione</span><span>Torneremo online il prima possibile.</span></div></div></footer>
 </body>
 </html>
