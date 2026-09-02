@@ -21,7 +21,7 @@
   <script defer src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
   <script defer src="site-v2.js"></script>
 </head>
-<body class="is-loading">
+<body class="is-loading" data-maintenance-page>
   <div class="loader" aria-hidden="true"><div class="loader-inner"><div class="loader-number">00</div><div class="loader-label">Zulian / maintenance</div></div></div>
 
   <header class="site-header">
@@ -39,7 +39,7 @@
   </div>
 
   <main id="top">
-    <section class="hero hero-brand">
+    <section class="hero hero-brand maintenance-hero">
       <div class="hero-orbit" aria-hidden="true">
         <svg viewBox="0 0 800 800">
           <circle class="orbit-outer" cx="400" cy="400" r="300"/>
@@ -52,17 +52,20 @@
         </svg>
       </div>
       <div class="shell">
+        <div class="maintenance-hero-logo" data-maintenance-logo>
+          <img src="zulian-logo-dark.svg" alt="Zulian Architettura Digitale">
+        </div>
         <div class="hero-grid">
           <div>
-            <div class="eyebrow" style="margin-bottom:28px">Sito in manutenzione · lavori in corso</div>
-            <h1 class="hero-brand-title"><span class="line">ZULIAN</span><span class="line">ARCHITETTURA</span><span class="line serif">DIGITALE</span></h1>
+            <div class="eyebrow maintenance-status" style="margin-bottom:28px">Sito in manutenzione · lavori in corso</div>
+            <h1 class="hero-brand-title maintenance-title"><span class="line">STIAMO</span><span class="line">COSTRUENDO</span><span class="line serif">IL PROSSIMO LIVELLO</span></h1>
           </div>
-          <div class="hero-copy">
+          <div class="hero-copy maintenance-copy">
             <p>Stiamo lavorando dietro le quinte per rendere i nostri modelli, strumenti e processi più facili da adattare al lavoro reale dei clienti. Il sito completo tornerà online il prima possibile.</p>
             <div class="hero-actions"><a class="btn btn-primary" href="#livelli">Vedi i tre livelli</a><a class="btn btn-ghost" href="#contatti">Parla con Marco</a></div>
           </div>
         </div>
-        <div class="hero-foot"><div>01 — Essential · €1.100</div><div>02 — Business · €1.600</div><div>03 — Signature · €2.400</div></div>
+        <div class="hero-foot maintenance-prices"><div>01 — Essential · €1.100</div><div>02 — Business · €1.600</div><div>03 — Signature · €2.400</div></div>
       </div>
     </section>
 
@@ -84,9 +87,9 @@
       <div class="shell">
         <div class="section-head"><div class="eyebrow">Tre livelli · tre profondità diverse</div><div><h2>Una base diversa per ciò che <span class="serif">serve davvero.</span></h2><p>Non sono tre copie dello stesso sito. Cambiano profondità progettuale, struttura, contenuti, funzioni e livello di personalizzazione.</p></div></div>
         <div class="offer-grid">
-          <article class="offer" data-reveal><span class="offer-index">01 / ESSENTIAL</span><h3>€1.100</h3><p>Una presenza digitale professionale e chiara per attività che devono farsi capire, trovare e contattare senza complessità inutile.</p><ul><li>Struttura essenziale</li><li>Mobile-first</li><li>Contatto e conversione chiari</li><li>Personalizzazione sull’attività</li></ul></article>
-          <article class="offer" data-reveal><span class="offer-index">02 / BUSINESS</span><h3>€1.600</h3><p>Più spazio per servizi, contenuti, percorsi commerciali e una presenza digitale capace di accompagnare meglio il cliente.</p><ul><li>Architettura più profonda</li><li>Più pagine e percorsi</li><li>Contenuti e prove</li><li>Misurazione e integrazioni</li></ul></article>
-          <article class="offer" data-reveal><span class="offer-index">03 / SIGNATURE</span><h3>€2.400</h3><p>Il livello più completo per chi vuole una presenza distintiva, più personalizzazione, motion e funzioni costruite intorno all’esperienza.</p><ul><li>Direzione visuale dedicata</li><li>Interazioni e motion avanzate</li><li>Esperienza più articolata</li><li>Personalizzazione superiore</li></ul></article>
+          <article class="offer" data-reveal data-maintenance-offer><span class="offer-index">01 / ESSENTIAL</span><h3>€1.100</h3><p>Una presenza digitale professionale e chiara per attività che devono farsi capire, trovare e contattare senza complessità inutile.</p><ul><li>Struttura essenziale</li><li>Mobile-first</li><li>Contatto e conversione chiari</li><li>Personalizzazione sull’attività</li></ul></article>
+          <article class="offer" data-reveal data-maintenance-offer><span class="offer-index">02 / BUSINESS</span><h3>€1.600</h3><p>Più spazio per servizi, contenuti, percorsi commerciali e una presenza digitale capace di accompagnare meglio il cliente.</p><ul><li>Architettura più profonda</li><li>Più pagine e percorsi</li><li>Contenuti e prove</li><li>Misurazione e integrazioni</li></ul></article>
+          <article class="offer" data-reveal data-maintenance-offer><span class="offer-index">03 / SIGNATURE</span><h3>€2.400</h3><p>Il livello più completo per chi vuole una presenza distintiva, più personalizzazione, motion e funzioni costruite intorno all’esperienza.</p><ul><li>Direzione visuale dedicata</li><li>Interazioni e motion avanzate</li><li>Esperienza più articolata</li><li>Personalizzazione superiore</li></ul></article>
         </div>
       </div>
     </section>
