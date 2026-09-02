@@ -52,6 +52,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     const revealEls=gsap.utils.toArray('[data-reveal]');
     if(reduce){
       gsap.set(revealEls,{opacity:1,y:0});
+      gsap.set('[data-maintenance-logo]',{opacity:1,y:0,scale:1});
     }else{
       revealEls.forEach((el,i)=>{
         gsap.fromTo(el,{opacity:0,y:36},{opacity:1,y:0,duration:.85,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true},delay:(i%3)*.03});
@@ -59,6 +60,26 @@ window.addEventListener('DOMContentLoaded',()=>{
 
       gsap.fromTo('.hero h1 .line',{yPercent:105},{yPercent:0,duration:1.1,stagger:.08,ease:'power4.out',delay:1.1});
       gsap.fromTo('.hero-copy',{opacity:0,y:30},{opacity:1,y:0,duration:.9,ease:'power3.out',delay:1.4});
+
+      const maintenanceLogo=document.querySelector('[data-maintenance-logo]');
+      if(maintenanceLogo){
+        const maintenanceTl=gsap.timeline({delay:.72});
+        maintenanceTl
+          .fromTo(maintenanceLogo,{opacity:0,y:24,scale:.94},{opacity:1,y:0,scale:1,duration:1.05,ease:'power4.out'})
+          .fromTo('.maintenance-status',{opacity:0,x:-18},{opacity:1,x:0,duration:.55,ease:'power3.out'},'-=.55')
+          .fromTo('.maintenance-prices > div',{opacity:0,y:14},{opacity:1,y:0,duration:.55,stagger:.08,ease:'power3.out'},'-=.25');
+
+        gsap.to('.maintenance-hero .hero-orbit svg',{scale:1.035,duration:4.8,repeat:-1,yoyo:true,ease:'sine.inOut',transformOrigin:'50% 50%'});
+        gsap.to('.maintenance-hero .orbit-dot',{scale:1.75,opacity:.46,duration:1.45,repeat:-1,yoyo:true,ease:'sine.inOut',transformOrigin:'50% 50%'});
+
+        if(!coarse){
+          document.querySelectorAll('[data-maintenance-offer]').forEach(card=>{
+            card.addEventListener('mouseenter',()=>gsap.to(card,{y:-8,duration:.28,ease:'power2.out',overwrite:true}));
+            card.addEventListener('mouseleave',()=>gsap.to(card,{y:0,duration:.36,ease:'power3.out',overwrite:true}));
+          });
+        }
+      }
+
       if(!coarse){
         gsap.to('.face-frame img',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.face-strip',start:'top bottom',end:'bottom top',scrub:true}});
       }
