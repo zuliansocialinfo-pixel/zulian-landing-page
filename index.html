@@ -11,48 +11,12 @@
 <meta property="og:description" content="Progettiamo siti, e-commerce, app, software e automazioni partendo dall'architettura e verificando il comportamento reale.">
 <meta property="og:image" content="https://www.zuliansocialmediamarketing.com/zulian-social-card.svg">
 <link rel="icon" href="zulian-mark.svg" type="image/svg+xml">
-<script>
-(()=>{
-  const root=document.documentElement;
-  let state='play';
-  try{
-    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const seen=sessionStorage.getItem('za_intro_seen')==='1';
-    state=reduce||seen?'skip':'play';
-  }catch(_){state='skip'}
-  root.dataset.homeIntro=state;
-  if(state==='play'){
-    window.setTimeout(()=>{
-      try{sessionStorage.setItem('za_intro_seen','1')}catch(_){}
-      root.dataset.homeIntro='done';
-    },3200);
-  }
-})();
-</script>
 <link rel="stylesheet" href="assets/site-v3.css">
-<link rel="stylesheet" href="assets/site-intro.css">
 <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js')</script>
 <script defer src="assets/site-v3.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Vai al contenuto</a>
-<div class="cinematic-intro" data-cinematic-intro aria-hidden="true">
-  <div class="cinematic-intro__stage">
-    <svg class="cinematic-intro__network" viewBox="0 0 800 800" aria-hidden="true">
-      <defs><linearGradient id="zaIntroGradient"><stop stop-color="#2563ff"/><stop offset="1" stop-color="#5de0d0"/></linearGradient></defs>
-      <circle class="cinematic-intro__orbit" cx="400" cy="400" r="292"/>
-      <circle class="cinematic-intro__orbit cinematic-intro__orbit--inner" cx="400" cy="400" r="202"/>
-      <path class="cinematic-intro__route" d="M142 526C238 354 332 266 429 311S592 431 672 226"/>
-      <circle class="cinematic-intro__node cinematic-intro__node--1" cx="142" cy="526" r="16"/>
-      <circle class="cinematic-intro__node cinematic-intro__node--hot" cx="429" cy="311" r="23"/>
-      <circle class="cinematic-intro__node cinematic-intro__node--2" cx="672" cy="226" r="16"/>
-      <circle class="cinematic-intro__node cinematic-intro__node--3" cx="266" cy="287" r="11"/>
-      <circle class="cinematic-intro__pulse" cx="429" cy="311" r="5"/>
-    </svg>
-    <div class="cinematic-intro__mark"><img src="zulian-mark.svg" alt=""></div>
-    <div class="cinematic-intro__wordmark"><strong>ZULIAN</strong><span>ARCHITETTURA DIGITALE</span></div>
-  </div>
-</div>
 <header class="site-header" data-header>
   <div class="site-shell header-row">
     <a class="brand" href="index.html" aria-label="Zulian Architettura Digitale - Home"><img src="zulian-mark.svg" alt="" aria-hidden="true"><span><strong>ZULIAN</strong><small>ARCHITETTURA DIGITALE</small></span></a>
