@@ -1,0 +1,32 @@
+{
+  "version": "2026-09-05",
+  "funded_projects": {
+    "quote_available": true,
+    "purpose": "preventivo tecnico-commerciale utilizzabile dal cliente nella pratica di bando o progetto finanziato, nei limiti richiesti dalla procedura",
+    "preliminary_signed_agreement_required": true,
+    "agreement_fields": [
+      "scope e deliverable",
+      "prezzo e validita del preventivo",
+      "condizione collegata all'esito della misura o del finanziamento",
+      "termine massimo di attesa concordato",
+      "modalita di conferma dell'avvio",
+      "costi terzi o vivi eventualmente non differibili",
+      "recesso, decadenza e variazioni di perimetro"
+    ],
+    "waiting_window": "definita caso per caso; puo estendersi per alcuni mesi se formalizzata nell'accordo",
+    "funding_success_guaranteed": false,
+    "final_start": "solo dopo esito/condizione prevista e conferma scritta secondo l'accordo"
+  },
+  "public_procurement": {
+    "offer_documents_available": true,
+    "procedure_specific_verification_required": true,
+    "mepa_registration_claimed": false,
+    "direct_award_guaranteed": false,
+    "rules": [
+      "verificare procedura, categoria, requisiti e piattaforma prima di dichiarare partecipabilita",
+      "non presentare Zulian come operatore MePA senza verifica effettiva dell'abilitazione applicabile",
+      "per siti e servizi digitali PA considerare le Linee guida AgID applicabili al progetto",
+      "nessuna procedura di affidamento o aggiudicazione viene promessa dal sito"
+    ]
+  }
+}
