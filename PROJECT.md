@@ -1,40 +1,28 @@
-# Zulian Architettura Digitale — Runtime V3
+# Zulian Architettura Digitale — Reference-Class Runtime
 
 ## Source truth
-- Production branch: `main`
-- Working redesign branch: `redesign/zulian-architecture-v3`
-- Deployment: GitHub Pages from repository root via `.github/workflows/deploy.yml`
+- Production branch: `main` (maintenance until explicit release)
+- Reference-class implementation branch: `work/reference-class-implementation-20260905`
+- Baseline lineage: `work/zulian-architecture-sep2026`
+- Deployment: GitHub Pages from repository root through `.github/workflows/deploy.yml`
 
 ## Architecture
-Static multi-page HTML5 website with a shared CSS design system and minimal JavaScript progressive enhancement.
+Static multi-page semantic HTML5 site.
 
-### Canonical pages
-- `index.html`
-- `soluzioni.html`
-- `metodo.html`
-- `modelli-progettuali.html`
-- `lab.html`
-- `partnership.html`
-- `qualita-standard.html`
-- `ai-e-lavoro.html`
-- `chi-marco-zulian.html`
-- `formazione.html`
-- `giornale.html`
-- `contatti.html`
+Owners:
+- V3 identity baseline: `assets/site-v3.css`
+- Reference-class extension: `assets/reference-class.css`
+- Existing state/forms/lab runtime: `assets/site-v3.js`
+- Reference-class enhancements: `assets/reference-class.js`
+- Commercial/identity contract: `data/site-contract.json`
+- Contract regression: `tools/check_site_contract.py`
+- Product requirements: `docs/ZULIAN_REFERENCE_CLASS_WEBSITE_PRD_V1.md`
 
-### Interactive Lab
-- `lab/video-pipeline.html`
-- `lab/app-architecture.html`
-- `lab/automation-control-room.html`
+## Product rule
+The site is one Web Experience System. Page composition changes with the page job; consistency comes from shared tokens, typography, navigation, behavior laws and QA.
 
-## Shared owners
-- Visual system: `assets/site-v3.css`
-- Interaction/state: `assets/site-v3.js`
-- Brand mark: `zulian-mark.svg`
-- Social card: `zulian-social-card.svg`
+## Critical invariant
+Navigation, identity, offer, proof, contact and privacy must remain readable without cinematic JavaScript.
 
-## Principles
-Semantic HTML owns content and navigation. CSS owns layout, typography and most visual states. JavaScript only enhances behavior; critical content must remain usable without JavaScript. Motion respects `prefers-reduced-motion`.
-
-## Verification status
-Static HTML structure and local references were checked before release. Browser visual acceptance, full accessibility validation and field performance measurement remain separate runtime gates after deployment.
+## Release boundary
+This branch is an implementation candidate. Updating `main` publishes to GitHub Pages and therefore requires an explicit release action after QA.
