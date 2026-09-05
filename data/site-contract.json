@@ -1,0 +1,16 @@
+{
+  "version": "2026-09-05",
+  "identity": "Zulian Architettura Digitale",
+  "production_branch": "main",
+  "implementation_branch": "work/reference-class-implementation-20260905",
+  "website_products": [
+    {"id":"essential","label":"ESSENTIAL","price_eur":1100,"functional_pages":4,"languages":3,"min_videos":1},
+    {"id":"business","label":"BUSINESS","price_eur":1600,"functional_pages":7,"languages":5,"min_videos":3},
+    {"id":"signature","label":"SIGNATURE","price_eur":2400,"functional_pages":10,"languages":7,"min_videos":6}
+  ],
+  "delivery_target": "48–72 ore dopo disponibilità di contenuti/asset e chiusura delle decisioni per siti standard",
+  "bugfix_window": "7 giorni sui difetti dell'implementazione consegnata",
+  "contact": {"phone":"+393927950038","email":"zuliansocial.info@gmail.com","location":"Reggio Calabria, Italia"},
+  "critical_no_js": ["navigation","identity","offer","proof","contact","privacy"],
+  "public_primary_routes": ["/","/soluzioni.html","/metodo.html","/lab.html","/qualita-standard.html","/chi-marco-zulian.html","/contatti.html"]
+}
