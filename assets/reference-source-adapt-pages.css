@@ -1,0 +1,67 @@
+/* Page-level source mechanics adaptation.
+   Additive only: existing semantic HTML and source content stay authoritative. */
+
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* CERTIFICATIONS — reference partner/archive grammar translated into evidence rows. */
+  .rc-cert-grid{grid-template-columns:1fr;border-left:0;border-top:1px solid var(--rc-border-dark)}
+  .rc-cert-card{
+    min-height:310px;grid-template-columns:minmax(0,9fr) minmax(320px,7fr);gap:0;padding:0;
+    border-right:0;border-bottom:1px solid var(--rc-border-dark);position:relative;overflow:hidden;
+    transition:background .35s var(--ease)
+  }
+  .rc-cert-card>div{grid-column:1;grid-row:1;padding:clamp(30px,4vw,64px);align-self:center;position:relative;z-index:2}
+  .rc-cert-open{
+    grid-column:2;grid-row:1;width:100%;height:100%;min-height:310px;overflow:hidden;position:relative;
+    background:#e8edf5;opacity:.82;transition:opacity .35s var(--ease)
+  }
+  .rc-cert-open::after{content:"Apri documento ↗";position:absolute;right:18px;bottom:18px;padding:9px 12px;border-radius:999px;background:rgba(7,17,31,.84);color:#fff;font:700 9px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+  .rc-cert-open img{height:100%;aspect-ratio:auto;object-fit:cover;transition:transform .65s var(--ease)}
+  .rc-cert-card h2{font-size:clamp(40px,4.7vw,78px);line-height:.9;max-width:12ch;margin:16px 0 20px}
+  .rc-cert-card p{max-width:58ch;font-size:14px}
+  .rc-cert-card:hover{background:var(--paper-2)}
+  .rc-cert-card:hover .rc-cert-open{opacity:1}
+  .rc-cert-card:hover .rc-cert-open img{transform:scale(1.035)}
+
+  /* METHOD — keep the existing sticky state, but give the six gates one visible spine. */
+  .rc-method-system{position:relative}
+  .rc-method-steps{position:relative}
+  .rc-method-steps::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:1px;background:linear-gradient(var(--blue),rgba(93,224,208,.22),transparent)}
+  .rc-method-steps li{position:relative;min-height:20svh;padding:clamp(28px,4svh,48px) 0;opacity:.28;transition:opacity .35s,transform .35s,background .35s}
+  .rc-method-steps li::before{content:"";position:absolute;left:21px;top:50%;width:11px;height:11px;border-radius:50%;background:var(--ink);border:1px solid var(--blue-2);transform:translateY(-50%);transition:background .3s,box-shadow .3s,transform .3s}
+  .rc-method-steps li.is-active{opacity:1;transform:translateX(12px)}
+  .rc-method-steps li.is-active::before{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 7px rgba(200,255,82,.12);transform:translateY(-50%) scale(1.08)}
+  .rc-method-state{top:calc(var(--header) + 10svh);min-height:64svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+  .rc-method-state::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 76% 24%,rgba(37,99,255,.22),transparent 34%);pointer-events:none}
+  .rc-method-state>*{position:relative;z-index:2}
+
+  /* MARCO — editorial chapters with persistent time marker instead of a flat timeline. */
+  .rc-story-stream{max-width:none}
+  .rc-story-stream article{min-height:58svh;grid-template-columns:2fr 5fr 7fr;align-items:start;padding:10svh 0;border-top:1px solid var(--rc-border-dark)}
+  .rc-story-stream article>span{position:sticky;top:calc(var(--header) + 10svh);font-size:11px;letter-spacing:.14em}
+  .rc-story-stream article>h2{position:sticky;top:calc(var(--header) + 15svh);font-size:clamp(44px,5vw,82px);max-width:9ch}
+  .rc-story-stream article>p{font-size:clamp(18px,1.5vw,25px);line-height:1.55;max-width:38ch;padding-top:2svh}
+  .rc-story-stream article:nth-child(even)>h2{transform:translateX(2.5vw)}
+
+  /* LAB — proof routes read as launches, not product cards. */
+  .rc-lab-index__item{min-height:38svh;grid-template-columns:90px 7fr 6fr auto;padding:7svh 0;position:relative;overflow:hidden;transition:padding .35s var(--ease),background .35s}
+  .rc-lab-index__item::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(37,99,255,.12),rgba(93,224,208,.035),transparent 78%);transform:translateX(-101%);transition:transform .55s var(--ease);pointer-events:none}
+  .rc-lab-index__item:hover::before{transform:none}
+  .rc-lab-index__item>*{position:relative;z-index:2}
+  .rc-lab-index__item h2{font-size:clamp(50px,6vw,96px);line-height:.88;max-width:10ch}
+  .rc-lab-index__visual{height:22svh;max-height:220px;transition:transform .55s var(--ease)}
+  .rc-lab-index__item:hover .rc-lab-index__visual{transform:translateX(-1.5vw) scale(1.025)}
+  .rc-lab-index__item em{align-self:end;padding-bottom:1svh}
+
+  /* QUALITY — matrix remains a matrix, but gains inspectable states instead of passive boxes. */
+  .rc-quality-matrix article{position:relative;overflow:hidden;transition:background .3s var(--ease),transform .3s var(--ease)}
+  .rc-quality-matrix article::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+  .rc-quality-matrix article:hover{background:#fff;transform:translateY(-4px)}
+  .rc-quality-matrix article:hover::after{transform:scaleX(1)}
+}
+
+@media (max-width:900px), (prefers-reduced-motion:reduce){
+  .rc-cert-card{min-height:0}
+  .rc-method-steps::before,.rc-method-steps li::before{display:none}
+  .rc-story-stream article>span,.rc-story-stream article>h2{position:static;top:auto;transform:none!important}
+  .rc-lab-index__item{min-height:0}
+}
