@@ -1,0 +1,1336 @@
+[
+  {
+    "route": "/architettura-digitale/",
+    "label": "Architettura Digitale",
+    "title": "Prima degli strumenti, un progetto.",
+    "intro": "Architettura Digitale significa progettare come sito, informazioni, ricerca, funzioni e processi devono collaborare intorno all’impresa.",
+    "sections": [
+      {
+        "heading": "Il problema dei pezzi scollegati",
+        "paragraphs": [
+          "Un sito può essere curato e lasciare senza risposta una domanda fondamentale. Una campagna può portare visite a una pagina che non spiega il servizio. Un modulo può ricevere richieste che nessuno sa a chi assegnare. Il problema è il collegamento fra le parti.",
+          "L’architettura definisce quel collegamento: cosa deve capire una persona, in quale momento, con quali informazioni e quale azione deve poter compiere."
+        ]
+      },
+      {
+        "heading": "Business, persone, informazioni",
+        "paragraphs": [
+          "Partiamo dall’attività: che cosa offre, a chi, dove e con quali condizioni. Poi osserviamo la persona che deve scegliere: dubbi, confronto, vincoli e motivi di fiducia. Solo dopo organizziamo pagine e funzioni."
+        ],
+        "items": [
+          "Business: risultato atteso e vincolo principale.",
+          "Persone: bisogni e decisioni da accompagnare.",
+          "Informazioni: contenuti, prove e dati realmente disponibili.",
+          "Percorso: arrivo, comprensione, confronto e contatto.",
+          "Tecnologia: lo strumento più semplice che sostiene quel percorso."
+        ]
+      },
+      {
+        "heading": "Un esempio concreto",
+        "paragraphs": [
+          "Per un’impresa che installa impianti, il cliente può voler capire prima l’ambito di intervento, poi se l’azienda opera nella sua zona e infine quali informazioni servono per chiedere una valutazione. La pagina dovrebbe seguire quel bisogno. Un’animazione non può sostituire l’elenco dei servizi o una zona di intervento chiara.",
+          "È un esempio di ragionamento progettuale, non un caso cliente né una promessa di risultato."
+        ]
+      },
+      {
+        "heading": "Serve anche a un’attività piccola?",
+        "paragraphs": [
+          "Sì, nella misura del problema. A volte bastano tre pagine ben organizzate. Altre volte occorre un sistema più articolato. L’obiettivo non è aumentare il numero di funzioni: è eliminare passaggi confusi e responsabilità indefinite."
+        ]
+      },
+      {
+        "heading": "Come diventa un progetto",
+        "paragraphs": [
+          "Il risultato è un perimetro verificabile: pagine, contenuti, azioni, materiali, responsabilità e criteri di consegna. Il design rende visibile questa struttura. Il codice la realizza. La verifica controlla che funzioni nel browser."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Guarda i modelli",
+        "/modelli/"
+      ],
+      [
+        "Il metodo",
+        "/metodo/"
+      ],
+      [
+        "Siti web",
+        "/siti-web/"
+      ],
+      [
+        "SEO e Local SEO",
+        "/seo-local-seo/"
+      ],
+      [
+        "Automazioni",
+        "/automazioni-ai/"
+      ]
+    ]
+  },
+  {
+    "route": "/siti-web/",
+    "label": "Siti web",
+    "title": "Un sito che aiuta a capire, scegliere e contattarti.",
+    "intro": "Realizziamo siti professionali per imprese, attività e professionisti. Architettura, contenuti e funzioni seguono il lavoro che il sito deve fare.",
+    "sections": [
+      {
+        "heading": "Per chi è pensato",
+        "paragraphs": [
+          "Per chi parte da zero e vuole una presenza credibile. Per chi ha un sito datato, confuso o difficile da aggiornare. Per chi ha servizi validi ma non riesce a presentarli con la chiarezza necessaria.",
+          "Il primo passo è stabilire cosa deve cambiare: informazioni più accessibili, migliore presentazione dell’offerta, richieste più complete o un’esperienza più coerente con l’azienda."
+        ]
+      },
+      {
+        "heading": "Che cosa progettiamo",
+        "paragraphs": [],
+        "items": [
+          "Struttura delle pagine e percorsi di navigazione.",
+          "Gerarchia dei contenuti e delle prove disponibili.",
+          "Direzione visiva coerente con identità e materiali reali.",
+          "Esperienza mobile, contatti e funzioni concordate.",
+          "Fondazioni tecniche e semantiche per la ricerca.",
+          "Stati di errore, tastiera e verifiche prima della consegna."
+        ]
+      },
+      {
+        "heading": "Essential, Business, Signature",
+        "paragraphs": [
+          "Essential (€1.100) serve una presenza chiara con 3 pagine principali. Business (€1.600) organizza un’offerta più articolata in 5 pagine. Signature (€2.400) sviluppa una direzione più profonda con 8–10 pagine quando il contenuto lo giustifica.",
+          "Il numero di pagine delimita il lavoro, ma non ne racconta da solo il valore. Il confronto riguarda pubblico, contenuti, personalizzazione e funzioni. I costi esterni sono separati; i prezzi dei tre livelli sono IVA inclusa."
+        ]
+      },
+      {
+        "heading": "Contenuti e personalizzazione",
+        "paragraphs": [
+          "La struttura viene adattata all’attività. Logo, informazioni, foto, video, prezzi e prove devono essere disponibili e utilizzabili. Copywriting avanzato, produzione fotografica, video e traduzioni professionali richiedono accordo specifico.",
+          "Non trasformiamo dati mancanti in recensioni, numeri o promesse inventate. Se manca un materiale importante lo segnaliamo prima che rallenti la costruzione."
+        ]
+      },
+      {
+        "heading": "Mobile, ricerca e manutenzione",
+        "paragraphs": [
+          "Menu, testi e contatti vengono progettati anche per schermi piccoli. Le informazioni fondamentali restano nel documento, leggibili da persone e motori. Questa base non equivale a un’attività SEO continuativa e non garantisce posizioni.",
+          "Dominio e hosting sono esterni, intestati al cliente quando possibile. Gli aggiornamenti dopo la consegna dipendono dal sistema e dal servizio concordato."
+        ]
+      },
+      {
+        "heading": "Quando serve un altro perimetro",
+        "paragraphs": [
+          "E-commerce articolati, login, database, gestionali e integrazioni importanti richiedono analisi separata. Non li includiamo implicitamente nei tre livelli."
+        ]
+      },
+      {
+        "heading": "Tempi e passaggio successivo",
+        "paragraphs": [
+          "Gli obiettivi del listino sono 7–10, 10–15 e 15–25 giorni per i tre livelli, dopo accordo, acconto, materiali e accessi completi. Le dipendenze reali vengono definite nel preventivo. Guarda i modelli e confronta i livelli prima di scegliere."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Confronta i prezzi",
+        "/prezzi/"
+      ],
+      [
+        "Prova i modelli",
+        "/modelli/"
+      ],
+      [
+        "Trova la soluzione",
+        "/advisor/"
+      ],
+      [
+        "Guida ai costi",
+        "/guide/costo-sito-web/"
+      ]
+    ]
+  },
+  {
+    "route": "/e-commerce/",
+    "label": "E-commerce",
+    "title": "Vendere online deve avere un motivo concreto.",
+    "intro": "Un e-commerce è un sistema di vendita: catalogo, pagamenti, ordini, spedizioni e assistenza. Lo valutiamo con un perimetro distinto dai siti standard.",
+    "sections": [
+      {
+        "heading": "Prima del software viene il modello di vendita",
+        "paragraphs": [
+          "Chi compra, cosa compra e perché dovrebbe scegliere questo canale? Occorre conoscere margine, disponibilità dei prodotti, organizzazione delle spedizioni e gestione dei resi. Senza queste risposte, costruire il negozio non risolve il lavoro che viene dopo."
+        ]
+      },
+      {
+        "heading": "Le informazioni da preparare",
+        "paragraphs": [],
+        "items": [
+          "Catalogo accurato: prodotti, varianti, immagini e diritti, prezzi e disponibilità.",
+          "Modalità di pagamento e spedizione, aree servite e costi.",
+          "Condizioni di vendita, resi e contenuti legali approvati.",
+          "Persone responsabili di ordini, aggiornamenti e assistenza.",
+          "Eventuali sistemi già presenti e integrazioni necessarie."
+        ]
+      },
+      {
+        "heading": "Il perimetro cambia il costo",
+        "paragraphs": [
+          "Il listino V1 distingue Starter (€2.500, fino a 25 prodotti), Business (€4.500, fino a 100 prodotti), Advanced da €7.500 e Custom da €12.000. Sono riferimenti da confrontare con catalogo e requisiti, non un acquisto automatico. Provider, licenze e commissioni restano separati.",
+          "Un catalogo incompleto, dati da ripulire, logiche B2B o un gestionale da collegare possono cambiare significativamente il progetto. Il preventivo definisce inclusioni e trattamento fiscale."
+        ]
+      },
+      {
+        "heading": "Quando non lo consigliamo",
+        "paragraphs": [
+          "Se manca la capacità di gestire ordini e clienti, se i prodotti non hanno un modello economico sostenibile o se il bisogno reale è mostrare un catalogo e ricevere richieste, può essere più utile una soluzione più semplice."
+        ]
+      },
+      {
+        "heading": "Pagamenti, privacy e continuità",
+        "paragraphs": [
+          "La scelta della piattaforma segue requisiti e costi ricorrenti. Credenziali, account, responsabilità e manutenzione devono essere chiari. Le informazioni fiscali e legali vengono validate dai professionisti competenti prima del lancio."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Valuta il progetto",
+        "/advisor/"
+      ],
+      [
+        "Metodo",
+        "/metodo/"
+      ],
+      [
+        "Guida ai costi",
+        "/guide/costo-sito-web/"
+      ]
+    ]
+  },
+  {
+    "route": "/prezzi/",
+    "label": "Prezzi",
+    "title": "Un prezzo chiaro comincia da un perimetro chiaro.",
+    "intro": "Essential €1.100, Business €1.600, Signature €2.400. Confronta a chi servono, cosa comprendono e cosa richiede un accordo separato.",
+    "sections": [
+      {
+        "heading": "Come scegliere",
+        "paragraphs": [
+          "Essential per un’offerta semplice da comprendere. Business quando il cliente deve orientarsi fra più informazioni. Signature quando la direzione visiva e la profondità narrativa sono una parte significativa del posizionamento. Non esiste un livello migliore per tutti."
+        ]
+      },
+      {
+        "heading": "Cosa rimane esplicito",
+        "paragraphs": [
+          "Le inclusioni definitive sono scritte nel preventivo: pagine, funzioni, contenuti, materiali, revisioni, dipendenze e consegna. Non esiste un “tutto incluso” che copra automaticamente software, e-commerce e servizi continuativi."
+        ]
+      },
+      {
+        "heading": "Pagamento, avvio e supporto",
+        "paragraphs": [
+          "50% all’accettazione e 50% dopo approvazione della versione di prova, prima di pubblicazione o consegna definitiva. La produzione parte quando accordo, identificazione necessaria, acconto, materiali e accessi sono completi.",
+          "Sono inclusi 30 giorni di correzione dei bug riproducibili nel perimetro concordato. Una nuova funzione, un nuovo contenuto o un cambio di direzione non sono correzioni di bug. Restano fermi i diritti inderogabili eventualmente applicabili."
+        ]
+      },
+      {
+        "heading": "Provider, dominio e hosting",
+        "paragraphs": [
+          "Costi esterni separati: dominio, hosting, licenze, servizi email, commissioni, API e provider. Quando possibile, gli account sono intestati e pagati direttamente dal cliente. Per i siti statici il listino non prevede un canone obbligatorio."
+        ]
+      },
+      {
+        "heading": "Personalizzazioni e upgrade",
+        "paragraphs": [
+          "Un upgrade non è una differenza di prezzo automatica: si valuta il lavoro riutilizzabile e quello aggiuntivo. Pagine extra, nuovi flussi e integrazioni richiedono una variazione scritta prima dell’esecuzione."
+        ]
+      },
+      {
+        "heading": "Il totale del preventivo",
+        "paragraphs": [
+          "I prezzi Essential €1.100, Business €1.600 e Signature €2.400 sono importi finali, IVA inclusa. Il preventivo distingue il prezzo del progetto dagli extra e dai costi ricorrenti dei provider."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Trova il livello adatto",
+        "/advisor/"
+      ],
+      [
+        "Modelli",
+        "/modelli/"
+      ],
+      [
+        "Condizioni",
+        "/condizioni-servizi/"
+      ],
+      [
+        "Come valutare il costo",
+        "/guide/costo-sito-web/"
+      ]
+    ]
+  },
+  {
+    "route": "/modelli/",
+    "label": "Modelli",
+    "title": "Guarda il sito prima di scegliere.",
+    "intro": "Un modello deve essere navigabile: pagine, menu, azioni e limiti. Il catalogo collega ogni dimostrazione al livello di progetto corrispondente.",
+    "sections": [
+      {
+        "heading": "Come leggere una demo",
+        "paragraphs": [
+          "Una demo mostra un percorso, non una promessa di risultati. Ogni contenuto esemplificativo è dichiarato e non rappresenta clienti, recensioni o risultati reali. Prenotazioni, invii e pagamenti simulati devono essere riconoscibili."
+        ]
+      },
+      {
+        "heading": "Cosa cambia nel tuo progetto",
+        "paragraphs": [
+          "Identità, informazioni, servizi e materiali vengono adattati. Funzioni, pagine, contenuti e limiti restano quelli indicati nel preventivo. Se l’attività richiede un altro percorso, prima si riapre l’architettura e poi si costruisce."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Confronta i livelli",
+        "/prezzi/"
+      ],
+      [
+        "Configura il progetto",
+        "/advisor/"
+      ]
+    ],
+    "before": "<p class=\"route-status\">Tre livelli dello stesso settore per confrontare struttura, percorsi e profondità. Le richieste nelle demo sono simulate e non inviano dati.</p>"
+  },
+  {
+    "route": "/metodo/",
+    "label": "Metodo",
+    "title": "Sapere cosa succede, in ogni fase.",
+    "intro": "Un progetto funziona meglio quando input, responsabilità e criteri di approvazione sono comprensibili a entrambe le parti.",
+    "sections": [
+      {
+        "heading": "01. Comprendere l’impresa",
+        "paragraphs": [
+          "Tu fornisci attività, obiettivi e problemi attuali. Zulian esamina contenuti e sistema esistente. L’output è un obiettivo e un perimetro condivisi, con dipendenze e materiali mancanti dichiarati."
+        ]
+      },
+      {
+        "heading": "02. Definire il lavoro",
+        "paragraphs": [
+          "Il preventivo descrive pagine, funzioni, materiali, revisioni, costi esterni e tempi. Si avvia la produzione con accordo, acconto e accessi necessari. Un pagamento senza materiali non rende completa la fase di avvio."
+        ]
+      },
+      {
+        "heading": "03. Organizzare l’esperienza",
+        "paragraphs": [
+          "Zulian definisce navigazione, contenuti, percorso e direzione visiva. Tu verifichi che l’offerta sia rappresentata correttamente e approvi le informazioni aziendali. Si passa alla costruzione quando le decisioni materiali sono chiuse."
+        ]
+      },
+      {
+        "heading": "04. Costruire e rivedere",
+        "paragraphs": [
+          "La versione navigabile permette di osservare il risultato. Le revisioni vengono raccolte in un elenco consolidato da un referente. Essential comprende un round; Business e Signature due. Correzioni di errori rispetto al concordato sono distinte da nuove richieste."
+        ]
+      },
+      {
+        "heading": "05. Verificare",
+        "paragraphs": [
+          "Zulian controlla percorsi, asset, schermi piccoli, tastiera, contatti e aspetti tecnici applicabili. Tu controlli contenuti e rispondenza all’attività reale. Un test automatico non sostituisce la lettura e l’uso del sito."
+        ]
+      },
+      {
+        "heading": "06. Consegnare e continuare",
+        "paragraphs": [
+          "Pubblicazione dopo approvazione e saldo. La consegna comprende gli accessi e i file previsti. I bug nello scope hanno la finestra di correzione concordata; contenuti nuovi e manutenzione seguono accordi distinti."
+        ]
+      },
+      {
+        "heading": "Se qualcosa cambia",
+        "paragraphs": [
+          "Una nuova funzione o un rifacimento di una fase approvata diventa una variazione di perimetro. Prima si spiegano costo e impatto sui tempi, poi si decide. Se manca un materiale essenziale, non viene inventato per proseguire."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Controlli di qualità",
+        "/qualita/"
+      ],
+      [
+        "Chi se ne occupa",
+        "/chi-sono/"
+      ],
+      [
+        "Modelli",
+        "/modelli/"
+      ],
+      [
+        "Prepara il progetto",
+        "/contatti/"
+      ]
+    ]
+  },
+  {
+    "route": "/seo-local-seo/",
+    "label": "SEO e Local SEO",
+    "title": "Essere comprensibili è il primo passo per essere trovati.",
+    "intro": "La SEO collega struttura tecnica, contenuti e informazioni aziendali. La Local SEO aggiunge il contesto del territorio e della presenza reale.",
+    "sections": [
+      {
+        "heading": "Che cosa possiamo migliorare",
+        "paragraphs": [
+          "Pagine raggiungibili, contenuti leggibili, titoli coerenti, link interni, immagini dimensionate e informazioni accurate. Prima di aggiungere nuove pagine, verifichiamo se le persone riescono a trovare quelle importanti."
+        ]
+      },
+      {
+        "heading": "Contenuti e intento",
+        "paragraphs": [
+          "Una pagina deve rispondere a una domanda concreta. La pagina del servizio spiega ciò che viene offerto; una guida aiuta a capirlo; una pagina locale aggiunge informazioni che cambiano davvero con il territorio. Ripetere lo stesso testo cambiando città non costruisce valore."
+        ]
+      },
+      {
+        "heading": "Google Business Profile e informazioni locali",
+        "paragraphs": [
+          "Un profilo aziendale accurato può completare il sito quando l’attività è eleggibile. Nome, contatti, categoria, sede o area di servizio devono rappresentare l’attività reale. Non creiamo sedi fittizie e non dichiariamo orari non confermati."
+        ]
+      },
+      {
+        "heading": "Attività iniziale e lavoro continuativo",
+        "paragraphs": [
+          "Le fondazioni tecniche incluse nel progetto sono diverse da una campagna continuativa su contenuti, analisi e ottimizzazione. Il preventivo distingue cosa viene realizzato una volta e cosa richiede lavoro periodico."
+        ]
+      },
+      {
+        "heading": "Come si misura",
+        "paragraphs": [
+          "Si osservano query, pagine, clic e indicizzazione disponibili in Search Console, collegando quando possibile le visite a richieste reali. Un aumento di impression non equivale da solo a un nuovo cliente."
+        ]
+      },
+      {
+        "heading": "Cosa non promettiamo",
+        "paragraphs": [
+          "Google dichiara che rispettare i requisiti non garantisce crawling, indicizzazione o presenza nei risultati. Non promettiamo prima posizione, un numero di contatti o citazioni AI."
+        ],
+        "html": "<p><a href=\"https://developers.google.com/search/docs/essentials\">Fonte: Google Search Essentials</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "Valuta la reperibilità",
+        "/contatti/"
+      ],
+      [
+        "Guida SEO locale",
+        "/guide/seo-locale/"
+      ],
+      [
+        "Reggio Calabria",
+        "/reggio-calabria/"
+      ],
+      [
+        "GEO e AI Search",
+        "/geo-ai-search/"
+      ]
+    ]
+  },
+  {
+    "route": "/geo-ai-search/",
+    "label": "GEO e AI Search",
+    "title": "Cosa possiamo ottimizzare. E cosa no.",
+    "intro": "GEO indica il lavoro sulla comprensibilità e reperibilità delle informazioni nelle esperienze di ricerca generativa. Non è una garanzia di essere citati.",
+    "sections": [
+      {
+        "heading": "Fondamenti con evidenza",
+        "paragraphs": [
+          "Google indica che per AI Overviews e AI Mode valgono i normali fondamentali SEO. Non richiede file AI o markup speciali. Contenuti accessibili, link interni e informazioni coerenti rimangono la base."
+        ]
+      },
+      {
+        "heading": "Pratiche ragionevoli, con limiti",
+        "paragraphs": [
+          "Definizioni esplicite, esempi, fonti, date e tabelle utili rendono più chiaro il contenuto anche fuori dal contesto della pagina. È una scelta editoriale solida; non obbliga alcun motore a riutilizzarlo."
+        ]
+      },
+      {
+        "heading": "Sperimentazione dichiarata",
+        "paragraphs": [
+          "Test di domande su sistemi diversi possono aiutare a osservare come viene interpretato il brand. Non sono una classifica stabile. Un file llms.txt non è un requisito Google e non viene venduto come scorciatoia."
+        ]
+      },
+      {
+        "heading": "Pratiche che rifiutiamo",
+        "paragraphs": [],
+        "items": [
+          "Schema GEO inventati e badge AI score.",
+          "Promesse di citazione o prima posizione in ChatGPT.",
+          "Centinaia di domande quasi identiche per coprire query.",
+          "Dati strutturati con informazioni assenti dalla pagina."
+        ]
+      },
+      {
+        "heading": "Misurazione verificabile",
+        "paragraphs": [
+          "Usiamo i report effettivamente disponibili negli account e distinguiamo traffico, citazioni osservate e richieste reali. La documentazione Google consultata il 5 settembre 2026 indica le funzioni AI nel traffico Web generale: l’eventuale disponibilità di report separati va verificata nell’account, non presunta."
+        ]
+      },
+      {
+        "heading": "La fonte prima della promessa",
+        "paragraphs": [
+          "Il piano può comprendere struttura, contenuti, accuratezza dell’entità e aggiornamento delle informazioni. I risultati dipendono anche dai sistemi esterni."
+        ],
+        "html": "<p><a href=\"https://developers.google.com/search/docs/appearance/ai-features\">Google: AI features and your website</a> · Consultato il 5 settembre 2026.</p>"
+      }
+    ],
+    "related": [
+      [
+        "Fondazioni SEO",
+        "/seo-local-seo/"
+      ],
+      [
+        "Guida GEO",
+        "/guide/geo-ai-search/"
+      ],
+      [
+        "Valuta il progetto",
+        "/contatti/"
+      ]
+    ]
+  },
+  {
+    "route": "/automazioni-ai/",
+    "label": "Automazioni e AI",
+    "title": "Partiamo dal lavoro che oggi fate a mano.",
+    "intro": "Prima di automatizzare osserviamo processo, persone, ripetizione ed eccezioni. L’AI entra solo dove serve e con confini di responsabilità chiari.",
+    "sections": [
+      {
+        "heading": "Le domande prima degli strumenti",
+        "paragraphs": [],
+        "items": [
+          "Quale attività si ripete e quante volte?",
+          "Chi la svolge e con quali dati?",
+          "Quale parte segue regole stabili?",
+          "Quali eccezioni richiedono una persona?",
+          "Cosa succede quando qualcosa è sbagliato?",
+          "Come misuriamo lavoro evitato e controllo necessario?"
+        ]
+      },
+      {
+        "heading": "Richieste e lead",
+        "paragraphs": [
+          "Possibile processo: raccogliere dati, controllare completezza e assegnare la richiesta. Il responsabile commerciale decide risposta e prezzo. Se i dati sono insufficienti o ambigui, il sistema segnala l’eccezione senza inventare la classificazione."
+        ]
+      },
+      {
+        "heading": "Documenti e informazioni",
+        "paragraphs": [
+          "Possibile processo: ordinare file e campi già disponibili. Una persona valida il risultato prima di usarlo per decisioni importanti. Un documento illeggibile o una categoria incerta richiedono gestione manuale. Dati sensibili e accessi comportano valutazione separata."
+        ]
+      },
+      {
+        "heading": "Appuntamenti e follow-up",
+        "paragraphs": [
+          "Possibile processo: raccogliere preferenze e preparare promemoria. Disponibilità e cambi particolari rimangono del responsabile. Il guasto del provider non deve produrre una conferma falsa. Integrazioni e costi di calendario sono dipendenze esplicite."
+        ]
+      },
+      {
+        "heading": "Dove l’AI può aiutare",
+        "paragraphs": [
+          "Comprendere testi variabili o trovare informazioni in una base conoscenza può richiedere strumenti generativi. Le regole ripetibili spesso non ne hanno bisogno. Quando l’AI interviene, si dichiarano origine della risposta, limiti ed escalation umana."
+        ]
+      },
+      {
+        "heading": "Un beneficio da misurare",
+        "paragraphs": [
+          "Tempo per evento × eventi al mese × costo orario effettivo descrive il lavoro attuale. Dal beneficio misurato vanno sottratti costo del sistema, controllo umano e manutenzione. Non attribuiamo percentuali di risparmio senza dati."
+        ]
+      },
+      {
+        "heading": "Il risultato dell’analisi",
+        "paragraphs": [
+          "Una scheda con problema, processo attuale, input, owner, lavoro automatizzabile, decisioni umane, errori, fallback e misura del beneficio. Se queste informazioni non bastano, l’esito è una possibile area da analizzare, non una vendita automatica."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Analizza un processo",
+        "/advisor/?intent=automation"
+      ],
+      [
+        "Metodo",
+        "/metodo/"
+      ],
+      [
+        "Qualità",
+        "/qualita/"
+      ],
+      [
+        "Guida alle automazioni",
+        "/guide/automazioni-aziendali/"
+      ]
+    ]
+  },
+  {
+    "route": "/qualita/",
+    "label": "Qualità",
+    "title": "La qualità si controlla usando il sito.",
+    "intro": "Prima della consegna verifichiamo i percorsi concordati e registriamo cosa è stato provato. Un test superato non è una certificazione legale.",
+    "sections": [
+      {
+        "heading": "Percorsi e funzioni",
+        "paragraphs": [
+          "Menu, link, FAQ, ricerca, filtri e moduli devono funzionare nello stato reale. Un modulo è completato quando la richiesta viene ricevuta dal sistema previsto, non quando appare una schermata verde."
+        ]
+      },
+      {
+        "heading": "Smartphone e tastiera",
+        "paragraphs": [
+          "Controlliamo la leggibilità, l’assenza di sovrapposizioni e il percorso verso le azioni importanti. Menu e componenti devono essere operabili da tastiera, con focus visibile e possibilità di uscire dalle finestre modali."
+        ]
+      },
+      {
+        "heading": "Accessibilità come obiettivo tecnico",
+        "paragraphs": [
+          "WCAG 2.2 AA è il riferimento tecnico di progetto. Semantica, contrasto, errori nei moduli e riduzione del movimento fanno parte dei controlli. L’applicabilità normativa e una valutazione specialistica restano distinte dai test di sviluppo."
+        ],
+        "html": "<p><a href=\"https://www.w3.org/TR/WCAG22/\">Riferimento: WCAG 2.2, W3C</a></p>"
+      },
+      {
+        "heading": "Prestazioni senza numeri decorativi",
+        "paragraphs": [
+          "I target sono LCP entro 2,5 secondi, INP sotto 200 millisecondi e CLS sotto 0,1. Sono obiettivi da misurare nelle condizioni dichiarate. Un test locale non sostituisce i dati sul campo e non garantisce ranking."
+        ]
+      },
+      {
+        "heading": "Ricerca, sicurezza e dati",
+        "paragraphs": [
+          "Controlliamo pagine raggiungibili, canonical, sitemap, contenuti e markup coerenti. I moduli richiedono validazione server, limiti e protezioni dagli abusi. I trattamenti devono corrispondere alle informative e agli strumenti effettivamente usati."
+        ]
+      },
+      {
+        "heading": "Come leggere un esito",
+        "paragraphs": [
+          "PASS_LOCAL riguarda il controllo locale. PASS_PREVIEW riguarda lo stato osservato in anteprima. PASS_REMOTE richiede verifica sul sito pubblicato. WARNING indica un limite; FAIL un requisito non rispettato; NOT_VERIFIED una prova mancante.",
+          "Il dossier di questa release è in preparazione. Non sono pubblicati punteggi, certificazioni o risultati non ancora misurati."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Metodo",
+        "/metodo/"
+      ],
+      [
+        "Confronta i livelli",
+        "/prezzi/"
+      ],
+      [
+        "Condizioni",
+        "/condizioni-servizi/"
+      ]
+    ]
+  },
+  {
+    "route": "/chi-sono/",
+    "label": "Marco Zulian",
+    "title": "La persona responsabile del lavoro.",
+    "intro": "Sono Marco Zulian. Progetto siti e sistemi digitali partendo dal problema dell’impresa e dalle persone che devono usarli.",
+    "sections": [
+      {
+        "heading": "La voglia di costruire",
+        "paragraphs": [
+          "Fin da piccolo mi piaceva costruire. Quella curiosità è rimasta: capire come funzionano le cose, come si collegano e come migliorarle. Oggi è il punto di partenza del mio lavoro con siti, software e processi."
+        ]
+      },
+      {
+        "heading": "Perché prima studio l’attività",
+        "paragraphs": [
+          "Due imprese possono avere bisogno della stessa tecnologia e di percorsi completamente diversi. Cambiano il pubblico, le informazioni, i dubbi e la decisione finale. Per questo il lavoro comincia dall’impresa, non dalla scelta di un effetto o di un template."
+        ]
+      },
+      {
+        "heading": "Mostrare prima di promettere",
+        "paragraphs": [
+          "Preferisco una dimostrazione utilizzabile a una dichiarazione generica. Prezzi, materiali necessari, limiti e responsabilità devono essere leggibili. Quando qualcosa richiede un altro perimetro, lo spiego prima di costruirlo."
+        ]
+      },
+      {
+        "heading": "Tecnologia con una ragione",
+        "paragraphs": [
+          "Un sito semplice può essere la scelta corretta. Un’automazione serve quando libera lavoro ripetitivo senza nascondere gli errori. L’AI è uno strumento, non il nome di ogni funzione interattiva."
+        ]
+      },
+      {
+        "heading": "Come lavoriamo insieme",
+        "paragraphs": [
+          "Condividiamo obiettivo e perimetro, rendiamo visibili gli avanzamenti e raccogliamo feedback chiari. Il mio compito è prendere decisioni tecniche spiegabili e consegnare ciò che è stato concordato."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Come lavoro",
+        "/metodo/"
+      ],
+      [
+        "Criteri di qualità",
+        "/qualita/"
+      ],
+      [
+        "Parliamo del progetto",
+        "/contatti/"
+      ]
+    ],
+    "before": "<img class=\"founder-photo\" style=\"max-width:440px;margin-bottom:48px\" src=\"/assets/marco-zulian.webp\" width=\"1086\" height=\"1448\" alt=\"Marco Zulian\" loading=\"lazy\">"
+  },
+  {
+    "route": "/reggio-calabria/",
+    "label": "Reggio Calabria",
+    "title": "Siti e sistemi digitali, da Reggio Calabria.",
+    "intro": "Per attività, professionisti e imprese del territorio che vogliono rendere più chiara la propria offerta e più semplice il percorso verso il contatto.",
+    "sections": [
+      {
+        "heading": "Il territorio cambia le domande",
+        "paragraphs": [
+          "Per un’attività locale sono spesso decisive zona servita, modalità di contatto, appuntamenti e informazioni aggiornate. Per chi lavora anche fuori città, il sito deve spiegare come avviene la collaborazione a distanza. Sono scelte di contenuto, non semplici parole da aggiungere al titolo."
+        ]
+      },
+      {
+        "heading": "Un sito utile al lavoro reale",
+        "paragraphs": [
+          "Per uno studio professionale conta far capire ambiti e processo. Per un servizio tecnico conta aiutare a descrivere la richiesta. Per un’attività ricettiva contano informazioni pratiche e modalità di prenotazione reali. Il progetto viene adattato alla situazione, senza attribuire servizi o prove non disponibili."
+        ]
+      },
+      {
+        "heading": "Presenza locale e reperibilità",
+        "paragraphs": [
+          "Informazioni coerenti fra sito e profili aziendali aiutano a evitare confusione. Google Business Profile va configurato solo sulla presenza reale ed eleggibile. Non utilizziamo sedi virtuali o pagine per decine di città senza contenuti specifici."
+        ]
+      },
+      {
+        "heading": "Come contattarci",
+        "paragraphs": [
+          "La sede indicata nei documenti aziendali è Viale Pio XI 204, 89133 Reggio Calabria. Per concordare modalità di incontro o collaborazione usa telefono, email o WhatsApp: non sono indicati orari di apertura al pubblico non confermati."
+        ]
+      },
+      {
+        "heading": "Lavoro anche da remoto",
+        "paragraphs": [
+          "Raccolta informazioni, revisione delle anteprime e approvazioni possono essere organizzate a distanza. Il preventivo chiarisce materiali, responsabilità, tempi e perimetro del progetto."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Parliamo del progetto",
+        "/contatti/"
+      ],
+      [
+        "Siti web",
+        "/siti-web/"
+      ],
+      [
+        "SEO locale",
+        "/seo-local-seo/"
+      ],
+      [
+        "Prezzi",
+        "/prezzi/"
+      ]
+    ]
+  },
+  {
+    "route": "/contatti/",
+    "label": "Contatti",
+    "title": "Parliamo del progetto.",
+    "intro": "Non devi arrivare con una lista di tecnologie. Bastano attività, problema attuale e risultato che vorresti ottenere.",
+    "sections": [
+      {
+        "heading": "Cosa preparare",
+        "paragraphs": [],
+        "items": [
+          "Che attività gestisci e a chi ti rivolgi.",
+          "Il sito o il sistema che usi già, se esiste.",
+          "Che cosa oggi non funziona e cosa dovrebbe cambiare.",
+          "Eventuali scadenze reali, materiali disponibili e vincoli."
+        ]
+      },
+      {
+        "heading": "Che cosa succede dopo",
+        "paragraphs": [
+          "Leggiamo la richiesta e valutiamo quali informazioni servono per capire il perimetro. Il contatto non costituisce un ordine e non avvia automaticamente un lavoro a pagamento. Non è promesso un tempo di risposta non concordato."
+        ]
+      },
+      {
+        "heading": "Canali diretti",
+        "paragraphs": [],
+        "html": "<p><a href=\"tel:+393927950038\">+39 392 795 0038</a><br><a href=\"mailto:zulian.architettura.digitale@gmail.com\">zulian.architettura.digitale@gmail.com</a></p><p><a href=\"https://wa.me/393927950038\" rel=\"noopener noreferrer\" target=\"_blank\">Apri WhatsApp — servizio esterno</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "Prepara il riepilogo",
+        "/advisor/"
+      ],
+      [
+        "Privacy",
+        "/privacy/"
+      ]
+    ],
+    "after": "<div id=\"contact-mount\"></div>"
+  },
+  {
+    "route": "/guide/",
+    "label": "Guide",
+    "title": "Capire siti, ricerca e automazioni.",
+    "intro": "Quattro punti di partenza per valutare il progetto con più informazioni. Le guide distinguono meccanismi, limiti e scelte operative.",
+    "sections": [],
+    "related": [
+      [
+        "Siti web",
+        "/siti-web/"
+      ],
+      [
+        "Prezzi",
+        "/prezzi/"
+      ]
+    ],
+    "before": "<div data-search-scope><div class=\"filters\"><div class=\"field\"><label for=\"guide-search\">Cerca nelle guide</label><input id=\"guide-search\" type=\"search\" data-search placeholder=\"Costo, SEO, processo…\"></div><button class=\"btn\" data-reset>Azzera ricerca</button></div><p class=\"status\" data-result-count aria-live=\"polite\">4 risultati</p><p data-empty hidden>Nessuna guida corrisponde alla ricerca. Prova un termine più semplice.</p>",
+    "after": "{{GUIDE_CATALOG}}</div>"
+  },
+  {
+    "route": "/guide/costo-sito-web/",
+    "label": "Guida / Costi",
+    "title": "Quanto costa davvero un sito professionale?",
+    "intro": "Il prezzo dipende da architettura, contenuti, funzioni e dipendenze. Contare le pagine è utile per delimitare il lavoro, ma non basta per confrontare due preventivi.",
+    "sections": [
+      {
+        "heading": "La risposta breve",
+        "paragraphs": [
+          "Un sito informativo con contenuti già chiari richiede un lavoro diverso da una piattaforma con utenti, dati e pagamenti. Il confronto corretto parte dal risultato incluso: cosa viene progettato, cosa devi fornire, cosa viene verificato e cosa rimane dopo la consegna."
+        ]
+      },
+      {
+        "heading": "Costi iniziali e costi ricorrenti",
+        "paragraphs": [
+          "Ricerca prevista, architettura, personalizzazione, costruzione, integrazioni e QA appartengono al progetto iniziale. Dominio, hosting, licenze e servizi esterni possono avere rinnovi. Aggiornamenti editoriali e manutenzione richiedono una responsabilità, anche quando non hanno un canone obbligatorio."
+        ]
+      },
+      {
+        "heading": "Perché una funzione può cambiare il progetto",
+        "paragraphs": [
+          "Una richiesta di contatto richiede consegna e protezione dallo spam. Un’area riservata aggiunge autenticazione, dati, permessi e recupero degli accessi. Un negozio aggiunge transazioni e gestione ordini. La superficie visibile può essere piccola, ma il lavoro operativo cresce."
+        ]
+      },
+      {
+        "heading": "Cosa confrontare in un preventivo",
+        "paragraphs": [],
+        "items": [
+          "Pagine, contenuti e funzioni precisamente elencati.",
+          "Materiali e accessi che deve fornire il cliente.",
+          "Revisioni incluse e gestione delle richieste aggiuntive.",
+          "Provider, licenze e costi esterni.",
+          "Test di consegna, supporto e manutenzione.",
+          "Totale, trattamento fiscale e modalità di pagamento."
+        ]
+      },
+      {
+        "heading": "I livelli Zulian",
+        "paragraphs": [
+          "Essential €1.100, Business €1.600 e Signature €2.400 sono tre perimetri diversi, con 3, 5 e 8–10 pagine principali rispettivamente. La pagina Prezzi contiene il confronto dell’offerta; e-commerce e software sono valutati separatamente."
+        ]
+      },
+      {
+        "heading": "Cosa spesso non serve subito",
+        "paragraphs": [
+          "Un account cliente non serve solo perché altri siti ne hanno uno. Un chatbot generativo non è necessario per presentare tre livelli. Una funzione va aggiunta quando risolve un problema e quando qualcuno può mantenerla. Rinviarla può essere una scelta progettuale, non una rinuncia alla qualità."
+        ]
+      },
+      {
+        "heading": "Domande da portare alla prima conversazione",
+        "paragraphs": [
+          "Quale parte del lavoro è già disponibile? Chi aggiornerà le informazioni? Quale azione deve compiere il visitatore? Quale costo torna ogni anno? Se il progetto si interrompe, quali materiali vengono consegnati? Risposte concrete rendono il prezzo interpretabile."
+        ]
+      },
+      {
+        "heading": "Autore e fonti",
+        "paragraphs": [
+          "Marco Zulian · 5 settembre 2026. Esempi di ragionamento, non stime di mercato. Prezzi e condizioni derivano dal listino Zulian e dal perimetro di progetto aggiornato."
+        ],
+        "html": "<p><a href=\"/prezzi/\">Fonte commerciale: prezzi Zulian</a> · <a href=\"/condizioni-servizi/\">Condizioni dei servizi</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "Prezzi Zulian",
+        "/prezzi/"
+      ],
+      [
+        "Siti web",
+        "/siti-web/"
+      ],
+      [
+        "Guida alle automazioni",
+        "/guide/automazioni-aziendali/"
+      ]
+    ]
+  },
+  {
+    "route": "/guide/seo-locale/",
+    "label": "Guida / SEO locale",
+    "title": "Come può farsi trovare un’attività locale.",
+    "intro": "La ricerca locale comincia da informazioni accurate: chi sei, cosa fai, dove lavori e come contattarti. Nessun singolo intervento garantisce una posizione.",
+    "sections": [
+      {
+        "heading": "La risposta breve",
+        "paragraphs": [
+          "Sito e profilo aziendale hanno funzioni complementari. Il profilo aiuta a rappresentare la presenza locale; il sito può spiegare in profondità servizi, prove, condizioni e percorso di contatto. Le informazioni devono essere coerenti e aggiornate."
+        ]
+      },
+      {
+        "heading": "Prima controlla l’identità",
+        "paragraphs": [
+          "Usa un nome aziendale coerente, contatti funzionanti e un indirizzo o un’area di servizio reali. Non aggiungere città al nome per sembrare presente ovunque. Categoria e modalità di ricevimento devono corrispondere all’attività effettiva."
+        ]
+      },
+      {
+        "heading": "Il sito deve rispondere alle domande locali",
+        "paragraphs": [
+          "La zona coperta può cambiare la scelta. Per alcuni servizi contano spostamenti e sopralluoghi; per altri contano appuntamenti o modalità da remoto. Un contenuto locale utile spiega queste differenze. Cambiare il nome della città nello stesso testo non lo rende specifico."
+        ]
+      },
+      {
+        "heading": "Recensioni e prove",
+        "paragraphs": [
+          "Le recensioni devono essere autentiche. Non inventare testimonianze e non selezionare artificialmente soltanto le persone soddisfatte quando chiedi un feedback. Sul sito, usa prove documentate con contesto e diritti di pubblicazione."
+        ]
+      },
+      {
+        "heading": "Che cosa osservare",
+        "paragraphs": [
+          "Clic, chiamate, richieste e provenienza delle opportunità aiutano a capire se le informazioni sono utili. Non confondere visualizzazioni con contratti. La distanza dell’utente e altri fattori esterni possono influenzare i risultati locali."
+        ]
+      },
+      {
+        "heading": "Errori da evitare",
+        "paragraphs": [],
+        "items": [
+          "Sedi fittizie o informazioni discordanti.",
+          "Orari vecchi e contatti non verificati.",
+          "Pagine per città senza contenuto sostanziale.",
+          "Promesse di prima posizione.",
+          "Un sito mobile dove numero e servizi sono difficili da trovare."
+        ]
+      },
+      {
+        "heading": "Autore e fonte",
+        "paragraphs": [
+          "Marco Zulian · 5 settembre 2026. La configurazione concreta dipende dall’attività e dall’eleggibilità del profilo."
+        ],
+        "html": "<p><a href=\"https://support.google.com/business/answer/7091\">Google Business Profile: migliorare il posizionamento locale</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "SEO e Local SEO",
+        "/seo-local-seo/"
+      ],
+      [
+        "Zulian a Reggio Calabria",
+        "/reggio-calabria/"
+      ],
+      [
+        "Guida GEO",
+        "/guide/geo-ai-search/"
+      ]
+    ]
+  },
+  {
+    "route": "/guide/automazioni-aziendali/",
+    "label": "Guida / Processi",
+    "title": "Quali attività conviene automatizzare?",
+    "intro": "Parti da un processo che si ripete, con un responsabile e un risultato riconoscibile. Lo strumento viene dopo.",
+    "sections": [
+      {
+        "heading": "La risposta breve",
+        "paragraphs": [
+          "Un buon candidato ha input definiti, passaggi ripetibili e una persona che gestisce le eccezioni. Se il processo cambia ogni volta o nessuno sa quale sia l’esito corretto, prima occorre chiarirlo."
+        ]
+      },
+      {
+        "heading": "Descrivi un evento dall’inizio alla fine",
+        "paragraphs": [
+          "Prendi una singola richiesta: come arriva, chi la legge, dove vengono copiati i dati, quale decisione viene presa e quale risposta chiude il passaggio. Annota attese, copie manuali ed errori frequenti senza stimarli a memoria se puoi misurarli."
+        ]
+      },
+      {
+        "heading": "Separa ripetizione e decisione",
+        "paragraphs": [
+          "Controllare se un campo è compilato è una regola. Stabilire un prezzo fuori standard è una decisione commerciale. Preparare un riepilogo può essere automatizzabile; approvare una risposta delicata può richiedere una persona."
+        ]
+      },
+      {
+        "heading": "Esempio: richieste incomplete",
+        "paragraphs": [
+          "Una raccolta guidata può chiedere le informazioni minime prima di inoltrare una richiesta al responsabile. Se un campo è ambiguo, il sistema non deve inventarlo. Il beneficio da osservare è quanto lavoro di ricontatto viene evitato, al netto dei controlli necessari."
+        ]
+      },
+      {
+        "heading": "Quando l’AI è diversa dalle regole",
+        "paragraphs": [
+          "Le regole sono adatte a condizioni esplicite. L’AI può aiutare con testi variabili o ricerca di informazioni, ma introduce incertezza, costi e bisogno di controllo. La presenza di un’interfaccia conversazionale non significa che ci sia un modello generativo."
+        ]
+      },
+      {
+        "heading": "Un calcolo con dati tuoi",
+        "paragraphs": [
+          "Tempo per evento × eventi al mese × costo orario effettivo descrive una parte del lavoro attuale. Dal tempo realmente evitato vanno sottratti revisione umana, errori, costo del sistema e manutenzione. Il risultato è un business case da verificare, non una promessa di risparmio."
+        ]
+      },
+      {
+        "heading": "Le condizioni per fermarsi",
+        "paragraphs": [],
+        "items": [
+          "Nessun responsabile del processo.",
+          "Input non disponibili o diritti/accessi incerti.",
+          "Decisioni sensibili senza controllo umano.",
+          "Eccezioni più frequenti del flusso standard.",
+          "Costo operativo maggiore del beneficio misurabile."
+        ]
+      },
+      {
+        "heading": "Autore e limiti",
+        "paragraphs": [
+          "Marco Zulian · 5 settembre 2026. Esempi progettuali, non risultati di clienti. La fattibilità dipende dagli strumenti, dai dati e dalle responsabilità dell’impresa."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Analizza un processo",
+        "/automazioni-ai/"
+      ],
+      [
+        "Consulente Digitale",
+        "/advisor/?intent=automation"
+      ],
+      [
+        "Guida ai costi",
+        "/guide/costo-sito-web/"
+      ]
+    ]
+  },
+  {
+    "route": "/guide/geo-ai-search/",
+    "label": "Guida / GEO",
+    "title": "GEO e motori AI: distinguere ciò che sappiamo.",
+    "intro": "Una ricerca generativa può usare informazioni pubblicate sul web. Preparare contenuti chiari e accessibili è utile; promettere citazioni non è giustificato.",
+    "sections": [
+      {
+        "heading": "La risposta breve",
+        "paragraphs": [
+          "Per Google AI Overviews e AI Mode non sono richieste ottimizzazioni speciali rispetto ai fondamentali SEO. L’accesso ai contenuti, la loro utilità e la coerenza delle informazioni rimangono centrali. Questo non garantisce che una pagina venga indicizzata o scelta."
+        ]
+      },
+      {
+        "heading": "Dare un’identità chiara alle informazioni",
+        "paragraphs": [
+          "Nome dell’impresa, servizi, territorio e contatti devono essere espliciti. Una definizione comprensibile fuori dal contesto della pagina riduce ambiguità anche per il lettore umano. Non occorre moltiplicare il nome del brand in ogni frase."
+        ]
+      },
+      {
+        "heading": "Contenuti utili da leggere e citare",
+        "paragraphs": [
+          "Spiega il meccanismo, fornisci esempi, delimita le promesse e cita le fonti. Tabelle e FAQ sono utili quando risolvono un confronto o una domanda reale. Non sono un dispositivo automatico per farsi citare."
+        ]
+      },
+      {
+        "heading": "Dati strutturati coerenti",
+        "paragraphs": [
+          "Il markup deve descrivere ciò che l’utente vede. Non aggiungere premi, recensioni, prezzi o identità che la pagina non dimostra. Un markup valido non comporta un risultato arricchito né una citazione."
+        ]
+      },
+      {
+        "heading": "Cosa è ancora sperimentale",
+        "paragraphs": [
+          "Un insieme fisso di domande può aiutare a osservare come sistemi diversi descrivono l’azienda. Le risposte cambiano e non rappresentano una classifica universale. File informali per LLM non vanno presentati come requisiti Google."
+        ]
+      },
+      {
+        "heading": "Misurare senza inventare uno score",
+        "paragraphs": [
+          "Controlla i report realmente disponibili, i referral riconoscibili e le citazioni documentate. Registra data, domanda e URL osservato. Distingui presenza del nome, link al sito e richiesta commerciale: sono eventi diversi."
+        ]
+      },
+      {
+        "heading": "Autore e fonti",
+        "paragraphs": [
+          "Marco Zulian · 5 settembre 2026. Le capability dei motori cambiano; prima di vendere una misurazione o un’integrazione occorre verificarne la disponibilità."
+        ],
+        "html": "<p><a href=\"https://developers.google.com/search/docs/appearance/ai-features\">Google Search Central: AI features and your website</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "GEO e AI Search",
+        "/geo-ai-search/"
+      ],
+      [
+        "SEO",
+        "/seo-local-seo/"
+      ],
+      [
+        "Guida SEO locale",
+        "/guide/seo-locale/"
+      ]
+    ]
+  },
+  {
+    "route": "/privacy/",
+    "label": "Privacy",
+    "title": "Informazioni sul trattamento dei dati.",
+    "intro": "Questa informativa riguarda navigazione, Consulente Digitale e richieste inviate tramite questo sito. Aggiornata il 5 settembre 2026.",
+    "sections": [
+      {
+        "heading": "Titolare e contatti",
+        "paragraphs": [
+          "Il titolare è ZULIAN MARCO, impresa individuale, Viale Pio XI 204, 89133 Reggio Calabria (RC), P.IVA 03334690801. Per richieste sui dati: zulian.architettura.digitale@gmail.com oppure marcozulian99@pec.it."
+        ]
+      },
+      {
+        "heading": "Dati e finalità",
+        "paragraphs": [
+          "Il modulo raccoglie nome, email, messaggio e dichiarazione di presa visione dell’informativa. Questi dati servono a rispondere e valutare il progetto richiesto. Nome, recapito e contenuto della richiesta sono necessari per gestire il contatto; senza di essi il modulo non può consegnare una richiesta utilizzabile. Non inserire dati sanitari, documenti di identità, credenziali o informazioni sensibili. Non utilizziamo queste richieste per newsletter o campagne promozionali automatiche."
+        ]
+      },
+      {
+        "heading": "Basi del trattamento",
+        "paragraphs": [
+          "Le richieste relative a un possibile servizio sono gestite per adottare misure precontrattuali richieste dall’interessato, ai sensi dell’art. 6.1.b GDPR. La gestione di messaggi generali e dei contatti aziendali e la protezione dallo spam si fondano sul legittimo interesse a rispondere alle comunicazioni e proteggere il servizio, art. 6.1.f. Gli adempimenti obbligatori si fondano sull’art. 6.1.c. La casella del modulo attesta la lettura dell’informativa: non è un consenso al marketing."
+        ]
+      },
+      {
+        "heading": "Consulente Digitale e memoria locale",
+        "paragraphs": [
+          "Le risposte al percorso guidato rimangono nella memoria della pagina. Non usiamo AI generativa e non inviamo automaticamente le risposte a Zulian. Se scegli di preparare la richiesta email, il riepilogo passa temporaneamente in sessionStorage e viene rimosso da quella memoria quando il modulo lo carica. Puoi modificarlo prima di inviarlo. Il download e la stampa producono copie sotto il tuo controllo. Il percorso fornisce orientamento: non prende decisioni con effetti giuridici o analogamente significativi."
+        ]
+      },
+      {
+        "heading": "Invio e destinatari",
+        "paragraphs": [
+          "Premendo Invia, il modulo trasmette i dati a Google Apps Script, che inoltra il messaggio alla casella zulian.architettura.digitale@gmail.com. Il destinatario operativo è Marco Zulian. Non pubblichiamo i messaggi sul sito. I fornitori coinvolti sono Google per esecuzione del modulo e posta Gmail, e GitHub Pages per la distribuzione del sito. Eventuali autorità ricevono dati soltanto quando richiesto dagli obblighi applicabili."
+        ]
+      },
+      {
+        "heading": "Registri tecnici e protezione dallo spam",
+        "paragraphs": [
+          "Il codice del modulo registra identificativo della richiesta, data, esito e impronta pseudonima dell’email per limitare abusi e duplicati. Non salva nome, testo o email in chiaro in questo registro. Le voci oltre 24 ore vengono rimosse alla successiva richiesta valida: non si tratta di cancellazione automatica allo scadere delle 24 ore. I fornitori possono inoltre trattare dati tecnici di connessione secondo le proprie condizioni."
+        ]
+      },
+      {
+        "heading": "Conservazione della corrispondenza",
+        "paragraphs": [
+          "Le richieste che non diventano rapporti con clienti sono conservate per 6 mesi dall’ultimo contatto, poi sottoposte a revisione e cancellazione da parte del titolare. Il modulo non automatizza la cancellazione dalla casella. Documenti contrattuali e fiscali seguono gli obblighi applicabili; eventuali esigenze di tutela di diritti vengono valutate separatamente e limitate a quanto necessario."
+        ]
+      },
+      {
+        "heading": "Fornitori e trasferimenti internazionali",
+        "paragraphs": [
+          "Google e GitHub operano attraverso infrastrutture internazionali. Il trattamento non è dichiarato limitato all’Italia o allo Spazio economico europeo. Le rispettive informative descrivono luoghi, garanzie e meccanismi applicabili ai trasferimenti. Puoi contattare il titolare per ulteriori informazioni sulla configurazione utilizzata."
+        ],
+        "html": "<p><a href=\"https://policies.google.com/privacy?hl=it\">Informativa Google</a> · <a href=\"https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\">Informativa GitHub</a></p>"
+      },
+      {
+        "heading": "Canali esterni",
+        "paragraphs": [
+          "Telefono, email, WhatsApp e mappe vengono aperti quando scegli il relativo collegamento. Le informazioni trasmesse a tali servizi sono soggette anche alle loro informative. Prima di aprire WhatsApp con il riepilogo, il sito mostra una scelta esplicita e spiega che il testo sarà inserito nel collegamento."
+        ]
+      },
+      {
+        "heading": "Diritti e reclamo",
+        "paragraphs": [
+          "Puoi richiedere accesso, rettifica, cancellazione, limitazione e portabilità nei casi applicabili, e opporti ai trattamenti fondati sul legittimo interesse. Scrivi ai contatti del titolare indicati sopra. Puoi inoltre presentare reclamo al Garante per la protezione dei dati personali."
+        ],
+        "html": "<p><a href=\"https://www.garanteprivacy.it/home/diritti\">Diritti in materia di protezione dei dati</a></p>"
+      }
+    ],
+    "related": [
+      [
+        "Contatti",
+        "/contatti/"
+      ],
+      [
+        "Cookie",
+        "/cookie/"
+      ]
+    ]
+  },
+  {
+    "route": "/cookie/",
+    "label": "Cookie",
+    "title": "Cookie e memoria del browser.",
+    "intro": "Il sito non integra analytics, pixel pubblicitari o widget social di tracciamento. Aggiornato il 5 settembre 2026.",
+    "sections": [
+      {
+        "heading": "Cosa usa il sito",
+        "paragraphs": [
+          "Il codice del sito non imposta cookie. Ricerca e filtri possono memorizzare le scelte nell’indirizzo della pagina. Il Consulente Digitale usa la memoria della pagina; il riepilogo passa in sessionStorage soltanto quando prepari la richiesta email e viene rimosso al caricamento del modulo. Questa memoria serve al passaggio richiesto e non alla profilazione."
+        ]
+      },
+      {
+        "heading": "Servizi coinvolti",
+        "paragraphs": [
+          "Le pagine sono distribuite tramite GitHub Pages. Google Apps Script riceve i dati quando invii il modulo. Il codice di invio non include le credenziali del browser nella richiesta. I collegamenti a WhatsApp, posta e mappe aprono servizi esterni su tua scelta; il sito non incorpora i loro widget."
+        ]
+      },
+      {
+        "heading": "Gestione e aggiornamenti",
+        "paragraphs": [
+          "Puoi cancellare i dati del sito dalle impostazioni del browser; in questo caso un riepilogo non ancora caricato può andare perso. Non è presente un pulsante per accettare tracker che il sito non utilizza. L’eventuale introduzione futura di strumenti che richiedono consenso comporterà aggiornamento dell’informativa e gestione delle relative preferenze prima dell’attivazione."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Privacy",
+        "/privacy/"
+      ],
+      [
+        "Note legali",
+        "/note-legali/"
+      ]
+    ]
+  },
+  {
+    "route": "/note-legali/",
+    "label": "Note legali",
+    "title": "Identità e informazioni del gestore.",
+    "intro": "Zulian Architettura Digitale è il brand utilizzato da ZULIAN MARCO per i servizi descritti nel sito.",
+    "sections": [
+      {
+        "heading": "Dati aziendali",
+        "paragraphs": [],
+        "items": [
+          "ZULIAN MARCO — impresa individuale.",
+          "P.IVA 03334690801 · REA RC-225353.",
+          "Viale Pio XI 204, 89133 Reggio Calabria (RC).",
+          "PEC: marcozulian99@pec.it.",
+          "Email: zulian.architettura.digitale@gmail.com.",
+          "Telefono: +39 392 795 0038."
+        ]
+      },
+      {
+        "heading": "Materiali e diritti",
+        "paragraphs": [
+          "Logo e ritratto sono forniti dal titolare. I contenuti di modelli dimostrativi devono essere identificati come esempi; non attestano lavori, clienti o risultati. I diritti di terzi rimangono dei rispettivi titolari."
+        ]
+      },
+      {
+        "heading": "Geografia della homepage",
+        "paragraphs": [
+          "Sagoma della Calabria elaborata graficamente a partire da dati ISTAT, distribuiti tramite geojson-italy con licenza CC BY 4.0. La scena è un’elaborazione visiva, non una mappa topografica o uno strumento di navigazione."
+        ],
+        "html": "<p><a href=\"https://github.com/guglielmo/geojson-italy\">Fonte dei confini geografici</a> · <a href=\"https://creativecommons.org/licenses/by/4.0/\">Licenza CC BY 4.0</a></p>"
+      },
+      {
+        "heading": "Condizioni e aggiornamenti",
+        "paragraphs": [
+          "Le informazioni commerciali non sostituiscono il preventivo e il contratto specifico. Nessuna previsione di ranking, citazioni o risultato economico costituisce garanzia. Le condizioni definitive devono essere validate sul servizio concreto."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Condizioni servizi",
+        "/condizioni-servizi/"
+      ],
+      [
+        "Privacy",
+        "/privacy/"
+      ],
+      [
+        "Contatti",
+        "/contatti/"
+      ]
+    ]
+  },
+  {
+    "route": "/condizioni-servizi/",
+    "label": "Condizioni dei servizi",
+    "title": "Che cosa viene concordato, prima di iniziare.",
+    "intro": "Sintesi informativa delle condizioni operative. Il rapporto è regolato dal preventivo e dal contratto pertinente, con distinzione fra clienti professionali e consumatori.",
+    "sections": [
+      {
+        "heading": "Perimetro",
+        "paragraphs": [
+          "Il preventivo identifica servizi, pagine, funzioni, contenuti, revisioni, materiali, dipendenze e consegna. Nuove richieste e modifiche di direzione dopo approvazione richiedono variazione scritta con prezzo e tempi."
+        ]
+      },
+      {
+        "heading": "Avvio e pagamenti",
+        "paragraphs": [
+          "Salvo accordo diverso: 50% all’accettazione, 50% dopo approvazione e prima di pubblicazione o consegna definitiva. L’avvio richiede anche materiali, accessi e identificazione necessaria. Non vengono creati contenuti aziendali inventati per sostituire dati mancanti."
+        ]
+      },
+      {
+        "heading": "Revisioni, correzioni e supporto",
+        "paragraphs": [
+          "Essential comprende un round di revisioni; Business e Signature due. Il feedback è consolidato. Errori rispetto al concordato sono correzioni; nuove funzioni sono extra. La finestra operativa di correzione bug è 30 giorni dal go-live, senza limitare diritti inderogabili."
+        ]
+      },
+      {
+        "heading": "Materiali e responsabilità",
+        "paragraphs": [
+          "Il cliente fornisce informazioni accurate e materiali utilizzabili, approva claim e dati. Zulian realizza e verifica il perimetro concordato. Provider e professionisti esterni hanno ruoli e costi espliciti."
+        ]
+      },
+      {
+        "heading": "Dominio, hosting e proprietà",
+        "paragraphs": [
+          "Account intestati al cliente quando possibile. Provider, licenze e componenti di terzi mantengono le proprie condizioni. Il contratto distingue deliverable specifici, strumenti riutilizzabili e diritti necessari a usare il progetto."
+        ]
+      },
+      {
+        "heading": "Cancellazione e consumatori",
+        "paragraphs": [
+          "La disciplina dipende dal contratto e dalla natura del cliente. I diritti inderogabili del consumatore, dove applicabili, non sono esclusi. L’esecuzione anticipata di un servizio durante il recesso richiede i presupposti di legge; non si considera acquisita da un generico contatto."
+        ]
+      },
+      {
+        "heading": "Stato dei documenti",
+        "paragraphs": [
+          "I contratti B2B e B2C sono in revisione separata. Questa sintesi non è un contratto da firmare e non certifica conformità legale."
+        ]
+      }
+    ],
+    "related": [
+      [
+        "Prezzi",
+        "/prezzi/"
+      ],
+      [
+        "Metodo",
+        "/metodo/"
+      ],
+      [
+        "Contatti",
+        "/contatti/"
+      ]
+    ]
+  },
+  {
+    "route": "/advisor/",
+    "label": "Consulente Digitale",
+    "title": "Troviamo il tipo di progetto adatto.",
+    "intro": "Un percorso guidato a regole, senza AI generativa. Le risposte rimangono nel browser finché scegli di condividerle. Il risultato orienta la conversazione e non è un preventivo.",
+    "sections": [],
+    "related": [
+      [
+        "Confronta i prezzi",
+        "/prezzi/"
+      ],
+      [
+        "Contatti diretti",
+        "/contatti/"
+      ]
+    ],
+    "noindex": true,
+    "before": "<div id=\"advisor\" class=\"advisor\"><p>Caricamento del percorso guidato…</p></div><noscript><p>Il percorso richiede JavaScript. Puoi confrontare i prezzi o contattare direttamente Marco dai link qui sotto.</p></noscript><script type=\"module\" src=\"/assets/advisor-ui.js\"></script>"
+  }
+]

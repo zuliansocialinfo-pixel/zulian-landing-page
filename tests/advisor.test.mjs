@@ -1,0 +1,13 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {createSession,nextState,previousState} from '../public/assets/advisor-state.js';
+import {questions} from '../public/assets/advisor-knowledge.js';
+import {recommend} from '../public/assets/advisor-rules.js';
+import {matches} from '../public/assets/search.js';
+const base={intent:'new_site',business:'technical',current:'none',problem:'clarity',goal:'explain',priority:'simple',functions:'contact',complexity:'small',budget:'1100'};
+test('Tre contesti distinti con prezzi canonici',()=>{assert.equal(recommend(base).id,'essential');assert.equal(recommend({...base,complexity:'medium'}).id,'business');assert.equal(recommend({...base,complexity:'deep'}).id,'signature');assert.equal(recommend(base).price,1100);});
+test('Hard gate prevale su qualsiasi profondità e budget',()=>{for(const functions of ['account','database','api','sensitive','payments'])for(const complexity of ['small','medium','deep']){const r=recommend({...base,functions,complexity,budget:'2400'});assert.equal(r.id,'custom');assert.equal(r.price,null);}});
+test('Budget basso non forza una raccomandazione inadatta',()=>{const r=recommend({...base,complexity:'deep'});assert.equal(r.id,'signature');assert.ok(r.missing.some(x=>x.includes('budget')));});
+test('Contraddizione richiede chiarimento e indietro ripristina',()=>{let s=createSession();for(const [k,v]of [['intent','redesign'],['business','technical'],['current','none']])s=nextState(s,k,v,questions);assert.equal(s.current,'clarify_current');const fixed=nextState(s,'clarify_current','new_site',questions);assert.equal(fixed.current,'problem');assert.equal(fixed.answers.intent,'new_site');assert.equal(previousState(fixed).current,'clarify_current');});
+test('Scelte non valide non cambiano lo stato',()=>{const s=createSession();assert.throws(()=>nextState(s,'intent','malicious',questions));assert.deepEqual(s,createSession());});
+test('Automazione con informazioni mancanti non raccomanda esecuzione',()=>{const r=recommend({intent:'automation'});assert.equal(r.id,'assessment');assert.ok(r.missing.length);assert.match(r.automation,/Non abbastanza/);});
+test('Ricerca: sinonimi, accenti, token multipli e zero risultati',()=>{assert.equal(matches('SEO locale e attività','maps'),true);assert.equal(matches('Quanto costa: costo e hosting','prezzi hosting'),true);assert.equal(matches('Attività','attivita'),true);assert.equal(matches('SEO locale','astronave'),false);});

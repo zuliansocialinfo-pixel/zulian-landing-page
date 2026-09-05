@@ -1,4 +1,4 @@
-name: Deploy static content to Pages
+name: Build, verify and deploy Zulian
 
 on:
   push:
@@ -23,12 +23,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build pages and demos
+        run: |
+          python tools/write_content.py
+          python tools/build_models.py
+          python tools/build.py
+          python tools/build_legacy.py
+      - name: Verify behavior and links
+        run: |
+          node --test tests/*.test.*
+          python tools/check_structure.py
+          python -m unittest discover -s tests -p 'test_*.py'
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Upload artifact
+      - name: Upload public site only
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "."
+          path: "public"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
