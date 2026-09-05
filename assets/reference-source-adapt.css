@@ -1,0 +1,95 @@
+/* Source-mechanics adaptation layer.
+   Purpose: translate high-value structural mechanics observed in the user-provided reference archive
+   into the existing Zulian experience without copying its brand, media, copy or identity.
+   Baseline remains V3 + reference-class. Unsupported browsers simply keep the baseline. */
+
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  /* UNIT 02 — Responsibility -> Architecture.
+     Reference mechanic: sticky intro held in frame while the next scene overlaps it. */
+  main>section:has(#responsibility-title){
+    position:sticky;top:0;z-index:1;min-height:100svh;padding:0;display:flex;align-items:center;overflow:hidden
+  }
+  main>section:has(#responsibility-title)::before{
+    content:"";position:absolute;inset:auto -10vw -25svh;height:62svh;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 100%,rgba(37,99,255,.13),rgba(93,224,208,.035) 38%,transparent 70%)
+  }
+  main>section:has(#responsibility-title) .site-shell{position:relative;z-index:2}
+  main>section:has(#architecture-title){
+    z-index:3;margin-top:-8svh;padding-top:clamp(170px,17vw,250px);border-top:0;
+    clip-path:polygon(0 9svh,50% 0,100% 9svh,100% 100%,0 100%);
+    box-shadow:0 -42px 90px rgba(2,7,15,.28)
+  }
+  main>section:has(#architecture-title)::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:34svh;pointer-events:none;
+    background:radial-gradient(ellipse at 50% 0,rgba(37,99,255,.22),transparent 65%)
+  }
+
+  /* UNIT 03 — Website depths.
+     Reference mechanic: long service sequence; Zulian translation exposes all three depths as
+     consecutive full-view editorial states instead of three interchangeable cards/tabs. */
+  main>section:has(#depth-title) .rc-tier-controls,
+  .rc-depth-comparator__controls{display:none}
+  main>section:has(#depth-title) .rc-tier-panels,
+  .rc-depth-comparator__stage{display:grid;gap:0}
+  .js main>section:has(#depth-title) .rc-tier-panel,
+  .js .rc-depth-comparator .rc-solution-panel{display:grid!important}
+  main>section:has(#depth-title) .rc-tier-panel,
+  .rc-depth-comparator .rc-solution-panel{
+    position:relative;min-height:88svh;align-items:center;padding:clamp(80px,9svh,130px) 0;
+    border-top:1px solid var(--rc-border-dark)
+  }
+  main>section:has(#depth-title) .rc-tier-panel:last-child,
+  .rc-depth-comparator .rc-solution-panel:last-child{border-bottom:1px solid var(--rc-border-dark)}
+  main>section:has(#depth-title) .rc-tier-panel::before,
+  .rc-depth-comparator .rc-solution-panel::before{
+    position:absolute;top:4.5svh;left:0;font:700 10px/1 var(--mono);letter-spacing:.14em;color:var(--blue)
+  }
+  #panel-essential::before,#solution-panel-essential::before{content:"01 / ESSENTIAL — €1.100"}
+  #panel-business::before,#solution-panel-business::before{content:"02 / BUSINESS — €1.600"}
+  #panel-signature::before,#solution-panel-signature::before{content:"03 / SIGNATURE — €2.400"}
+  main>section:has(#depth-title) .rc-tier-visual,
+  .rc-depth-comparator .rc-system-depth{
+    position:sticky;top:calc(var(--header) + 13svh);align-self:start;min-height:min(54svh,560px)
+  }
+  main>section:has(#depth-title) .rc-tier-panel:nth-child(2) .rc-tier-visual,
+  .rc-depth-comparator .rc-solution-panel:nth-child(2) .rc-system-depth{transform:translateX(2.5vw)}
+  main>section:has(#depth-title) .rc-tier-panel:nth-child(3) .rc-tier-visual,
+  .rc-depth-comparator .rc-solution-panel:nth-child(3) .rc-system-depth{transform:translateX(-1.5vw) scale(1.025)}
+
+  /* UNIT 04 — Lab proof list.
+     Reference mechanic: editorial insight/service rows with strong hover state rather than generic cards. */
+  .rc-lab-preview .rc-lab-mosaic{grid-template-columns:1fr;gap:0;border-top:1px solid var(--line)}
+  .rc-lab-preview .rc-lab-tile,
+  .rc-lab-preview .rc-lab-tile--wide{
+    min-height:31svh;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:clamp(26px,3vw,48px) 0;
+    display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:var(--rc-gap);align-items:end;background:transparent
+  }
+  .rc-lab-preview .rc-lab-tile::before{
+    content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(37,99,255,.12),rgba(93,224,208,.025) 58%,transparent);
+    transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease);pointer-events:none
+  }
+  .rc-lab-preview .rc-lab-tile:hover{transform:none;border-color:var(--line)}
+  .rc-lab-preview .rc-lab-tile:hover::before{transform:scaleX(1)}
+  .rc-lab-preview .rc-lab-tile>span{grid-column:1/4;align-self:start;position:relative;z-index:2}
+  .rc-lab-preview .rc-lab-tile>strong{grid-column:4/12;font-size:clamp(54px,6.5vw,108px);position:relative;z-index:2}
+  .rc-lab-preview .rc-lab-tile>p{grid-column:12/16;margin:0;position:relative;z-index:2}
+  .rc-lab-preview .rc-lab-tile .rc-mini-map{right:5%;top:12%;width:24%;height:58%;opacity:.24;transition:opacity .4s,transform .55s var(--ease)}
+  .rc-lab-preview .rc-lab-tile:hover .rc-mini-map{opacity:.7;transform:translateX(-1.2vw)}
+
+  /* UNIT 05 — Method rail.
+     Keep content, add one persistent spatial axis so the six gates read as a system. */
+  main>section:has(#method-title) .rc-dependency{position:relative;overflow:hidden}
+  main>section:has(#method-title) .rc-dependency::after{
+    content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));
+    transform:scaleX(.82);transform-origin:left;opacity:.65
+  }
+  main>section:has(#method-title) .rc-dependency li{transition:background .3s var(--ease),transform .3s var(--ease)}
+  main>section:has(#method-title) .rc-dependency li:hover{background:rgba(37,99,255,.055);transform:translateY(-5px)}
+}
+
+/* Narrow layouts retain the existing V3/reference-class composition. */
+@media (max-width:900px), (prefers-reduced-motion:reduce){
+  main>section:has(#responsibility-title){position:relative;top:auto;min-height:0;display:block;padding:clamp(90px,10vw,170px) 0;overflow:visible}
+  main>section:has(#architecture-title){margin-top:0;clip-path:none;padding-top:clamp(90px,10vw,170px);box-shadow:none}
+  .rc-lab-preview .rc-lab-tile,.rc-lab-preview .rc-lab-tile--wide{grid-template-columns:1fr}
+}
