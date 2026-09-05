@@ -16,3 +16,5 @@
 /* Focus the existing geographic artwork on southern Calabria. */
 .hero-visual .landscape{overflow:hidden}.hero-visual .landscape img{transform:scale(1.8);transform-origin:25% 90%}.hero-visual{overflow:hidden}.geo-caption{right:5%;bottom:4%}
 .hero-visual{right:0}.geo-caption{right:20px;width:190px;max-width:calc(100% - 40px);white-space:normal}
+/* Keep the geographic annotation above the hero's navigation row. */
+@media(min-width:701px){.geo-caption{bottom:18%}}
