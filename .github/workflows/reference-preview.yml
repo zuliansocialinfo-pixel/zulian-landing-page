@@ -19,30 +19,80 @@ jobs:
       - name: Contract regression
         run: python3 tools/check_site_contract.py
 
-      - name: HTML structure
-        run: python3 analyze_html_structure.py . --output preview_html_structure.json
+      - name: Local HTML/reference integrity
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import urlsplit
+          import re, sys
 
-      - name: Local references
-        run: python3 check_links.py . --output preview_links.json
+          root = Path('.')
+          htmls = sorted(root.rglob('*.html'))
+          ids = {}
+          errors = []
+
+          class P(HTMLParser):
+              def __init__(self):
+                  super().__init__(); self.refs=[]; self.ids=set(); self.mains=0
+              def handle_starttag(self, tag, attrs):
+                  a=dict(attrs)
+                  if tag == 'main': self.mains += 1
+                  if a.get('id'): self.ids.add(a['id'])
+                  for key in ('href','src'):
+                      if a.get(key): self.refs.append((tag,key,a[key]))
+
+          parsed={}
+          for f in htmls:
+              p=P(); p.feed(f.read_text(encoding='utf-8')); parsed[f]=p; ids[f]=p.ids
+              if p.mains != 1: errors.append(f'{f}: expected exactly one <main>, got {p.mains}')
+
+          for f,p in parsed.items():
+              for tag,key,ref in p.refs:
+                  if ref.startswith(('http://','https://','mailto:','tel:','data:','javascript:')) or ref in ('','#'):
+                      continue
+                  u=urlsplit(ref)
+                  target=(f.parent / u.path).resolve() if u.path else f.resolve()
+                  try: target.relative_to(root.resolve())
+                  except ValueError:
+                      errors.append(f'{f}: out-of-root ref {ref}'); continue
+                  if u.path and not target.exists():
+                      errors.append(f'{f}: missing {ref}'); continue
+                  if u.fragment and target.suffix.lower()=='.html' and target.exists():
+                      tf=Path(target)
+                      if tf not in ids:
+                          q=P(); q.feed(tf.read_text(encoding='utf-8')); ids[tf]=q.ids
+                      if u.fragment not in ids[tf]: errors.append(f'{f}: missing anchor {ref}')
+
+          if errors:
+              print('\n'.join(errors)); sys.exit(1)
+          print(f'PASS_GITHUB_CHECKOUT: {len(htmls)} HTML files; local refs/anchors resolved')
+          PY
 
       - name: JavaScript syntax
-        run: node --check assets/reference-class.js
+        run: |
+          node --check assets/site-v3.js
+          node --check assets/reference-class.js
 
       - name: Package complete preview from checkout
         shell: bash
         run: |
           set -euo pipefail
           rm -f ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
+          test -s assets/site-v3.css
+          test -s assets/site-v3.js
+          test -s assets/reference-class.css
+          test -s assets/reference-class.js
+          test -s zulian-mark.svg
+          find assets/certificates -type f -size 0 -print -quit | (! grep .)
           zip -r ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip . \
             -x '.git/*' \
             -x '.github/*' \
             -x '.agents/*' \
             -x 'ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip'
-          test -s assets/site-v3.css
-          test -s assets/site-v3.js
-          test -s zulian-mark.svg
-          find assets/certificates -type f -size 0 -print -quit | (! grep .)
           unzip -t ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
+          sha256sum ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
 
       - name: Upload preview artifact
         uses: actions/upload-artifact@v4
