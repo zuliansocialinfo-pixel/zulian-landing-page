@@ -1,0 +1,53 @@
+name: Reference Class Preview QA
+
+on:
+  push:
+    branches:
+      - work/reference-class-implementation-20260905
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch source
+        uses: actions/checkout@v4
+
+      - name: Contract regression
+        run: python3 tools/check_site_contract.py
+
+      - name: HTML structure
+        run: python3 analyze_html_structure.py . --output preview_html_structure.json
+
+      - name: Local references
+        run: python3 check_links.py . --output preview_links.json
+
+      - name: JavaScript syntax
+        run: node --check assets/reference-class.js
+
+      - name: Package complete preview from checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
+          zip -r ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip . \
+            -x '.git/*' \
+            -x '.github/*' \
+            -x '.agents/*' \
+            -x 'ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip'
+          test -s assets/site-v3.css
+          test -s assets/site-v3.js
+          test -s zulian-mark.svg
+          find assets/certificates -type f -size 0 -print -quit | (! grep .)
+          unzip -t ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zulian-reference-class-preview-github
+          path: ZULIAN_REFERENCE_CLASS_PREVIEW_GITHUB.zip
+          if-no-files-found: error
+          retention-days: 7
