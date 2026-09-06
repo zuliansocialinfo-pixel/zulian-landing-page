@@ -1,0 +1,13 @@
+/* Commercial content only: reuse the live typography, palette and shell. */
+.table-scroll{width:100%;max-width:100%;overflow-x:auto;margin:1.5rem 0 2.5rem;border:1px solid var(--line,rgba(255,255,255,.16));border-radius:8px;overscroll-behavior-x:contain}
+.table-scroll table{border-collapse:collapse;width:100%;min-width:640px;font:inherit;font-size:.95rem;line-height:1.6}
+.table-scroll caption{text-align:left;padding:1rem 1.2rem;font-weight:600;white-space:normal}
+.table-scroll th,.table-scroll td{padding:1rem 1.2rem;text-align:left;vertical-align:top;border-top:1px solid var(--line,rgba(255,255,255,.16));overflow-wrap:break-word}
+.table-scroll thead th{font-weight:600}
+.table-scroll tbody th{font-weight:500;min-width:150px}
+.table-scroll td:nth-child(2){white-space:nowrap}
+.table-scroll:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.prose .table-scroll{max-width:100%}
+#pacchetti,#materiali,#automazioni,#integrazioni,#app-start,#costi-esterni,#consegna-assistenza{scroll-margin-top:7rem}
+#pacchetti{margin-bottom:3rem}
+@media(max-width:700px){.table-scroll table{min-width:610px}.table-scroll th,.table-scroll td{padding:.85rem}.table-scroll caption{padding:.85rem}}

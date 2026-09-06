@@ -8,9 +8,10 @@
   "qualita-standard.html": "/qualita/",
   "soluzioni.html": "/architettura-digitale/",
   "lab.html": "/modelli/",
-  "formazione.html": null,
+  "formazione.html": "/certificazioni/",
+  "formazione/index.html": "/certificazioni/",
   "partnership.html": null,
-  "lab/app-architecture.html": null,
-  "lab/automation-control-room.html": null,
+  "lab/app-architecture.html": "/applicazioni/",
+  "lab/automation-control-room.html": "/automazioni-ai/",
   "lab/video-pipeline.html": null
 }

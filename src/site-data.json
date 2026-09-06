@@ -13,9 +13,14 @@
       "id": "essential",
       "name": "Essential",
       "price": 1100,
-      "pages": "3 pagine principali",
+      "pages": "4 pagine funzionali",
+      "pageCount": 4,
+      "languages": 3,
+      "videos": 1,
+      "sourceWords": 1500,
+      "digitalGuide": "Non inclusa",
       "rounds": 1,
-      "days": "7–10 giorni",
+      "days": "7–10 giorni lavorativi",
       "purpose": "Farsi capire. Farsi contattare.",
       "buyer": "Attività con un'offerta chiara e un percorso semplice.",
       "fit": "Devi presentare bene ciò che fai e rendere immediato il contatto.",
@@ -24,16 +29,21 @@
         "Architettura essenziale e personalizzazione sull'attività",
         "Fondazioni SEO e informazioni comprensibili ai motori di ricerca",
         "Esperienza mobile e contatti essenziali",
-        "WhatsApp, Maps e social quando pertinenti"
+        "Link ordinari a WhatsApp, Maps e social quando pertinenti"
       ]
     },
     {
       "id": "business",
       "name": "Business",
       "price": 1600,
-      "pages": "5 pagine principali",
+      "pages": "7 pagine funzionali",
+      "pageCount": 7,
+      "languages": 5,
+      "videos": 3,
+      "sourceWords": 3000,
+      "digitalGuide": "Light · 8 pagine PDF",
       "rounds": 2,
-      "days": "10–15 giorni",
+      "days": "10–15 giorni lavorativi",
       "purpose": "Accompagnare una scelta.",
       "buyer": "Imprese con più servizi, domande e percorsi da organizzare.",
       "fit": "Il cliente deve confrontare servizi, capire il processo e arrivare preparato alla richiesta.",
@@ -42,16 +52,21 @@
         "Architettura più articolata per servizi e contenuti",
         "Percorsi verso richiesta di preventivo e contatto",
         "FAQ, guide o comparazioni secondo il progetto",
-        "Collegamento a Google Calendar quando pertinente"
+        "Link a un calendario esistente quando pertinente; embed e automazioni separati"
       ]
     },
     {
       "id": "signature",
       "name": "Signature",
       "price": 2400,
-      "pages": "8–10 pagine, quando giustificate",
+      "pages": "10 pagine funzionali",
+      "pageCount": 10,
+      "languages": 7,
+      "videos": 6,
+      "sourceWords": 5000,
+      "digitalGuide": "Expanded · 12 pagine PDF",
       "rounds": 2,
-      "days": "15–25 giorni",
+      "days": "15–25 giorni lavorativi",
       "purpose": "Dare forma alla differenza.",
       "buyer": "Aziende per cui il sito è parte importante del posizionamento.",
       "fit": "Contenuti, identità e presentazione richiedono una direzione visiva più profonda.",
@@ -65,11 +80,24 @@
     }
   ],
   "commercial": {
+    "version": "V4 + materiali · 2026-09-06",
     "depositPercent": 50,
     "balancePercent": 50,
     "bugFixDays": 30,
     "providerIncluded": false,
-    "taxTreatment": "IVA inclusa",
-    "note": "Provider, dominio, hosting, licenze e costi di terzi sono separati. Il perimetro definitivo è indicato nel preventivo."
+    "taxTreatment": "IVA inclusa se dovuta",
+    "note": "Prezzi finali ZAD, IVA inclusa se dovuta. Extra solo se approvati. Dominio, hosting, API, licenze, consumi e altri fornitori sono a carico del cliente. Soglie foto e logo nel listino.",
+    "materials": {
+      "includedVisuals": 5,
+      "extraVisualBlock": 10,
+      "extraVisualPrice": 100,
+      "includedLogo": "Logo tipografico semplice: 1 proposta, 1 revisione, esportazione web",
+      "extraLogoPrice": 100,
+      "extraLogoScope": "2 proposte tipografiche alternative, fino a 2 revisioni, SVG/PNG",
+      "copyBlockWords": 500,
+      "copyBlockPrice": 100,
+      "readyMaterials": "Inserimento e ottimizzazione dei materiali pronti previsti nelle pagine concordate inclusi",
+      "excluded": "Shooting, riprese, trasferte, branding completo, illustrazioni complesse e licenze premium: preventivo separato"
+    }
   }
 }
