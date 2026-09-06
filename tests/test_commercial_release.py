@@ -71,13 +71,32 @@ class CommercialRelease(unittest.TestCase):
                 self.assertEqual(len(Elements(path.read_text()).headings),1)
                 self.assertIn('/'+route+'/',sitemap)
 
-    def test_certificates_not_fabricated(self):
+    def test_certificates_are_evidence_backed_and_not_overclaimed(self):
         page=(ROOT/'public/certificazioni/index.html').read_text()
-        self.assertIn('non consentono un’anteprima leggibile',page)
-        self.assertIn('non riportiamo ente emittente, data, codice',page)
-        self.assertIn('applied-ai-foundations.jpg',page)
-        self.assertIn('higgsfield-ai-filmmaking.jpg',page)
-        self.assertFalse(any('certificates' in src for src in Elements(page).images))
+        dom=Elements(page)
+        for title in [
+            'The AI Filmmaking Pipeline',
+            'Applied AI Foundations',
+            'AI Foundations',
+            'Agents and Workflows',
+            'Claude Code in Action',
+            'Model Context Protocol: Advanced Topics',
+            'Measure and Optimize Social Media Marketing Campaigns',
+            'Google Ads - Introduzione',
+        ]:
+            with self.subTest(title=title):self.assertIn(title,page)
+        for src in [
+            '/assets/certificates/certificazioni-ai.jpg',
+            '/assets/certificates/certificazioni-anthropic.jpg',
+            '/assets/certificates/certificazioni-marketing.jpg',
+        ]:
+            with self.subTest(src=src):
+                self.assertIn(src,dom.images)
+                self.assertTrue((ROOT/'public'/src.lstrip('/')).is_file())
+        self.assertIn('https://academy.openai.com/public/certificate/8plcntz7ay',page)
+        self.assertIn('https://coursera.org/verify/YJD3ORF6IMFI',page)
+        self.assertIn('non implica una partnership commerciale',page)
+        self.assertIn('non costituisce una certificazione ISO di Marco Zulian',page)
         self.assertNotIn('hasCredential',page)
 
     def test_legacy_training(self):
