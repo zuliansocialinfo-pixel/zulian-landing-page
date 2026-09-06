@@ -1,0 +1,43 @@
+name: Verify commercial pages
+on:
+  push:
+    branches: ["release/prezzi-certificazioni-2026-09-06"]
+  pull_request:
+    branches: ["main"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Build without publishing
+        run: |
+          python tools/write_content.py
+          python tools/build_models.py
+          python tools/build.py
+          python tools/build_legacy.py
+      - name: Existing and commercial regression checks
+        run: |
+          node --test tests/*.test.*
+          python tools/check_structure.py
+          python -m unittest discover -s tests -p 'test_*.py'
+      - name: Package review copy
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: commercial-review
+          retention-days: 7
+          path: |
+            public/
+            tools/
+            src/
+            tests/
+            assets/certificates/
+            server/google-mail/
