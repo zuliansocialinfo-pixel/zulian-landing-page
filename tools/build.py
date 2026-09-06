@@ -3,12 +3,13 @@ import json, html, shutil
 from catalog import comparison, catalog
 from metadata import structured_data
 from commercial_release import apply_commercial_release, faq_items
+from commercial_editorial import align_pages, align_home
 
 ROOT=Path(__file__).resolve().parent.parent
 OUT=ROOT/'public'
 DATA=json.loads((ROOT/'src/site-data.json').read_text())
 PAGES=json.loads((ROOT/'src/pages.json').read_text()) if (ROOT/'src/pages.json').exists() else []
-PAGES=apply_commercial_release(PAGES,DATA)
+PAGES=align_pages(apply_commercial_release(PAGES,DATA),DATA)
 e=html.escape
 groups={
  'Servizi':[('Siti web','siti-web'),('E-commerce','e-commerce'),('Applicazioni','applicazioni'),('SEO e Local SEO','seo-local-seo'),('GEO e AI Search','geo-ai-search'),('Automazioni e AI','automazioni-ai')],
@@ -38,7 +39,7 @@ def write(route,text):
  path=OUT/route.strip('/')/'index.html' if route!='/' else OUT/'index.html'
  path.parent.mkdir(parents=True,exist_ok=True);path.write_text(text)
 
-home=(ROOT/'src/home.html').read_text().replace('{{OFFERS}}',offers()).replace('{{GUIDES}}',guides()).replace('{{FAQ}}',faq()).replace('{{COMMERCIAL_NOTE}}',DATA['commercial']['note'])
+home=align_home((ROOT/'src/home.html').read_text()).replace('{{OFFERS}}',offers()).replace('{{GUIDES}}',guides()).replace('{{FAQ}}',faq()).replace('{{COMMERCIAL_NOTE}}',DATA['commercial']['note'])
 write('/',shell('Siti e sistemi digitali per imprese a Reggio Calabria','Siti web, SEO e automazioni progettati intorno alla tua impresa. Essential €1.100, Business €1.600, Signature €2.400. Scopri modelli, metodo e consulente digitale.',home))
 for page in PAGES:
  route=page['route'];title=page['title'];intro=page['intro']
